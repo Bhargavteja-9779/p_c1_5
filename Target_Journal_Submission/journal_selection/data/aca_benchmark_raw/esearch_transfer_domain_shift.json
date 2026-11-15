@@ -1,0 +1,78 @@
+{
+ "header": {
+  "type": "esearch",
+  "version": "0.3"
+ },
+ "esearchresult": {
+  "count": "47",
+  "retmax": "47",
+  "retstart": "0",
+  "idlist": [
+   "43003575",
+   "42838671",
+   "42838646",
+   "42702458",
+   "42702434",
+   "42648839",
+   "42648827",
+   "42648811",
+   "42508897",
+   "42242804",
+   "42242800",
+   "42219635",
+   "42217996",
+   "42191295",
+   "42009426",
+   "41903982",
+   "41813363",
+   "41813342",
+   "41577414",
+   "41545118",
+   "41352936",
+   "41330688",
+   "41241476",
+   "41167890",
+   "41167877",
+   "41093509",
+   "41022507",
+   "40915720",
+   "40903127",
+   "40825627",
+   "40490322",
+   "40484540",
+   "40414673",
+   "40382106",
+   "39182987",
+   "39030008",
+   "38879205",
+   "38811137",
+   "38772657",
+   "38637036",
+   "38462330",
+   "38438234",
+   "37827627",
+   "37455087",
+   "37328247",
+   "36935146",
+   "36813463"
+  ],
+  "translationset": [],
+  "querytranslation": "(\"Anal Chim Acta\"[Journal] AND 2023/01/01:2026/12/31[Date - Publication] AND (\"calibration transfer\"[Title/Abstract] OR \"model transfer\"[Title/Abstract] OR \"transfer learning\"[Title/Abstract] OR \"domain adaptation\"[Title/Abstract] OR \"domain shift\"[Title/Abstract] OR \"batch effect\"[Title/Abstract] OR \"batch effects\"[Title/Abstract] OR \"batch correction\"[Title/Abstract] OR \"signal drift\"[Title/Abstract] OR \"instrumental drift\"[Title/Abstract] OR \"inter-laboratory\"[Title/Abstract] OR \"interlaboratory\"[Title/Abstract] OR \"between-laboratory\"[Title/Abstract] OR \"transferability\"[Title/Abstract] OR \"retention time alignment\"[Title/Abstract] OR \"retention time correction\"[Title/Abstract] OR \"retention time mapping\"[Title/Abstract] OR \"retention time transfer\"[Title/Abstract] OR \"retention time shift\"[Title/Abstract] OR \"retention time shifts\"[Title/Abstract]) AND \"journal article\"[Publication Type]) NOT (\"review\"[Publication Type] OR \"systematic review\"[Publication Type] OR \"editorial\"[Publication Type] OR \"comment\"[Publication Type] OR \"letter\"[Publication Type] OR \"published erratum\"[Publication Type])",
+  "errorlist": {
+   "phrasesnotfound": [
+    "erratum"
+   ],
+   "fieldsnotfound": []
+  },
+  "warninglist": {
+   "phrasesignored": [],
+   "quotedphrasesnotfound": [
+    "\"retention time projection\"[tiab]",
+    "\"retraction of publication\"[pt]"
+   ],
+   "outputmessages": []
+  }
+ },
+ "_query_term": "\"Anal Chim Acta\"[ta] AND 2023:2026[dp] AND (\"calibration transfer\"[tiab] OR \"model transfer\"[tiab] OR \"transfer learning\"[tiab] OR \"domain adaptation\"[tiab] OR \"domain shift\"[tiab] OR \"batch effect\"[tiab] OR \"batch effects\"[tiab] OR \"batch correction\"[tiab] OR \"signal drift\"[tiab] OR \"instrumental drift\"[tiab] OR \"inter-laboratory\"[tiab] OR interlaboratory[tiab] OR \"between-laboratory\"[tiab] OR transferability[tiab] OR \"retention time alignment\"[tiab] OR \"retention time correction\"[tiab] OR \"retention time mapping\"[tiab] OR \"retention time projection\"[tiab] OR \"retention time transfer\"[tiab] OR \"retention time shift\"[tiab] OR \"retention time shifts\"[tiab]) AND journal article[pt] NOT (review[pt] OR \"systematic review\"[pt] OR editorial[pt] OR comment[pt] OR letter[pt] OR erratum[pt] OR \"published erratum\"[pt] OR \"retraction of publication\"[pt])",
+ "_retrieved_utc": "2026-11-15T17:39:12.515192+00:00"
+}

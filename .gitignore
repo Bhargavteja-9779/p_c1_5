@@ -4,3 +4,8 @@ __pycache__/
 .ipynb_checkpoints/
 *.egg-info/
 .cache/
+Target_Journal_Submission/code/cache/
+Target_Journal_Submission/code/cache_quick/
+Target_Journal_Submission/code/data/processed
+Target_Journal_Submission/code/data/raw
+Target_Journal_Submission/results_quick/

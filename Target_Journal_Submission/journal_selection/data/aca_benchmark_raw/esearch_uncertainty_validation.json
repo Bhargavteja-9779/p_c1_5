@@ -1,0 +1,67 @@
+{
+ "header": {
+  "type": "esearch",
+  "version": "0.3"
+ },
+ "esearchresult": {
+  "count": "37",
+  "retmax": "37",
+  "retstart": "0",
+  "idlist": [
+   "43003591",
+   "42967792",
+   "42951562",
+   "42951547",
+   "42887958",
+   "42401454",
+   "42191259",
+   "41935008",
+   "41796490",
+   "41545105",
+   "41526113",
+   "41285522",
+   "41135998",
+   "40983434",
+   "40903110",
+   "40750209",
+   "40670005",
+   "40480718",
+   "40480683",
+   "40221201",
+   "40015769",
+   "39643314",
+   "39580162",
+   "39489967",
+   "39030020",
+   "38677839",
+   "38220300",
+   "37827679",
+   "37709469",
+   "37709461",
+   "37604625",
+   "37257979",
+   "37230568",
+   "36925302",
+   "36737143",
+   "36657888",
+   "36442934"
+  ],
+  "translationset": [],
+  "querytranslation": "(\"Anal Chim Acta\"[Journal] AND 2023/01/01:2026/12/31[Date - Publication] AND (\"prediction interval\"[Title/Abstract] OR \"prediction intervals\"[Title/Abstract] OR \"conformal prediction\"[Title/Abstract] OR \"conformal\"[Title/Abstract] OR \"uncertainty quantification\"[Title/Abstract] OR \"measurement uncertainty\"[Title/Abstract] OR \"uncertainty estimation\"[Title/Abstract] OR \"predictive uncertainty\"[Title/Abstract] OR \"applicability domain\"[Title/Abstract] OR \"false discovery rate\"[Title/Abstract] OR \"confidence interval\"[Title/Abstract] OR \"confidence intervals\"[Title/Abstract] OR \"Monte Carlo\"[Title/Abstract] OR \"Bayesian\"[Title/Abstract] OR \"bootstrap*\"[Title/Abstract]) AND \"journal article\"[Publication Type]) NOT (\"review\"[Publication Type] OR \"systematic review\"[Publication Type] OR \"editorial\"[Publication Type] OR \"comment\"[Publication Type] OR \"letter\"[Publication Type] OR \"published erratum\"[Publication Type])",
+  "errorlist": {
+   "phrasesnotfound": [
+    "erratum"
+   ],
+   "fieldsnotfound": []
+  },
+  "warninglist": {
+   "phrasesignored": [],
+   "quotedphrasesnotfound": [
+    "\"retraction of publication\"[pt]"
+   ],
+   "outputmessages": []
+  }
+ },
+ "_query_term": "\"Anal Chim Acta\"[ta] AND 2023:2026[dp] AND (\"prediction interval\"[tiab] OR \"prediction intervals\"[tiab] OR \"conformal prediction\"[tiab] OR conformal[tiab] OR \"uncertainty quantification\"[tiab] OR \"measurement uncertainty\"[tiab] OR \"uncertainty estimation\"[tiab] OR \"predictive uncertainty\"[tiab] OR \"applicability domain\"[tiab] OR \"false discovery rate\"[tiab] OR \"confidence interval\"[tiab] OR \"confidence intervals\"[tiab] OR \"Monte Carlo\"[tiab] OR Bayesian[tiab] OR bootstrap*[tiab]) AND journal article[pt] NOT (review[pt] OR \"systematic review\"[pt] OR editorial[pt] OR comment[pt] OR letter[pt] OR erratum[pt] OR \"published erratum\"[pt] OR \"retraction of publication\"[pt])",
+ "_retrieved_utc": "2026-11-15T17:39:11.651062+00:00"
+}

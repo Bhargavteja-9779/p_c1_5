@@ -1,0 +1,369 @@
+system,name,method_type,source,column,usp,col_len,col_id,particle,temp,flow,t0,grad_dur,n_raw,n_compounds,n_dropped_dup_blocks,rt_min,rt_max,ph_class,modifier
+0001,FEM_short,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,150.0,2.1,1.8,40.0,0.28,1.18125,28.0,73,71,1,1.2425,21.96,acidic,meoh
+0002,FEM_long,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,30.0,0.3,0.735,60.0,413,403,2,0.98,61.2,acidic,meoh
+0003,IPB_Halle,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,100.0,1.0,1.8,0.0,0.0,0.0,20.0,82,74,2,0.407366667,11.9967,acidic,acn
+0004,MTBLS20,RP,PredRet,Thermo Scientific Hypersil GOLD,L1,150.0,2.1,1.9,0.0,0.5,0.6615,19.0,174,125,11,0.75,12.0,acidic,acn
+0005,MTBLS38,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,150.0,2.1,1.7,30.0,0.4,0.8268749999999999,25.0,68,54,1,1.2330942,12.39695199,acidic,acn
+0006,MTBLS39,RP,PredRet,Hichrom Alltima HP C18,L1,150.0,2.1,3.0,0.0,0.2,1.6537499999999998,65.0,25,17,4,2.373776772,27.58450808,acidic,acn
+0007,MTBLS87,HILIC,PredRet,Merck SeQuant ZIC-pHILIC,L122,150.0,2.1,5.0,0.0,0.1,3.3075,30.0,147,145,1,3.8,24.8,basic,acn
+0008,MTBLS4,RP,PredRet,Thermo Scientific Hypersil GOLD,L1,5.0,2.1,1.9,45.0,0.25,0.0441,10.0,33,33,0,6.55,7.43,acidic,acn+other
+0009,RIKEN,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,38.0,0.24,0.0,3.0,364,354,0,0.12,2.15,acidic,acn
+0010,FEM_lipids,RP,PredRet,Merck Supelco Ascentis Express C18,L1,150.0,2.1,2.7,55.0,0.26,1.2721153846153843,30.0,72,67,2,1.2,24.9,acidic,acn+other
+0011,FEM_orbitrap_plasma,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,0.0,0.0,0.0,0.0,0.0,0.0,,144,111,9,0.88,24.9,acidic,acn
+0012,FEM_orbitrap_urine,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,0.0,0.0,0.0,0.0,0.0,0.0,,62,54,4,1.0,18.68,acidic,acn
+0013,MTBLS17,RP,PredRet,,,50.0,2.1,1.7,0.0,0.5,0.2205,10.0,26,24,0,0.383333333,5.643333333,acidic,acn
+0014,MTBLS19,RP,PredRet,,,50.0,2.1,1.7,0.0,0.5,0.2205,10.0,27,27,0,0.883333333,7.736666667,acidic,acn
+0015,MTBLS36,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,150.0,2.0,1.7,30.0,0.4,0.7499999999999999,25.0,102,77,7,1.3962331259999998,13.46705305,acidic,acn
+0016,MTBLS52,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,150.0,2.1,1.7,40.0,0.4,0.8268749999999999,12.0,26,18,4,4.422083,10.64375,acidic,acn
+0017,UFZ_Phenomenex,RP,PredRet,Phenomenex Kinetex C18,L1,100.0,2.6,3.0,0.0,0.0,0.0,,204,195,1,2.1,31.6,acidic,meoh
+0018,UniToyama_Atlantis,RP,PredRet,Waters Atlantis T3,L1,150.0,2.1,5.0,0.0,0.0,0.0,,143,87,14,3.693333,32.01331667,acidic,acn
+0019,Eawag_XBridgeC18,RP,PredRet,Waters XBridge C18,L1,50.0,2.1,3.5,30.0,0.2,0.55125,30.0,364,364,0,0.8,20.4,acidic,meoh
+0020,Cao_HILIC,HILIC,PredRet,Merck SeQuant ZIC-pHILIC,L122,100.0,2.1,5.0,25.0,0.0,0.0,24.0,116,108,1,1.06,15.97,none,other
+0021,MPI_Symmetry,RP,PredRet,Waters Symmetry C18,L1,100.0,2.1,0.0,0.0,0.0,0.0,29.1,41,41,0,1.080765,18.467,acidic,acn
+0022,1290SQ,RP,PredRet,Agilent ZORBAX RRHD Eclipse Plus C18,L1,150.0,2.1,3.5,0.0,0.0,0.0,,9,9,0,6.869,47.467,acidic,acn
+0023,PFR-TK72,RP,PredRet,Thermo Scientific Hypersil GOLD,L1,200.0,2.1,1.9,40.0,0.4,1.1025,35.0,45,38,3,1.6,19.3,acidic,acn
+0024,Waters ACQUITY UPLC with synapt G1,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,552,435,29,0.909566667,14.7231,acidic,meoh
+0025,OBSF,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,0.0,0.3,0.735,14.0,77,40,13,0.6,19.68,acidic,meoh
+0027,KI_GIAR_zic_HILIC_ph2_7,HILIC,PredRet,Merck SeQuant ZIC-HILIC,L114,100.0,2.1,3.5,25.0,0.3,0.735,41.5,303,212,31,0.94,15.332,acidic,acn
+0028,CS6,RP,PredRet,Phenomenex Synergi Hydro-RP,L1,150.0,2.0,4.0,30.0,0.5,0.6,45.0,47,45,1,0.731,41.994,acidic,acn
+0029,CS3,RP,PredRet,Waters ACQUITY UPLC BEH Shield RP18,L1,100.0,2.1,1.7,30.0,0.6,0.3675,26.0,47,47,0,0.58,22.73,acidic,acn
+0030,CS11,RP,PredRet,Phenomenex Luna Omega Polar C18,L1,100.0,2.1,1.6,40.0,0.5,0.441,7.0,46,46,0,0.54,5.12,acidic,acn
+0031,CS12,RP,PredRet,Phenomenex Luna Omega Polar C18,L1,100.0,2.1,1.6,40.0,0.5,0.441,14.0,43,43,0,1.22,11.14,acidic,acn
+0032,CS13,RP,PredRet,Phenomenex Luna C18,L1,150.0,4.6,3.0,25.0,0.5,3.1739999999999995,65.0,49,49,0,2.87,49.97,acidic,acn
+0033,CS15,RP,PredRet,,,50.0,0.5,2.7,35.0,0.01,0.625,16.0,48,48,0,0.444,13.298,acidic,acn
+0034,CS16,RP,PredRet,,,100.0,0.5,2.7,45.0,0.015,0.8333333333333334,5.0,35,35,0,0.86,4.04,acidic,acn
+0036,CS8,RP,PredRet,Merck Supelco SUPELCOSIL LC-C18,L1,250.0,4.6,5.0,40.0,1.0,2.645,50.0,51,43,4,5.2,43.8,acidic,acn
+0038,CS10,RP,PredRet,Waters Atlantis T3,L1,100.0,2.1,3.0,40.0,0.3,0.735,25.0,57,54,1,1.56,16.3,acidic,acn
+0039,CS21,RP,PredRet,Merck LiChrospher RP-18,L1,250.0,4.0,5.0,35.0,0.3,6.666666666666667,135.0,53,49,2,7.51,100.52,acidic,acn
+0040,CS7,RP,PredRet,Waters ACQUITY UPLC BEH Shield RP18,L1,150.0,2.1,1.7,40.0,0.4,0.8268749999999999,37.1,79,77,1,1.01,34.181,acidic,acn
+0041,CS23,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,0.0,50.0,0.0,0.0,7.0,75,73,1,0.4614,4.516,acidic,mixed
+0042,CS24,RP,PredRet,Phenomenex Kinetex EVO C18,L1,100.0,2.1,2.6,40.0,0.4,0.55125,12.0,54,50,2,0.96,6.76,acidic,acn
+0043,C18_SOP3,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,0.0,0.0,0.0,0.0,0.0,0.0,,43,43,0,4.895783333,14.06825,buffered,acn+other
+0044,HILIC_BDD_2,HILIC,PredRet,Merck SeQuant ZIC-HILIC,L114,0.0,0.0,0.0,25.0,0.25,0.0,25.0,593,440,49,1.48,19.85,acidic,acn
+0045,Bade_Publi,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.3,0.735,18.0,547,532,6,0.86,16.5,acidic,meoh
+0046,Waters_Chiu_T3_pos,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,0.0,0.0,0.0,0.0,0.4,0.0,25.0,9,9,0,0.92,5.78,acidic,acn
+0047,Acquity HSST3-RP-60mn,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,0.0,0.0,0.0,0.0,0.1,0.0,60.0,176,156,8,1.3,47.0,acidic,acn
+0048,BDD_C18,RP,PredRet,Thermo Scientific Hypersil GOLD,L1,0.0,0.0,1.9,40.0,0.4,0.0,16.0,663,533,18,0.49,14.6,acidic,acn
+0049,CS2,RP,PredRet,Agilent ZORBAX Eclipse XDB-C18,L1,100.0,2.1,1.8,50.0,0.4,0.55125,16.5,89,89,0,0.58,13.818,acidic,meoh
+0050,CS1,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,30.0,0.4,0.55125,26.0,99,97,1,0.86,20.27,acidic,acn
+0051,CS17,RP,PredRet,Phenomenex Synergi Hydro-RP,L1,250.0,2.0,4.0,25.0,0.2,2.5,50.1,76,70,3,3.21,52.32,acidic,acn
+0052,CS14,RP,PredRet,Agilent InfinityLab Poroshell 120 EC-C18,L1,100.0,3.0,2.7,25.0,0.4,1.125,30.0,136,88,10,1.115,23.75,acidic,acn
+0054,LIFE_old,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.0,0.0,6.0,194,179,4,0.509816667,5.616425,acidic,acn+other
+0055,LIFE_new,RP,PredRet,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,0.0,0.0,0.0,7.0,184,172,1,0.403516667,5.5145,acidic,mixed
+0056,CS4,RP,PredRet,Agilent ZORBAX RRHD Eclipse Plus C18,L1,50.0,2.1,1.8,30.0,0.4,0.275625,12.0,91,88,1,1.559,9.191,acidic,acn
+0057,CS5,RP,PredRet,Agilent ZORBAX RRHD Eclipse Plus C18,L1,50.0,2.1,1.8,30.0,0.4,0.275625,12.0,84,82,1,0.713,9.301,acidic,acn
+0058,CS18,RP,PredRet,,,150.0,2.1,2.6,40.0,0.35,0.945,15.0,79,73,2,1.08,8.01,acidic,acn
+0059,CS19,RP,PredRet,,,150.0,2.1,2.6,40.0,0.35,0.945,12.0,79,73,2,0.93,8.34,acidic,acn
+0060,CS22,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,65.0,0.4,0.55125,6.0,97,96,0,0.52895,5.552566667,acidic,acn+other
+0061,cuw,RP,PredRet,Agilent ZORBAX Eclipse Plus C18,L1,150.0,2.1,3.5,0.0,0.0,0.0,,24,24,0,3.24,3.24,none,other
+0062,JP_RP,RP,PredRet,Phenomenex Kinetex EVO C18,L1,100.0,2.1,2.6,0.0,0.0,0.0,,268,215,21,0.14,19.008,acidic,acn
+0063,RPMMFDA,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,1096,1056,5,0.37,10.55,acidic,acn
+0064,RPFDAMM,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,110,110,0,0.46,9.37,acidic,acn
+0065,RP1 pos,RP,Publication - Folberth,Thermo Scientific Accucore C18,L1,100.0,2.1,2.6,0.0,0.2,1.1025,45.0,45,45,0,0.94,26.31,acidic,meoh
+0066,RP2 pos,RP,Publication - Folberth,Thermo Scientific Accucore C18,L1,100.0,2.1,2.6,0.0,0.2,1.1025,45.0,41,41,0,1.09,36.71,acidic,meoh
+0067,RP3 pos,RP,Publication - Folberth,Merck Supelco Ascentis Express C18,L1,100.0,2.1,5.0,0.0,0.1,2.205,35.0,127,127,0,1.16,29.68,acidic,meoh
+0068,RP4 pos,RP,Publication - Folberth,Merck Supelco Ascentis Express ES-Cyano,L10,100.0,2.1,2.7,0.0,0.1,2.205,35.0,143,143,0,1.98,26.57,acidic,meoh
+0070,RP6 pos,RP,Publication - Folberth,Merck Supelco Ascentis Express Phenyl-Hexyl,L11,100.0,2.1,2.7,0.0,0.1,2.205,35.0,138,138,0,2.01,27.37,acidic,meoh
+0071,RP7 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,81,81,0,2.11,30.17,acidic,meoh
+0072,RP8 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,82,82,0,2.22,33.74,acidic,meoh
+0073,RP9 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,75,75,0,2.18,29.69,acidic,meoh
+0074,RP10 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,80,80,0,2.22,30.18,acidic,meoh
+0075,RP11 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,81,81,0,2.3,29.66,acidic,meoh
+0076,RP12 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,114,114,0,2.04,32.37,acidic,meoh
+0077,RP13 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,35.0,127,127,0,2.06,30.04,acidic,meoh
+0078,RP14 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.2,1.1025,35.0,110,110,0,1.01,26.8,acidic,meoh
+0079,RP15 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.2,1.1025,35.0,64,64,0,1.23,26.36,acidic,meoh
+0080,RP16 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,88,88,0,2.45,37.78,acidic,meoh
+0081,RP17 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,52,52,0,2.41,36.6,acidic,meoh
+0082,RP18 pos,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,60,60,0,2.19,37.35,basic,meoh
+0083,RP19 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.1,2.205,35.0,146,146,0,2.1,29.13,acidic,meoh
+0084,RP20 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.1,2.205,45.0,116,116,0,2.1,30.07,acidic,meoh
+0085,RP21 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.1,2.205,40.0,108,108,0,1.06,26.66,acidic,meoh
+0086,RP22 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.15,1.47,45.0,111,111,0,1.41,28.44,acidic,meoh
+0087,RP23 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.15,1.47,40.0,108,108,0,1.41,32.27,acidic,meoh
+0088,RP24 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,81,81,0,1.09,26.61,acidic,meoh
+0089,RP25 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,96,96,0,1.14,28.78,acidic,meoh
+0090,RP26 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,100,100,0,1.14,28.71,acidic,meoh
+0091,RP27 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,101,101,0,1.15,28.72,acidic,meoh
+0092,RP28 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,100,100,0,1.19,28.73,acidic,meoh
+0093,RP29 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,110,110,0,2.11,34.03,acidic,meoh
+0094,RP30 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,40.0,104,104,0,1.04,30.67,acidic,meoh
+0095,RP31 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.25,0.882,45.0,109,109,0,0.83,26.77,acidic,meoh
+0096,RP32 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.25,0.882,40.0,106,106,0,0.84,30.43,acidic,meoh
+0097,RP33 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.3,0.735,35.0,96,96,0,0.73,25.51,acidic,meoh
+0098,RP34 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.3,0.735,45.0,102,102,0,0.7,26.37,acidic,meoh
+0099,RP35 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.3,0.735,40.0,103,103,0,0.72,29.97,acidic,meoh
+0100,RP36 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.3,0.735,35.0,107,107,0,0.7,25.39,acidic,meoh
+0101,RP37 pos,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,72,72,0,1.24,28.66,acidic,meoh
+0102,RP38 pos,RP,Publication - Folberth,Thermo Scientific Hypercarb,L109,150.0,2.1,5.0,0.0,0.1,3.3075,45.0,66,66,0,3.41,40.98,acidic,meoh
+0103,HILIC1 pos,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,70,70,0,0.58,17.62,acidic,acn
+0104,HILIC2 pos,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,71,71,0,0.58,20.57,acidic,acn
+0105,HILIC3 pos,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,65,65,0,0.57,22.2,buffered,acn
+0106,HILIC4 pos,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,68,68,0,0.61,26.73,buffered,acn
+0107,HILIC5 pos,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,70,70,0,0.63,16.55,buffered,acn
+0108,HILIC6 pos,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,77,77,0,0.72,21.33,buffered,acn
+0109,HILIC7 pos,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,53,53,0,0.55,27.36,buffered,acn
+0110,HILIC8 pos,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,78,78,0,0.68,17.22,acidic,acn
+0111,HILIC9 pos,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,84,84,0,0.8,21.03,acidic,acn
+0112,HILIC10 pos,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,53,53,0,0.63,17.02,acidic,acn
+0113,HILIC11 pos,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,69,69,0,0.85,18.15,buffered,acn
+0114,HILIC12 pos,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,63,63,0,0.66,24.02,buffered,acn
+0115,HILIC13 pos,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,66,66,0,0.55,24.66,buffered,acn
+0116,HILIC14 pos,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,71,71,0,0.91,18.79,basic,acn
+0117,HILIC15 pos,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,71,71,0,0.7,20.06,acidic,acn
+0118,HILIC16 pos,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,80,80,0,0.62,25.9,buffered,acn
+0119,HILIC17 pos,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,65,65,0,0.64,21.08,buffered,acn
+0120,HILIC18 pos,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,66,66,0,0.64,27.07,buffered,acn
+0121,HILIC19 pos,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,81,81,0,0.64,22.41,buffered,acn
+0122,RP1 neg,RP,Publication - Folberth,Thermo Scientific Accucore C18,L1,100.0,2.1,2.6,0.0,0.2,1.1025,45.0,68,68,0,0.95,22.68,acidic,meoh
+0123,RP2 neg,RP,Publication - Folberth,Thermo Scientific Accucore C18,L1,100.0,2.1,2.6,0.0,0.2,1.1025,45.0,26,26,0,0.96,28.74,acidic,meoh
+0124,RP3 neg,RP,Publication - Folberth,Merck Supelco Ascentis Express C18,L1,100.0,2.1,5.0,0.0,0.1,2.205,35.0,79,79,0,1.89,24.98,acidic,meoh
+0125,RP4 neg,RP,Publication - Folberth,Merck Supelco Ascentis Express ES-Cyano,L10,100.0,2.1,2.7,0.0,0.1,2.205,35.0,91,91,0,2.11,22.58,acidic,meoh
+0127,RP6 neg,RP,Publication - Folberth,Merck Supelco Ascentis Express Phenyl-Hexyl,L11,100.0,2.1,2.7,0.0,0.1,2.205,35.0,93,93,0,2.07,24.69,acidic,meoh
+0128,RP7 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,43,43,0,2.31,25.38,acidic,meoh
+0129,RP8 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,67,67,0,2.41,26.63,acidic,meoh
+0130,RP9 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,44,44,0,2.31,31.64,acidic,meoh
+0131,RP10 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,42,42,0,2.35,26.56,acidic,meoh
+0132,RP11 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,44,44,0,2.35,37.16,acidic,meoh
+0133,RP12 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,62,62,0,2.28,25.13,acidic,meoh
+0134,RP13 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,35.0,73,73,0,2.28,24.38,acidic,meoh
+0135,RP14 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.2,1.1025,35.0,72,72,0,1.15,22.93,acidic,meoh
+0136,RP15 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.2,1.1025,35.0,72,72,0,1.07,19.59,acidic,meoh
+0137,RP16 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,51,51,0,2.35,28.74,acidic,meoh
+0138,RP17 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,89,89,0,2.46,38.71,acidic,meoh
+0139,RP18 neg,RP,Publication - Folberth,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,0.0,0.1,2.205,45.0,69,69,0,1.89,24.94,basic,meoh
+0140,RP19 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.1,2.205,35.0,99,99,0,2.24,25.62,acidic,meoh
+0141,RP20 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.1,2.205,45.0,70,70,0,2.27,26.53,acidic,meoh
+0142,RP21 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.1,2.205,40.0,70,70,0,1.13,23.62,acidic,meoh
+0143,RP22 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.15,1.47,45.0,70,70,0,1.52,24.66,acidic,meoh
+0144,RP23 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.15,1.47,40.0,68,68,0,1.58,27.79,acidic,meoh
+0145,RP24 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,70,70,0,1.18,23.72,acidic,meoh
+0146,RP25 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,77,77,0,1.21,27.14,acidic,meoh
+0147,RP26 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,78,78,0,1.2,28.71,acidic,meoh
+0148,RP27 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,81,81,0,1.2,27.15,acidic,meoh
+0149,RP28 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,82,82,0,1.19,28.75,acidic,meoh
+0150,RP29 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,67,67,0,2.39,33.83,acidic,meoh
+0151,RP30 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,40.0,67,67,0,1.19,23.29,acidic,meoh
+0152,RP31 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.25,0.882,45.0,71,71,0,0.91,22.92,acidic,meoh
+0153,RP32 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.25,0.882,40.0,64,64,0,0.94,25.93,acidic,meoh
+0154,RP33 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.3,0.735,35.0,63,63,0,0.78,21.95,acidic,meoh
+0155,RP34 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.3,0.735,45.0,71,71,0,0.77,22.41,acidic,meoh
+0156,RP35 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.3,0.735,40.0,67,67,0,0.79,25.4,acidic,meoh
+0157,RP36 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.3,0.735,35.0,71,71,0,0.75,21.64,acidic,meoh
+0158,RP37 neg,RP,Publication - Folberth,Waters CORTECS T3,L1,100.0,2.1,2.7,0.0,0.2,1.1025,45.0,28,28,0,1.18,28.63,acidic,meoh
+0159,RP38 neg,RP,Publication - Folberth,Thermo Scientific Hypercarb,L109,150.0,2.1,5.0,0.0,0.1,3.3075,45.0,40,40,0,4.4,35.29,acidic,meoh
+0160,HILIC1 neg,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,31,31,0,0.54,15.39,acidic,acn
+0161,HILIC2 neg,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,59,59,0,0.48,16.76,acidic,acn
+0162,HILIC3 neg,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,45,45,0,0.48,16.69,buffered,acn
+0163,HILIC4 neg,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,56,56,0,0.43,17.22,buffered,acn
+0164,HILIC5 neg,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,55,55,0,0.64,15.25,buffered,acn
+0165,HILIC6 neg,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,71,71,0,0.44,16.81,buffered,acn
+0166,HILIC7 neg,HILIC,Publication - Folberth,Thermo Scientific Accucore HILIC,L3,100.0,2.1,2.6,0.0,0.5,0.441,40.0,53,53,0,0.43,16.97,buffered,acn
+0167,HILIC8 neg,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,39,39,0,0.73,15.1,acidic,acn
+0168,HILIC9 neg,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,39,39,0,0.63,13.1,acidic,acn
+0169,HILIC10 neg,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,70,70,0,0.63,17.07,acidic,acn
+0170,HILIC11 neg,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,54,54,0,0.63,14.71,buffered,acn
+0171,HILIC12 neg,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,39,39,0,1.04,15.22,buffered,acn
+0172,HILIC13 neg,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,55,55,0,0.5,16.78,buffered,acn
+0173,HILIC14 neg,HILIC,Publication - Folberth,Waters XBridge BEH Amide,L68,100.0,2.1,2.5,0.0,0.5,0.441,40.0,59,59,0,0.67,19.94,basic,acn
+0174,HILIC15 neg,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,60,60,0,0.62,16.3,acidic,acn
+0175,HILIC16 neg,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,68,68,0,0.62,16.41,buffered,acn
+0176,HILIC17 neg,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,63,63,0,0.64,15.41,buffered,acn
+0177,HILIC18 neg,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,44,44,0,0.64,15.87,buffered,acn
+0178,HILIC19 neg,HILIC,Publication - Folberth,Merck SeQuant ZIC-HILIC,L114,150.0,2.1,5.0,0.0,0.75,0.441,40.0,88,88,0,0.64,15.62,buffered,acn
+0179,RP Geneva DB maXisQTOF pos,RP,Publication - Pezzatti,Phenomenex Kinetex C18,L1,150.0,2.1,1.7,30.0,0.3,1.1025,25.0,402,358,2,0.83,15.24,acidic,acn
+0180,RP Geneva DB maXisQTOF neg,RP,Publication - Pezzatti,Phenomenex Kinetex C18,L1,150.0,2.1,1.7,30.0,0.3,1.1025,25.0,361,312,3,0.89,12.8,acidic,acn
+0181,RP VION QTOF pos,RP,Publication - Pezzatti,Phenomenex Kinetex C18,L1,150.0,2.1,1.7,30.0,0.3,1.1025,25.0,268,240,1,0.83,15.36,acidic,acn
+0182,RP VION QTOF new,RP,Publication - Pezzatti,Phenomenex Kinetex C18,L1,150.0,2.1,1.7,30.0,0.3,1.1025,25.0,207,192,1,0.92,16.66,acidic,acn
+0183,aHILIC Geneva DB maXisQTOF pos,HILIC,Publication - Pezzatti,Waters ACQUITY UPLC BEH Amide,L68,150.0,2.1,1.7,40.0,0.5,0.6615,31.0,307,270,11,0.53,14.42,buffered,acn
+0184,aHILIC Geneva DB maXisQTOF neg,HILIC,Publication - Pezzatti,Waters ACQUITY UPLC BEH Amide,L68,150.0,2.1,1.7,40.0,0.5,0.6615,31.0,291,249,13,0.47,14.83,buffered,acn
+0185,zHILIC Geneva DB VION QTOF neg,HILIC,Publication - Pezzatti,Merck SeQuant ZIC-pHILIC,L122,150.0,2.1,5.0,40.0,0.3,1.1025,20.0,380,320,12,0.91,11.5,buffered,acn
+0186,SMRT_METLIN,RP,Publication - Domingo-Almenara,Agilent ZORBAX Extend-C18,L1,50.0,2.1,1.8,0.0,0.1,1.1025,23.0,80038,79931,40,0.005,24.52833333333333,acidic,acn
+0187,Standard_pos,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.3,0.735,20.0,459,410,0,0.653333333,17.80333333,acidic,acn
+0188,Standard_neg,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.3,0.735,20.0,431,374,1,0.636666667,18.75,acidic,acn
+0189,flow0.2_pos,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.2,1.1025,20.0,417,369,0,1.006666667,18.99666667,acidic,acn
+0190,flow0.2_neg,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.2,1.1025,20.0,393,340,0,0.976666667,19.10666667,acidic,acn
+0191,flow0.25_pos,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.25,0.882,20.0,432,381,0,0.78,18.67666667,acidic,acn
+0192,flow0.25_neg,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.25,0.882,20.0,401,349,0,0.77,19.46,acidic,acn
+0193,flow0.35_pos,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.35,0.63,20.0,433,386,0,0.546666667,17.36,acidic,acn
+0194,flow0.35_neg,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.35,0.63,20.0,407,352,0,0.526666667,18.26333333,acidic,acn
+0195,flow0.4_pos,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.4,0.55125,20.0,439,389,1,0.47,17.42,acidic,acn
+0196,flow0.4_neg,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,40.0,0.4,0.55125,20.0,403,348,0,0.446666667,17.86666667,acidic,acn
+0197,temp37.5_pos,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,37.5,0.3,0.735,20.0,415,369,0,0.6383333330000001,18.20666667,acidic,acn
+0198,temp37.5_neg,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,37.5,0.3,0.735,20.0,390,340,0,0.636666667,17.84666667,acidic,acn
+0199,temp39_pos,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,39.0,0.3,0.735,20.0,412,366,0,0.64,18.15666667,acidic,acn
+0200,temp39_neg,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,39.0,0.3,0.735,20.0,388,336,0,0.613333333,17.73666667,acidic,acn
+0201,temp41_pos,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,41.0,0.3,0.735,20.0,414,364,0,0.63,22.09333333,acidic,acn
+0202,temp41_neg,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,41.0,0.3,0.735,20.0,385,334,0,0.616666667,17.60333333,acidic,acn
+0203,temp42.5_pos,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,42.5,0.3,0.735,20.0,417,368,0,0.62,17.97333333,acidic,acn
+0204,temp42.5_neg,RP,Publication - Stoffel,Merck Supelco Ascentis Express C18,L1,100.0,2.1,2.0,42.5,0.3,0.735,20.0,387,336,0,0.62,17.51,acidic,acn
+0205,Orbitrap1,RP,PredRet,Advanced Chromatography Technologies ACE C18,L1,50.0,2.1,3.0,0.0,0.0,0.0,21.0,17,17,0,3.14,20.76,buffered,acn
+0206,RP_PSB_HF,RP,PredRet,Phenomenex Kinetex EVO C18,L1,100.0,2.1,2.6,0.0,0.0,0.0,,28,28,0,0.401,13.085,acidic,acn
+0207,hypergold_pea,RP,PredRet,Thermo Scientific Hypersil GOLD,L1,100.0,2.1,2.6,0.0,0.0,0.0,,11,11,0,3.05,40.2,acidic,acn
+0208,IJM_TEST,HILIC,PredRet,Merck SeQuant ZIC-pHILIC,L122,0.0,0.0,0.0,0.0,0.0,0.0,,158,152,2,0.59,20.676,buffered,acn
+0209,SMRT,RP,PredRet,Agilent ZORBAX Extend-C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,247,247,0,0.005,21.12333333,acidic,acn
+0210,ABC,RP,PredRet,,,100.0,2.1,1.7,0.0,0.0,0.0,,861,809,10,0.588333333,23.51,acidic,acn
+0211,SNU-Test,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,150.0,2.1,1.7,0.0,0.0,0.0,,109,109,0,1.12,14.044,acidic,acn
+0212,SNU_RP_70,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,70,70,0,1.12,13.067,acidic,acn
+0213,SNU_RP_108,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,108,108,0,1.12,14.044,acidic,acn
+0214,SNU_RP_10,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,10,10,0,1.15,14.044,acidic,acn
+0215,SNU_RP_20,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,20,20,0,1.12,12.935,acidic,acn
+0216,SNU_RP_30,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,30,30,0,1.12,12.827,acidic,acn
+0217,SNU_RP_50,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,50,50,0,1.15,13.253,acidic,acn
+0219,SNU_RIKEN_POS,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,672,672,0,1.66,10.4,acidic,acn
+0220,cecum_JS,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,150.0,2.1,1.7,0.0,0.3,1.1025,,109,109,0,1.12,14.044,acidic,acn
+0221,SNU_RP_indole_annotation,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,109,109,0,1.12,14.044,acidic,acn
+0223,SNU_RP_indole_order,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,109,109,0,1.12,14.044,acidic,acn
+0224,JKD_Probiotics,RP,PredRet,Waters ACQUITY UPLC BEH C18,L1,0.0,0.0,0.0,0.0,0.0,0.0,,50,49,0,0.909,12.618,acidic,acn
+0225,AjsTestF,HILIC,PredRet,Waters ACQUITY UPLC BEH Amide,L68,100.0,2.1,1.7,0.0,0.0,0.0,17.0,999,987,2,0.89,10.28,acidic,acn
+0226,SNU_organoid,RP,PredRet,Thermo Scientific Hypersil GOLD,L1,0.0,0.0,1.9,0.0,0.0,0.0,,99,95,0,0.771,24.887,acidic,acn
+0227,Meister zic-pHILIC ph9.3,HILIC,PredRet,Merck SeQuant ZIC-pHILIC,L122,100.0,2.1,3.5,0.0,0.28,0.7875,,295,286,3,0.8,12.5,basic,acn
+0228,AnnieTestFiehn,HILIC,PredRet,Waters ACQUITY UPLC BEH Amide,L68,100.0,2.1,1.7,0.0,0.0,0.0,17.0,1001,984,4,0.89,10.28,acidic,acn
+0229,Dafachronic acids,RP,BGC,Phenomenex Kinetex C18,L1,100.0,2.1,1.7,40.0,0.5,0.441,27.1,49,28,6,5.21,20.28,buffered,acn
+0231,HPOS_ROI_V_3_1_1,HILIC,The National Phenome Centre’s Open Platform for LC-MS-Based Metabolomics,Waters ACQUITY UPLC BEH HILIC,L3,150.0,2.1,1.7,40.0,0.6,0.55125,12.65,127,123,0,0.672829515,6.350183925,acidic,acn
+0232,LNEG_ROI_V_5_1_1,RP,The National Phenome Centre’s Open Platform for LC-MS-Based Metabolomics,Waters ACQUITY UPLC BEH C8,L7,100.0,2.1,1.7,55.0,0.6,0.3675,13.25,24,23,0,1.12,9.39,acidic,acn+other
+0233,LPOS_ROI_V_5_1_1,RP,The National Phenome Centre’s Open Platform for LC-MS-Based Metabolomics,Waters ACQUITY UPLC BEH C8,L7,100.0,2.1,1.7,55.0,0.6,0.3675,13.25,80,80,0,0.462,9.258,acidic,acn+other
+0234,RNEG_ROI_V_3_1_0,RP,The National Phenome Centre’s Open Platform for LC-MS-Based Metabolomics,Waters ACQUITY UPLC HSS T3,L1,150.0,2.1,1.8,45.0,0.6,0.55125,12.65,132,126,1,0.515,10.9,acidic,acn
+0235,RPOS_ROI_V_3_1_1,RP,The National Phenome Centre’s Open Platform for LC-MS-Based Metabolomics,Waters ACQUITY UPLC HSS T3,L1,150.0,2.1,1.8,45.0,0.6,0.55125,12.65,135,134,0,0.46,10.88,acidic,acn
+0236,MSMS_pos_30_ACN_HSS T3,RP,Dataset - BGC,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,30.0,0.4,0.55125,10.01,561,530,5,0.485,8.741,acidic,acn
+0237,MSMS_neg_30_ACN_HSS T3,RP,Dataset - BGC,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,30.0,0.4,0.55125,10.01,406,365,5,0.559,9.588,acidic,acn
+0238,MSMS_pos_40_ACN_HSS T3,RP,Dataset - BGC,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,580,546,5,0.48,9.82,acidic,acn
+0239,MSMS_neg_40_ACN_HSS T3,RP,Dataset - BGC,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,422,380,5,0.562,7.83,acidic,acn
+0240,MSMS_pos_50_ACN_HSS T3,RP,Dataset - BGC,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,50.0,0.4,0.55125,10.01,560,530,5,0.48,9.016,acidic,acn
+0241,MSMS_neg_50_ACN_HSS T3,RP,Dataset - BGC,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,50.0,0.4,0.55125,10.01,380,343,5,0.557,7.592,acidic,acn
+0242,CCS_pos_40_ACN_HSS T3,RP,Dataset - BGC,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,409,384,5,0.618,9.763,acidic,acn
+0243,CCS_neg_40_ACN_HSS T3,RP,Dataset - BGC,Waters ACQUITY UPLC HSS T3,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,351,311,6,0.566,7.875,acidic,acn
+0244,MSMS_pos_30_ACN_XB-C18,RP,Dataset - BGC,Phenomenex Kinetex XB-C18,L1,100.0,2.1,1.7,30.0,0.4,0.55125,10.01,567,532,5,0.448,9.138,acidic,acn
+0245,MSMS_neg_30_ACN_XB-C18,RP,Dataset - BGC,Phenomenex Kinetex XB-C18,L1,100.0,2.1,1.7,30.0,0.4,0.55125,10.01,398,359,5,0.488,9.535,acidic,acn
+0246,MSMS_pos_40_ACN_XB-C18,RP,Dataset - BGC,Phenomenex Kinetex XB-C18,L1,100.0,2.1,1.7,40.0,0.4,0.55125,10.01,593,559,4,0.441,8.499,acidic,acn
+0247,MSMS_neg_40_ACN_XB-C18,RP,Dataset - BGC,Phenomenex Kinetex XB-C18,L1,100.0,2.1,1.7,40.0,0.4,0.55125,10.01,399,356,6,0.488,8.171,acidic,acn
+0248,MSMS_pos_50_ACN_XB-C18,RP,Dataset - BGC,Phenomenex Kinetex XB-C18,L1,100.0,2.1,1.7,50.0,0.4,0.55125,10.01,566,532,5,0.442,9.474,acidic,acn
+0249,MSMS_neg_50_ACN_XB-C18,RP,Dataset - BGC,Phenomenex Kinetex XB-C18,L1,100.0,2.1,1.7,50.0,0.4,0.55125,10.01,391,353,6,0.466,8.246,acidic,acn
+0250,CCS_pos_40_ACN_XB-C18,RP,Dataset - BGC,Phenomenex Kinetex XB-C18,L1,100.0,2.1,1.7,40.0,0.4,0.55125,10.01,493,469,5,0.454,8.482,acidic,acn
+0251,CCS_neg_40_ACN_XB-C18,RP,Dataset - BGC,Phenomenex Kinetex XB-C18,L1,100.0,2.1,1.7,40.0,0.4,0.55125,10.01,351,316,5,0.477,8.798,acidic,acn
+0252,MSMS_pos_30_ACN_BEH C18,RP,Dataset - BGC,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,30.0,0.4,0.55125,10.01,569,535,5,0.536,9.826,acidic,acn
+0253,MSMS_neg_30_ACN_BEH C18,RP,Dataset - BGC,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,30.0,0.4,0.55125,10.01,366,323,7,0.559,8.013,acidic,acn
+0254,MSMS_pos_40_ACN_BEH C18,RP,Dataset - BGC,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,40.0,0.4,0.55125,10.01,564,529,5,0.499,8.51,acidic,acn
+0255,MSMS_neg_40_ACN_BEH C18,RP,Dataset - BGC,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,40.0,0.4,0.55125,10.01,87,87,0,0.605,7.19,acidic,acn
+0256,MSMS_pos_50_ACN_BEH C18,RP,Dataset - BGC,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,50.0,0.4,0.55125,10.01,566,531,7,0.564,9.654,acidic,acn
+0257,MSMS_neg_50_ACN_BEH C18,RP,Dataset - BGC,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,50.0,0.4,0.55125,10.01,333,299,5,0.558,7.196,acidic,acn
+0258,CCS_pos_40_ACN_BEH C18,RP,Dataset - BGC,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,40.0,0.4,0.55125,10.01,474,445,7,0.598,8.542,acidic,acn
+0259,CCS_neg_40_ACN_BEH C18,RP,Dataset - BGC,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,40.0,0.4,0.55125,10.01,336,278,8,0.553,7.728,acidic,acn
+0260,Synergi_Pos,RP,Dataset - Huber,Phenomenex Synergi Polar-RP,L11,100.0,1.0,100.0,40.0,0.4,0.125,23.0,663,659,0,1.401,14.98,acidic,mixed+other
+0261,Synergi_Neg,RP,Dataset - Huber,Phenomenex Synergi Polar-RP,L11,100.0,1.0,100.0,40.0,0.4,0.125,23.0,110,110,0,1.48,16.21,buffered,mixed+other
+0262,SPECIMEN_Pos,RP,Dataset - Huber,Waters ACQUITY UPLC BEH C18,L1,100.0,1.0,1.7,50.0,0.3,0.1666666666666666,30.0,1669,1133,72,2.0,21.736537,acidic,meoh
+0263,SPECIMEN_Neg,RP,Dataset - Huber,Waters ACQUITY UPLC BEH C18,L1,100.0,1.0,1.7,50.0,0.3,0.1666666666666666,30.0,1531,1017,57,2.00369295,21.42976,basic,meoh
+0264,AR,RP,Dataset - Rutz,Waters ACQUITY UPLC BEH C18,L1,50.0,2.1,1.7,40.0,0.6,0.18375,8.0,235,225,2,0.194166667,6.972633367,acidic,acn
+0265,MZ,RP,Dataset - Zdouc,Waters Atlantis T3,L1,50.0,4.6,5.0,40.0,0.8,0.6612499999999999,14.0,20,20,0,2.91,11.17,acidic,acn
+0266,Kruve Lab_1,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,63,63,0,1.51,18.37142857,acidic,acn
+0267,Kruve Lab_2,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,63,63,0,1.53,19.376,acidic,meoh
+0268,Kruve Lab_3,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,49,49,0,1.81,18.015,acidic,acn
+0269,Kruve Lab_4,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,46,46,0,1.81,20.28,acidic,meoh
+0270,Kruve Lab_5,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,56,56,0,1.94,18.24,acidic,acn
+0271,Kruve Lab_6,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,64,64,0,1.44,19.27,acidic,meoh
+0272,Kruve Lab_7,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,48,48,0,1.945,17.045,basic,acn
+0273,Kruve Lab_8,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,59,59,0,2.848333333,18.86,basic,meoh
+0274,Kruve Lab_9,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,75,75,0,1.57,18.92,acidic,acn
+0275,Kruve Lab_10,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,75,75,0,1.61,21.004,acidic,meoh
+0276,Kruve Lab_11,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,75,75,0,2.13,18.498,acidic,acn
+0277,Kruve Lab_12,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,73,73,0,2.11,20.714,acidic,meoh
+0278,Kruve Lab_13,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,75,75,0,1.49,18.506,acidic,acn
+0279,Kruve Lab_14,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,67,67,0,1.522,19.306,acidic,meoh
+0280,Kruve Lab_15,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,75,75,0,2.168,18.456,basic,acn
+0281,Kruve Lab_16,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,73,73,0,2.318,19.212,basic,meoh
+0282,Kruve Lab_17,HILIC,Publication - Souihi,Phenomenex Kinetex HILIC,L3,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,72,72,0,1.337142857,7.851428571,acidic,acn
+0283,Kruve Lab_18,HILIC,Publication - Souihi,Phenomenex Kinetex HILIC,L3,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,74,74,0,1.733333333,4.128571429,acidic,meoh
+0284,Kruve Lab_19,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,74,74,0,2.03,18.368,buffered,acn
+0285,Kruve Lab_20,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,75,75,0,2.24,20.304,buffered,meoh
+0286,Kruve Lab_21,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,75,75,0,2.014,18.604,buffered,acn
+0287,Kruve Lab_22,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,75,75,0,2.176,20.53,buffered,meoh
+0288,Kruve Lab_23,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,47,47,0,1.912,19.67,buffered,acn
+0289,Kruve Lab_24,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,56,56,0,2.896666667,19.784,buffered,meoh
+0290,Kruve Lab_25,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,64,64,0,1.886,16.902,buffered,acn
+0291,Kruve Lab_26,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,49,49,0,2.86,18.39,buffered,meoh
+0292,Kruve Lab_27,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,73,73,0,2.056,17.344,buffered,acn
+0293,Kruve Lab_28,RP,Publication - Souihi,Phenomenex Kinetex PS C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,73,73,0,2.326,19.31,buffered,meoh
+0294,Kruve Lab_29,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,36,36,0,3.203333333,17.038,buffered,acn
+0295,Kruve Lab_30,RP,Publication - Souihi,Phenomenex Kinetex EVO C18,L1,150.0,3.0,2.6,40.0,0.35,1.9285714285714288,30.0,44,44,0,2.835,19.26,buffered,meoh
+0310,MSMS_pos_30_ACN_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,30.0,0.4,0.55125,10.01,23,23,0,1.538,6.597,acidic,acn
+0311,MSMS_neg_30_ACN_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,30.0,0.4,0.55125,10.01,391,350,5,0.515,9.628,acidic,acn
+0312,MSMS_pos_40_ACN_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,40.0,0.4,0.55125,10.01,443,429,1,0.472,7.556,acidic,acn
+0313,MSMS_neg_40_ACN_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,40.0,0.4,0.55125,10.01,386,347,4,0.51,8.699,acidic,acn
+0314,MSMS_pos_50_ACN_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,50.0,0.4,0.55125,10.01,458,439,1,0.467,7.3,acidic,acn
+0315,MSMS_neg_50_ACN_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,50.0,0.4,0.55125,10.01,343,311,5,0.509,8.183,acidic,acn
+0316,CCS_pos_40_ACN_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,40.0,0.4,0.55125,10.01,446,427,1,0.472,7.56,acidic,acn
+0317,CCS_neg_40_ACN_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,40.0,0.4,0.55125,10.01,172,149,4,0.547,8.793,acidic,acn
+0318,MSMS_pos_30_MeOH_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,30.0,0.4,0.55125,10.01,506,493,0,0.476,9.073,acidic,meoh
+0319,MSMS_neg_30_MeOH_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,30.0,0.4,0.55125,10.01,373,331,8,0.533,9.022,acidic,meoh
+0320,MSMS_pos_40_MeOH_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,40.0,0.4,0.55125,10.01,490,476,1,0.464,8.668,acidic,meoh
+0321,MSMS_neg_40_MeOH_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,40.0,0.4,0.55125,10.01,334,296,7,0.531,8.647,acidic,meoh
+0322,MSMS_pos_50_MeOH_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,50.0,0.4,0.55125,10.01,493,477,1,0.464,8.337,acidic,meoh
+0323,MSMS_neg_50_MeOH_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,50.0,0.4,0.55125,10.01,345,302,8,0.512,8.973,acidic,meoh
+0324,CCS_pos_40_MeOH_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,40.0,0.4,0.55125,10.01,487,472,0,0.475,9.369,acidic,meoh
+0325,CCS_neg_40_MeOH_Raptor Biphenyl,RP,Dataset - BGC,Waters CORTECS UPLC C18,L1,100.0,2.1,1.6,40.0,0.4,0.55125,10.01,16,16,0,0.596,5.973,acidic,meoh
+0326,MSMS_pos_30_ACN_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,30.0,0.4,0.55125,10.01,32,28,0,1.405,6.447,acidic,acn
+0327,MSMS_neg_30_ACN_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,30.0,0.4,0.55125,10.01,448,403,5,0.533,6.629,acidic,acn
+0328,MSMS_pos_40_ACN_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,40.0,0.4,0.55125,10.01,455,439,3,0.489,6.72,acidic,acn
+0329,MSMS_neg_40_ACN_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,40.0,0.4,0.55125,10.01,427,387,5,0.533,6.504,acidic,acn
+0330,MSMS_pos_50_ACN_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,50.0,0.4,0.55125,10.01,480,463,4,0.482,6.641,acidic,acn
+0331,MSMS_neg_50_ACN_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,50.0,0.4,0.55125,10.01,395,354,5,0.536,6.437,acidic,acn
+0332,CCS_pos_40_ACN_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,40.0,0.4,0.55125,10.01,476,464,2,0.498,6.722,acidic,acn
+0333,CCS_neg_40_ACN_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,40.0,0.4,0.55125,10.01,211,184,4,0.574,6.291,acidic,acn
+0334,MSMS_pos_30_MeOH_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,30.0,0.4,0.55125,10.01,454,440,1,0.478,7.445,acidic,meoh
+0335,MSMS_neg_30_MeOH_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,30.0,0.4,0.55125,10.01,422,379,7,0.538,7.607,acidic,meoh
+0336,MSMS_pos_40_MeOH_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,40.0,0.4,0.55125,10.01,491,475,2,0.482,7.342,acidic,meoh
+0337,MSMS_neg_40_MeOH_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,40.0,0.4,0.55125,10.01,313,276,6,0.557,7.136,acidic,meoh
+0338,MSMS_pos_50_MeOH_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,50.0,0.4,0.55125,10.01,476,461,1,0.476,7.256,acidic,meoh
+0339,MSMS_neg_50_MeOH_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,50.0,0.4,0.55125,10.01,336,296,6,0.538,7.125,acidic,meoh
+0340,CCS_pos_40_MeOH_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,40.0,0.4,0.55125,10.01,443,431,2,0.476,7.361,acidic,meoh
+0341,CCS_neg_40_MeOH_CORTECS C18,RP,Dataset - BGC,Restek Raptor Biphenyl,L11,100.0,2.1,2.7,40.0,0.4,0.55125,10.01,14,13,0,0.615,6.746,acidic,meoh
+0342,MSMS_pos_30_ACN_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,30.0,0.4,0.55125,10.01,34,30,0,0.618,6.903,acidic,acn
+0343,MSMS_neg_30_ACN_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,30.0,0.4,0.55125,10.01,399,358,6,0.51,8.729,acidic,acn
+0344,MSMS_pos_40_ACN_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,424,410,2,0.442,7.84,acidic,acn
+0345,MSMS_neg_40_ACN_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,378,334,6,0.51,9.8,acidic,acn
+0346,MSMS_pos_50_ACN_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,50.0,0.4,0.55125,10.01,451,434,3,0.442,7.738,acidic,acn
+0347,MSMS_neg_50_ACN_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,50.0,0.4,0.55125,10.01,350,305,6,0.488,8.936,acidic,acn
+0348,CCS_pos_40_ACN_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,441,426,2,0.451,8.346,acidic,acn
+0349,CCS_neg_40_ACN_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,214,184,5,0.553,9.794,acidic,acn
+0350,MSMS_pos_30_MeOH_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,30.0,0.4,0.55125,10.01,492,477,1,0.428,7.685,acidic,meoh
+0351,MSMS_neg_30_MeOH_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,30.0,0.4,0.55125,10.01,372,337,6,0.532,7.821,acidic,meoh
+0352,MSMS_pos_40_MeOH_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,432,420,1,0.442,9.211,acidic,meoh
+0353,MSMS_neg_40_MeOH_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,275,248,5,0.006,7.655,acidic,meoh
+0354,MSMS_pos_50_MeOH_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,50.0,0.4,0.55125,10.01,474,460,1,0.44,8.808,acidic,meoh
+0355,MSMS_neg_50_MeOH_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,50.0,0.4,0.55125,10.01,324,288,6,0.513,7.752,acidic,meoh
+0356,CCS_pos_40_MeOH_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,436,421,3,0.455,9.257,acidic,meoh
+0357,CCS_neg_40_MeOH_HSS C18,RP,Dataset - BGC,Waters ACQUITY UPLC HSS C18,L1,100.0,2.1,1.8,40.0,0.4,0.55125,10.01,13,11,1,0.831,7.654,acidic,meoh
+0358,EM_1,RP,Dataset - Monge,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,35.0,0.25,0.882,19.0,6,6,0,1.0,5.0,acidic,acn
+0359,EM_2,RP,Dataset - Monge,Waters ACQUITY UPLC BEH C18,L1,50.0,2.1,1.7,55.0,0.4,0.275625,19.0,13,13,0,0.92,8.0,acidic,acn+other
+0360,EM_3,RP,Dataset - Monge,Waters ACQUITY UPLC BEH C18,L1,50.0,2.1,1.7,35.0,0.25,0.441,10.01,10,10,0,1.0,15.0,acidic,acn
+0361,EM_4,RP,Dataset - Monge,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,35.0,0.3,0.735,21.0,3,3,0,1.7,3.0,acidic,meoh
+0362,EM_5,RP,Dataset - Monge,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,35.0,0.3,0.735,21.0,9,9,0,0.82,2.75,acidic,meoh
+0363,JB_MM03,HILIC,Dataset - Buescher,Waters Atlantis Premier BEH Z-HILIC,L122,100.0,2.1,1.7,40.0,0.15,1.47,25.5,38,38,0,3.433,19.483,basic,acn
+0364,JB_MM05,HILIC,Dataset - Buescher,Waters Atlantis Premier BEH Z-HILIC,L122,100.0,2.1,1.7,40.0,0.15,1.47,25.5,38,38,0,3.417,17.25,basic,acn
+0365,JB_MM07,HILIC,Dataset - Buescher,Waters Atlantis Premier BEH Z-HILIC,L122,100.0,2.1,1.7,40.0,0.15,1.47,25.5,36,36,0,3.433,17.175,basic,acn
+0366,JB_MM09,HILIC,Dataset - Buescher,Waters Atlantis Premier BEH Z-HILIC,L122,100.0,2.1,1.7,40.0,0.15,1.47,25.5,38,38,0,3.15,18.617,basic,acn
+0367,JB_MM11,HILIC,Dataset - Buescher,Waters Atlantis Premier BEH Z-HILIC,L122,100.0,2.1,1.7,40.0,0.15,1.47,25.5,36,36,0,3.358,17.142,basic,acn
+0368,JB_MM13,HILIC,Dataset - Buescher,Waters Atlantis Premier BEH Z-HILIC,L122,100.0,2.1,1.7,40.0,0.15,1.47,25.5,38,38,0,3.592,19.342,basic,acn
+0369,JB_MM15,HILIC,Dataset - Buescher,Waters Atlantis Premier BEH Z-HILIC,L122,100.0,2.1,1.7,40.0,0.16,1.378125,25.5,38,38,0,3.292,19.358,basic,acn
+0370,JB_MM18,HILIC,Dataset - Buescher,Waters Atlantis Premier BEH Z-HILIC,L122,100.0,2.1,1.7,40.0,0.15,1.47,25.5,33,33,0,3.35,14.342,basic,acn
+0371,JB_MM20,HILIC,Dataset - Buescher,Waters Atlantis Premier BEH Z-HILIC,L122,100.0,2.1,1.7,40.0,0.17,1.2970588235294116,25.5,35,35,0,2.958,15.325,basic,acn
+0372,JB_1,HILIC,Dataset - Buescher,Agilent InfinityLab Poroshell 120 HILIC-Z (Peek-lined),L114,50.0,2.1,2.7,30.0,0.12,0.91875,35.0,54,54,0,2.075,18.15,basic,acn
+0373,JB_2,HILIC,Dataset - Buescher,"HILICON iHILIC-(P) Classic, HILIC, PEEK",L122,50.0,2.1,5.0,45.0,0.12,0.91875,35.0,59,59,0,1.658,18.767,basic,acn
+0374,JB_3,HILIC,Dataset - Buescher,"HILICON iHILIC-(P) Classic, HILIC, PEEK",L122,50.0,2.1,5.0,30.0,0.12,0.91875,35.0,58,58,0,2.1,18.367,basic,acn
+0375,JB_4,HILIC,Dataset - Buescher,"HILICON iHILIC-(P) Classic, HILIC, PEEK",L122,50.0,2.1,5.0,30.0,0.12,0.91875,35.0,59,59,0,2.283,18.825,basic,acn
+0376,JB_5,HILIC,Dataset - Buescher,"HILICON iHILIC-(P) Classic, HILIC, PEEK",L122,50.0,2.1,5.0,30.0,0.12,0.91875,26.5,59,59,0,2.383,18.783,basic,acn
+0377,JB_6,HILIC,Dataset - Buescher,"HILICON iHILIC-(P) Classic, HILIC, PEEK",L122,50.0,2.1,5.0,30.0,0.12,0.91875,26.5,58,58,0,3.442,18.45,basic,acn
+0378,JB_7,HILIC,Dataset - Buescher,"HILICON iHILIC-(P) Classic, HILIC, PEEK",L122,50.0,2.1,5.0,30.0,0.12,0.91875,35.0,58,58,0,2.708,18.842,basic,acn
+0379,JB_8,HILIC,Dataset - Buescher,"HILICON iHILIC-(P) Classic, HILIC, PEEK",L122,100.0,2.1,5.0,40.0,0.15,1.47,26.0,35,35,0,2.683,18.95,basic,acn
+0380,JB_9,HILIC,Dataset - Buescher,"HILICON iHILIC-(P) Classic, HILIC, PEEK",L122,100.0,2.1,5.0,40.0,0.2,1.1025,26.0,35,35,0,3.917,18.5,basic,acn
+0381,JB_10,HILIC,Dataset - Buescher,"HILICON iHILIC-(P) Classic, HILIC, PEEK",L122,100.0,2.1,5.0,40.0,0.12,1.8375,26.0,34,34,0,3.308,18.875,basic,acn
+0382,AA_LC1,RP,Publication - Aalizadeh,Thermo Scientific Acclaim RSLC 120 C18,L1,100.0,2.1,2.2,30.0,0.2,1.1025,20.1,2285,2179,40,1.2,16.1,acidic,meoh
+0383,AA_LC2,RP,Publication - Aalizadeh,Thermo Scientific Acclaim RSLC 120 C18,L1,100.0,2.1,2.2,30.0,0.2,1.1025,20.1,2282,1724,192,1.23,16.1,buffered,meoh
+0384,AA_LC3,RP,Publication - Aalizadeh,Thermo Scientific Acclaim RSLC 120 C18,L1,100.0,2.1,2.2,30.0,0.2,1.1025,20.1,83,83,0,1.03,14.49,acidic,meoh
+0385,AA_LC4,RP,Publication - Aalizadeh,Thermo Scientific Acclaim RSLC 120 C18,L1,100.0,2.1,2.2,30.0,0.2,1.1025,30.0,83,83,0,1.26,19.56,acidic,meoh
+0386,AA_LC5,RP,Publication - Aalizadeh,Thermo Scientific Acclaim RSLC 120 C18,L1,100.0,2.1,2.2,30.0,0.2,1.1025,30.0,83,83,0,1.01,20.42,acidic,meoh
+0387,AA_LC6,RP,Publication - Aalizadeh,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,35.0,0.35,0.63,21.0,83,83,0,0.83,17.01,acidic,acn
+0388,AA_LC7,RP,Publication - Aalizadeh,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,30.0,0.35,0.63,40.0,83,83,0,0.81,21.11,acidic,acn
+0389,AA_LC8,RP,Publication - Aalizadeh,Waters ACQUITY UPLC BEH C18,L1,100.0,2.1,1.7,30.0,0.35,0.63,40.0,83,83,0,0.83,21.92,acidic,acn
+0390,Brungs_NIH,RP,MZmine,Waters ACQUITY UPLC BEH C18,L1,50.0,2.1,1.7,40.0,0.6,0.18375,8.7,7333,2609,871,0.4629,7.3664,acidic,acn
+0391,Brungs_MCE,RP,MZmine,Waters ACQUITY UPLC BEH C18,L1,50.0,2.1,1.7,40.0,0.6,0.18375,8.7,9686,6239,662,0.4565,7.4626,acidic,acn

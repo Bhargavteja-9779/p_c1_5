@@ -1,0 +1,27 @@
+# Quick configuration: pipeline verification only (tiny models, few systems/draws). Not for scientific conclusions.
+name: quick
+processed_dir: data/processed
+cache_dir: cache_quick
+out_dir: ../results_quick
+method_type: RP
+min_target_compounds: 60
+min_test: 20
+n_list: [20]
+primary_n: 20
+draws: 2
+alphas: [0.1]
+expensive_n: [20]
+decoy_draws: 1
+max_decoys: 10
+smrt_n: 3000
+n_jobs: 4
+seed: 0
+n_ensemble: 2
+ens_trees: 20
+sim_n_list: [20]
+sim_draws: 1
+systems_limit: 2
+base_model: {n_estimators: 40, eta: 0.1, max_depth: 6, subsample: 0.8, colsample_bytree: 0.5, min_child_weight: 5}
+smrt_model: {n_estimators: 100, learning_rate: 0.1, num_leaves: 31, feature_fraction: 0.5}
+difficulty_model: {n_estimators: 50, learning_rate: 0.1, num_leaves: 15, min_child_samples: 50}
+methods: [B1_gauss_rmse, B2_pspline_PI, B3_gp_PI, B4_split_conformal, B5_jackknife_plus, B6_jk+_ensemble]

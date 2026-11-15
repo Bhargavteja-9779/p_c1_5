@@ -1,0 +1,60 @@
+{
+ "header": {
+  "type": "esearch",
+  "version": "0.3"
+ },
+ "esearchresult": {
+  "count": "30",
+  "retmax": "30",
+  "retstart": "0",
+  "idlist": [
+   "42951561",
+   "42887958",
+   "42567588",
+   "41526108",
+   "41285536",
+   "41167895",
+   "40983400",
+   "40480691",
+   "40374251",
+   "40288861",
+   "40274330",
+   "40024662",
+   "39800501",
+   "39788673",
+   "39788656",
+   "39396319",
+   "39030025",
+   "39030008",
+   "39029998",
+   "38719419",
+   "38609268",
+   "38438243",
+   "38401942",
+   "37827619",
+   "37709461",
+   "37604624",
+   "37455081",
+   "36925302",
+   "36628759",
+   "36464429"
+  ],
+  "translationset": [],
+  "querytranslation": "(\"Anal Chim Acta\"[Journal] AND 2023/01/01:2026/12/31[Date - Publication] AND (\"retention time\"[Title/Abstract] OR \"retention times\"[Title/Abstract] OR \"retention index\"[Title/Abstract] OR \"retention indices\"[Title/Abstract] OR \"retention factor\"[Title/Abstract] OR \"retention factors\"[Title/Abstract] OR \"retention behavior\"[Title/Abstract] OR \"retention behaviour\"[Title/Abstract] OR \"QSRR\"[Title/Abstract] OR \"structure-retention\"[Title/Abstract] OR \"quantitative structure retention\"[Title/Abstract] OR \"collision cross-section\"[Title/Abstract] OR \"collision cross-section\"[Title/Abstract]) AND (\"predict*\"[Title/Abstract] OR \"machine learning\"[Title/Abstract] OR \"QSRR\"[Title/Abstract] OR \"in silico\"[Title/Abstract] OR \"model*\"[Title/Abstract]) AND \"journal article\"[Publication Type]) NOT (\"review\"[Publication Type] OR \"systematic review\"[Publication Type] OR \"editorial\"[Publication Type] OR \"comment\"[Publication Type] OR \"letter\"[Publication Type] OR \"published erratum\"[Publication Type])",
+  "errorlist": {
+   "phrasesnotfound": [
+    "erratum"
+   ],
+   "fieldsnotfound": []
+  },
+  "warninglist": {
+   "phrasesignored": [],
+   "quotedphrasesnotfound": [
+    "\"retraction of publication\"[pt]"
+   ],
+   "outputmessages": []
+  }
+ },
+ "_query_term": "\"Anal Chim Acta\"[ta] AND 2023:2026[dp] AND (\"retention time\"[tiab] OR \"retention times\"[tiab] OR \"retention index\"[tiab] OR \"retention indices\"[tiab] OR \"retention factor\"[tiab] OR \"retention factors\"[tiab] OR \"retention behavior\"[tiab] OR \"retention behaviour\"[tiab] OR QSRR[tiab] OR \"structure-retention\"[tiab] OR \"quantitative structure retention\"[tiab] OR \"collision cross section\"[tiab] OR \"collision cross-section\"[tiab]) AND (predict*[tiab] OR \"machine learning\"[tiab] OR QSRR[tiab] OR \"in silico\"[tiab] OR model*[tiab]) AND journal article[pt] NOT (review[pt] OR \"systematic review\"[pt] OR editorial[pt] OR comment[pt] OR letter[pt] OR erratum[pt] OR \"published erratum\"[pt] OR \"retraction of publication\"[pt])",
+ "_retrieved_utc": "2026-11-15T17:39:08.180629+00:00"
+}

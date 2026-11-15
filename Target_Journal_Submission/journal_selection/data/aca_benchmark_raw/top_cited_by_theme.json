@@ -1,0 +1,1848 @@
+{
+ "rt_qsrr": {
+  "n_candidates": 30,
+  "top40_by_crossref_citations": [
+   {
+    "pmid": "36628759",
+    "doi": "10.1016/j.aca.2022.340691",
+    "crossref_issue_year": 2023,
+    "title": "A strategy for screening and identification of new amino acid-conjugated bile acids with high coverage by liquid chromatography-mass spectrometry.",
+    "crossref_citations": 26,
+    "citations_per_year": 6.72
+   },
+   {
+    "pmid": "37455081",
+    "doi": "10.1016/j.aca.2023.341570",
+    "crossref_issue_year": 2023,
+    "title": "A chemical derivatization-based pseudotargeted LC-MS/MS method for high coverage determination of dipeptides.",
+    "crossref_citations": 16,
+    "citations_per_year": 4.99
+   },
+   {
+    "pmid": "39800501",
+    "doi": "10.1016/j.aca.2024.343542",
+    "crossref_issue_year": 2025,
+    "title": "Insights into the separation, enantioseparation and recognition mechanisms of methamphetamine isotopologues on achiral and polysaccharide-based chiral columns in high-performance liquid chromatography.",
+    "crossref_citations": 16,
+    "citations_per_year": 8.96
+   },
+   {
+    "pmid": "39030025",
+    "doi": "10.1016/j.aca.2024.342913",
+    "crossref_issue_year": 2024,
+    "title": "Hyphenation of supercritical fluid chromatography and trapped ion mobility-mass spectrometry for quantitative lipidomics.",
+    "crossref_citations": 14,
+    "citations_per_year": 6.12
+   },
+   {
+    "pmid": "36464429",
+    "doi": "10.1016/j.aca.2022.339848",
+    "crossref_issue_year": 2023,
+    "title": "PARASIAS: A new method for analyzing higher-order tensors with shifting profiles.",
+    "crossref_citations": 12,
+    "citations_per_year": 3.1
+   },
+   {
+    "pmid": "36925302",
+    "doi": "10.1016/j.aca.2023.341038",
+    "crossref_issue_year": 2023,
+    "title": "A rapid and sensitive single-cell proteomic method based on fast liquid-chromatography separation, retention time prediction and MS1-only acquisition.",
+    "crossref_citations": 12,
+    "citations_per_year": 3.31
+   },
+   {
+    "pmid": "39030008",
+    "doi": "10.1016/j.aca.2024.342907",
+    "crossref_issue_year": 2024,
+    "title": "LC-MS/MS of isomeric N-and O-glycopeptides on mesoporous graphitized carbon column.",
+    "crossref_citations": 12,
+    "citations_per_year": 5.24
+   },
+   {
+    "pmid": "37604624",
+    "doi": "10.1016/j.aca.2023.341672",
+    "crossref_issue_year": 2023,
+    "title": "Characterization of solute-solvent interactions in liquid chromatography systems: A fast method based on Abraham's linear solvation energy relationships.",
+    "crossref_citations": 11,
+    "citations_per_year": 3.52
+   },
+   {
+    "pmid": "38438243",
+    "doi": "10.1016/j.aca.2024.342375",
+    "crossref_issue_year": 2024,
+    "title": "A general procedure for finding potentially erroneous entries in the database of retention indices.",
+    "crossref_citations": 11,
+    "citations_per_year": 4.19
+   },
+   {
+    "pmid": "39029998",
+    "doi": "10.1016/j.aca.2024.342869",
+    "crossref_issue_year": 2024,
+    "title": "Exploring the chemical subspace of RPLC: A data driven approach.",
+    "crossref_citations": 11,
+    "citations_per_year": 4.81
+   },
+   {
+    "pmid": "38719419",
+    "doi": "10.1016/j.aca.2024.342574",
+    "crossref_issue_year": 2024,
+    "title": "An untargeted analytical workflow based on Kendrick mass defect filtering reveals dysregulations in acylcarnitines in prostate cancer tissue.",
+    "crossref_citations": 10,
+    "citations_per_year": 4.07
+   },
+   {
+    "pmid": "38609268",
+    "doi": "10.1016/j.aca.2024.342529",
+    "crossref_issue_year": 2024,
+    "title": "Target and suspect screening of psychoactive substances in seizures and oral fluid exploiting retention time prediction and LC-MS/MS analysis.",
+    "crossref_citations": 9,
+    "citations_per_year": 3.54
+   },
+   {
+    "pmid": "38401942",
+    "doi": "10.1016/j.aca.2024.342335",
+    "crossref_issue_year": 2024,
+    "title": "Preparation of small peptoid-modified zwitterion-exchange/reversed-phase mixed-mode chromatography stationary phases for the separation of arenes and antibiotics.",
+    "crossref_citations": 8,
+    "citations_per_year": 3.05
+   },
+   {
+    "pmid": "37827619",
+    "doi": "10.1016/j.aca.2023.341811",
+    "crossref_issue_year": 2023,
+    "title": "Virtual chiral recognition of eugenol derivatives on amylose tris(3-chloro-5-methylphenylcarbamate) chiral stationary phase in unusual normal-phase mode.",
+    "crossref_citations": 5,
+    "citations_per_year": 1.6
+   },
+   {
+    "pmid": "39396319",
+    "doi": "10.1016/j.aca.2024.343262",
+    "crossref_issue_year": 2024,
+    "title": "An integrated strategy for in-depth profiling of N-acylethanolamines in biological samples by UHPLC-HRMS.",
+    "crossref_citations": 5,
+    "citations_per_year": 2.45
+   },
+   {
+    "pmid": "40274330",
+    "doi": "10.1016/j.aca.2025.344000",
+    "crossref_issue_year": 2025,
+    "title": "Structure elucidation and discrimination of peptides epimers induced by chiral residue by ion mobility mass spectrometry.",
+    "crossref_citations": 5,
+    "citations_per_year": 3.43
+   },
+   {
+    "pmid": "37709461",
+    "doi": "10.1016/j.aca.2023.341720",
+    "crossref_issue_year": 2023,
+    "title": "A structural similarity networking assisted collision cross-section prediction interval filtering strategy for multi-compound identification of complex matrix by ion-mobility mass spectrometry.",
+    "crossref_citations": 4,
+    "citations_per_year": 1.28
+   },
+   {
+    "pmid": "39788656",
+    "doi": "10.1016/j.aca.2024.343479",
+    "crossref_issue_year": 2025,
+    "title": "Serially coupled columns enhance rapid separation and predictive interaction understanding of 93 fentanyl analogs.",
+    "crossref_citations": 4,
+    "citations_per_year": 2.14
+   },
+   {
+    "pmid": "39788673",
+    "doi": "10.1016/j.aca.2024.343520",
+    "crossref_issue_year": 2025,
+    "title": "Development and use of DJ-1 affinity microcolumns to screen and study small drug candidates for Parkinson's disease.",
+    "crossref_citations": 4,
+    "citations_per_year": 2.14
+   },
+   {
+    "pmid": "40024662",
+    "doi": "10.1016/j.aca.2025.343788",
+    "crossref_issue_year": 2025,
+    "title": "Selectivity modulation and its prediction in cyclofructan-6 phase for chaotropic ions.",
+    "crossref_citations": 3,
+    "citations_per_year": 1.85
+   },
+   {
+    "pmid": "40288861",
+    "doi": "10.1016/j.aca.2025.343942",
+    "crossref_issue_year": 2025,
+    "title": "Dual LC column characterization for mass spectrometry-based small molecule profiling of human plasma and serum.",
+    "crossref_citations": 3,
+    "citations_per_year": 2.06
+   },
+   {
+    "pmid": "40480691",
+    "doi": "10.1016/j.aca.2025.344215",
+    "crossref_issue_year": 2025,
+    "title": "Development of a quantitative structure-response relationships to estimate concentrations of plasticizer metabolites in urine without reference standards using non-targeted analysis with liquid chromatography high-resolution mass spectrometry.",
+    "crossref_citations": 3,
+    "citations_per_year": 2.33
+   },
+   {
+    "pmid": "41167895",
+    "doi": "10.1016/j.aca.2025.344733",
+    "crossref_issue_year": 2025,
+    "title": "Machine learning-assisted retention time predictions on a cellulose Tris(3,5)-dimethylphenylcarbamate column in polar organic mode.",
+    "crossref_citations": 3,
+    "citations_per_year": 3.14
+   },
+   {
+    "pmid": "40374251",
+    "doi": "10.1016/j.aca.2025.344099",
+    "crossref_issue_year": 2025,
+    "title": "Mathematical model-assisted HPLC-MS/MS analysis on global, pseudo-targeted ceramide profiling and quantitation in serum.",
+    "crossref_citations": 2,
+    "citations_per_year": 1.46
+   },
+   {
+    "pmid": "40983400",
+    "doi": "10.1016/j.aca.2025.344502",
+    "crossref_issue_year": 2025,
+    "title": "Implementation of generalised retention models in RPLC using serially coupled columns: a study based on lemon balm extracts.",
+    "crossref_citations": 2,
+    "citations_per_year": 1.93
+   },
+   {
+    "pmid": "41285536",
+    "doi": "10.1016/j.aca.2025.344806",
+    "crossref_issue_year": 2026,
+    "title": "LSS and QSRR combined modelling for mechanistic elucidation of phenolic compound retention under diverse reversed-phase conditions.",
+    "crossref_citations": 1,
+    "citations_per_year": 1.15
+   },
+   {
+    "pmid": "41526108",
+    "doi": "10.1016/j.aca.2025.345026",
+    "crossref_issue_year": 2026,
+    "title": "Multi-condition machine learning models for understanding retention mechanisms and predicting retention time in supercritical fluid chromatography/mass spectrometry.",
+    "crossref_citations": 1,
+    "citations_per_year": 1.27
+   },
+   {
+    "pmid": "42887958",
+    "doi": "10.1016/j.aca.2026.346201",
+    "crossref_issue_year": 2026,
+    "title": "Why choose between prediction power and mechanistic insight in QSRR modeling? A case study of artificial membrane chromatography and machine learning.",
+    "crossref_citations": 1,
+    "citations_per_year": 4.0
+   },
+   {
+    "pmid": "42567588",
+    "doi": "10.1016/j.aca.2026.345850",
+    "crossref_issue_year": 2026,
+    "title": "Regions of interest three-way multivariate curve resolution analysis of lipid LC-IMS-MS/MS data.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   },
+   {
+    "pmid": "42951561",
+    "doi": "10.1016/j.aca.2026.346326",
+    "crossref_issue_year": 2026,
+    "title": "A multiway approach to overcome the peak resolution challenges in gas-chromatography coupled to ion mobility spectrometry.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   }
+  ]
+ },
+ "nts_annotation": {
+  "n_candidates": 99,
+  "top40_by_crossref_citations": [
+   {
+    "pmid": "38182346",
+    "doi": "10.1016/j.aca.2023.342103",
+    "crossref_issue_year": 2024,
+    "title": "Comparing univariate filtration preceding and succeeding PLS-DA analysis on the differential variables/metabolites identified from untargeted LC-MS metabolomics data.",
+    "crossref_citations": 91,
+    "citations_per_year": 31.69
+   },
+   {
+    "pmid": "38182389",
+    "doi": "10.1016/j.aca.2023.342116",
+    "crossref_issue_year": 2024,
+    "title": "Screening and identification of unknown chemical contaminants in food based on liquid chromatography-high-resolution mass spectrometry and machine learning.",
+    "crossref_citations": 37,
+    "citations_per_year": 12.88
+   },
+   {
+    "pmid": "37827628",
+    "doi": "10.1016/j.aca.2023.341740",
+    "crossref_issue_year": 2023,
+    "title": "Comparing the sensitivity of a low- and a high-resolution mass spectrometry approach for xenobiotic trace analysis: An exposome-type case study.",
+    "crossref_citations": 30,
+    "citations_per_year": 9.6
+   },
+   {
+    "pmid": "39788662",
+    "doi": "10.1016/j.aca.2024.343491",
+    "crossref_issue_year": 2025,
+    "title": "Modular comparison of untargeted metabolomics processing steps.",
+    "crossref_citations": 29,
+    "citations_per_year": 15.51
+   },
+   {
+    "pmid": "36464431",
+    "doi": "10.1016/j.aca.2022.340189",
+    "crossref_issue_year": 2023,
+    "title": "Image classification combined with faster R-CNN for the peak detection of complex components and their metabolites in untargeted LC-HRMS data.",
+    "crossref_citations": 28,
+    "citations_per_year": 7.23
+   },
+   {
+    "pmid": "36628759",
+    "doi": "10.1016/j.aca.2022.340691",
+    "crossref_issue_year": 2023,
+    "title": "A strategy for screening and identification of new amino acid-conjugated bile acids with high coverage by liquid chromatography-mass spectrometry.",
+    "crossref_citations": 26,
+    "citations_per_year": 6.72
+   },
+   {
+    "pmid": "37709459",
+    "doi": "10.1016/j.aca.2023.341716",
+    "crossref_issue_year": 2023,
+    "title": "Untargeted cannabinomics reveals the chemical differentiation of industrial hemp based on the cultivar and the geographical field location.",
+    "crossref_citations": 22,
+    "citations_per_year": 7.04
+   },
+   {
+    "pmid": "37977786",
+    "doi": "10.1016/j.aca.2023.341962",
+    "crossref_issue_year": 2023,
+    "title": "Electron activated dissociation - a complementary fragmentation technique to collision-induced dissociation for metabolite identification of synthetic cathinone positional isomers.",
+    "crossref_citations": 22,
+    "citations_per_year": 7.44
+   },
+   {
+    "pmid": "36657890",
+    "doi": "10.1016/j.aca.2023.340796",
+    "crossref_issue_year": 2023,
+    "title": "Mobility-resolved broadband dissociation and parallel reaction monitoring for laser desorption/ionization-mass spectrometry - Tattoo pigment identification supported by trapped ion mobility spectrometry.",
+    "crossref_citations": 20,
+    "citations_per_year": 5.28
+   },
+   {
+    "pmid": "38220289",
+    "doi": "10.1016/j.aca.2023.342157",
+    "crossref_issue_year": 2024,
+    "title": "A powerful two-dimensional chromatography method for the non-target analysis of depolymerised lignin.",
+    "crossref_citations": 20,
+    "citations_per_year": 7.18
+   },
+   {
+    "pmid": "40288864",
+    "doi": "10.1016/j.aca.2025.343979",
+    "crossref_issue_year": 2025,
+    "title": "Integrating NMR and multi-LC-MS-based untargeted metabolomics for comprehensive analysis of blood serum samples.",
+    "crossref_citations": 20,
+    "citations_per_year": 13.73
+   },
+   {
+    "pmid": "38637036",
+    "doi": "10.1016/j.aca.2024.342535",
+    "crossref_issue_year": 2024,
+    "title": "Interplatform comparison between three ion mobility techniques for human plasma lipid collision cross sections.",
+    "crossref_citations": 19,
+    "citations_per_year": 7.48
+   },
+   {
+    "pmid": "37455083",
+    "doi": "10.1016/j.aca.2023.341573",
+    "crossref_issue_year": 2023,
+    "title": "Mobile phase and column chemistry selection for high sensitivity non-targeted LC/ESI/HRMS screening of water.",
+    "crossref_citations": 18,
+    "citations_per_year": 5.61
+   },
+   {
+    "pmid": "37005031",
+    "doi": "10.1016/j.aca.2023.341127",
+    "crossref_issue_year": 2023,
+    "title": "A comparison of feature extraction capabilities of advanced UHPLC-HRMS data analysis tools in plant metabolomics.",
+    "crossref_citations": 16,
+    "citations_per_year": 4.52
+   },
+   {
+    "pmid": "37455081",
+    "doi": "10.1016/j.aca.2023.341570",
+    "crossref_issue_year": 2023,
+    "title": "A chemical derivatization-based pseudotargeted LC-MS/MS method for high coverage determination of dipeptides.",
+    "crossref_citations": 16,
+    "citations_per_year": 4.99
+   },
+   {
+    "pmid": "38637034",
+    "doi": "10.1016/j.aca.2024.342533",
+    "crossref_issue_year": 2024,
+    "title": "Concomitant investigation of crustacean amphipods lipidome and metabolome during the molting cycle by Zeno SWATH data-independent acquisition coupled with electron activated dissociation and machine learning.",
+    "crossref_citations": 15,
+    "citations_per_year": 5.9
+   },
+   {
+    "pmid": "38637048",
+    "doi": "10.1016/j.aca.2024.342536",
+    "crossref_issue_year": 2024,
+    "title": "Development of a LC-QTOF-MS based dilute-and-shoot approach for the botanical discrimination of honeys.",
+    "crossref_citations": 15,
+    "citations_per_year": 5.9
+   },
+   {
+    "pmid": "36657877",
+    "doi": "10.1016/j.aca.2023.340807",
+    "crossref_issue_year": 2023,
+    "title": "Stepwise solid phase extraction integrated with chemical derivatization for all-in-one injection LC-MS/MS analysis of metabolome and lipidome.",
+    "crossref_citations": 14,
+    "citations_per_year": 3.7
+   },
+   {
+    "pmid": "37977790",
+    "doi": "10.1016/j.aca.2023.341966",
+    "crossref_issue_year": 2023,
+    "title": "Rapid authentication of red wine by MALDI-MS combined with DART-MS.",
+    "crossref_citations": 12,
+    "citations_per_year": 4.06
+   },
+   {
+    "pmid": "39260917",
+    "doi": "10.1016/j.aca.2024.343139",
+    "crossref_issue_year": 2024,
+    "title": "LC-HRMS analysis of phospholipids bearing oxylipins.",
+    "crossref_citations": 12,
+    "citations_per_year": 5.66
+   },
+   {
+    "pmid": "37244659",
+    "doi": "10.1016/j.aca.2023.341308",
+    "crossref_issue_year": 2023,
+    "title": "MetaboMSDIA: A tool for implementing data-independent acquisition in metabolomic-based mass spectrometry analysis.",
+    "crossref_citations": 11,
+    "citations_per_year": 3.26
+   },
+   {
+    "pmid": "38220272",
+    "doi": "10.1016/j.aca.2023.342128",
+    "crossref_issue_year": 2024,
+    "title": "Molecular formula assignment of dissolved organic matter by ultra-performance liquid chromatography quadrupole time-of-flight mass spectrometry using two non-targeted data processing approaches: A case study from recirculating aquaculture systems.",
+    "crossref_citations": 11,
+    "citations_per_year": 3.95
+   },
+   {
+    "pmid": "39029998",
+    "doi": "10.1016/j.aca.2024.342869",
+    "crossref_issue_year": 2024,
+    "title": "Exploring the chemical subspace of RPLC: A data driven approach.",
+    "crossref_citations": 11,
+    "citations_per_year": 4.81
+   },
+   {
+    "pmid": "38719419",
+    "doi": "10.1016/j.aca.2024.342574",
+    "crossref_issue_year": 2024,
+    "title": "An untargeted analytical workflow based on Kendrick mass defect filtering reveals dysregulations in acylcarnitines in prostate cancer tissue.",
+    "crossref_citations": 10,
+    "citations_per_year": 4.07
+   },
+   {
+    "pmid": "38811133",
+    "doi": "10.1016/j.aca.2024.342694",
+    "crossref_issue_year": 2024,
+    "title": "Optimization and validation of metabolomics methods for feline urine and serum towards application in veterinary medicine.",
+    "crossref_citations": 10,
+    "citations_per_year": 4.07
+   },
+   {
+    "pmid": "37005032",
+    "doi": "10.1016/j.aca.2023.341128",
+    "crossref_issue_year": 2023,
+    "title": "Effects of structural characteristics of (un)conjugated steroid metabolites in their collision cross section value.",
+    "crossref_citations": 9,
+    "citations_per_year": 2.54
+   },
+   {
+    "pmid": "37827627",
+    "doi": "10.1016/j.aca.2023.341848",
+    "crossref_issue_year": 2023,
+    "title": "Exploratory optimisation of a LC-HRMS based analytical method for untargeted metabolomic screening of Cannabis Sativa L. through Data Mining.",
+    "crossref_citations": 9,
+    "citations_per_year": 2.88
+   },
+   {
+    "pmid": "38609268",
+    "doi": "10.1016/j.aca.2024.342529",
+    "crossref_issue_year": 2024,
+    "title": "Target and suspect screening of psychoactive substances in seizures and oral fluid exploiting retention time prediction and LC-MS/MS analysis.",
+    "crossref_citations": 9,
+    "citations_per_year": 3.54
+   },
+   {
+    "pmid": "37230578",
+    "doi": "10.1016/j.aca.2023.341360",
+    "crossref_issue_year": 2023,
+    "title": "In-depth size and charge variants characterization of monoclonal antibody with native mass spectrometry.",
+    "crossref_citations": 8,
+    "citations_per_year": 2.37
+   },
+   {
+    "pmid": "40903123",
+    "doi": "10.1016/j.aca.2025.344453",
+    "crossref_issue_year": 2025,
+    "title": "Development of a novel targeted LC-MS/MS methods for the typing of cardiac amyloidosis.",
+    "crossref_citations": 8,
+    "citations_per_year": 7.13
+   },
+   {
+    "pmid": "39800516",
+    "doi": "10.1016/j.aca.2024.343562",
+    "crossref_issue_year": 2025,
+    "title": "Composition-dependent MRM transitions and structure-indicative elution segments (CMTSES)-based LC-MS strategy for disaccharide profiling and isomer differentiation.",
+    "crossref_citations": 7,
+    "citations_per_year": 3.92
+   },
+   {
+    "pmid": "40825636",
+    "doi": "10.1016/j.aca.2025.344424",
+    "crossref_issue_year": 2025,
+    "title": "Rapid screening and annotation of the carbonyl submetabolome via bromine isotope-based derivatization sensitization assisted by structure-guided molecular network strategy.",
+    "crossref_citations": 7,
+    "citations_per_year": 6.24
+   },
+   {
+    "pmid": "39260913",
+    "doi": "10.1016/j.aca.2024.343123",
+    "crossref_issue_year": 2024,
+    "title": "Nontarget analysis and characterization of p-phenylenediamine-quinones and -phenols in tire rubbers by LC-HRMS and chemical species-specific algorithm.",
+    "crossref_citations": 6,
+    "citations_per_year": 2.83
+   },
+   {
+    "pmid": "39266059",
+    "doi": "10.1016/j.aca.2024.343126",
+    "crossref_issue_year": 2024,
+    "title": "Dual column chromatography combined with high-resolution mass spectrometry improves coverage of non-targeted analysis of plant root exudates.",
+    "crossref_citations": 6,
+    "citations_per_year": 2.83
+   },
+   {
+    "pmid": "39396318",
+    "doi": "10.1016/j.aca.2024.343261",
+    "crossref_issue_year": 2024,
+    "title": "SPME arrow-based extraction for enhanced targeted and untargeted urinary volatilomics.",
+    "crossref_citations": 6,
+    "citations_per_year": 2.95
+   },
+   {
+    "pmid": "39832864",
+    "doi": "10.1016/j.aca.2024.343594",
+    "crossref_issue_year": 2025,
+    "title": "High-throughput screening to identify endocrine disruptors: Contribution of low-resolution tandem MS and high-resolution MS.",
+    "crossref_citations": 6,
+    "citations_per_year": 3.36
+   },
+   {
+    "pmid": "40414679",
+    "doi": "10.1016/j.aca.2025.344152",
+    "crossref_issue_year": 2025,
+    "title": "Automatised online SPE-LC-MS/MS method for the enantioselective determination of chiral \u03b2-blockers and antidepressants in wastewater.",
+    "crossref_citations": 6,
+    "citations_per_year": 4.65
+   },
+   {
+    "pmid": "37230566",
+    "doi": "10.1016/j.aca.2023.341272",
+    "crossref_issue_year": 2023,
+    "title": "Strategies for mapping protein hydrolysate profiles and pharmacokinetics based on non-targeted proteomics combining skyline-aided quantitative techniques.",
+    "crossref_citations": 5,
+    "citations_per_year": 1.48
+   },
+   {
+    "pmid": "39396280",
+    "doi": "10.1016/j.aca.2024.343190",
+    "crossref_issue_year": 2024,
+    "title": "Quantification of relevant metabolites in apoptotic bodies from HK-2 cells by targeted metabolomics based on liquid chromatography-tandem mass spectrometry.",
+    "crossref_citations": 5,
+    "citations_per_year": 2.45
+   },
+   {
+    "pmid": "39832866",
+    "doi": "10.1016/j.aca.2024.343598",
+    "crossref_issue_year": 2025,
+    "title": "Rapid screening of pottery lipid residue profile via comprehensive two-dimensional gas chromatography.",
+    "crossref_citations": 5,
+    "citations_per_year": 2.8
+   }
+  ]
+ },
+ "ml_dl": {
+  "n_candidates": 211,
+  "top40_by_crossref_citations": [
+   {
+    "pmid": "39788666",
+    "doi": "10.1016/j.aca.2024.343496",
+    "crossref_issue_year": 2025,
+    "title": "Combination of plasma acoustic emission signal and laser-induced breakdown spectroscopy for accurate classification of steel.",
+    "crossref_citations": 106,
+    "citations_per_year": 56.69
+   },
+   {
+    "pmid": "38834276",
+    "doi": "10.1016/j.aca.2024.342761",
+    "crossref_issue_year": 2024,
+    "title": "Smartphone based wearable sweat glucose sensing device correlated with machine learning for real-time diabetes screening.",
+    "crossref_citations": 71,
+    "citations_per_year": 29.91
+   },
+   {
+    "pmid": "37005026",
+    "doi": "10.1016/j.aca.2023.341116",
+    "crossref_issue_year": 2023,
+    "title": "Coupling annealed silver nanoparticles with a porous silicon Bragg mirror SERS substrate and machine learning for rapid non-invasive disease diagnosis.",
+    "crossref_citations": 68,
+    "citations_per_year": 19.19
+   },
+   {
+    "pmid": "38438242",
+    "doi": "10.1016/j.aca.2024.342373",
+    "crossref_issue_year": 2024,
+    "title": "Nanozyme-induced deep learning-assisted smartphone integrated colorimetric and fluorometric dual-mode for detection of tetracycline analogs.",
+    "crossref_citations": 66,
+    "citations_per_year": 25.16
+   },
+   {
+    "pmid": "36813452",
+    "doi": "10.1016/j.aca.2023.340868",
+    "crossref_issue_year": 2023,
+    "title": "Deep learning-assisted ultra-accurate smartphone testing of paper-based colorimetric ELISA assays.",
+    "crossref_citations": 50,
+    "citations_per_year": 13.79
+   },
+   {
+    "pmid": "36657888",
+    "doi": "10.1016/j.aca.2023.340789",
+    "crossref_issue_year": 2023,
+    "title": "Closed-loop automatic gradient design for liquid chromatography using Bayesian optimization.",
+    "crossref_citations": 47,
+    "citations_per_year": 12.41
+   },
+   {
+    "pmid": "36641144",
+    "doi": "10.1016/j.aca.2022.340772",
+    "crossref_issue_year": 2023,
+    "title": "Mid-level data fusion of Raman spectroscopy and laser-induced breakdown spectroscopy: Improving ores identification accuracy.",
+    "crossref_citations": 45,
+    "citations_per_year": 11.88
+   },
+   {
+    "pmid": "37005021",
+    "doi": "10.1016/j.aca.2023.341095",
+    "crossref_issue_year": 2023,
+    "title": "A novel portable smart phone sensing platform based on a supramolecular fluorescence probe for quick visual quantitative detection of picric acid.",
+    "crossref_citations": 42,
+    "citations_per_year": 11.86
+   },
+   {
+    "pmid": "37100477",
+    "doi": "10.1016/j.aca.2023.341200",
+    "crossref_issue_year": 2023,
+    "title": "On-line multi-gas component measurement in the mud logging process based on Raman spectroscopy combined with a CNN-LSTM-AM hybrid model.",
+    "crossref_citations": 42,
+    "citations_per_year": 12.15
+   },
+   {
+    "pmid": "38740448",
+    "doi": "10.1016/j.aca.2024.342575",
+    "crossref_issue_year": 2024,
+    "title": "Automatic offline-capable smartphone paper-based microfluidic device for efficient biomarker detection of Alzheimer's disease.",
+    "crossref_citations": 39,
+    "citations_per_year": 15.88
+   },
+   {
+    "pmid": "37858569",
+    "doi": "10.1016/j.aca.2023.341869",
+    "crossref_issue_year": 2023,
+    "title": "An integrated chemical characterization based on FT-NIR, and GC-MS for the comparative metabolite profiling of 3 species of the genus Amomum.",
+    "crossref_citations": 37,
+    "citations_per_year": 12.17
+   },
+   {
+    "pmid": "38182389",
+    "doi": "10.1016/j.aca.2023.342116",
+    "crossref_issue_year": 2024,
+    "title": "Screening and identification of unknown chemical contaminants in food based on liquid chromatography-high-resolution mass spectrometry and machine learning.",
+    "crossref_citations": 37,
+    "citations_per_year": 12.88
+   },
+   {
+    "pmid": "39580159",
+    "doi": "10.1016/j.aca.2024.343376",
+    "crossref_issue_year": 2024,
+    "title": "Rapid and accurate bacteria identification through deep-learning-based two-dimensional Raman spectroscopy.",
+    "crossref_citations": 36,
+    "citations_per_year": 18.42
+   },
+   {
+    "pmid": "38719408",
+    "doi": "10.1016/j.aca.2024.342631",
+    "crossref_issue_year": 2024,
+    "title": "Improving the detection accuracy of the dual SERS aptasensor system with uncontrollable SERS \"hot spot\" using machine learning tools.",
+    "crossref_citations": 34,
+    "citations_per_year": 13.84
+   },
+   {
+    "pmid": "36657885",
+    "doi": "10.1016/j.aca.2022.340752",
+    "crossref_issue_year": 2023,
+    "title": "Identification of phenol 2,2-methylene bis, 6 [1,1-D] as breath biomarker of hepatocellular carcinoma (HCC) patients and its electrochemical sensing: E-nose biosensor for HCC.",
+    "crossref_citations": 32,
+    "citations_per_year": 8.45
+   },
+   {
+    "pmid": "37423668",
+    "doi": "10.1016/j.aca.2023.341537",
+    "crossref_issue_year": 2023,
+    "title": "A comparative evaluation of low-field and high-field NMR untargeted analysis: Authentication of virgin coconut oil adulterated with refined coconut oil as a case study.",
+    "crossref_citations": 29,
+    "citations_per_year": 9.05
+   },
+   {
+    "pmid": "36464431",
+    "doi": "10.1016/j.aca.2022.340189",
+    "crossref_issue_year": 2023,
+    "title": "Image classification combined with faster R-CNN for the peak detection of complex components and their metabolites in untargeted LC-HRMS data.",
+    "crossref_citations": 28,
+    "citations_per_year": 7.23
+   },
+   {
+    "pmid": "37827664",
+    "doi": "10.1016/j.aca.2023.341763",
+    "crossref_issue_year": 2023,
+    "title": "Improving prediction model robustness with virtual sample construction for near-infrared spectra analysis.",
+    "crossref_citations": 27,
+    "citations_per_year": 8.64
+   },
+   {
+    "pmid": "38772657",
+    "doi": "10.1016/j.aca.2024.342674",
+    "crossref_issue_year": 2024,
+    "title": "Enhancement of spectral model transferability in LIBS systems through LIBS-LIPAS fusion technique.",
+    "crossref_citations": 27,
+    "citations_per_year": 10.99
+   },
+   {
+    "pmid": "39880496",
+    "doi": "10.1016/j.aca.2025.343640",
+    "crossref_issue_year": 2025,
+    "title": "AI integration into wavelength-based SPR biosensing: Advancements in spectroscopic analysis and detection.",
+    "crossref_citations": 26,
+    "citations_per_year": 15.22
+   },
+   {
+    "pmid": "36965993",
+    "doi": "10.1016/j.aca.2023.341084",
+    "crossref_issue_year": 2023,
+    "title": "CuO-ZnO p-n junctions for accurate prediction of multiple volatile organic compounds aided by machine learning algorithms.",
+    "crossref_citations": 24,
+    "citations_per_year": 6.77
+   },
+   {
+    "pmid": "37328241",
+    "doi": "10.1016/j.aca.2023.341433",
+    "crossref_issue_year": 2023,
+    "title": "Convolutional neural network framework for the automated analysis of transition metal X-ray photoelectron spectra.",
+    "crossref_citations": 22,
+    "citations_per_year": 6.69
+   },
+   {
+    "pmid": "41611408",
+    "doi": "10.1016/j.aca.2026.345097",
+    "crossref_issue_year": 2026,
+    "title": "Smartphone-based colorimetric sensing with reference calibration and ensemble machine learning for enhanced detection of nitrite and ammonium ions.",
+    "crossref_citations": 22,
+    "citations_per_year": 28.0
+   },
+   {
+    "pmid": "38834267",
+    "doi": "10.1016/j.aca.2024.342755",
+    "crossref_issue_year": 2024,
+    "title": "Thermostability-assisted limited proteolysis-coupled mass spectrometry for capturing drug target proteins and sites.",
+    "crossref_citations": 20,
+    "citations_per_year": 8.43
+   },
+   {
+    "pmid": "40187877",
+    "doi": "10.1016/j.aca.2025.343899",
+    "crossref_issue_year": 2025,
+    "title": "Dual-branch convolutional neural network with attention modules for LIBS-NIRS data fusion in cement composition quantification.",
+    "crossref_citations": 20,
+    "citations_per_year": 12.98
+   },
+   {
+    "pmid": "37147049",
+    "doi": "10.1016/j.aca.2023.341129",
+    "crossref_issue_year": 2023,
+    "title": "Spectral classification by generative adversarial linear discriminant analysis.",
+    "crossref_citations": 19,
+    "citations_per_year": 5.49
+   },
+   {
+    "pmid": "38637045",
+    "doi": "10.1016/j.aca.2024.342518",
+    "crossref_issue_year": 2024,
+    "title": "Low-abundance proteins-based label-free SERS approach for high precision detection of liver cancer with different stages.",
+    "crossref_citations": 18,
+    "citations_per_year": 7.08
+   },
+   {
+    "pmid": "36657867",
+    "doi": "10.1016/j.aca.2023.340804",
+    "crossref_issue_year": 2023,
+    "title": "Machine learning-assisted laser-induced breakdown spectroscopy for monitoring molten salt compositions of small modular reactor fuel under varying laser focus positions.",
+    "crossref_citations": 17,
+    "citations_per_year": 4.49
+   },
+   {
+    "pmid": "37977791",
+    "doi": "10.1016/j.aca.2023.341969",
+    "crossref_issue_year": 2023,
+    "title": "A multimodal pipeline for image correction and registration of mass spectrometry imaging with microscopy.",
+    "crossref_citations": 17,
+    "citations_per_year": 5.75
+   },
+   {
+    "pmid": "40024653",
+    "doi": "10.1016/j.aca.2025.343766",
+    "crossref_issue_year": 2025,
+    "title": "A comparative analysis of deep learning and chemometric approaches for spectral data modeling.",
+    "crossref_citations": 17,
+    "citations_per_year": 10.47
+   },
+   {
+    "pmid": "40915725",
+    "doi": "10.1016/j.aca.2025.344501",
+    "crossref_issue_year": 2025,
+    "title": "Chemically and Electromagnetically dual-enhanced COFs-Au@AgNPs SERS sensor integrated with deep learning for ultrasensitive detection of neonicotinoid pesticides.",
+    "crossref_citations": 17,
+    "citations_per_year": 16.38
+   },
+   {
+    "pmid": "41513353",
+    "doi": "10.1016/j.aca.2025.344991",
+    "crossref_issue_year": 2026,
+    "title": "Multilayer Ag-Au-BP-TIBr-FASnI3 Kretschmann surface plasmon resonance biosensor for high sensitivity refractive index analysis: A computational and machine learning approach.",
+    "crossref_citations": 17,
+    "citations_per_year": 19.53
+   },
+   {
+    "pmid": "37005023",
+    "doi": "10.1016/j.aca.2023.341113",
+    "crossref_issue_year": 2023,
+    "title": "Au/SiNCA-based SERS analysis coupled with machine learning for the early-stage diagnosis of cisplatin-induced liver injury.",
+    "crossref_citations": 15,
+    "citations_per_year": 4.23
+   },
+   {
+    "pmid": "38637034",
+    "doi": "10.1016/j.aca.2024.342533",
+    "crossref_issue_year": 2024,
+    "title": "Concomitant investigation of crustacean amphipods lipidome and metabolome during the molting cycle by Zeno SWATH data-independent acquisition coupled with electron activated dissociation and machine learning.",
+    "crossref_citations": 15,
+    "citations_per_year": 5.9
+   },
+   {
+    "pmid": "38637048",
+    "doi": "10.1016/j.aca.2024.342536",
+    "crossref_issue_year": 2024,
+    "title": "Development of a LC-QTOF-MS based dilute-and-shoot approach for the botanical discrimination of honeys.",
+    "crossref_citations": 15,
+    "citations_per_year": 5.9
+   },
+   {
+    "pmid": "39142773",
+    "doi": "10.1016/j.aca.2024.343022",
+    "crossref_issue_year": 2024,
+    "title": "Monitoring of meat quality and change-point detection by a sensor array and profiling of bacterial communities.",
+    "crossref_citations": 15,
+    "citations_per_year": 6.81
+   },
+   {
+    "pmid": "39155096",
+    "doi": "10.1016/j.aca.2024.343037",
+    "crossref_issue_year": 2024,
+    "title": "Sustainable and effective reconditioning of SPR gold chips functionalized with molecularly imprinted polynorepinephrine.",
+    "crossref_citations": 15,
+    "citations_per_year": 6.81
+   },
+   {
+    "pmid": "39182974",
+    "doi": "10.1016/j.aca.2024.343073",
+    "crossref_issue_year": 2024,
+    "title": "An integrated CBLA-Net with fractional discrete wavelet transform and frequency-based CARS to predict heavy metal elements by XRF.",
+    "crossref_citations": 15,
+    "citations_per_year": 6.81
+   },
+   {
+    "pmid": "37179059",
+    "doi": "10.1016/j.aca.2023.341264",
+    "crossref_issue_year": 2023,
+    "title": "Surface-enhanced Raman spectroscopy charged probes under inverted superhydrophobic platform for detection of agricultural chemicals residues in rice combined with lightweight deep learning network.",
+    "crossref_citations": 14,
+    "citations_per_year": 4.05
+   },
+   {
+    "pmid": "38220290",
+    "doi": "10.1016/j.aca.2023.342158",
+    "crossref_issue_year": 2024,
+    "title": "Analysis of cellular response to drugs with a microfluidic single-cell platform based on hyperspectral imaging.",
+    "crossref_citations": 14,
+    "citations_per_year": 5.02
+   }
+  ]
+ },
+ "chemometrics": {
+  "n_candidates": 159,
+  "top40_by_crossref_citations": [
+   {
+    "pmid": "39788666",
+    "doi": "10.1016/j.aca.2024.343496",
+    "crossref_issue_year": 2025,
+    "title": "Combination of plasma acoustic emission signal and laser-induced breakdown spectroscopy for accurate classification of steel.",
+    "crossref_citations": 106,
+    "citations_per_year": 56.69
+   },
+   {
+    "pmid": "38182346",
+    "doi": "10.1016/j.aca.2023.342103",
+    "crossref_issue_year": 2024,
+    "title": "Comparing univariate filtration preceding and succeeding PLS-DA analysis on the differential variables/metabolites identified from untargeted LC-MS metabolomics data.",
+    "crossref_citations": 91,
+    "citations_per_year": 31.69
+   },
+   {
+    "pmid": "36641144",
+    "doi": "10.1016/j.aca.2022.340772",
+    "crossref_issue_year": 2023,
+    "title": "Mid-level data fusion of Raman spectroscopy and laser-induced breakdown spectroscopy: Improving ores identification accuracy.",
+    "crossref_citations": 45,
+    "citations_per_year": 11.88
+   },
+   {
+    "pmid": "36697178",
+    "doi": "10.1016/j.aca.2023.340842",
+    "crossref_issue_year": 2023,
+    "title": "Flavor components detection and discrimination of isomers in Huaguo tea using headspace-gas chromatography-ion mobility spectrometry and multivariate statistical analysis.",
+    "crossref_citations": 44,
+    "citations_per_year": 11.62
+   },
+   {
+    "pmid": "37455078",
+    "doi": "10.1016/j.aca.2023.341560",
+    "crossref_issue_year": 2023,
+    "title": "An improved successive projections algorithm version to variable selection in multiple linear regression.",
+    "crossref_citations": 42,
+    "citations_per_year": 13.1
+   },
+   {
+    "pmid": "37032062",
+    "doi": "10.1016/j.aca.2023.341096",
+    "crossref_issue_year": 2023,
+    "title": "Procrustes cross-validation of multivariate regression models.",
+    "crossref_citations": 37,
+    "citations_per_year": 10.44
+   },
+   {
+    "pmid": "37858569",
+    "doi": "10.1016/j.aca.2023.341869",
+    "crossref_issue_year": 2023,
+    "title": "An integrated chemical characterization based on FT-NIR, and GC-MS for the comparative metabolite profiling of 3 species of the genus Amomum.",
+    "crossref_citations": 37,
+    "citations_per_year": 12.17
+   },
+   {
+    "pmid": "38220279",
+    "doi": "10.1016/j.aca.2023.342144",
+    "crossref_issue_year": 2024,
+    "title": "HILIC/MS quantitation of low-abundant phospholipids and sphingolipids in human plasma and serum: Dysregulation in pancreatic cancer.",
+    "crossref_citations": 30,
+    "citations_per_year": 10.76
+   },
+   {
+    "pmid": "38609264",
+    "doi": "10.1016/j.aca.2024.342522",
+    "crossref_issue_year": 2024,
+    "title": "Electronic waste analysis using laser-induced breakdown spectroscopy (LIBS) and X-ray fluorescence (XRF): Critical evaluation of data fusion for the determination of Al, Cu and Fe.",
+    "crossref_citations": 30,
+    "citations_per_year": 11.81
+   },
+   {
+    "pmid": "37423668",
+    "doi": "10.1016/j.aca.2023.341537",
+    "crossref_issue_year": 2023,
+    "title": "A comparative evaluation of low-field and high-field NMR untargeted analysis: Authentication of virgin coconut oil adulterated with refined coconut oil as a case study.",
+    "crossref_citations": 29,
+    "citations_per_year": 9.05
+   },
+   {
+    "pmid": "38355231",
+    "doi": "10.1016/j.aca.2024.342312",
+    "crossref_issue_year": 2024,
+    "title": "An intuitive approach for spike removal in Raman spectra based on peaks' prominence and width.",
+    "crossref_citations": 29,
+    "citations_per_year": 10.71
+   },
+   {
+    "pmid": "36925296",
+    "doi": "10.1016/j.aca.2023.341015",
+    "crossref_issue_year": 2023,
+    "title": "Quality control of Hugan capsule based on four-wavelength fusion profiling and electrochemical fingerprint combined with antioxidant activity and chemometric analysis.",
+    "crossref_citations": 28,
+    "citations_per_year": 7.72
+   },
+   {
+    "pmid": "36628716",
+    "doi": "10.1016/j.aca.2022.340710",
+    "crossref_issue_year": 2023,
+    "title": "Towards the non-destructive analysis of multilayered samples: A novel XRF-VNIR-SWIR hyperspectral imaging system combined with multiblock data processing.",
+    "crossref_citations": 27,
+    "citations_per_year": 6.97
+   },
+   {
+    "pmid": "37573101",
+    "doi": "10.1016/j.aca.2023.341563",
+    "crossref_issue_year": 2023,
+    "title": "UV-Vis absorption spectrophotometry and LC-DAD-MS-ESI(+)-ESI(-) coupled to chemometrics analysis of the monitoring of sulfamethoxazole degradation by chlorination, photodegradation, and chlorination/photodegradation.",
+    "crossref_citations": 25,
+    "citations_per_year": 8.0
+   },
+   {
+    "pmid": "36868776",
+    "doi": "10.1016/j.aca.2023.340949",
+    "crossref_issue_year": 2023,
+    "title": "Cytotoxicity, uptake and accumulation of selenium nanoparticles and other selenium species in neuroblastoma cell lines related to Alzheimer's disease by using cytotoxicity assays, TEM and single cell-ICP-MS.",
+    "crossref_citations": 24,
+    "citations_per_year": 6.62
+   },
+   {
+    "pmid": "37827679",
+    "doi": "10.1016/j.aca.2023.341782",
+    "crossref_issue_year": 2023,
+    "title": "A Monte Carlo resampling based multiple feature-spaces ensemble (MFE) strategy for consistency-enhanced spectral variable selection.",
+    "crossref_citations": 24,
+    "citations_per_year": 7.68
+   },
+   {
+    "pmid": "38637039",
+    "doi": "10.1016/j.aca.2024.342555",
+    "crossref_issue_year": 2024,
+    "title": "A novel headspace solid-phase microextraction arrow method employing comprehensive two-dimensional gas chromatography-mass spectrometry combined with chemometric tools for the investigation of wine aging.",
+    "crossref_citations": 24,
+    "citations_per_year": 9.45
+   },
+   {
+    "pmid": "37524459",
+    "doi": "10.1016/j.aca.2023.341564",
+    "crossref_issue_year": 2023,
+    "title": "Classification of waste wood categories according to the best reuse using FT-NIR spectroscopy and chemometrics.",
+    "crossref_citations": 23,
+    "citations_per_year": 7.17
+   },
+   {
+    "pmid": "37230573",
+    "doi": "10.1016/j.aca.2023.341328",
+    "crossref_issue_year": 2023,
+    "title": "Multi-block DD-SIMCA as a high-level data fusion tool.",
+    "crossref_citations": 22,
+    "citations_per_year": 6.52
+   },
+   {
+    "pmid": "38677835",
+    "doi": "10.1016/j.aca.2024.342527",
+    "crossref_issue_year": 2024,
+    "title": "The sphingolipids change in exosomes from cancer patients and association between exosome release and sphingolipids level based on a pseudotargeted lipidomics method.",
+    "crossref_citations": 22,
+    "citations_per_year": 8.66
+   },
+   {
+    "pmid": "37709437",
+    "doi": "10.1016/j.aca.2023.341761",
+    "crossref_issue_year": 2023,
+    "title": "Tracing the identity of Parmigiano Reggiano \"Prodotto di Montagna - Progetto Territorio\" cheese using NMR spectroscopy and multivariate data analysis.",
+    "crossref_citations": 20,
+    "citations_per_year": 6.4
+   },
+   {
+    "pmid": "40187877",
+    "doi": "10.1016/j.aca.2025.343899",
+    "crossref_issue_year": 2025,
+    "title": "Dual-branch convolutional neural network with attention modules for LIBS-NIRS data fusion in cement composition quantification.",
+    "crossref_citations": 20,
+    "citations_per_year": 12.98
+   },
+   {
+    "pmid": "36925309",
+    "doi": "10.1016/j.aca.2023.341004",
+    "crossref_issue_year": 2023,
+    "title": "Long-term repeatability improvement using beam intensity distribution for laser-induced breakdown spectroscopy.",
+    "crossref_citations": 18,
+    "citations_per_year": 4.97
+   },
+   {
+    "pmid": "36657867",
+    "doi": "10.1016/j.aca.2023.340804",
+    "crossref_issue_year": 2023,
+    "title": "Machine learning-assisted laser-induced breakdown spectroscopy for monitoring molten salt compositions of small modular reactor fuel under varying laser focus positions.",
+    "crossref_citations": 17,
+    "citations_per_year": 4.49
+   },
+   {
+    "pmid": "40024653",
+    "doi": "10.1016/j.aca.2025.343766",
+    "crossref_issue_year": 2025,
+    "title": "A comparative analysis of deep learning and chemometric approaches for spectral data modeling.",
+    "crossref_citations": 17,
+    "citations_per_year": 10.47
+   },
+   {
+    "pmid": "38834270",
+    "doi": "10.1016/j.aca.2024.342767",
+    "crossref_issue_year": 2024,
+    "title": "When surface-enhanced Raman spectroscopy meets complex biofluids: A new representation strategy for reliable and comprehensive characterization.",
+    "crossref_citations": 16,
+    "citations_per_year": 6.74
+   },
+   {
+    "pmid": "37005023",
+    "doi": "10.1016/j.aca.2023.341113",
+    "crossref_issue_year": 2023,
+    "title": "Au/SiNCA-based SERS analysis coupled with machine learning for the early-stage diagnosis of cisplatin-induced liver injury.",
+    "crossref_citations": 15,
+    "citations_per_year": 4.23
+   },
+   {
+    "pmid": "37858563",
+    "doi": "10.1016/j.aca.2023.341884",
+    "crossref_issue_year": 2023,
+    "title": "Analysing olive ripening with digital image RGB histograms.",
+    "crossref_citations": 15,
+    "citations_per_year": 4.94
+   },
+   {
+    "pmid": "38637034",
+    "doi": "10.1016/j.aca.2024.342533",
+    "crossref_issue_year": 2024,
+    "title": "Concomitant investigation of crustacean amphipods lipidome and metabolome during the molting cycle by Zeno SWATH data-independent acquisition coupled with electron activated dissociation and machine learning.",
+    "crossref_citations": 15,
+    "citations_per_year": 5.9
+   },
+   {
+    "pmid": "38637048",
+    "doi": "10.1016/j.aca.2024.342536",
+    "crossref_issue_year": 2024,
+    "title": "Development of a LC-QTOF-MS based dilute-and-shoot approach for the botanical discrimination of honeys.",
+    "crossref_citations": 15,
+    "citations_per_year": 5.9
+   },
+   {
+    "pmid": "39142773",
+    "doi": "10.1016/j.aca.2024.343022",
+    "crossref_issue_year": 2024,
+    "title": "Monitoring of meat quality and change-point detection by a sensor array and profiling of bacterial communities.",
+    "crossref_citations": 15,
+    "citations_per_year": 6.81
+   },
+   {
+    "pmid": "39182974",
+    "doi": "10.1016/j.aca.2024.343073",
+    "crossref_issue_year": 2024,
+    "title": "An integrated CBLA-Net with fractional discrete wavelet transform and frequency-based CARS to predict heavy metal elements by XRF.",
+    "crossref_citations": 15,
+    "citations_per_year": 6.81
+   },
+   {
+    "pmid": "39182979",
+    "doi": "10.1016/j.aca.2024.343062",
+    "crossref_issue_year": 2024,
+    "title": "Improving insights from metabolomic functional analysis combining multivariate tools.",
+    "crossref_citations": 15,
+    "citations_per_year": 6.81
+   },
+   {
+    "pmid": "38182391",
+    "doi": "10.1016/j.aca.2023.342119",
+    "crossref_issue_year": 2024,
+    "title": "A chemical derivatization-based pseudotargeted liquid chromatography-tandem mass spectrometry method for sensitive and high coverage determination of bile acids in human serum.",
+    "crossref_citations": 14,
+    "citations_per_year": 4.87
+   },
+   {
+    "pmid": "38245205",
+    "doi": "10.1016/j.aca.2024.342204",
+    "crossref_issue_year": 2024,
+    "title": "Automated 2D peak detection in gas chromatography-ion mobility spectrometry through persistent homology.",
+    "crossref_citations": 14,
+    "citations_per_year": 5.02
+   },
+   {
+    "pmid": "38816156",
+    "doi": "10.1016/j.aca.2024.342722",
+    "crossref_issue_year": 2024,
+    "title": "Fermentation Analytical Technology (FAT): Monitoring industrial E. coli fermentations using absolute quantitative 1H NMR spectroscopy.",
+    "crossref_citations": 14,
+    "citations_per_year": 5.9
+   },
+   {
+    "pmid": "38280780",
+    "doi": "10.1016/j.aca.2024.342205",
+    "crossref_issue_year": 2024,
+    "title": "Multivariate curve resolution-soft independent modelling of class analogy (MCR-SIMCA).",
+    "crossref_citations": 13,
+    "citations_per_year": 4.66
+   },
+   {
+    "pmid": "41167877",
+    "doi": "10.1016/j.aca.2025.344658",
+    "crossref_issue_year": 2025,
+    "title": "Raman and NIR spectroscopy: A discussion of calibration robustness for food quality measurements through two case studies.",
+    "crossref_citations": 13,
+    "citations_per_year": 13.61
+   },
+   {
+    "pmid": "36464429",
+    "doi": "10.1016/j.aca.2022.339848",
+    "crossref_issue_year": 2023,
+    "title": "PARASIAS: A new method for analyzing higher-order tensors with shifting profiles.",
+    "crossref_citations": 12,
+    "citations_per_year": 3.1
+   },
+   {
+    "pmid": "37604611",
+    "doi": "10.1016/j.aca.2023.341657",
+    "crossref_issue_year": 2023,
+    "title": "Exploring new dimensions: Single and multi-block analysis of essential oils using DBDI-MS and FT-IR for enhanced authenticity control.",
+    "crossref_citations": 12,
+    "citations_per_year": 3.84
+   }
+  ]
+ },
+ "uncertainty_validation": {
+  "n_candidates": 37,
+  "top40_by_crossref_citations": [
+   {
+    "pmid": "36657888",
+    "doi": "10.1016/j.aca.2023.340789",
+    "crossref_issue_year": 2023,
+    "title": "Closed-loop automatic gradient design for liquid chromatography using Bayesian optimization.",
+    "crossref_citations": 47,
+    "citations_per_year": 12.41
+   },
+   {
+    "pmid": "37827679",
+    "doi": "10.1016/j.aca.2023.341782",
+    "crossref_issue_year": 2023,
+    "title": "A Monte Carlo resampling based multiple feature-spaces ensemble (MFE) strategy for consistency-enhanced spectral variable selection.",
+    "crossref_citations": 24,
+    "citations_per_year": 7.68
+   },
+   {
+    "pmid": "37709469",
+    "doi": "10.1016/j.aca.2023.341735",
+    "crossref_issue_year": 2023,
+    "title": "Assessing comparability and uncertainty of analytical methods for methylated mercury species in seawater.",
+    "crossref_citations": 18,
+    "citations_per_year": 5.76
+   },
+   {
+    "pmid": "36442934",
+    "doi": "10.1016/j.aca.2022.340573",
+    "crossref_issue_year": 2023,
+    "title": "Phenotyping of minor blood groups (C, c, E, e, and Mia) using a paper-based device and image-based high-throughput detection.",
+    "crossref_citations": 12,
+    "citations_per_year": 3.1
+   },
+   {
+    "pmid": "36925302",
+    "doi": "10.1016/j.aca.2023.341038",
+    "crossref_issue_year": 2023,
+    "title": "A rapid and sensitive single-cell proteomic method based on fast liquid-chromatography separation, retention time prediction and MS1-only acquisition.",
+    "crossref_citations": 12,
+    "citations_per_year": 3.31
+   },
+   {
+    "pmid": "39489967",
+    "doi": "10.1016/j.aca.2024.343285",
+    "crossref_issue_year": 2024,
+    "title": "Measurement uncertainty for <711> Dissolution tests using Monte Carlo methods - Uncertainties arising from sampling and analytical steps.",
+    "crossref_citations": 12,
+    "citations_per_year": 5.89
+   },
+   {
+    "pmid": "39580162",
+    "doi": "10.1016/j.aca.2024.343346",
+    "crossref_issue_year": 2024,
+    "title": "Enhancing decision confidence in AI using Monte Carlo dropout for Raman spectra classification.",
+    "crossref_citations": 11,
+    "citations_per_year": 5.63
+   },
+   {
+    "pmid": "36737143",
+    "doi": "10.1016/j.aca.2022.340558",
+    "crossref_issue_year": 2023,
+    "title": "Graph Neural Tree: A novel and interpretable deep learning-based framework for accurate molecular property predictions.",
+    "crossref_citations": 9,
+    "citations_per_year": 2.43
+   },
+   {
+    "pmid": "39030020",
+    "doi": "10.1016/j.aca.2024.342890",
+    "crossref_issue_year": 2024,
+    "title": "Near-infrared spectral expansion method based on active semi-supervised regression.",
+    "crossref_citations": 8,
+    "citations_per_year": 3.5
+   },
+   {
+    "pmid": "37257979",
+    "doi": "10.1016/j.aca.2023.341389",
+    "crossref_issue_year": 2023,
+    "title": "A new multimodal paradigm for biomarkers longitudinal monitoring: a clinical application to women steroid profiles in urine and blood.",
+    "crossref_citations": 7,
+    "citations_per_year": 2.13
+   },
+   {
+    "pmid": "38677839",
+    "doi": "10.1016/j.aca.2024.342597",
+    "crossref_issue_year": 2024,
+    "title": "Nonparametric estimation of measurement uncertainty arising from sampling.",
+    "crossref_citations": 7,
+    "citations_per_year": 2.76
+   },
+   {
+    "pmid": "41796490",
+    "doi": "10.1016/j.aca.2026.345258",
+    "crossref_issue_year": 2026,
+    "title": "Assessing variable importance stability using resampling strategies to enhance model interpretability and reliability in metabolomics.",
+    "crossref_citations": 7,
+    "citations_per_year": 12.91
+   },
+   {
+    "pmid": "39643314",
+    "doi": "10.1016/j.aca.2024.343460",
+    "crossref_issue_year": 2025,
+    "title": "Development of a fully automated slurry sampling introduction system for GF-AAS and its application for the determination of cadmium in different matrices.",
+    "crossref_citations": 6,
+    "citations_per_year": 3.21
+   },
+   {
+    "pmid": "41526113",
+    "doi": "10.1016/j.aca.2025.344995",
+    "crossref_issue_year": 2026,
+    "title": "Development, validation, and application of an innovative UHPLC-Orbitrap-HRMS method for multi-class analysis of endocrine disruptors in bottled water: Influence of bottle material, water source, and retail price.",
+    "crossref_citations": 5,
+    "citations_per_year": 6.36
+   },
+   {
+    "pmid": "37709461",
+    "doi": "10.1016/j.aca.2023.341720",
+    "crossref_issue_year": 2023,
+    "title": "A structural similarity networking assisted collision cross-section prediction interval filtering strategy for multi-compound identification of complex matrix by ion-mobility mass spectrometry.",
+    "crossref_citations": 4,
+    "citations_per_year": 1.28
+   },
+   {
+    "pmid": "38220300",
+    "doi": "10.1016/j.aca.2023.342168",
+    "crossref_issue_year": 2024,
+    "title": "Application of traceable calibration for gaseous oxidized mercury in air.",
+    "crossref_citations": 4,
+    "citations_per_year": 1.44
+   },
+   {
+    "pmid": "40015769",
+    "doi": "10.1016/j.aca.2025.343704",
+    "crossref_issue_year": 2025,
+    "title": "A critical analysis of Adaptive Box-Cox transformation for skewed distributed data management: Metabolomics of Spanish and Argentinian truffles as a case study.",
+    "crossref_citations": 4,
+    "citations_per_year": 2.46
+   },
+   {
+    "pmid": "40221201",
+    "doi": "10.1016/j.aca.2025.343954",
+    "crossref_issue_year": 2025,
+    "title": "A bootstrap-assisted methodology for the estimation of prediction uncertainty in multilayer perceptron-based calibration.",
+    "crossref_citations": 3,
+    "citations_per_year": 2.06
+   },
+   {
+    "pmid": "41935008",
+    "doi": "10.1016/j.aca.2026.345399",
+    "crossref_issue_year": 2026,
+    "title": "Multiscale evaluation of metal-organic framework-based adsorbents for shipboard carbon capture: Simulation, experiment, and sustainability analysis.",
+    "crossref_citations": 3,
+    "citations_per_year": 6.56
+   },
+   {
+    "pmid": "42191259",
+    "doi": "10.1016/j.aca.2026.345615",
+    "crossref_issue_year": 2026,
+    "title": "Non-destructive classification of type 2 diabetic teeth using LIBS-derived elemental biomarkers and machine learning.",
+    "crossref_citations": 3,
+    "citations_per_year": 10.34
+   },
+   {
+    "pmid": "37230568",
+    "doi": "10.1016/j.aca.2023.341274",
+    "crossref_issue_year": 2023,
+    "title": "Scrutinizing different ionization responses of polar lipids in a reversed-phase gradient by implementing a counter-gradient.",
+    "crossref_citations": 2,
+    "citations_per_year": 0.59
+   },
+   {
+    "pmid": "37604625",
+    "doi": "10.1016/j.aca.2023.341674",
+    "crossref_issue_year": 2023,
+    "title": "A simple agglutination system for rapid antigen detection from large sample volumes with enhanced sensitivity.",
+    "crossref_citations": 2,
+    "citations_per_year": 0.64
+   },
+   {
+    "pmid": "40480718",
+    "doi": "10.1016/j.aca.2025.344173",
+    "crossref_issue_year": 2025,
+    "title": "Advancing NMR-based quantification in complex mixtures using fourier transform and complete reduction to amplitude frequency table - The case of sugars.",
+    "crossref_citations": 2,
+    "citations_per_year": 1.55
+   },
+   {
+    "pmid": "40670005",
+    "doi": "10.1016/j.aca.2025.344329",
+    "crossref_issue_year": 2025,
+    "title": "Spectrally resolved lithium isotope quantification through high-resolution spatial heterodyne spectrometry.",
+    "crossref_citations": 2,
+    "citations_per_year": 1.66
+   },
+   {
+    "pmid": "40903110",
+    "doi": "10.1016/j.aca.2025.344395",
+    "crossref_issue_year": 2025,
+    "title": "Rethinking calibration as a statistical estimation problem to improve measurement accuracy.",
+    "crossref_citations": 2,
+    "citations_per_year": 1.78
+   },
+   {
+    "pmid": "41135998",
+    "doi": "10.1016/j.aca.2025.344698",
+    "crossref_issue_year": 2025,
+    "title": "DIATAGeR: Triacylglycerol annotation of data-independent acquisition based lipidomics.",
+    "crossref_citations": 2,
+    "citations_per_year": 2.09
+   },
+   {
+    "pmid": "41545105",
+    "doi": "10.1016/j.aca.2026.345053",
+    "crossref_issue_year": 2026,
+    "title": "DNA-AgNPs@Hydrogel microneedle-based flexible biosensor for rapid detection of thiram.",
+    "crossref_citations": 2,
+    "citations_per_year": 2.55
+   },
+   {
+    "pmid": "40750209",
+    "doi": "10.1016/j.aca.2025.344308",
+    "crossref_issue_year": 2025,
+    "title": "A Bayesian Adaptive Clustered Prior Learning (ACPL) method for sparse spectroscopic regression.",
+    "crossref_citations": 1,
+    "citations_per_year": 0.89
+   },
+   {
+    "pmid": "40983434",
+    "doi": "10.1016/j.aca.2025.344543",
+    "crossref_issue_year": 2025,
+    "title": "Novel insights into sources identification of fluvial dissolved organic matter in intricate plain river networks using optical indices with grey influence analysis and Bayesian model.",
+    "crossref_citations": 1,
+    "citations_per_year": 0.96
+   },
+   {
+    "pmid": "41285522",
+    "doi": "10.1016/j.aca.2025.344649",
+    "crossref_issue_year": 2026,
+    "title": "Sum of Euclidean distance differences and sum of absolute Manhattan distance differences: multicriteria decision making tools for small data tables.",
+    "crossref_citations": 1,
+    "citations_per_year": 1.15
+   },
+   {
+    "pmid": "42887958",
+    "doi": "10.1016/j.aca.2026.346201",
+    "crossref_issue_year": 2026,
+    "title": "Why choose between prediction power and mechanistic insight in QSRR modeling? A case study of artificial membrane chromatography and machine learning.",
+    "crossref_citations": 1,
+    "citations_per_year": 4.0
+   },
+   {
+    "pmid": "42967792",
+    "doi": "10.1016/j.aca.2026.346359",
+    "crossref_issue_year": 2026,
+    "title": "Conductometric process analytical technology for real-time endpoint control of graphene oxide dialysis purification.",
+    "crossref_citations": 1,
+    "citations_per_year": 4.0
+   },
+   {
+    "pmid": "40480683",
+    "doi": "10.1016/j.aca.2025.344134",
+    "crossref_issue_year": 2025,
+    "title": "MIPLS2: Exploiting PLS2 to impute missing values in a two-block system with multiple response variables.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   },
+   {
+    "pmid": "42401454",
+    "doi": "10.1016/j.aca.2026.345730",
+    "crossref_issue_year": 2026,
+    "title": "Chloride-assisted microwave-assisted digestion for reliable ICP-OES determination of tin in industrial wastewater: Method development and ISO 17025 validation.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   },
+   {
+    "pmid": "42951547",
+    "doi": "10.1016/j.aca.2026.346310",
+    "crossref_issue_year": 2026,
+    "title": "An integrated \"Sampling-SERS detection-regeneration\" analytical platform based on flexible Ag/AgCl/CdS heterojunctions for pesticide monitoring.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   },
+   {
+    "pmid": "42951562",
+    "doi": "10.1016/j.aca.2026.346327",
+    "crossref_issue_year": 2026,
+    "title": "Measurement uncertainty evaluation from analytical validation data: Asymmetric coverage interval due to uncorrected significant bias.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   },
+   {
+    "pmid": "43003591",
+    "doi": "10.1016/j.aca.2026.346401",
+    "crossref_issue_year": 2026,
+    "title": "Improved peak-parameter estimation in overlapping 1D NMR spectra through a joint-refinement extension of Global Spectral Deconvolution.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   }
+  ]
+ },
+ "transfer_domain_shift": {
+  "n_candidates": 47,
+  "top40_by_crossref_citations": [
+   {
+    "pmid": "39182987",
+    "doi": "10.1016/j.aca.2024.343069",
+    "crossref_issue_year": 2024,
+    "title": "Ti3C2 MXene quantum dots as an efficient fluorescent probe for bioflavonoid quercetin quantification in food samples.",
+    "crossref_citations": 61,
+    "citations_per_year": 27.68
+   },
+   {
+    "pmid": "38438234",
+    "doi": "10.1016/j.aca.2024.342348",
+    "crossref_issue_year": 2024,
+    "title": "A comprehensive UHPLC-MS/MS method for metabolomics profiling of signaling lipids: Markers of oxidative stress, immunity and inflammation.",
+    "crossref_citations": 28,
+    "citations_per_year": 10.68
+   },
+   {
+    "pmid": "38772657",
+    "doi": "10.1016/j.aca.2024.342674",
+    "crossref_issue_year": 2024,
+    "title": "Enhancement of spectral model transferability in LIBS systems through LIBS-LIPAS fusion technique.",
+    "crossref_citations": 27,
+    "citations_per_year": 10.99
+   },
+   {
+    "pmid": "38637036",
+    "doi": "10.1016/j.aca.2024.342535",
+    "crossref_issue_year": 2024,
+    "title": "Interplatform comparison between three ion mobility techniques for human plasma lipid collision cross sections.",
+    "crossref_citations": 19,
+    "citations_per_year": 7.48
+   },
+   {
+    "pmid": "41093509",
+    "doi": "10.1016/j.aca.2025.344641",
+    "crossref_issue_year": 2025,
+    "title": "An electrochemical sensor with both antifouling and self-cleaning strategies for uric acid detection in sweat.",
+    "crossref_citations": 14,
+    "citations_per_year": 14.65
+   },
+   {
+    "pmid": "38811137",
+    "doi": "10.1016/j.aca.2024.342718",
+    "crossref_issue_year": 2024,
+    "title": "Automated analyses of dried blood spots collected by volumetric microsampling devices.",
+    "crossref_citations": 13,
+    "citations_per_year": 5.29
+   },
+   {
+    "pmid": "41167877",
+    "doi": "10.1016/j.aca.2025.344658",
+    "crossref_issue_year": 2025,
+    "title": "Raman and NIR spectroscopy: A discussion of calibration robustness for food quality measurements through two case studies.",
+    "crossref_citations": 13,
+    "citations_per_year": 13.61
+   },
+   {
+    "pmid": "37455087",
+    "doi": "10.1016/j.aca.2023.341578",
+    "crossref_issue_year": 2023,
+    "title": "Exploration and optimization of extraction, analysis and data normalization strategies for mass spectrometry-based DNA adductome mapping and modeling.",
+    "crossref_citations": 12,
+    "citations_per_year": 3.74
+   },
+   {
+    "pmid": "38879205",
+    "doi": "10.1016/j.aca.2024.342757",
+    "crossref_issue_year": 2024,
+    "title": "Stepping-up accurate quantification of chlorinated paraffins: Successful certification of the first matrix reference material.",
+    "crossref_citations": 12,
+    "citations_per_year": 5.24
+   },
+   {
+    "pmid": "39030008",
+    "doi": "10.1016/j.aca.2024.342907",
+    "crossref_issue_year": 2024,
+    "title": "LC-MS/MS of isomeric N-and O-glycopeptides on mesoporous graphitized carbon column.",
+    "crossref_citations": 12,
+    "citations_per_year": 5.24
+   },
+   {
+    "pmid": "40414673",
+    "doi": "10.1016/j.aca.2025.344151",
+    "crossref_issue_year": 2025,
+    "title": "A systematic calibration transfer and quantification method based on principal components extreme learning machine for near-infrared spectroscopy.",
+    "crossref_citations": 12,
+    "citations_per_year": 9.31
+   },
+   {
+    "pmid": "38462330",
+    "doi": "10.1016/j.aca.2024.342404",
+    "crossref_issue_year": 2024,
+    "title": "Calibration transfer via filter learning.",
+    "crossref_citations": 11,
+    "citations_per_year": 4.19
+   },
+   {
+    "pmid": "40382106",
+    "doi": "10.1016/j.aca.2025.344124",
+    "crossref_issue_year": 2025,
+    "title": "An improved and validated p-dimethylaminobenzaldehyde procedure for the spectrophotometric determination of urea.",
+    "crossref_citations": 11,
+    "citations_per_year": 8.0
+   },
+   {
+    "pmid": "41330688",
+    "doi": "10.1016/j.aca.2025.344857",
+    "crossref_issue_year": 2026,
+    "title": "LUMIR: an LLM-driven unified agent framework for multi-task infrared spectroscopy reasoning.",
+    "crossref_citations": 10,
+    "citations_per_year": 11.49
+   },
+   {
+    "pmid": "37827627",
+    "doi": "10.1016/j.aca.2023.341848",
+    "crossref_issue_year": 2023,
+    "title": "Exploratory optimisation of a LC-HRMS based analytical method for untargeted metabolomic screening of Cannabis Sativa L. through Data Mining.",
+    "crossref_citations": 9,
+    "citations_per_year": 2.88
+   },
+   {
+    "pmid": "36813463",
+    "doi": "10.1016/j.aca.2023.340905",
+    "crossref_issue_year": 2023,
+    "title": "Fast analysis of gross alpha with a new plastic scintillation resin.",
+    "crossref_citations": 8,
+    "citations_per_year": 2.21
+   },
+   {
+    "pmid": "37328247",
+    "doi": "10.1016/j.aca.2023.341466",
+    "crossref_issue_year": 2023,
+    "title": "Capacitively coupled contactless conductivity detection to account for system-induced gradient deformation in liquid chromatography.",
+    "crossref_citations": 7,
+    "citations_per_year": 2.13
+   },
+   {
+    "pmid": "40484540",
+    "doi": "10.1016/j.aca.2025.344225",
+    "crossref_issue_year": 2025,
+    "title": "Analytical quality control in targeted lipidomics: Evaluating the performance of commercial plasma as a surrogate for pooled study samples.",
+    "crossref_citations": 7,
+    "citations_per_year": 5.81
+   },
+   {
+    "pmid": "40903127",
+    "doi": "10.1016/j.aca.2025.344459",
+    "crossref_issue_year": 2025,
+    "title": "Research on calibration transfer methods in coal quality spectral analysis across instruments and coal types.",
+    "crossref_citations": 7,
+    "citations_per_year": 6.24
+   },
+   {
+    "pmid": "41022507",
+    "doi": "10.1016/j.aca.2025.344571",
+    "crossref_issue_year": 2025,
+    "title": "QuantyFey: An open-source tool for targeted LC-MS quantification with integrated drift correction.",
+    "crossref_citations": 7,
+    "citations_per_year": 6.75
+   },
+   {
+    "pmid": "40490322",
+    "doi": "10.1016/j.aca.2025.344261",
+    "crossref_issue_year": 2025,
+    "title": "Capture-SELEX-based screening and mechanism analysis for the dual-colorimetric aptasening of microcystin in water.",
+    "crossref_citations": 6,
+    "citations_per_year": 4.98
+   },
+   {
+    "pmid": "40825627",
+    "doi": "10.1016/j.aca.2025.344403",
+    "crossref_issue_year": 2025,
+    "title": "Enzymatic hydrolysis combined with chemiluminescence immunoassay: Foresight for automated and rapid urinary aldosterone detection.",
+    "crossref_citations": 6,
+    "citations_per_year": 5.35
+   },
+   {
+    "pmid": "36935146",
+    "doi": "10.1016/j.aca.2023.341031",
+    "crossref_issue_year": 2023,
+    "title": "Standardization of near infrared spectroscopies via sample spectral correlation equalization.",
+    "crossref_citations": 5,
+    "citations_per_year": 1.38
+   },
+   {
+    "pmid": "41813363",
+    "doi": "10.1016/j.aca.2026.345292",
+    "crossref_issue_year": 2026,
+    "title": "A semi-supervised domain adaptation framework with attention-enhanced ResNet50 for LIBS-based soil classification under spectral distribution shift.",
+    "crossref_citations": 5,
+    "citations_per_year": 9.22
+   },
+   {
+    "pmid": "41241476",
+    "doi": "10.1016/j.aca.2025.344753",
+    "crossref_issue_year": 2025,
+    "title": "Improving metabolomics data comparability without long term quality controls using a post-acquisition correction strategy.",
+    "crossref_citations": 4,
+    "citations_per_year": 4.19
+   },
+   {
+    "pmid": "41903982",
+    "doi": "10.1016/j.aca.2026.345387",
+    "crossref_issue_year": 2026,
+    "title": "Transfer of multivariate calibrations for potentiometric multisensor systems to account for non-calibrated interferences.",
+    "crossref_citations": 3,
+    "citations_per_year": 6.56
+   },
+   {
+    "pmid": "41167890",
+    "doi": "10.1016/j.aca.2025.344728",
+    "crossref_issue_year": 2025,
+    "title": "PLSELM: A lightweight modeling approach for low-data calibration in near-infrared spectroscopy.",
+    "crossref_citations": 2,
+    "citations_per_year": 2.09
+   },
+   {
+    "pmid": "42219635",
+    "doi": "10.1016/j.aca.2026.345651",
+    "crossref_issue_year": 2026,
+    "title": "When spectral libraries are too complex to search: Evolutionary subset selection for domain-adaptive calibration.",
+    "crossref_citations": 2,
+    "citations_per_year": 6.89
+   },
+   {
+    "pmid": "42242800",
+    "doi": "10.1016/j.aca.2026.345682",
+    "crossref_issue_year": 2026,
+    "title": "Rethinking local spectral modelling: From per-query refitting to model libraries.",
+    "crossref_citations": 2,
+    "citations_per_year": 8.0
+   },
+   {
+    "pmid": "41352936",
+    "doi": "10.1016/j.aca.2025.344898",
+    "crossref_issue_year": 2026,
+    "title": "Proton exchange membrane electrolytic enrichment system and tritium residual ratio curve method for analysis of tritium concentration in seawater.",
+    "crossref_citations": 1,
+    "citations_per_year": 1.15
+   },
+   {
+    "pmid": "41545118",
+    "doi": "10.1016/j.aca.2025.345037",
+    "crossref_issue_year": 2026,
+    "title": "Novel and practical spectrophotometric method for urea determination using p-dimethylaminobenzaldehyde reagent system augmented with chromotropic acid.",
+    "crossref_citations": 1,
+    "citations_per_year": 1.27
+   },
+   {
+    "pmid": "41577414",
+    "doi": "10.1016/j.aca.2026.345072",
+    "crossref_issue_year": 2026,
+    "title": "A novel and efficient single column separation procedure for high-precision determination of Molybdenum isotope ratio analysis by MC-ICP-MS.",
+    "crossref_citations": 1,
+    "citations_per_year": 1.27
+   },
+   {
+    "pmid": "41813342",
+    "doi": "10.1016/j.aca.2026.345293",
+    "crossref_issue_year": 2026,
+    "title": "Precise, fast, and automated gel quantification powered by YOLO11 instance segmentation.",
+    "crossref_citations": 1,
+    "citations_per_year": 1.84
+   },
+   {
+    "pmid": "42217996",
+    "doi": "10.1016/j.aca.2026.345578",
+    "crossref_issue_year": 2026,
+    "title": "A matrix-tolerant one-dimensional CNN for raw LIBS analysis: Architecture and soil carbon benchmark.",
+    "crossref_citations": 1,
+    "citations_per_year": 3.45
+   },
+   {
+    "pmid": "42242804",
+    "doi": "10.1016/j.aca.2026.345709",
+    "crossref_issue_year": 2026,
+    "title": "Programmable Fc-encoded DNA tile-cube capture enables a thrombin-activated ratiometric ECL/SERS biosensor via a PAM-engineered toehold switch and CRISPR/Cas12a cleavage.",
+    "crossref_citations": 1,
+    "citations_per_year": 4.0
+   },
+   {
+    "pmid": "42508897",
+    "doi": "10.1016/j.aca.2026.345796",
+    "crossref_issue_year": 2026,
+    "title": "A quantitative framework for optimization, interpretation, and quality control of the PFAS total oxidizable precursor assay.",
+    "crossref_citations": 1,
+    "citations_per_year": 4.0
+   },
+   {
+    "pmid": "42648827",
+    "doi": "10.1016/j.aca.2026.345950",
+    "crossref_issue_year": 2026,
+    "title": "A novel multi-strategy collaborative correction method for LIBS spectral intensity under laser energy fluctuations.",
+    "crossref_citations": 1,
+    "citations_per_year": 4.0
+   },
+   {
+    "pmid": "40915720",
+    "doi": "10.1016/j.aca.2025.344475",
+    "crossref_issue_year": 2025,
+    "title": "Enhancing 2D retention index accuracy: Correcting 2D retention time shifts in GC\u00d7GC due to modulation timing deviations via line detection technology.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   },
+   {
+    "pmid": "42009426",
+    "doi": "10.1016/j.aca.2026.345485",
+    "crossref_issue_year": 2026,
+    "title": "Cross-instrument coal quality spectral analysis via a PDS-assisted fine-tuning calibration transfer method.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   },
+   {
+    "pmid": "42191295",
+    "doi": "10.1016/j.aca.2026.345580",
+    "crossref_issue_year": 2026,
+    "title": "Method development and production of an ambient-stable blood certified reference material for total mercury, methylmercury, and trace elements.",
+    "crossref_citations": 0,
+    "citations_per_year": 0.0
+   }
+  ]
+ }
+}
