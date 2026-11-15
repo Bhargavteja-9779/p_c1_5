@@ -1,0 +1,8 @@
+journal,topic_total,sampled,n_with_dates,median,q1,q3,p90,pct_le_60,pct_le_100
+Analytical Chemistry (ACS),831,600,99,95,74.0,128.0,162.0,17.2,56.6
+Analytica Chimica Acta (Elsevier),299,299,299,82,58.0,116.0,150.0,28.8,67.6
+Talanta (Elsevier),436,436,436,77.5,58.25,108.75,142.0,26.4,70.4
+J Chem Inf Model (ACS),1143,600,149,80,57.5,112.5,148.0,26.2,68.5
+Chemical Science (RSC),222,222,220,86.0,63.25,117.0,148.9,22.3,63.2
+Water Research (Elsevier),686,600,600,97.0,75.0,131.75,180.9,11.8,53.2
+J Hazardous Materials (Elsevier),756,600,600,91.0,70.0,119.0,150.0,14.7,60.3

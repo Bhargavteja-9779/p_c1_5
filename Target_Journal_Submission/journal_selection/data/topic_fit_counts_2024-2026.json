@@ -1,0 +1,92 @@
+{
+ "Analytical Chemistry": {
+  "machine learning (tiab)": 689,
+  "chemometric* (tiab)": 72,
+  "retention time prediction": 29,
+  "non-target screening": 61,
+  "calibration transfer": 8,
+  "uncertainty/conformal": 3,
+  "ALL 2024-2026": 8357
+ },
+ "Analytica Chimica Acta": {
+  "machine learning (tiab)": 177,
+  "chemometric* (tiab)": 63,
+  "retention time prediction": 8,
+  "non-target screening": 39,
+  "calibration transfer": 8,
+  "uncertainty/conformal": 0,
+  "ALL 2024-2026": 3304
+ },
+ "Talanta": {
+  "machine learning (tiab)": 320,
+  "chemometric* (tiab)": 100,
+  "retention time prediction": 5,
+  "non-target screening": 43,
+  "calibration transfer": 5,
+  "uncertainty/conformal": 2,
+  "ALL 2024-2026": 5516
+ },
+ "J Chem Inf Model": {
+  "machine learning (tiab)": 1181,
+  "chemometric* (tiab)": 3,
+  "retention time prediction": 11,
+  "non-target screening": 3,
+  "calibration transfer": 6,
+  "uncertainty/conformal": 29,
+  "ALL 2024-2026": 2927
+ },
+ "Chemical Science": {
+  "machine learning (tiab)": 260,
+  "chemometric* (tiab)": 1,
+  "retention time prediction": 0,
+  "non-target screening": 0,
+  "calibration transfer": 0,
+  "uncertainty/conformal": 1,
+  "ALL 2024-2026": 5908
+ },
+ "Water Research": {
+  "machine learning (tiab)": 499,
+  "chemometric* (tiab)": 0,
+  "retention time prediction": 13,
+  "non-target screening": 93,
+  "calibration transfer": 6,
+  "uncertainty/conformal": 12,
+  "ALL 2024-2026": 5825
+ },
+ "J Hazardous Materials": {
+  "machine learning (tiab)": 615,
+  "chemometric* (tiab)": 19,
+  "retention time prediction": 6,
+  "non-target screening": 165,
+  "calibration transfer": 1,
+  "uncertainty/conformal": 13,
+  "ALL 2024-2026": 11608
+ },
+ "Environmental Research": {
+  "machine learning (tiab)": 363,
+  "chemometric* (tiab)": 8,
+  "retention time prediction": 2,
+  "non-target screening": 73,
+  "calibration transfer": 0,
+  "uncertainty/conformal": 5,
+  "ALL 2024-2026": 7884
+ },
+ "J Chem Theory Comput": {
+  "machine learning (tiab)": 552,
+  "chemometric* (tiab)": 0,
+  "retention time prediction": 0,
+  "non-target screening": 1,
+  "calibration transfer": 0,
+  "uncertainty/conformal": 12,
+  "ALL 2024-2026": 2783
+ },
+ "Spectrochim Acta A": {
+  "machine learning (tiab)": 582,
+  "chemometric* (tiab)": 279,
+  "retention time prediction": 0,
+  "non-target screening": 6,
+  "calibration transfer": 15,
+  "uncertainty/conformal": 3,
+  "ALL 2024-2026": 5196
+ }
+}

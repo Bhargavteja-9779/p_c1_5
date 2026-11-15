@@ -1,0 +1,530 @@
+{
+ "Anal Chem": [
+  {
+   "pmid": "43010392",
+   "title": "A Pseudo-Targeted Method for Global Profiling of Cholesteryl Esters by Liquid Chromatography-Zeno High-Resolution Multiple Reaction Monitoring Mass Spectrometry.",
+   "pubdate": "2026 Nov 10",
+   "doi": "10.1021/acs.analchem.6c04131"
+  },
+  {
+   "pmid": "42975175",
+   "title": "Chemical Stabilization and Retention-Predictive Modeling for Regiospecific Profiling of Labile Monoacylglycerols by UHPLC-HRMS.",
+   "pubdate": "2026 Nov 3",
+   "doi": "10.1021/acs.analchem.6c05265"
+  },
+  {
+   "pmid": "42253128",
+   "title": "iDeepLC: Chemical Structure Information Yields Improved Retention Time Prediction of Peptides with Unseen Modifications.",
+   "pubdate": "2026 Jun 23",
+   "doi": "10.1021/acs.analchem.5c08017"
+  },
+  {
+   "pmid": "42017791",
+   "title": "FlashMRM: An Automated Platform for MRM Method Generation and Iterative Optimization Based on High-Resolution Spectra.",
+   "pubdate": "2026 May 5",
+   "doi": "10.1021/acs.analchem.6c00179"
+  },
+  {
+   "pmid": "41885002",
+   "title": "Unified Multitask Modeling for Retention Time Prediction Across Chromatographic Conditions.",
+   "pubdate": "2026 Apr 7",
+   "doi": "10.1021/acs.analchem.5c07973"
+  },
+  {
+   "pmid": "41773770",
+   "title": "High Coverage Quantitative Lipidomic Analysis for Multiple Biological Matrices Using Ultrahigh-Performance Liquid-Chromatography and Tandem Mass Spectrometry.",
+   "pubdate": "2026 Mar 17",
+   "doi": "10.1021/acs.analchem.5c06487"
+  },
+  {
+   "pmid": "41627175",
+   "title": "Uncertainty-Aware Learning of Multiple Conditions as a Framework for Streamlined Retention Time Prediction to Accelerate Method Development.",
+   "pubdate": "2026 Feb 17",
+   "doi": "10.1021/acs.analchem.5c06729"
+  },
+  {
+   "pmid": "41379647",
+   "title": "Combining Retip Retention Time Prediction with High-Resolution Mass Spectrometry: A Systematic Analysis of Schisandra chinensis-Evodia Conducted for the First Time.",
+   "pubdate": "2025 Dec 23",
+   "doi": "10.1021/acs.analchem.5c05620"
+  },
+  {
+   "pmid": "41364107",
+   "title": "GPMassSimulator: A Graphormer-Based Method for Glycopeptide MS/MS Spectra Prediction.",
+   "pubdate": "2025 Dec 23",
+   "doi": "10.1021/acs.analchem.5c02375"
+  },
+  {
+   "pmid": "41143574",
+   "title": "AI-SNPS2: A Multi-Layered LC-MS/MS Platform Integrating Molecular Networking and Retention Time Prediction for Identifying Controlled and New Psychoactive Substances.",
+   "pubdate": "2025 Nov 11",
+   "doi": "10.1021/acs.analchem.5c02830"
+  },
+  {
+   "pmid": "41105844",
+   "title": "Characterization of Lipid Epi-Metabolites/Reactions as Diagnostic Biomarkers for Idiopathic Pulmonary Fibrosis by Lipidepifind.",
+   "pubdate": "2025 Nov 11",
+   "doi": "10.1021/acs.analchem.5c00277"
+  },
+  {
+   "pmid": "40791078",
+   "title": "Machine Learning for Enhanced Identification Probability in RPLC/HRMS Nontargeted Workflows.",
+   "pubdate": "2025 Aug 26",
+   "doi": "10.1021/acs.analchem.5c01873"
+  },
+  {
+   "pmid": "40774382",
+   "title": "Untargeted Discovery and Localization of Isomerized Residues in Neuropeptides.",
+   "pubdate": "2025 Aug 19",
+   "doi": "10.1021/acs.analchem.5c02612"
+  },
+  {
+   "pmid": "40763075",
+   "title": "Passive Membrane Transport Analysis of Drug Mixtures.",
+   "pubdate": "2025 Aug 19",
+   "doi": "10.1021/acs.analchem.5c02264"
+  },
+  {
+   "pmid": "40747624",
+   "title": "Prediction of Retention Time by Combining Multiple Data Sets with Chromatographic Parameter Vectorization and Transfer Learning.",
+   "pubdate": "2025 Aug 12",
+   "doi": "10.1021/acs.analchem.5c01703"
+  },
+  {
+   "pmid": "40673892",
+   "title": "Novel Equivalent Carbon Number Strategy for Large-Scale Lipidomics Data Analysis via Ultrahigh-Performance Liquid Chromatography-Orbitrap Astral Mass Spectrometry.",
+   "pubdate": "2025 Jul 29",
+   "doi": "10.1021/acs.analchem.5c01863"
+  },
+  {
+   "pmid": "40635393",
+   "title": "MAMSI: Integration of Multiassay Liquid Chromatography-Mass Spectrometry Metabolomics Data Using Multiview Machine Learning.",
+   "pubdate": "2025 Jul 22",
+   "doi": "10.1021/acs.analchem.5c01327"
+  },
+  {
+   "pmid": "40358456",
+   "title": "Benchmarking of Trapped Ion Mobility Spectrometry in Differentiating Plasmalogens from Other Ether Lipids in Lipidomics Experiments.",
+   "pubdate": "2025 May 27",
+   "doi": "10.1021/acs.analchem.4c06617"
+  },
+  {
+   "pmid": "40047663",
+   "title": "Multidimensional-Constrained Suspect Screening of Hydrophobic Contaminants Using Gas Chromatography-Atmospheric Pressure Chemical Ionization-Ion Mobility-Mass Spectrometry.",
+   "pubdate": "2025 Mar 18",
+   "doi": "10.1021/acs.analchem.4c06234"
+  },
+  {
+   "pmid": "39868899",
+   "title": "QuanFormer: A Transformer-Based Precise Peak Detection and Quantification Tool in LC-MS-Based Metabolomics.",
+   "pubdate": "2025 Feb 11",
+   "doi": "10.1021/acs.analchem.4c04531"
+  },
+  {
+   "pmid": "39699939",
+   "title": "Introducing \"Identification Probability\" for Automated and Transferable Assessment of Metabolite Identification Confidence in Metabolomics and Related Studies.",
+   "pubdate": "2025 Jan 14",
+   "doi": "10.1021/acs.analchem.4c04060"
+  },
+  {
+   "pmid": "39508740",
+   "title": "A Semi-Quantitative Approach to Nontarget Compositional Analysis of Complex Samples.",
+   "pubdate": "2024 Nov 19",
+   "doi": "10.1021/acs.analchem.4c00819"
+  },
+  {
+   "pmid": "39322219",
+   "title": "Theoretical Assessment of Indistinguishable Peptides in Mass Spectrometry-Based Proteomics.",
+   "pubdate": "2024 Oct 8",
+   "doi": "10.1021/acs.analchem.4c02803"
+  },
+  {
+   "pmid": "39150895",
+   "title": "An 8-(Diazomethyl) Quinoline Derivatized Acyl-CoA in Silico Mass Spectral Library Reveals the Landscape of Acyl-CoA in Aging Mouse Organs.",
+   "pubdate": "2024 Aug 16",
+   "doi": "10.1021/acs.analchem.4c02113"
+  },
+  {
+   "pmid": "38783786",
+   "title": "Predicting the Predicted: A Comparison of Machine Learning-Based Collision Cross-Section Prediction Models for Small Molecules.",
+   "pubdate": "2024 Jun 4",
+   "doi": "10.1021/acs.analchem.4c00630"
+  },
+  {
+   "pmid": "38523323",
+   "title": "Lipid Wizard: Analysis Software for Comprehensive Two-Dimensional Liquid Chromatography-Mass Spectrometry-Based Lipid Profiling.",
+   "pubdate": "2024 Apr 9",
+   "doi": "10.1021/acs.analchem.3c04419"
+  },
+  {
+   "pmid": "38264982",
+   "title": "Development and Application of a Comprehensive Nontargeted Screening Strategy for Aristolochic Acid Analogues.",
+   "pubdate": "2024 Feb 6",
+   "doi": "10.1021/acs.analchem.3c04064"
+  },
+  {
+   "pmid": "38186224",
+   "title": "Predicting Retention Time in Unified-Hydrophilic-Interaction/Anion-Exchange Liquid Chromatography High-Resolution Tandem Mass Spectrometry (Unified-HILIC/AEX/HRMS/MS) for Comprehensive Structural Annotation of Polar Metabolome.",
+   "pubdate": "2024 Jan 23",
+   "doi": "10.1021/acs.analchem.3c04618"
+  },
+  {
+   "pmid": "38183295",
+   "title": "Exploiting Charge State Distribution To Probe Intramolecular Interactions in Gas-Phase Phosphopeptides and Enhance Proteomics Analyses.",
+   "pubdate": "2024 Jan 23",
+   "doi": "10.1021/acs.analchem.3c04270"
+  },
+  {
+   "pmid": "37967119",
+   "title": "EISA-EXPOSOME: One Highly Sensitive and Autonomous Exposomic Platform with Enhanced in-Source Fragmentation/Annotation.",
+   "pubdate": "2023 Nov 28",
+   "doi": "10.1021/acs.analchem.3c02697"
+  },
+  {
+   "pmid": "37955847",
+   "title": "Retention Time Prediction through Learning from a Small Training Data Set with a Pretrained Graph Neural Network.",
+   "pubdate": "2023 Nov 28",
+   "doi": "10.1021/acs.analchem.3c03177"
+  },
+  {
+   "pmid": "37931321",
+   "title": "Differentiation of Alkyl- and Plasmenyl-phosphatidylcholine by Endogenous Sphingomyelin RT-XLOGP3 Regression for Coronary Artery Disease Plasma Lipidomics Analysis.",
+   "pubdate": "2023 Nov 21",
+   "doi": "10.1021/acs.analchem.3c02693"
+  },
+  {
+   "pmid": "37384898",
+   "title": "High-Throughput Chromatographic Separation of Oligonucleotides: A Proof of Concept Using Ultra-Short Columns.",
+   "pubdate": "2023 Jul 11",
+   "doi": "10.1021/acs.analchem.3c01934"
+  },
+  {
+   "pmid": "37341572",
+   "title": "Volume-Corrected Free Energy as a New Criterion for Structural Elucidation in Chemical-Tagging-Based Metabolomics.",
+   "pubdate": "2023 Jul 4",
+   "doi": "10.1021/acs.analchem.3c00722"
+  },
+  {
+   "pmid": "37126374",
+   "title": "High-Coverage Four-Dimensional Data-Independent Acquisition Proteomics and Phosphoproteomics Enabled by Deep Learning-Driven Multidimensional Predictions.",
+   "pubdate": "2023 May 16",
+   "doi": "10.1021/acs.analchem.2c05414"
+  },
+  {
+   "pmid": "36599093",
+   "title": "Separation of Cells and Microparticles in Insulator-Based Electrokinetic Systems.",
+   "pubdate": "2023 Jan 17",
+   "doi": "10.1021/acs.analchem.2c04366"
+  }
+ ],
+ "Water Res": [
+  {
+   "pmid": "42777464",
+   "title": "Unveiling the overlooked nitrous oxide reduction enzyme in wastewater treatment systems.",
+   "pubdate": "2026 Sep 20",
+   "doi": "10.1016/j.watres.2026.126987"
+  },
+  {
+   "pmid": "42594447",
+   "title": "Microbial immigration in full-scale activated sludge systems is influenced by operational and design parameters.",
+   "pubdate": "2026 Dec 1",
+   "doi": "10.1016/j.watres.2026.126666"
+  },
+  {
+   "pmid": "41997104",
+   "title": "Phage predation mitigates the spread of antibiotic resistance in anaerobic digestion under shortened solid retention times.",
+   "pubdate": "2026 Aug 1",
+   "doi": "10.1016/j.watres.2026.125921"
+  },
+  {
+   "pmid": "40916332",
+   "title": "Unraveling phosphorus enrichment, transformation, and optimal process strategies in sewage sludge pyrolysis using a correlation-prediction-causation integrated framework.",
+   "pubdate": "2025 Dec 1",
+   "doi": "10.1016/j.watres.2025.124504"
+  },
+  {
+   "pmid": "40701046",
+   "title": "Decoding pharmaceutical removability in full-scale wastewater treatment plants via machine learning model integrating modified electrophilicity index.",
+   "pubdate": "2025 Nov 1",
+   "doi": "10.1016/j.watres.2025.124218"
+  },
+  {
+   "pmid": "40174422",
+   "title": "Synergizing carbon and phosphorus recovery from wastewater: Integrating biofilm-based phosphorus removal in high-rate activated sludge.",
+   "pubdate": "2025 Jul 15",
+   "doi": "10.1016/j.watres.2025.123546"
+  },
+  {
+   "pmid": "39999601",
+   "title": "Aerobic biological treatment of hydrothermal liquefaction process water of sewage sludge: Nitrification inhibition and removal of hazardous pollutants.",
+   "pubdate": "2025 Jun 1",
+   "doi": "10.1016/j.watres.2025.123351"
+  },
+  {
+   "pmid": "39954457",
+   "title": "Revealing the underestimated risks of pharmaceutical transformation products in wastewater by suspect and targeted screening.",
+   "pubdate": "2025 May 15",
+   "doi": "10.1016/j.watres.2025.123265"
+  },
+  {
+   "pmid": "39432994",
+   "title": "Deciphering the impact of cascade reservoirs on nitrogen transport and nitrate transformation: Insights from multiple isotope analysis and machine learning.",
+   "pubdate": "2025 Jan 1",
+   "doi": "10.1016/j.watres.2024.122638"
+  },
+  {
+   "pmid": "39418798",
+   "title": "Predicting aeration time and nitrite accumulation rate variations for Partial Nitritation: A model incorporating nitrogen oxidation rate dynamics.",
+   "pubdate": "2025 Jan 1",
+   "doi": "10.1016/j.watres.2024.122615"
+  },
+  {
+   "pmid": "39146855",
+   "title": "Assessing the fate and behaviour of plant nutrients in aquaponic systems by chemical equilibrium modelling: A meta-analytical approach.",
+   "pubdate": "2024 Oct 15",
+   "doi": "10.1016/j.watres.2024.122226"
+  },
+  {
+   "pmid": "38382288",
+   "title": "Identify organic contaminants of high-concern based on non-targeted toxicity testing and non-targeted LC-HRMS analysis in tap water and source water along the Yangtze River.",
+   "pubdate": "2024 Apr 1",
+   "doi": "10.1016/j.watres.2024.121303"
+  },
+  {
+   "pmid": "37984038",
+   "title": "ABACO-2: a comprehensive model for microalgae-bacteria consortia validated outdoor at pilot-scale.",
+   "pubdate": "2024 Jan 1",
+   "doi": "10.1016/j.watres.2023.120837"
+  },
+  {
+   "pmid": "36450178",
+   "title": "Expanding mechanistic models to represent purple phototrophic bacteria enriched cultures growing outdoors.",
+   "pubdate": "2023 Feb 1",
+   "doi": "10.1016/j.watres.2022.119401"
+  }
+ ],
+ "Anal Chim Acta": [
+  {
+   "pmid": "41526108",
+   "title": "Multi-condition machine learning models for understanding retention mechanisms and predicting retention time in supercritical fluid chromatography/mass spectrometry.",
+   "pubdate": "2026 Feb 1",
+   "doi": "10.1016/j.aca.2025.345026"
+  },
+  {
+   "pmid": "41167895",
+   "title": "Machine learning-assisted retention time predictions on a cellulose Tris(3,5)-dimethylphenylcarbamate column in polar organic mode.",
+   "pubdate": "2025 Dec 15",
+   "doi": "10.1016/j.aca.2025.344733"
+  },
+  {
+   "pmid": "40480691",
+   "title": "Development of a quantitative structure-response relationships to estimate concentrations of plasticizer metabolites in urine without reference standards using non-targeted analysis with liquid chromatography high-resolution mass spectrometry.",
+   "pubdate": "2025 Aug 22",
+   "doi": "10.1016/j.aca.2025.344215"
+  },
+  {
+   "pmid": "40288861",
+   "title": "Dual LC column characterization for mass spectrometry-based small molecule profiling of human plasma and serum.",
+   "pubdate": "2025 Jun 22",
+   "doi": "10.1016/j.aca.2025.343942"
+  },
+  {
+   "pmid": "40024662",
+   "title": "Selectivity modulation and its prediction in cyclofructan-6 phase for chaotropic ions.",
+   "pubdate": "2025 Apr 15",
+   "doi": "10.1016/j.aca.2025.343788"
+  },
+  {
+   "pmid": "39396319",
+   "title": "An integrated strategy for in-depth profiling of N-acylethanolamines in biological samples by UHPLC-HRMS.",
+   "pubdate": "2024 Nov 15",
+   "doi": "10.1016/j.aca.2024.343262"
+  },
+  {
+   "pmid": "38719419",
+   "title": "An untargeted analytical workflow based on Kendrick mass defect filtering reveals dysregulations in acylcarnitines in prostate cancer tissue.",
+   "pubdate": "2024 Jun 8",
+   "doi": "10.1016/j.aca.2024.342574"
+  },
+  {
+   "pmid": "38609268",
+   "title": "Target and suspect screening of psychoactive substances in seizures and oral fluid exploiting retention time prediction and LC-MS/MS analysis.",
+   "pubdate": "2024 May 15",
+   "doi": "10.1016/j.aca.2024.342529"
+  },
+  {
+   "pmid": "37455081",
+   "title": "A chemical derivatization-based pseudotargeted LC-MS/MS method for high coverage determination of dipeptides.",
+   "pubdate": "2023 Sep 15",
+   "doi": "10.1016/j.aca.2023.341570"
+  },
+  {
+   "pmid": "36925302",
+   "title": "A rapid and sensitive single-cell proteomic method based on fast liquid-chromatography separation, retention time prediction and MS1-only acquisition.",
+   "pubdate": "2023 Apr 22",
+   "doi": "10.1016/j.aca.2023.341038"
+  },
+  {
+   "pmid": "36628759",
+   "title": "A strategy for screening and identification of new amino acid-conjugated bile acids with high coverage by liquid chromatography-mass spectrometry.",
+   "pubdate": "2023 Jan 25",
+   "doi": "10.1016/j.aca.2022.340691"
+  }
+ ],
+ "Talanta": [
+  {
+   "pmid": "42800157",
+   "title": "TC-TopoRT: Tautomer-consistent and topology-aware retention time prediction for LC-MS metabolite annotation.",
+   "pubdate": "2027 Mar 1",
+   "doi": "10.1016/j.talanta.2026.130639"
+  },
+  {
+   "pmid": "40393240",
+   "title": "Unveiling the dark matter of the metabolome: A narrative review of bioinformatics tools for LC-HRMS-based compound annotation.",
+   "pubdate": "2025 Dec 1",
+   "doi": "10.1016/j.talanta.2025.128327"
+  },
+  {
+   "pmid": "39884120",
+   "title": "Comprehensive analysis strategy of quality for traditional Chinese medicine compound based on fingerprint technology and quantitative prediction of spectra.",
+   "pubdate": "2025 May 15",
+   "doi": "10.1016/j.talanta.2025.127661"
+  },
+  {
+   "pmid": "37875029",
+   "title": "A novel endogenous retention-index for minimizing retention-time variations in metabolomic analysis with reversed-phase ultrahigh-performance liquid-chromatography and mass spectrometry.",
+   "pubdate": "2024 Feb 1",
+   "doi": "10.1016/j.talanta.2023.125318"
+  },
+  {
+   "pmid": "37734288",
+   "title": "Liquid chromatographic retention time prediction models to secure and improve the feature annotation process in high-resolution mass spectrometry.",
+   "pubdate": "2024 Jan 15",
+   "doi": "10.1016/j.talanta.2023.125214"
+  },
+  {
+   "pmid": "36095943",
+   "title": "Development of quantitative structure-retention relationship models to improve the identification of leachables in food packaging using non-targeted analysis.",
+   "pubdate": "2023 Feb 1",
+   "doi": "10.1016/j.talanta.2022.123861"
+  }
+ ],
+ "J Hazard Mater": [
+  {
+   "pmid": "41875570",
+   "title": "Beyond the known: Integrated non-target screening and in silico toxicity prediction of substances migrating from plastic and paper-based food contact materials.",
+   "pubdate": "2026 Apr 1",
+   "doi": "10.1016/j.jhazmat.2026.141824"
+  },
+  {
+   "pmid": "41621299",
+   "title": "Retention time prediction of emerging contaminants via transfer learning with graph neural networks.",
+   "pubdate": "2026 Feb 15",
+   "doi": "10.1016/j.jhazmat.2026.141313"
+  },
+  {
+   "pmid": "41518800",
+   "title": "Identification of contaminants of emerging concern through temporal trend analysis of suspended particulate matter in the Rhine River catchments (2005-2022): A case study using LC-HRMS to support early-warning systems.",
+   "pubdate": "2026 Feb 1",
+   "doi": "10.1016/j.jhazmat.2025.140993"
+  },
+  {
+   "pmid": "41138413",
+   "title": "Antibiotic-driven shifts in bacterial dynamics of the polyethylene terephthalate and low density polyethylene plastisphere in wastewater treatment systems.",
+   "pubdate": "2025 Nov 5",
+   "doi": "10.1016/j.jhazmat.2025.140219"
+  },
+  {
+   "pmid": "38885589",
+   "title": "Enhanced denitrification and p-nitrophenol removal performance via hydrophilic sponge carriers fixed with dual-bacterial: Optimization, performance, and enhancement mechanism.",
+   "pubdate": "2024 Aug 15",
+   "doi": "10.1016/j.jhazmat.2024.134922"
+  },
+  {
+   "pmid": "37797577",
+   "title": "Suspect and nontarget screening of per- and polyfluoroalkyl substances based on ion mobility mass spectrometry and machine learning techniques.",
+   "pubdate": "2024 Jan 5",
+   "doi": "10.1016/j.jhazmat.2023.132669"
+  },
+  {
+   "pmid": "36746086",
+   "title": "An automated toxicity based prioritization framework for fast chemical characterization in non-targeted analysis.",
+   "pubdate": "2023 Apr 15",
+   "doi": "10.1016/j.jhazmat.2023.130893"
+  }
+ ],
+ "J Chem Inf Model": [
+  {
+   "pmid": "43001934",
+   "title": "Geometry-Aware Molecular Representation Learning for Approximating NORMAN-Predicted Retention Time Indices in Nontargeted Screening.",
+   "pubdate": "2026 Nov 9",
+   "doi": "10.1021/acs.jcim.6c02699"
+  },
+  {
+   "pmid": "42906056",
+   "title": "Assay-Level Modeling and External Validation of Antibody Developability Using Physicochemical Descriptors and Sequence Embeddings.",
+   "pubdate": "2026 Sep 28",
+   "doi": "10.1021/acs.jcim.6c02385"
+  },
+  {
+   "pmid": "42670875",
+   "title": "FastRet: Fast and Simple Retention Time Prediction in Liquid Chromatography.",
+   "pubdate": "2026 Aug 24",
+   "doi": "10.1021/acs.jcim.6c01344"
+  },
+  {
+   "pmid": "41701342",
+   "title": "IALA-LNN: Deep Learning for Peptide Retention Time Prediction Based on Improved Artificial Lemming Algorithm-Optimized Liquid Neural Networks.",
+   "pubdate": "2026 Mar 9",
+   "doi": "10.1021/acs.jcim.5c02548"
+  },
+  {
+   "pmid": "40667971",
+   "title": "Machine Learning-Based Retention Time Prediction Tool for Routine LC-MS Data Analysis.",
+   "pubdate": "2025 Jul 28",
+   "doi": "10.1021/acs.jcim.5c00514"
+  },
+  {
+   "pmid": "40152775",
+   "title": "Prediction of Chromatographic Retention Time of a Small Molecule from SMILES Representation Using a Hybrid Transformer-LSTM Model.",
+   "pubdate": "2025 Apr 14",
+   "doi": "10.1021/acs.jcim.5c00167"
+  },
+  {
+   "pmid": "40116044",
+   "title": "ChiGNN: Interpretable Algorithm Framework of Molecular Chiral Knowledge-Embedding and Stereosensitive Property Prediction.",
+   "pubdate": "2025 Apr 14",
+   "doi": "10.1021/acs.jcim.4c02259"
+  },
+  {
+   "pmid": "39818945",
+   "title": "ABCoRT: Retention Time Prediction for Metabolite Identification via Atom-Bond Co-Learning.",
+   "pubdate": "2025 Feb 10",
+   "doi": "10.1021/acs.jcim.4c02179"
+  },
+  {
+   "pmid": "39793969",
+   "title": "The Use of Glycan Ensemble Structures and Nonpolar Surface Area Distributions for Correlating with Liquid Chromatography Retention Times.",
+   "pubdate": "2025 Jan 27",
+   "doi": "10.1021/acs.jcim.4c01920"
+  },
+  {
+   "pmid": "39786356",
+   "title": "Prediction of Proteolysis-Targeting Chimeras Retention Time Using XGBoost Model Incorporated with Chromatographic Conditions.",
+   "pubdate": "2025 Jan 27",
+   "doi": "10.1021/acs.jcim.4c01732"
+  },
+  {
+   "pmid": "39284310",
+   "title": "Transfer Learning Approach to Multitarget QSRR Modeling in RPLC.",
+   "pubdate": "2024 Oct 14",
+   "doi": "10.1021/acs.jcim.4c00608"
+  },
+  {
+   "pmid": "36926888",
+   "title": "Using Machine Learning To Predict Partition Coefficient (Log P) and Distribution Coefficient (Log D) with Molecular Descriptors and Liquid Chromatography Retention Time.",
+   "pubdate": "2023 Apr 10",
+   "doi": "10.1021/acs.jcim.2c01373"
+  }
+ ]
+}

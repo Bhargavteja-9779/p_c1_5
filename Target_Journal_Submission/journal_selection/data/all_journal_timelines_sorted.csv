@@ -1,0 +1,90 @@
+journal,publisher,source,n_with_dates,median,q1,q3,pct_le_60,pct_le_100
+Journal of Physical Chemistry Letters,ACS,PubMed history,399,49.0,37.0,64.0,71.2,97.2
+Analytica Chimica Acta,Elsevier,PubMed history,400,60.0,43.0,80.75,50.2,90.5
+Archives of Toxicology,Springer Nature,PubMed history,324,64.0,47.0,96.75,44.1,79.3
+Virtual and Physical Prototyping,Taylor & Francis,Crossref assertions,200,65.5,50.25,89.75,46.0,82.5
+European Journal of Medicinal Chemistry,Elsevier,PubMed history,400,66.0,50.0,92.0,40.2,81.0
+Talanta,Elsevier,PubMed history,400,70.0,51.25,97.5,34.5,77.2
+J. King Saud Univ. Comput. Inf. Sci.,Springer Nature,Crossref assertions,499,71.0,55.0,95.0,33.1,78.6
+Chemical Science,RSC,PubMed history,397,72.0,50.0,103.5,36.5,73.8
+Journal of Computational Chemistry,Wiley,PubMed history,228,73.5,46.25,112.0,39.0,69.7
+Energy Informatics,Springer Nature,Crossref assertions,106,74.5,61.0,101.25,22.6,74.5
+Journal of Chemical Theory and Computation,ACS,PubMed history,289,77.0,60.0,98.0,26.6,78.5
+Spectrochimica Acta Part A,Elsevier,PubMed history,400,78.0,57.0,106.75,29.8,71.5
+Environmental Research,Elsevier,PubMed history,385,82.0,61.0,117.0,23.9,67.5
+Journal of Chemical Information and Modeling,ACS,PubMed history,354,83.0,62.0,109.25,24.6,66.7
+Water Research,Elsevier,PubMed history,400,85.0,68.25,114.0,15.5,65.5
+Green Chemistry,RSC,PubMed history,24,85.0,58.25,105.75,29.2,66.7
+International Journal of Medical Informatics,Elsevier,PubMed history,400,89.0,56.0,151.0,27.8,54.8
+ACS Central Science,ACS,PubMed history,130,90.0,67.75,111.25,16.9,65.4
+Computational and Structural Biotechnology Journal,Elsevier,PubMed history,336,91.0,62.0,119.0,22.6,59.8
+Methods,Elsevier,PubMed history,144,92.0,63.5,133.25,19.4,57.6
+Journal of Hazardous Materials,Elsevier,PubMed history,400,96.0,74.0,124.75,10.8,55.5
+Analytical Chemistry,ACS,PubMed history,398,97.0,74.0,129.25,14.6,55.0
+Computational Biology and Chemistry,Elsevier,PubMed history,400,98.0,70.0,140.0,17.2,52.8
+Journal of Molecular Biology,Elsevier,PubMed history,324,101.0,71.0,137.0,17.9,49.4
+Journal of Medicinal Chemistry,ACS,PubMed history,330,104.5,73.0,143.25,20.0,46.1
+Advanced Science,Wiley,PubMed history,400,111.0,77.25,176.5,12.5,43.0
+Environment International,Elsevier,PubMed history,399,114.0,91.0,150.0,3.0,35.1
+European Heart Journal - Digital Health,OUP,PubMed history,181,118.0,91.0,161.0,4.4,32.0
+Molecular Informatics,Wiley,PubMed history,40,119.0,72.5,178.25,15.0,40.0
+Environmental Science & Technology,ACS,PubMed history,375,119.0,92.0,161.0,8.5,32.3
+Protein Science,Wiley,PubMed history,399,120.0,93.0,158.0,7.8,32.8
+Molecular Pharmaceutics,ACS,PubMed history,86,121.0,83.0,146.25,14.0,33.7
+JAMIA,OUP,PubMed history,249,123.0,86.0,167.5,12.9,35.3
+GIScience & Remote Sensing,Taylor & Francis,Crossref assertions,241,124.0,92.0,157.5,2.1,29.5
+Digital Discovery,RSC,PubMed history,60,124.0,97.5,170.75,8.3,26.7
+Advanced Intelligent Systems,Wiley,Crossref assertions,266,125.0,90.75,161.5,8.3,31.2
+Journal of Translational Medicine,Springer Nature,PubMed history,398,125.0,88.0,166.0,12.8,32.4
+Journal of Environmental Management,Elsevier,PubMed history,400,126.0,86.0,184.75,8.2,32.5
+Briefings in Bioinformatics,OUP,PubMed history,398,127.0,93.0,170.25,7.0,29.4
+Bioinformatics Advances,OUP,PubMed history,355,128.0,96.0,163.0,9.6,27.6
+Chemical Research in Toxicology,ACS,PubMed history,33,130.0,95.0,151.0,9.1,27.3
+Computers in Biology and Medicine,Elsevier,PubMed history,388,130.0,80.25,200.75,11.1,35.8
+Cybersecurity,Springer Nature,Crossref assertions,284,131.0,93.0,178.75,5.6,31.0
+Physiological Measurement,IOP,PubMed history,174,131.0,100.75,174.25,5.2,24.7
+Journal of Cheminformatics,Springer Nature,PubMed history,164,132.0,105.0,172.0,2.4,22.0
+Scientific Reports,Springer Nature,PubMed history,388,132.0,92.25,193.75,8.0,28.6
+Journal of Cheminformatics,Springer Nature,Crossref assertions,207,133.0,105.0,178.0,1.9,20.3
+Machine Intelligence Research,Springer Nature,Crossref assertions,78,136.5,93.75,175.5,6.4,28.2
+Journal of Neural Engineering,IOP,PubMed history,307,137.0,108.0,184.0,5.2,18.6
+Journal of Proteome Research,ACS,PubMed history,133,138.0,99.0,183.5,3.8,24.8
+Science of the Total Environment,Elsevier,PubMed history,238,143.0,96.0,190.25,7.1,26.1
+Int. J. Digital Earth,Taylor & Francis,Crossref assertions,285,144.0,114.0,180.5,0.4,14.4
+Complex & Intelligent Systems,Springer Nature,Crossref assertions,426,147.0,100.75,224.25,4.0,24.9
+Journal of Biomedical Informatics,Elsevier,PubMed history,165,147.0,109.0,187.0,1.8,20.0
+Bioinformatics,OUP,PubMed history,352,147.0,108.0,198.0,6.8,20.7
+Engineering with Computers,Springer Nature,Crossref assertions,218,148.0,100.0,210.25,6.4,25.2
+NAR Genomics and Bioinformatics,OUP,PubMed history,205,152.0,111.0,201.0,2.9,18.5
+IET Renewable Power Generation,IET/Wiley,Crossref assertions,227,157.0,102.0,229.0,6.6,23.8
+Journal of Intelligent Manufacturing,Springer Nature,Crossref assertions,294,157.5,118.0,212.25,3.1,18.0
+Journal of Cloud Computing,Springer Nature,Crossref assertions,220,160.5,63.25,257.75,21.8,33.6
+International Journal of Intelligent Systems,Wiley,Crossref assertions,143,161.0,118.0,221.0,3.5,12.6
+Patterns,Cell Press/Elsevier,PubMed history,88,165.5,132.0,209.0,2.3,8.0
+PNAS Nexus,OUP,PubMed history,397,169.0,109.5,234.0,7.3,21.4
+Computer Methods and Programs in Biomedicine,Elsevier,PubMed history,400,180.5,131.0,230.75,1.0,11.2
+Food Chemistry,Elsevier,PubMed history,400,182.5,132.0,228.75,0.5,7.2
+EPJ Data Science,Springer Nature,Crossref assertions,119,184.0,145.0,257.0,0.0,7.6
+npj Digital Medicine,Springer Nature,PubMed history,400,185.0,131.0,249.0,2.5,11.2
+Connection Science,Taylor & Francis,Crossref assertions,39,187.0,104.0,289.0,0.0,17.9
+Molecular Systems Biology,EMBO/Springer Nature,PubMed history,102,190.0,126.75,258.5,10.8,15.7
+Artificial Intelligence Review,Springer Nature,Crossref assertions,339,190.0,139.0,264.0,3.2,9.4
+GigaScience,OUP,PubMed history,104,198.0,137.0,250.75,8.7,14.4
+Machine Learning,Springer Nature,Crossref assertions,274,206.0,165.75,318.25,1.1,6.6
+Neural Networks,Elsevier,PubMed history,400,219.0,165.0,284.0,0.2,5.2
+Cell Reports Methods,Cell Press/Elsevier,PubMed history,255,222.0,168.0,307.0,0.8,3.5
+Enterprise Information Systems,Taylor & Francis,Crossref assertions,62,225.0,153.0,343.25,0.0,6.5
+Medical Image Analysis,Elsevier,PubMed history,399,231.0,168.0,316.0,0.3,3.8
+Int. J. Production Research,Taylor & Francis,Crossref assertions,477,233.0,164.5,304.5,0.6,3.8
+Applied Intelligence,Springer Nature,Crossref assertions,487,237.0,172.0,326.0,0.8,4.5
+Journal of Big Data,Springer Nature,Crossref assertions,267,243.0,177.0,360.0,1.1,4.5
+Neural Computing and Applications,Springer Nature,Crossref assertions,485,247.0,170.0,348.5,0.8,2.7
+Statistics and Computing,Springer Nature,Crossref assertions,239,249.0,179.0,323.0,0.4,3.3
+Int. J. Geographical Information Science,Taylor & Francis,Crossref assertions,128,249.0,188.25,354.25,1.6,3.9
+Data Mining and Knowledge Discovery,Springer Nature,Crossref assertions,117,258.0,157.0,401.0,1.7,3.4
+Artificial Intelligence in Medicine,Elsevier,PubMed history,163,262.0,148.0,376.0,0.0,5.5
+Cognitive Computation,Springer Nature,Crossref assertions,138,273.5,170.5,435.75,2.9,9.4
+Int. J. Machine Learning and Cybernetics,Springer Nature,Crossref assertions,496,288.0,240.25,312.75,0.4,2.0
+Technometrics,Taylor & Francis,Crossref assertions,62,337.5,266.75,454.75,0.0,1.6
+Cluster Computing,Springer Nature,Crossref assertions,492,340.0,234.75,389.0,0.2,1.4
+J. Computational and Graphical Statistics,Taylor & Francis,Crossref assertions,188,355.5,276.25,460.25,0.5,1.6
