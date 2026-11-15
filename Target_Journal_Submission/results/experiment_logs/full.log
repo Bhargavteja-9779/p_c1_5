@@ -7,3 +7,4 @@
 2026-11-15 18:04:03,168 INFO fold 0: simulated difficulty rows from fold 3: 64815
 2026-11-15 18:04:03,247 INFO training base model excluding folds [np.int64(0), np.int64(4)]: 39111 rows, 195 systems
 2026-11-15 18:05:21,891 INFO fold 0: simulated difficulty rows from fold 4: 155895
+2026-11-15 22:20:42,661 INFO [main] fold 0 (BGC): 66 targets, sigma rows 332391, setup 77s

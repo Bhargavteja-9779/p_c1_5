@@ -38,26 +38,28 @@ def _panel(ax, letter):
 
 # ------------------------------------------------------------------ Fig 1: workflow schematic (no data)
 def fig_workflow(out):
-    fig, ax = plt.subplots(figsize=(W2, 62 * MM)); ax.set_xlim(0, 100); ax.set_ylim(0, 34); ax.axis("off")
+    fig, ax = plt.subplots(figsize=(W2, 70 * MM)); ax.set_xlim(0, 100); ax.set_ylim(0, 40); ax.axis("off")
+    fs_ = 6.2
     boxes = [
-        (1, 19, 21, 13, "Public RT library\n(RepoRT: other labs'\nsystems, leave-source-out)", "#eef4fc"),
-        (26, 19, 21, 13, "Base model\nretention-order score s(x)\n(pairwise ranking)", "#eef4fc"),
-        (51, 19, 21, 13, "Target system:\nn calibrants (s_i, t_i)\nmonotone map g (LOO refits)", "#fdf0ea"),
-        (76, 19, 23, 13, "Meta-learned difficulty\nσ(x | system, calibrants)\ntrained on simulated transfers", "#eaf7f1"),
-        (26, 2, 34, 12, "Normalised jackknife+ window\nC(x) = [q⁻{g₋ᵢ(s) − σ₋ᵢR_i}, q⁺{g₋ᵢ(s) + σ₋ᵢR_i}]\nP(t ∈ C) ≥ 1 − 2α (exchangeable)", "#f3f2ef"),
-        (66, 2, 33, 12, "Candidate filtering in NTS\nkeep structure if observed RT ∈ C(x)\n→ true-candidate retention ≈ 1 − α", "#f3f2ef"),
+        (0.5, 19, 22, 13, "Public RT library\n(RepoRT; other laboratories'\nsystems, leave-source-out)", "#eef4fc"),
+        (25.5, 19, 22, 13, "Base model:\nretention-order score s(x)\n(pairwise ranking)", "#eef4fc"),
+        (50.5, 19, 23, 13, "Target system:\nn calibrants (sᵢ, tᵢ)\nmonotone map g,\nleave-one-out refits g₋ᵢ", "#fdf0ea"),
+        (76.5, 19, 23, 13, "Meta-learned difficulty\nσ(x | system, calibrants)\nfitted on simulated\ntransfers", "#eaf7f1"),
+        (14, 1.5, 40, 12.5, "Normalised jackknife+ window\nC(x) = [ q⁻{g₋ᵢ(s) − σ₋ᵢ(x)Rᵢ},  q⁺{g₋ᵢ(s) + σ₋ᵢ(x)Rᵢ} ]\nRᵢ = |tᵢ − g₋ᵢ(sᵢ)| / σ₋ᵢ(xᵢ);  P(t ∈ C) ≥ 1 − 2α", "#f3f2ef"),
+        (61, 1.5, 38.5, 12.5, "Candidate filtering in NTS:\nkeep a structure if the observed RT ∈ C(x)\n→ correct structure kept with prob. ≈ 1 − α", "#f3f2ef"),
     ]
     for x, y, w, h, txt, fc in boxes:
-        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.4,rounding_size=1.2", fc=fc, ec=INK2, lw=0.7))
-        ax.text(x + w / 2, y + h / 2, txt, ha="center", va="center", fontsize=6.6, color=INK, linespacing=1.25)
+        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.3,rounding_size=1.0", fc=fc, ec=INK2, lw=0.7))
+        ax.text(x + w / 2, y + h / 2, txt, ha="center", va="center", fontsize=fs_, color=INK, linespacing=1.3)
     arr = dict(arrowstyle="-|>", mutation_scale=8, lw=0.9, color=INK2)
-    for (x0, y0, x1, y1) in [(22.5, 25.5, 25.5, 25.5), (47.5, 25.5, 50.5, 25.5), (61.5, 18.6, 45, 14.6), (87, 18.6, 52, 14.6),
-                             (60.5, 8, 65.5, 8), (12, 18.6, 82, 32.8)]:
-        if (x0, y0) == (12, 18.6):
-            continue
+    for (x0, y0, x1, y1) in [(22.9, 25.5, 25.1, 25.5), (47.9, 25.5, 50.1, 25.5), (62, 18.7, 40, 14.3), (88, 18.7, 46, 14.3),
+                             (54.3, 7.75, 60.7, 7.75)]:
         ax.add_patch(FancyArrowPatch((x0, y0), (x1, y1), **arr))
-    ax.add_patch(FancyArrowPatch((11.5, 32.6), (87.5, 32.6), connectionstyle="arc3,rad=-0.12", **arr))
-    ax.text(49.5, 33.6, "inner cross-fitting: simulate the calibrant protocol on training systems", ha="center", fontsize=6.2, color=INK2)
+    # inner cross-fitting path: library -> difficulty model (drawn above the boxes)
+    ax.plot([11.5, 11.5, 88, 88], [32.4, 36.2, 36.2, 33.2], color=INK2, lw=0.9)
+    ax.add_patch(FancyArrowPatch((88, 34.0), (88, 32.4), **arr))
+    ax.text(50, 37.0, "inner cross-fitting: the calibrant protocol is simulated on training systems scored by models that never saw them",
+            ha="center", va="bottom", fontsize=5.9, color=INK2)
     _save(fig, out, "fig1_workflow")
 
 
@@ -90,7 +92,6 @@ def fig_main(ps, out, n=20, alpha=0.1, order=None, labels=None):
     for t in axes[0].get_yticklabels():
         if t.get_text() == labels.get("P"):
             t.set_color(SLOTS[0]); t.set_fontweight("bold")
-    fig.text(0.5, -0.04, f"n = {n} calibrants, α = {alpha}; dots = systems; bar = IQR; | = median; ◆ = mean", ha="center", fontsize=6.4, color=INK2)
     _save(fig, out, "fig2_main_comparison")
 
 
@@ -119,6 +120,12 @@ def fig_calibrants(summ_n, out, methods, labels, alpha=0.1):
 
 
 # ------------------------------------------------------------------ Fig 4: conditional coverage (dot plot, <=3 methods)
+STRATUM_LABELS = {"seen": "seen by base model", "unseen": "not seen by base model", "sim>=0.7": "Tanimoto ≥ 0.7",
+                  "sim0.4-0.7": "Tanimoto 0.4–0.7", "sim<0.4": "Tanimoto < 0.4", "neutral": "neutral", "ionisable": "ionisable",
+                  "inside_cal_range": "inside calibrant range", "outside_cal_range": "outside calibrant range",
+                  "early": "early-eluting third", "middle": "middle third", "late": "late-eluting third"}
+
+
 def fig_strata(sc, out, methods, labels, alpha=0.1, strata_order=None):
     s = sc.copy()
     rows = [(st, g) for st, gs in strata_order for g in gs if ((s.stratum == st) & (s.group == g)).any()]
@@ -132,10 +139,15 @@ def fig_strata(sc, out, methods, labels, alpha=0.1, strata_order=None):
             ax.plot(d.coverage_sysavg.values[0], y, marker=MARKERS[i], ms=4.2, color=SLOTS[i], mec="white", mew=0.5,
                     ls="none", label=labels.get(m, m) if j == 0 else None)
     ax.axvline(1 - alpha, color=INK, lw=0.8, ls=(0, (3, 2)))
+    prev = None
+    for j, (st, g) in enumerate(rows):
+        if prev is not None and st != prev:
+            ax.axhline(len(rows) - 1 - j + 0.5, color=GRID, lw=0.8)
+        prev = st
     yt = []
     for (st, g) in rows:
         tot = s[(s.stratum == st) & (s.group == g)].total.max()
-        yt.append(f"{g}  (n={int(tot):,})")
+        yt.append(f"{STRATUM_LABELS.get(g, g)}  (n={int(tot):,})")
     ax.set_yticks(range(len(rows))); ax.set_yticklabels(yt[::-1]); ax.set_xlabel("Coverage within stratum (system average)")
     ax.grid(axis="x"); ax.legend(frameon=False, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=3)
     _save(fig, out, "fig4_conditional_coverage")
