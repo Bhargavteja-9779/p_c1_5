@@ -48,7 +48,9 @@ class Experiment:
         self.out = cfg["out_dir"]; os.makedirs(self.out, exist_ok=True)
         self.log = get_logger(os.path.join(self.out, "experiment_logs", f"{cfg['name']}.log"), name=cfg["name"])
         self.data = Data(cfg["processed_dir"], method_type=cfg.get("method_type", "RP"))
-        self.fm = FoldModels(self.data, os.path.join(cfg["cache_dir"], "base_models"), cfg["base_model"], cfg["smrt_n"],
+        mt = cfg.get("method_type", "RP")
+        self.cache_root = cfg["cache_dir"] if mt == "RP" else os.path.join(cfg["cache_dir"], mt)
+        self.fm = FoldModels(self.data, os.path.join(self.cache_root, "base_models"), cfg["base_model"], cfg["smrt_n"],
                              cfg["n_jobs"], self.log)
         self.formula_groups = self.data.fs.comp.groupby("formula").indices
         sc = self.data.superclass.astype(str).str.replace(r" \(CHEMONTID.*", "", regex=True)
@@ -70,7 +72,7 @@ class Experiment:
 
     def difficulty_training_rows(self, f: int, base_kind: str):
         cfg = self.cfg; data = self.data
-        path = os.path.join(cfg["cache_dir"], f"sigma_rows_fold{f}_{base_kind}_t{cfg['base_model']['n_estimators']}.parquet")
+        path = os.path.join(self.cache_root, f"sigma_rows_fold{f}_{base_kind}_t{cfg['base_model']['n_estimators']}.parquet")
         if os.path.exists(path):
             return pd.read_parquet(path)
         parts = []
@@ -107,7 +109,7 @@ class Experiment:
     def ensemble_models(self, f: int):
         cfg = self.cfg; ens = []
         for e in range(cfg["n_ensemble"]):
-            path = os.path.join(cfg["cache_dir"], "base_models", f"ens_fold{f}_rep{e}_t{cfg['ens_trees']}.joblib")
+            path = os.path.join(self.cache_root, "base_models", f"ens_fold{f}_rep{e}_t{cfg['ens_trees']}.joblib")
             import joblib
             if os.path.exists(path):
                 ens.append(joblib.load(path)); continue
@@ -139,7 +141,7 @@ class Experiment:
 
     # ------------------------------------------------------------------
     def run(self, base_kind: str = "order", strategy: str = "random", perturb=None, folds=None, systems_limit=None,
-            sigma_which=None, methods=None, tag="main"):
+            sigma_which=None, methods=None, tag="main", ckpt_dir=None):
         cfg = self.cfg; data = self.data
         targets = data.targets(cfg["min_target_compounds"])
         if base_kind == "smrt" and not hasattr(self, "smrt_model"):
@@ -152,6 +154,13 @@ class Experiment:
             if systems_limit:
                 tsys = tsys[:systems_limit]
             if not tsys:
+                continue
+            if ckpt_dir and os.path.exists(os.path.join(ckpt_dir, f"{tag}_fold{f}_DONE")):
+                for k in results:
+                    pth = os.path.join(ckpt_dir, f"{tag}_fold{f}_{k}.parquet")
+                    if os.path.exists(pth):
+                        results[k].extend(pd.read_parquet(pth).to_dict("records"))
+                self.log.info(f"[{tag}] fold {f}: loaded from checkpoint")
                 continue
             t = Timer()
             if base_kind == "order":
@@ -198,11 +207,20 @@ class Experiment:
             t = Timer()
             outs = Parallel(n_jobs=cfg["n_jobs"], backend="loky")(delayed(evaluate_system)(j) for j in jobs)
             self.log.info(f"[{tag}] fold {f}: evaluated {len(jobs)} systems in {t():.0f}s")
+            fold_res = {k: [] for k in results}
             for o in outs:
                 for k in results:
                     for rr in o[k]:
                         rr["fold"] = f
-                    results[k].extend(o[k])
+                    fold_res[k].extend(o[k])
+            for k in results:
+                results[k].extend(fold_res[k])
+            if ckpt_dir:
+                os.makedirs(ckpt_dir, exist_ok=True)
+                for k, v in fold_res.items():
+                    if v:
+                        pd.DataFrame(v).to_parquet(os.path.join(ckpt_dir, f"{tag}_fold{f}_{k}.parquet"))
+                open(os.path.join(ckpt_dir, f"{tag}_fold{f}_DONE"), "w").write("ok")
         res = {k: pd.DataFrame(v) for k, v in results.items()}
         for k, df in res.items():
             if len(df):

@@ -1,0 +1,259 @@
+{
+ "n_papers": 43,
+ "by_year": {
+  "2023": 7,
+  "2024": 14,
+  "2025": 13,
+  "2026": 9
+ },
+ "by_primary_theme": {
+  "Calibration transfer / domain shift": 9,
+  "Chemometrics / multivariate data analysis": 4,
+  "LC-HRMS NTS / suspect screening / annotation": 6,
+  "ML / DL for analytical data": 6,
+  "RT prediction / QSRR": 8,
+  "Uncertainty / prediction intervals / validation statistics": 10
+ },
+ "received_to_accepted_days": {
+  "n": 43,
+  "median": 92,
+  "q1": 77.0,
+  "q3": 138.0,
+  "min": 22,
+  "max": 265
+ },
+ "received_to_accepted_days_by_primary_theme": {
+  "Calibration transfer / domain shift": {
+   "n": 9,
+   "median": 94,
+   "q1": 53.5,
+   "q3": 173.5,
+   "min": 26,
+   "max": 226
+  },
+  "Chemometrics / multivariate data analysis": {
+   "n": 4,
+   "median": 109.0,
+   "q1": 83.0,
+   "q3": 186.75,
+   "min": 82,
+   "max": 205
+  },
+  "LC-HRMS NTS / suspect screening / annotation": {
+   "n": 6,
+   "median": 79.5,
+   "q1": 62.5,
+   "q3": 127.0,
+   "min": 43,
+   "max": 130
+  },
+  "ML / DL for analytical data": {
+   "n": 6,
+   "median": 104.0,
+   "q1": 81.25,
+   "q3": 139.75,
+   "min": 67,
+   "max": 157
+  },
+  "RT prediction / QSRR": {
+   "n": 8,
+   "median": 89.5,
+   "q1": 82.5,
+   "q3": 137.25,
+   "min": 62,
+   "max": 199
+  },
+  "Uncertainty / prediction intervals / validation statistics": {
+   "n": 10,
+   "median": 100.5,
+   "q1": 47.75,
+   "q3": 153.75,
+   "min": 22,
+   "max": 265
+  }
+ },
+ "crossref_citations": {
+  "n": 43,
+  "median": 11,
+  "q1": 3.0,
+  "q3": 29.0,
+  "min": 0,
+  "max": 106
+ },
+ "citations_per_year": {
+  "n": 43,
+  "median": 5.63,
+  "q1": 2.67,
+  "q3": 11.88,
+  "min": 0.0,
+  "max": 56.69
+ },
+ "structured_abstract": {
+  "n": 29,
+  "pct": 67.4
+ },
+ "ablation": {
+  "yes": {
+   "n": 14,
+   "pct": 32.6
+  },
+  "no": {
+   "n": 6,
+   "pct": 14.0
+  },
+  "unclear": {
+   "n": 23,
+   "pct": 53.5
+  }
+ },
+ "statistical_validation_not_determinable": {
+  "n": 26,
+  "pct": 60.5
+ },
+ "computational_cost_reported_yes": {
+  "n": 4,
+  "pct": 9.3
+ },
+ "code_or_data_availability_not_determinable": {
+  "n": 33,
+  "pct": 76.7
+ },
+ "flag_external_validation": {
+  "n": 19,
+  "pct": 44.2
+ },
+ "flag_internal_validation_only": {
+  "n": 4,
+  "pct": 9.3
+ },
+ "flag_validation_none_or_unclear": {
+  "n": 20,
+  "pct": 46.5
+ },
+ "flag_multi_dataset": {
+  "n": 34,
+  "pct": 79.1
+ },
+ "flag_real_sample_application": {
+  "n": 27,
+  "pct": 62.8
+ },
+ "flag_formal_stats_in_abstract": {
+  "n": 9,
+  "pct": 20.9
+ },
+ "flag_named_baselines": {
+  "n": 18,
+  "pct": 41.9
+ },
+ "flag_code_or_data_stated_in_abstract": {
+  "n": 5,
+  "pct": 11.6
+ },
+ "flag_public_dataset_used": {
+  "n": 5,
+  "pct": 11.6
+ },
+ "flag_uncertainty_output": {
+  "n": 8,
+  "pct": 18.6
+ },
+ "top10_by_crossref_citations": [
+  {
+   "pmid": "39788666",
+   "doi": "10.1016/j.aca.2024.343496",
+   "year": 2025,
+   "crossref_citations": 106,
+   "title": "Combination of plasma acoustic emission signal and laser-induced breakdown spectroscopy for accurate classification of steel."
+  },
+  {
+   "pmid": "38182346",
+   "doi": "10.1016/j.aca.2023.342103",
+   "year": 2024,
+   "crossref_citations": 91,
+   "title": "Comparing univariate filtration preceding and succeeding PLS-DA analysis on the differential variables/metabolites identified from untargeted LC-MS metabolomics data."
+  },
+  {
+   "pmid": "38834276",
+   "doi": "10.1016/j.aca.2024.342761",
+   "year": 2024,
+   "crossref_citations": 71,
+   "title": "Smartphone based wearable sweat glucose sensing device correlated with machine learning for real-time diabetes screening."
+  },
+  {
+   "pmid": "36657888",
+   "doi": "10.1016/j.aca.2023.340789",
+   "year": 2023,
+   "crossref_citations": 47,
+   "title": "Closed-loop automatic gradient design for liquid chromatography using Bayesian optimization."
+  },
+  {
+   "pmid": "36641144",
+   "doi": "10.1016/j.aca.2022.340772",
+   "year": 2023,
+   "crossref_citations": 45,
+   "title": "Mid-level data fusion of Raman spectroscopy and laser-induced breakdown spectroscopy: Improving ores identification accuracy."
+  },
+  {
+   "pmid": "37455078",
+   "doi": "10.1016/j.aca.2023.341560",
+   "year": 2023,
+   "crossref_citations": 42,
+   "title": "An improved successive projections algorithm version to variable selection in multiple linear regression."
+  },
+  {
+   "pmid": "38182389",
+   "doi": "10.1016/j.aca.2023.342116",
+   "year": 2024,
+   "crossref_citations": 37,
+   "title": "Screening and identification of unknown chemical contaminants in food based on liquid chromatography-high-resolution mass spectrometry and machine learning."
+  },
+  {
+   "pmid": "37032062",
+   "doi": "10.1016/j.aca.2023.341096",
+   "year": 2023,
+   "crossref_citations": 37,
+   "title": "Procrustes cross-validation of multivariate regression models."
+  },
+  {
+   "pmid": "39580159",
+   "doi": "10.1016/j.aca.2024.343376",
+   "year": 2024,
+   "crossref_citations": 36,
+   "title": "Rapid and accurate bacteria identification through deep-learning-based two-dimensional Raman spectroscopy."
+  },
+  {
+   "pmid": "38355231",
+   "doi": "10.1016/j.aca.2024.342312",
+   "year": 2024,
+   "crossref_citations": 29,
+   "title": "An intuitive approach for spike removal in Raman spectra based on peaks' prominence and width."
+  }
+ ],
+ "flags_top8_vs_rest": {
+  "external_validation": {
+   "top8_pct": 12.5,
+   "rest_pct": 51.4
+  },
+  "multi_dataset": {
+   "top8_pct": 62.5,
+   "rest_pct": 82.9
+  },
+  "formal_stats": {
+   "top8_pct": 12.5,
+   "rest_pct": 22.9
+  },
+  "named_baselines": {
+   "top8_pct": 37.5,
+   "rest_pct": 42.9
+  },
+  "code_data_stated": {
+   "top8_pct": 0.0,
+   "rest_pct": 14.3
+  },
+  "real_sample_application": {
+   "top8_pct": 62.5,
+   "rest_pct": 62.9
+  }
+ }
+}

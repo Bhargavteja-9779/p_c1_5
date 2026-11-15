@@ -11,7 +11,7 @@ manifest = {"config": cfg_path, "config_sha256": hashlib.sha256(open(cfg_path, "
             "git_commit": subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip(),
             "hardware": detect_hardware(), "start": time.strftime("%Y-%m-%dT%H:%M:%S")}
 t = time.time(); ex = Experiment(cfg)
-res = ex.run(base_kind="order", strategy="random", systems_limit=cfg.get("systems_limit"), tag="main")
+res = ex.run(base_kind="order", strategy="random", systems_limit=cfg.get("systems_limit"), tag="main", ckpt_dir=os.path.join(raw_dir, "checkpoints"))
 save_results(res, raw_dir, "main")
 manifest.update({"end": time.strftime("%Y-%m-%dT%H:%M:%S"), "seconds": round(time.time() - t, 1),
                  "timings": {k: (v if not isinstance(v, list) else {"sum": float(sum(v)), "n": len(v)}) for k, v in ex.timings.items()},
