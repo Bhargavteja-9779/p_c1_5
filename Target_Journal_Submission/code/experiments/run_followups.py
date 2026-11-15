@@ -45,6 +45,12 @@ if "sens" in which:  # E7: difficulty-model hyper-parameters (n = 20, 10 draws)
         res = ex.run(base_kind="order", sigma_which=["P"], methods=["B5_jackknife_plus"], systems_limit=c.get("systems_limit"), tag=tag, ckpt_dir=os.path.join(raw, 'checkpoints'))
         save_results(res, raw, tag); meta[tag] = round(time.time() - t, 1)
 
+if "smalln" in which:  # exploratory: very small calibrant sets
+    c = sub(name=base["name"] + "_smalln", n_list=[5, 8], draws=(2 if quick else 20), decoy_draws=0, expensive_n=[5, 8])
+    ex = Experiment(c); t = time.time()
+    res = ex.run(base_kind="order", sigma_which=["P"], systems_limit=c.get("systems_limit"), tag="smalln", ckpt_dir=os.path.join(raw, "checkpoints"))
+    save_results(res, raw, "smalln"); meta["smalln"] = round(time.time() - t, 1)
+
 os.makedirs(os.path.join(base["out_dir"], "experiment_logs"), exist_ok=True)
 json.dump(meta, open(os.path.join(base["out_dir"], "experiment_logs", f"followups_{base['name']}_{'_'.join(which)}.json"), "w"), indent=1)
 print("done", meta)

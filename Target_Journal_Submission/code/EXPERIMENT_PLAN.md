@@ -89,3 +89,11 @@ with system-cluster bootstrap CI. No result-driven seed selection; all seeds fix
 * Strata analysed at n = 20: seen/unseen by base model; max-Tanimoto bins (<0.4, 0.4–0.7, ≥0.7); ionisable vs
   neutral; inside vs outside calibrant score range; RT tertile; top-8 ClassyFire superclasses.
 * B2 (P-spline), B3 (GP) and B6 (ensemble) are evaluated at n ∈ {10, 20, 40} only (computational cost).
+
+## Addendum B (2026-11-15 22:35 UTC; written while the main run was in progress and BEFORE any main result was inspected)
+Motivated by the ACA journal benchmark (`journal_selection/aca_journal_quality_benchmark.md`), which found that RT papers in
+the journal never benchmark against the tolerance windows used in screening practice:
+* Added fixed-tolerance baselines evaluated on the identical calibrant draws (same seeds/models): ±0.25, ±0.5, ±1, ±2 min;
+  ±5 %, ±10 % of predicted RT; ±2·RMSE_LOO, ±3·RMSE_LOO (`experiments/run_extra_baselines.py`).
+* Added an exploratory small-calibrant analysis (n ∈ {5, 8}) to illustrate the n ≥ 1/α − 1 requirement.
+These analyses are labelled post hoc/exploratory in the manuscript.

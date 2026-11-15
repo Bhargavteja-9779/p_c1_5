@@ -40,3 +40,11 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
 3. Manuscript (ACA format: structured abstract Background/Results/Significance; highlights; graphical abstract).
 4. 10-agent × 10-cycle review/revision (workflows), fixes + reruns.
 5. DOCX/PDF, cover letter, final audit, risk report, decision; commit + push.
+
+## Update 2026-11-15 22:32 UTC
+* Pipeline (main → robust/smrt/hilic/sens → fixed-window baselines (Addendum B) → small-n) running; fold-0 evaluation started 22:20.
+* Literature/novelty workflow `wf_12511b4b-242` running (8 agents, concurrency cap 2). Resume: Workflow({scriptPath: <session>/workflows/scripts/rt-conformal-literature-and-novelty-wf_12511b4b-242.js, resumeFromRunId: "wf_12511b4b-242"}).
+* Scheduled self-resume message at 2026-11-16 03:10 UTC (trigger trig_015c48QwnsDts8kYv2Fvjciw).
+* Manuscript sections drafted: 01_introduction (to verify citations), 02_theory, 03_experimental, 90_declarations. Build chain ready
+  (`code/scripts/build_manuscript.py` + `manuscript_facts.py`, pandoc + reference_aca.docx + elsevier-with-titles.csl).
+* Claims to verify in the citation audit: typical RT tolerance windows (±0.5–2 min, ±2–3 SD) need sources.
