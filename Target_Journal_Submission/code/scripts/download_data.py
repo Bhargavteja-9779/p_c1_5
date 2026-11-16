@@ -7,7 +7,11 @@ import argparse, hashlib, os, sys, zipfile, urllib.request
 URL = "https://zenodo.org/api/records/16267768/files/f-kretschmer/RepoRT-v1.0.zip/content"
 SHA256 = "4eeeb46a65ec4950eca67f652caed5cffbdf5bcb5dffc45e496edae0552c6091"
 NORMAN_URL = "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12268317/supplementaryFiles"
-NORMAN_SHA256 = "f96093af95a496979fcecc35009d6e8b93cf3fcf3d77f546a05c228cc9da4c15"
+# Europe PMC assembles the supplementary zip on request, so the archive bytes (and their hash) change between downloads while
+# its contents do not; the checksums are therefore verified for the extracted data files that the analysis reads.
+NORMAN_FILES = {"AN-150-D5AN00323G-s002.xlsx": "f5e1e021bff5dec7ae8ad1139c5ef6847b9f94b558ec089f3bb8b31f16936afa",
+                "SI/data/NORMAN_interlab_RT_data.csv": "7b146dc202892973b2708e42db8f4073f829617482d991cf1c37d121a8ab420e",
+                "SI/data/gradient_lenght_codes.csv": "ce4475ce9009bd9a0bee58c96537ef96a108a487edf6b0e03f4d009925e77bc1"}
 ap = argparse.ArgumentParser(); ap.add_argument("--dest", default="data/raw"); ap.add_argument("--no-norman", action="store_true")
 a = ap.parse_args()
 
@@ -40,13 +44,13 @@ if not a.no_norman:
     nz = os.path.join(nd, "malm_kruve_2025_supp.zip")
     if not os.path.exists(nz):
         fetch(NORMAN_URL, nz)
-    h = hashlib.sha256(open(nz, "rb").read()).hexdigest()
-    if h != NORMAN_SHA256:
-        sys.exit(f"NORMAN checksum mismatch: {h} != {NORMAN_SHA256}")
-    print("NORMAN checksum OK")
     ex = os.path.join(nd, "extracted")
     with zipfile.ZipFile(nz) as z:
         z.extract("AN-150-D5AN00323G-s002.xlsx", ex); z.extract("AN-150-D5AN00323G-s001.zip", ex)
     with zipfile.ZipFile(os.path.join(ex, "AN-150-D5AN00323G-s001.zip")) as z:
         z.extractall(ex, [m for m in z.namelist() if m.startswith("SI/data/") and m.endswith(".csv")])
-    print("NORMAN data extracted to", ex)
+    for rel, ref in NORMAN_FILES.items():
+        h = hashlib.sha256(open(os.path.join(ex, rel), "rb").read()).hexdigest()
+        if h != ref:
+            sys.exit(f"NORMAN checksum mismatch for {rel}: {h} != {ref}")
+    print("NORMAN checksums OK; data extracted to", ex)
