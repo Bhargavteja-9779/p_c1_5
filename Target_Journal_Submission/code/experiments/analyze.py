@@ -331,7 +331,7 @@ if not nr.empty:
             if n is None:
                 gg = gg.assign(n=0)
             for al in sorted(gg.alpha.unique()):
-                s_ = summary_table(gg, 0 if n is None else n, al, [m for m in ORDER if m in gg.method.unique()], B=1000)
+                s_ = summary_table(gg, 0 if n is None else n, al, [m for m in ORDER + ["P+SASC", "J+SASC"] if m in gg.method.unique()], B=1000)
                 s_.insert(0, "alpha", al); s_.insert(0, "n", "lab mix" if n is None else n); s_.insert(0, "scenario", scen); out_nm.append(s_)
         tst = paired_tests(gp.assign(n=0) if scen == "fixed_mix" else gp[gp.n == 20], 0 if scen == "fixed_mix" else 20, PRIMARY_A, "P",
                            [m for m in BASELINES if m in gp.method.unique()], "winkler", B=1000)
@@ -339,7 +339,10 @@ if not nr.empty:
     tnm = pd.concat(out_nm, ignore_index=True); md(tnm, os.path.join(TAB, "table10_norman_external")); metrics["norman"] = tnm.to_dict("records")
     nst = load("norman", "strata")
     if not nst.empty:
-        nsc = strata_coverage(nst.assign(system=nst.cs), PRIMARY_A); md(nsc, os.path.join(TAB, "tableS13_norman_strata")); stats_out["norman_strata"] = nsc.to_dict("records")
+        # strata are recorded at the primary calibrant number of each calibration scenario -> report per scenario
+        nsc = pd.concat([strata_coverage(g_.assign(system=g_.cs), PRIMARY_A).assign(scenario=sc_) for sc_, g_ in nst.groupby("scenario")], ignore_index=True)
+        nsc = nsc[["scenario"] + [c for c in nsc.columns if c != "scenario"]]
+        md(nsc, os.path.join(TAB, "tableS13_norman_strata")); stats_out["norman_strata"] = nsc.to_dict("records")
     nmeta = os.path.join(a.out, "results", "experiment_logs", "norman_meta.json")
     if os.path.exists(nmeta):
         metrics["norman_meta"] = json.load(open(nmeta))

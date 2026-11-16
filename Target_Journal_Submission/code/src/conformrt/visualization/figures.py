@@ -42,7 +42,7 @@ plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 7.5, "axes.title
 def _save(fig, out, name):
     os.makedirs(out, exist_ok=True)
     fig.savefig(os.path.join(out, name + ".png"), bbox_inches="tight", dpi=300)
-    fig.savefig(os.path.join(out, name + ".pdf"), bbox_inches="tight")
+    fig.savefig(os.path.join(out, name + ".pdf"), bbox_inches="tight", metadata={"CreationDate": None})  # deterministic PDF
     plt.close(fig)
 
 

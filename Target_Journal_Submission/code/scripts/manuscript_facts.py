@@ -1,6 +1,6 @@
 """Derive every number quoted in the manuscript from machine-generated result files.
 build_facts(results_dir, tables_dir) -> (facts: dict[str, value], tables: dict[str, markdown_table])"""
-import os, json
+import os, json, re
 import numpy as np, pandas as pd
 
 LAB = {"B1_gauss_rmse": "Gaussian ±z·RMSE", "B2_pspline_PI": "P-spline PI", "B3_gp_PI": "GP projection PI",
@@ -77,6 +77,9 @@ def build_facts(RES, TAB):
     t7 = pd.read_csv(os.path.join(TAB, "table7_candidate_filtering.csv"))
     F["dec.parents_per_system"] = t7.parents_per_system.iloc[0]; F["dec.decoys_per_system"] = t7.decoys_per_system.iloc[0]
     F["gp_miss_factor"] = (1 - F["main.B3_gp_PI.coverage_mean"]) / 0.10
+    _hil = [r for r in m.get("generalisation", []) if r["setting"].startswith("HILIC") and int(r["n"]) == 20 and r["method"] == "P"]
+    if _hil:
+        F["n_hilic_systems"] = int(_hil[0]["n_systems"])
     SC = {"random calibrants (main)": "main", "RT-spanning calibrants": "span", "commonly measured calibrants": "common",
           "calibrant RT noise (2% of span)": "noise", "one outlying calibrant (+10% span)": "outlier"}
     for r in m.get("robustness", []):
@@ -129,11 +132,45 @@ def build_facts(RES, TAB):
         F["cb.peak_rss_MB"] = cb["peak_rss_MB"]; F["cb.base_rows"] = cb["base_train_rows"]
         for n, v in cb["per_system"].items():
             F[f"cb.n{n}.cal_ms"] = v["calibration_ms"]; F[f"cb.n{n}.us_per_cand"] = v["windows_us_per_candidate"]
+    nr_ = pd.read_parquet(os.path.join(os.path.dirname(RES), "results", "raw", "norman_rows.parquet"), columns=["scenario", "n", "cs"])
+    nn_ = nr_[nr_.scenario == "fixed_mix"].groupby("cs").n.first()
+    F["nor.mix_n.min"] = int(nn_.min()); F["nor.mix_n.max"] = int(nn_.max())
     # tables (markdown) ------------------------------------------------------------
+    from docbuild import mdtab  # typographic minus, content-proportional column widths
+    # Table 1 — data
+    t1 = pd.read_csv(os.path.join(TAB, "table1_dataset.csv"))
+    T["table1"] = mdtab(["Source group (fold)", "Target systems", "Median compounds per system", "Retention times", "Median RT span (min)", "Acidic / non-acidic mobile phase", "ACN / MeOH"],
+                        [[r.fold_name, int(r.systems), f"{r.compounds_median:.0f}", f"{int(r.compounds_total):,}", f"{r.rt_span_median_min:.1f}", f"{int(r.acidic)} / {int(r.non_acidic)}", f"{int(r.acn)} / {int(r.meoh)}"] for _, r in t1.iterrows()])
+    # Table 2 — main comparison incl. fixed tolerances (n = 20, alpha = 0.10)
     t2 = pd.read_csv(os.path.join(TAB, "table2_main_n20_a010.csv"))
-    rows = ["| Method | Mean coverage [95 % CI] | Systems with coverage < 0.85 | Median width (min) | Median width (% of RT span) | Mean interval score (min) |", "|---|---|---|---|---|---|"]
-    for _, r in t2.iterrows():
-        rows.append(f"| {LAB.get(r.method, r.method)} | {_f(r.coverage_mean)} [{_f(r.coverage_ci_lo)}, {_f(r.coverage_ci_hi)}] | "
-                    f"{100*r.share_severe_under:.0f} % | {_f(r.width_median_min, 2)} | {_f(100*r.width_rel_median, 1)} | {_f(r.winkler_mean, 2)} |")
-    T["table2"] = "\n".join(rows)
+    fw = pd.read_csv(os.path.join(TAB, "table9_fixed_windows.csv")); fw = fw[(fw.n == 20) & fw.method.isin(["RMSE_x2", "FIX_0.5min", "FIX_1min", "FIX_2min", "FIX_10pct"])]
+    rows = []
+    for _, r in pd.concat([t2, fw], ignore_index=True).iterrows():
+        rows.append([LAB.get(r.method, r.method), f"{_f(r.coverage_mean)} [{_f(r.coverage_ci_lo)}, {_f(r.coverage_ci_hi)}]", f"{100*r.share_severe_under:.0f}",
+                     _f(r.width_median_min, 2), _f(r.winkler_mean, 2)])
+    T["table2"] = mdtab(["Window construction", "Mean coverage [95 % CI]", "Systems with coverage < 0.85 (%)", "Median width (min)", "Mean interval score (min)"], rows)
+    # Table 3 — paired comparisons of the proposed windows (interval score), overall and per source fold
+    t3 = pd.read_csv(os.path.join(TAB, "table3_paired_tests_n20_a010.csv")); t3 = t3[t3.metric == "winkler"]
+    het = pd.read_csv(os.path.join(TAB, "table11_fold_heterogeneity.csv"))
+    rows = []
+    for _, r in t3.iterrows():
+        hh = het[(het.comparator == r.comparator) & (het.fold_name != "all")]
+        order = ["BGC", "Folberth", "PredRet", "Souihi+Stoffel", "Other sources"]
+        hh = hh.set_index("fold_name").reindex([o for o in order if o in set(hh.fold_name)]) if len(hh) else hh
+        per = " / ".join(f"{100*h.median_rel_change:+.0f}" for _, h in hh.iterrows()) if len(hh) else "–"
+        rows.append([LAB.get(r.comparator, r.comparator), f"{r.median_diff:+.2f} [{r.diff_ci_lo:+.2f}, {r.diff_ci_hi:+.2f}]", f"{100*r.share_ref_better:.0f}",
+                     f"{r.rank_biserial:+.2f}", _p(r.p_holm), per])
+    T["table3"] = mdtab(["Comparator", "Median paired difference in interval score (min) [95 % CI]", "Systems where proposed is better (%)", "Rank-biserial r", "Holm-adjusted p", "Median relative change per fold (%)"], rows)
+    # Table 4 — robustness, generalisation, external validation and SASC (n = 20, alpha = 0.10)
+    def cov(key):
+        v = F.get(key); return "–" if v is None else _f(v)
+    scen = [("Random calibrants (main)", "main.{m}.coverage_mean"), ("RT-spanning calibrants", "rob.span.{m}.coverage_mean"),
+            ("Commonly measured calibrants", "rob.common.{m}.coverage_mean"), ("Calibrant RT noise (SD 2 % of span)", "rob.noise.{m}.coverage_mean"),
+            ("One outlying calibrant (+10 % of span)", "rob.outlier.{m}.coverage_mean"), ("SMRT-regression base model", "gen.smrt.n20.{m}.coverage_mean"),
+            ("HILIC systems", "gen.hilic.n20.{m}.coverage_mean"), ("NORMAN, random calibrants", "nor.random_all.20.a0.10.{m}.coverage_mean"),
+            ("NORMAN, laboratory calibrant mix", "nor.fixed_mix.mix.a0.10.{m}.coverage_mean")]
+    rows = [[name] + [cov(k.format(m=m)) for m in ["P", "B5_jackknife_plus", "B1_gauss_rmse", "B3_gp_PI"]] for name, k in scen]
+    rows.append(["Commonly measured calibrants + SASC", cov("sasc.common.P+SASC.coverage_mean"), cov("sasc.common.J+SASC.coverage_mean"), "–", "–"])
+    rows.append(["NORMAN laboratory mix + SASC", cov("nor.fixed_mix.mix.a0.10.P+SASC.coverage_mean"), cov("nor.fixed_mix.mix.a0.10.J+SASC.coverage_mean"), "–", "–"])
+    T["table4"] = mdtab(["Scenario (n = 20, nominal 0.90)", "Proposed", "Jackknife+", "Gaussian ±z·RMSE", "GP projection PI"], rows)
     return F, T

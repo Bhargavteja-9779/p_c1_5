@@ -1,66 +1,178 @@
-| stratum | group | method | coverage_sysavg | n_systems | covered | total | coverage_pooled |
-|---|---|---|---|---|---|---|---|
-| ionisable | ionisable | B1_gauss_rmse | 0.900 | 37 | 11443 | 12749 | 0.898 |
-| ionisable | ionisable | B2_pspline_PI | 0.905 | 37 | 11495 | 12749 | 0.902 |
-| ionisable | ionisable | B3_gp_PI | 0.853 | 37 | 10852 | 12749 | 0.851 |
-| ionisable | ionisable | B4_split_conformal | 0.920 | 37 | 11702 | 12749 | 0.918 |
-| ionisable | ionisable | B5_jackknife_plus | 0.928 | 37 | 11765 | 12749 | 0.923 |
-| ionisable | ionisable | P | 0.946 | 37 | 12038 | 12749 | 0.944 |
-| ionisable | ionisable | P_linear_map | 0.942 | 37 | 11938 | 12749 | 0.936 |
-| ionisable | ionisable | P_naive_noLOO | 0.790 | 37 | 10037 | 12749 | 0.787 |
-| ionisable | neutral | B1_gauss_rmse | 0.855 | 37 | 34790 | 40556 | 0.858 |
-| ionisable | neutral | B2_pspline_PI | 0.846 | 37 | 34446 | 40556 | 0.849 |
-| ionisable | neutral | B3_gp_PI | 0.803 | 37 | 32698 | 40556 | 0.806 |
-| ionisable | neutral | B4_split_conformal | 0.895 | 37 | 36404 | 40556 | 0.898 |
-| ionisable | neutral | B5_jackknife_plus | 0.885 | 37 | 35927 | 40556 | 0.886 |
-| ionisable | neutral | P | 0.867 | 37 | 35077 | 40556 | 0.865 |
-| ionisable | neutral | P_linear_map | 0.875 | 37 | 35620 | 40556 | 0.878 |
-| ionisable | neutral | P_naive_noLOO | 0.713 | 37 | 28887 | 40556 | 0.712 |
-| region | inside_cal_range | B1_gauss_rmse | 0.865 | 37 | 42002 | 48532 | 0.865 |
-| region | inside_cal_range | B2_pspline_PI | 0.858 | 37 | 41713 | 48532 | 0.859 |
-| region | inside_cal_range | B3_gp_PI | 0.807 | 37 | 39209 | 48532 | 0.808 |
-| region | inside_cal_range | B4_split_conformal | 0.901 | 37 | 43773 | 48532 | 0.902 |
-| region | inside_cal_range | B5_jackknife_plus | 0.893 | 37 | 43286 | 48532 | 0.892 |
-| region | inside_cal_range | P | 0.879 | 37 | 42497 | 48532 | 0.876 |
-| region | inside_cal_range | P_linear_map | 0.884 | 37 | 42956 | 48532 | 0.885 |
-| region | inside_cal_range | P_naive_noLOO | 0.717 | 37 | 34638 | 48532 | 0.714 |
-| region | outside_cal_range | B1_gauss_rmse | 0.879 | 37 | 4231 | 4773 | 0.886 |
-| region | outside_cal_range | B2_pspline_PI | 0.875 | 37 | 4228 | 4773 | 0.886 |
-| region | outside_cal_range | B3_gp_PI | 0.898 | 37 | 4341 | 4773 | 0.909 |
-| region | outside_cal_range | B4_split_conformal | 0.899 | 37 | 4333 | 4773 | 0.908 |
-| region | outside_cal_range | B5_jackknife_plus | 0.918 | 37 | 4406 | 4773 | 0.923 |
-| region | outside_cal_range | P | 0.969 | 37 | 4618 | 4773 | 0.968 |
-| region | outside_cal_range | P_linear_map | 0.958 | 37 | 4602 | 4773 | 0.964 |
-| region | outside_cal_range | P_naive_noLOO | 0.896 | 37 | 4286 | 4773 | 0.898 |
-| sample_type | cal | B1_gauss_rmse | 0.902 | 37 | 11987 | 13307 | 0.901 |
-| sample_type | cal | B2_pspline_PI | 0.906 | 37 | 12034 | 13307 | 0.904 |
-| sample_type | cal | B3_gp_PI | 0.872 | 37 | 11590 | 13307 | 0.871 |
-| sample_type | cal | B4_split_conformal | 0.916 | 37 | 12164 | 13307 | 0.914 |
-| sample_type | cal | B5_jackknife_plus | 0.930 | 37 | 12328 | 13307 | 0.926 |
-| sample_type | cal | P | 0.942 | 37 | 12540 | 13307 | 0.942 |
-| sample_type | cal | P_linear_map | 0.930 | 37 | 12379 | 13307 | 0.930 |
-| sample_type | cal | P_naive_noLOO | 0.810 | 37 | 10746 | 13307 | 0.808 |
-| sample_type | sus | B1_gauss_rmse | 0.854 | 37 | 34246 | 39998 | 0.856 |
-| sample_type | sus | B2_pspline_PI | 0.845 | 37 | 33907 | 39998 | 0.848 |
-| sample_type | sus | B3_gp_PI | 0.797 | 37 | 31960 | 39998 | 0.799 |
-| sample_type | sus | B4_split_conformal | 0.896 | 37 | 35942 | 39998 | 0.899 |
-| sample_type | sus | B5_jackknife_plus | 0.883 | 37 | 35364 | 39998 | 0.884 |
-| sample_type | sus | P | 0.867 | 37 | 34575 | 39998 | 0.864 |
-| sample_type | sus | P_linear_map | 0.878 | 37 | 35179 | 39998 | 0.880 |
-| sample_type | sus | P_naive_noLOO | 0.705 | 37 | 28178 | 39998 | 0.704 |
-| seen | seen | B1_gauss_rmse | 0.882 | 37 | 44747 | 50605 | 0.884 |
-| seen | seen | B2_pspline_PI | 0.877 | 37 | 44542 | 50605 | 0.880 |
-| seen | seen | B3_gp_PI | 0.834 | 37 | 42312 | 50605 | 0.836 |
-| seen | seen | B4_split_conformal | 0.913 | 37 | 46315 | 50605 | 0.915 |
-| seen | seen | B5_jackknife_plus | 0.911 | 37 | 46094 | 50605 | 0.911 |
-| seen | seen | P | 0.894 | 37 | 45115 | 50605 | 0.892 |
-| seen | seen | P_linear_map | 0.901 | 37 | 45625 | 50605 | 0.902 |
-| seen | seen | P_naive_noLOO | 0.742 | 37 | 37493 | 50605 | 0.741 |
-| seen | unseen | B1_gauss_rmse | 0.577 | 37 | 1486 | 2700 | 0.550 |
-| seen | unseen | B2_pspline_PI | 0.543 | 37 | 1399 | 2700 | 0.518 |
-| seen | unseen | B3_gp_PI | 0.484 | 37 | 1238 | 2700 | 0.459 |
-| seen | unseen | B4_split_conformal | 0.684 | 37 | 1791 | 2700 | 0.663 |
-| seen | unseen | B5_jackknife_plus | 0.619 | 37 | 1598 | 2700 | 0.592 |
-| seen | unseen | P | 0.760 | 37 | 2000 | 2700 | 0.741 |
-| seen | unseen | P_linear_map | 0.730 | 37 | 1933 | 2700 | 0.716 |
-| seen | unseen | P_naive_noLOO | 0.564 | 37 | 1431 | 2700 | 0.530 |
+| scenario | stratum | group | method | coverage_sysavg | n_systems | covered | total | coverage_pooled |
+|---|---|---|---|---|---|---|---|---|
+| fixed_mix | ionisable | ionisable | B1_gauss_rmse | 0.933 | 37 | 216 | 231 | 0.935 |
+| fixed_mix | ionisable | ionisable | B2_pspline_PI | 0.932 | 37 | 216 | 231 | 0.935 |
+| fixed_mix | ionisable | ionisable | B3_gp_PI | 0.874 | 37 | 203 | 231 | 0.879 |
+| fixed_mix | ionisable | ionisable | B4_split_conformal | 0.962 | 37 | 223 | 231 | 0.965 |
+| fixed_mix | ionisable | ionisable | B5_jackknife_plus | 0.942 | 37 | 218 | 231 | 0.944 |
+| fixed_mix | ionisable | ionisable | P | 0.962 | 37 | 222 | 231 | 0.961 |
+| fixed_mix | ionisable | ionisable | P_linear_map | 0.963 | 37 | 222 | 231 | 0.961 |
+| fixed_mix | ionisable | ionisable | P_naive_noLOO | 0.829 | 37 | 192 | 231 | 0.831 |
+| fixed_mix | ionisable | neutral | B1_gauss_rmse | 0.833 | 37 | 848 | 1014 | 0.836 |
+| fixed_mix | ionisable | neutral | B2_pspline_PI | 0.815 | 37 | 832 | 1014 | 0.821 |
+| fixed_mix | ionisable | neutral | B3_gp_PI | 0.752 | 37 | 770 | 1014 | 0.759 |
+| fixed_mix | ionisable | neutral | B4_split_conformal | 0.904 | 37 | 922 | 1014 | 0.909 |
+| fixed_mix | ionisable | neutral | B5_jackknife_plus | 0.851 | 37 | 864 | 1014 | 0.852 |
+| fixed_mix | ionisable | neutral | P | 0.825 | 37 | 832 | 1014 | 0.821 |
+| fixed_mix | ionisable | neutral | P_linear_map | 0.881 | 37 | 899 | 1014 | 0.887 |
+| fixed_mix | ionisable | neutral | P_naive_noLOO | 0.711 | 37 | 721 | 1014 | 0.711 |
+| fixed_mix | region | inside_cal_range | B1_gauss_rmse | 0.849 | 37 | 992 | 1163 | 0.853 |
+| fixed_mix | region | inside_cal_range | B2_pspline_PI | 0.832 | 37 | 975 | 1163 | 0.838 |
+| fixed_mix | region | inside_cal_range | B3_gp_PI | 0.760 | 37 | 895 | 1163 | 0.770 |
+| fixed_mix | region | inside_cal_range | B4_split_conformal | 0.910 | 37 | 1067 | 1163 | 0.917 |
+| fixed_mix | region | inside_cal_range | B5_jackknife_plus | 0.862 | 37 | 1005 | 1163 | 0.864 |
+| fixed_mix | region | inside_cal_range | P | 0.846 | 37 | 975 | 1163 | 0.838 |
+| fixed_mix | region | inside_cal_range | P_linear_map | 0.890 | 37 | 1041 | 1163 | 0.895 |
+| fixed_mix | region | inside_cal_range | P_naive_noLOO | 0.726 | 37 | 838 | 1163 | 0.721 |
+| fixed_mix | region | outside_cal_range | B1_gauss_rmse | 0.886 | 22 | 72 | 82 | 0.878 |
+| fixed_mix | region | outside_cal_range | B2_pspline_PI | 0.889 | 22 | 73 | 82 | 0.890 |
+| fixed_mix | region | outside_cal_range | B3_gp_PI | 0.965 | 22 | 78 | 82 | 0.951 |
+| fixed_mix | region | outside_cal_range | B4_split_conformal | 0.925 | 22 | 78 | 82 | 0.951 |
+| fixed_mix | region | outside_cal_range | B5_jackknife_plus | 0.951 | 22 | 77 | 82 | 0.939 |
+| fixed_mix | region | outside_cal_range | P | 0.973 | 22 | 79 | 82 | 0.963 |
+| fixed_mix | region | outside_cal_range | P_linear_map | 0.980 | 22 | 80 | 82 | 0.976 |
+| fixed_mix | region | outside_cal_range | P_naive_noLOO | 0.927 | 22 | 75 | 82 | 0.915 |
+| fixed_mix | sample_type | sus | B1_gauss_rmse | 0.851 | 37 | 1064 | 1245 | 0.855 |
+| fixed_mix | sample_type | sus | B2_pspline_PI | 0.837 | 37 | 1048 | 1245 | 0.842 |
+| fixed_mix | sample_type | sus | B3_gp_PI | 0.777 | 37 | 973 | 1245 | 0.782 |
+| fixed_mix | sample_type | sus | B4_split_conformal | 0.916 | 37 | 1145 | 1245 | 0.920 |
+| fixed_mix | sample_type | sus | B5_jackknife_plus | 0.869 | 37 | 1082 | 1245 | 0.869 |
+| fixed_mix | sample_type | sus | P | 0.851 | 37 | 1054 | 1245 | 0.847 |
+| fixed_mix | sample_type | sus | P_linear_map | 0.897 | 37 | 1121 | 1245 | 0.900 |
+| fixed_mix | sample_type | sus | P_naive_noLOO | 0.735 | 37 | 913 | 1245 | 0.733 |
+| fixed_mix | seen | seen | B1_gauss_rmse | 0.871 | 37 | 1032 | 1180 | 0.875 |
+| fixed_mix | seen | seen | B2_pspline_PI | 0.857 | 37 | 1017 | 1180 | 0.862 |
+| fixed_mix | seen | seen | B3_gp_PI | 0.794 | 37 | 943 | 1180 | 0.799 |
+| fixed_mix | seen | seen | B4_split_conformal | 0.927 | 37 | 1098 | 1180 | 0.931 |
+| fixed_mix | seen | seen | B5_jackknife_plus | 0.888 | 37 | 1047 | 1180 | 0.887 |
+| fixed_mix | seen | seen | P | 0.863 | 37 | 1012 | 1180 | 0.858 |
+| fixed_mix | seen | seen | P_linear_map | 0.907 | 37 | 1074 | 1180 | 0.910 |
+| fixed_mix | seen | seen | P_naive_noLOO | 0.746 | 37 | 879 | 1180 | 0.745 |
+| fixed_mix | seen | unseen | B1_gauss_rmse | 0.514 | 36 | 32 | 65 | 0.492 |
+| fixed_mix | seen | unseen | B2_pspline_PI | 0.500 | 36 | 31 | 65 | 0.477 |
+| fixed_mix | seen | unseen | B3_gp_PI | 0.486 | 36 | 30 | 65 | 0.462 |
+| fixed_mix | seen | unseen | B4_split_conformal | 0.736 | 36 | 47 | 65 | 0.723 |
+| fixed_mix | seen | unseen | B5_jackknife_plus | 0.556 | 36 | 35 | 65 | 0.538 |
+| fixed_mix | seen | unseen | P | 0.667 | 36 | 42 | 65 | 0.646 |
+| fixed_mix | seen | unseen | P_linear_map | 0.736 | 36 | 47 | 65 | 0.723 |
+| fixed_mix | seen | unseen | P_naive_noLOO | 0.556 | 36 | 34 | 65 | 0.523 |
+| pool_random | ionisable | ionisable | B1_gauss_rmse | 0.926 | 32 | 3847 | 4140 | 0.929 |
+| pool_random | ionisable | ionisable | B2_pspline_PI | 0.916 | 32 | 3810 | 4140 | 0.920 |
+| pool_random | ionisable | ionisable | B3_gp_PI | 0.865 | 32 | 3589 | 4140 | 0.867 |
+| pool_random | ionisable | ionisable | B4_split_conformal | 0.950 | 32 | 3940 | 4140 | 0.952 |
+| pool_random | ionisable | ionisable | B5_jackknife_plus | 0.948 | 32 | 3937 | 4140 | 0.951 |
+| pool_random | ionisable | ionisable | P | 0.941 | 32 | 3896 | 4140 | 0.941 |
+| pool_random | ionisable | ionisable | P_linear_map | 0.949 | 32 | 3922 | 4140 | 0.947 |
+| pool_random | ionisable | ionisable | P_naive_noLOO | 0.790 | 32 | 3266 | 4140 | 0.789 |
+| pool_random | ionisable | neutral | B1_gauss_rmse | 0.825 | 32 | 14924 | 17960 | 0.831 |
+| pool_random | ionisable | neutral | B2_pspline_PI | 0.811 | 32 | 14685 | 17960 | 0.818 |
+| pool_random | ionisable | neutral | B3_gp_PI | 0.765 | 32 | 13828 | 17960 | 0.770 |
+| pool_random | ionisable | neutral | B4_split_conformal | 0.882 | 32 | 15929 | 17960 | 0.887 |
+| pool_random | ionisable | neutral | B5_jackknife_plus | 0.856 | 32 | 15455 | 17960 | 0.861 |
+| pool_random | ionisable | neutral | P | 0.827 | 32 | 14826 | 17960 | 0.826 |
+| pool_random | ionisable | neutral | P_linear_map | 0.856 | 32 | 15429 | 17960 | 0.859 |
+| pool_random | ionisable | neutral | P_naive_noLOO | 0.670 | 32 | 12050 | 17960 | 0.671 |
+| pool_random | region | inside_cal_range | B1_gauss_rmse | 0.843 | 32 | 17215 | 20319 | 0.847 |
+| pool_random | region | inside_cal_range | B2_pspline_PI | 0.828 | 32 | 16942 | 20319 | 0.834 |
+| pool_random | region | inside_cal_range | B3_gp_PI | 0.770 | 32 | 15753 | 20319 | 0.775 |
+| pool_random | region | inside_cal_range | B4_split_conformal | 0.892 | 32 | 18200 | 20319 | 0.896 |
+| pool_random | region | inside_cal_range | B5_jackknife_plus | 0.868 | 32 | 17742 | 20319 | 0.873 |
+| pool_random | region | inside_cal_range | P | 0.842 | 32 | 17027 | 20319 | 0.838 |
+| pool_random | region | inside_cal_range | P_linear_map | 0.865 | 32 | 17607 | 20319 | 0.867 |
+| pool_random | region | inside_cal_range | P_naive_noLOO | 0.681 | 32 | 13747 | 20319 | 0.677 |
+| pool_random | region | outside_cal_range | B1_gauss_rmse | 0.891 | 31 | 1556 | 1781 | 0.874 |
+| pool_random | region | outside_cal_range | B2_pspline_PI | 0.865 | 31 | 1553 | 1781 | 0.872 |
+| pool_random | region | outside_cal_range | B3_gp_PI | 0.951 | 31 | 1664 | 1781 | 0.934 |
+| pool_random | region | outside_cal_range | B4_split_conformal | 0.953 | 31 | 1669 | 1781 | 0.937 |
+| pool_random | region | outside_cal_range | B5_jackknife_plus | 0.934 | 31 | 1650 | 1781 | 0.926 |
+| pool_random | region | outside_cal_range | P | 0.964 | 31 | 1695 | 1781 | 0.952 |
+| pool_random | region | outside_cal_range | P_linear_map | 0.981 | 31 | 1744 | 1781 | 0.979 |
+| pool_random | region | outside_cal_range | P_naive_noLOO | 0.864 | 31 | 1569 | 1781 | 0.881 |
+| pool_random | sample_type | sus | B1_gauss_rmse | 0.845 | 32 | 18771 | 22100 | 0.849 |
+| pool_random | sample_type | sus | B2_pspline_PI | 0.832 | 32 | 18495 | 22100 | 0.837 |
+| pool_random | sample_type | sus | B3_gp_PI | 0.785 | 32 | 17417 | 22100 | 0.788 |
+| pool_random | sample_type | sus | B4_split_conformal | 0.896 | 32 | 19869 | 22100 | 0.899 |
+| pool_random | sample_type | sus | B5_jackknife_plus | 0.874 | 32 | 19392 | 22100 | 0.877 |
+| pool_random | sample_type | sus | P | 0.849 | 32 | 18722 | 22100 | 0.847 |
+| pool_random | sample_type | sus | P_linear_map | 0.874 | 32 | 19351 | 22100 | 0.876 |
+| pool_random | sample_type | sus | P_naive_noLOO | 0.694 | 32 | 15316 | 22100 | 0.693 |
+| pool_random | seen | seen | B1_gauss_rmse | 0.866 | 32 | 18214 | 20940 | 0.870 |
+| pool_random | seen | seen | B2_pspline_PI | 0.853 | 32 | 17979 | 20940 | 0.859 |
+| pool_random | seen | seen | B3_gp_PI | 0.807 | 32 | 16959 | 20940 | 0.810 |
+| pool_random | seen | seen | B4_split_conformal | 0.912 | 32 | 19148 | 20940 | 0.914 |
+| pool_random | seen | seen | B5_jackknife_plus | 0.895 | 32 | 18803 | 20940 | 0.898 |
+| pool_random | seen | seen | P | 0.860 | 32 | 17970 | 20940 | 0.858 |
+| pool_random | seen | seen | P_linear_map | 0.886 | 32 | 18579 | 20940 | 0.887 |
+| pool_random | seen | seen | P_naive_noLOO | 0.708 | 32 | 14788 | 20940 | 0.706 |
+| pool_random | seen | unseen | B1_gauss_rmse | 0.483 | 31 | 557 | 1160 | 0.480 |
+| pool_random | seen | unseen | B2_pspline_PI | 0.449 | 31 | 516 | 1160 | 0.445 |
+| pool_random | seen | unseen | B3_gp_PI | 0.398 | 31 | 458 | 1160 | 0.395 |
+| pool_random | seen | unseen | B4_split_conformal | 0.626 | 31 | 721 | 1160 | 0.622 |
+| pool_random | seen | unseen | B5_jackknife_plus | 0.514 | 31 | 589 | 1160 | 0.508 |
+| pool_random | seen | unseen | P | 0.654 | 31 | 752 | 1160 | 0.648 |
+| pool_random | seen | unseen | P_linear_map | 0.671 | 31 | 772 | 1160 | 0.666 |
+| pool_random | seen | unseen | P_naive_noLOO | 0.467 | 31 | 528 | 1160 | 0.455 |
+| random_all | ionisable | ionisable | B1_gauss_rmse | 0.886 | 37 | 7380 | 8378 | 0.881 |
+| random_all | ionisable | ionisable | B2_pspline_PI | 0.898 | 37 | 7469 | 8378 | 0.892 |
+| random_all | ionisable | ionisable | B3_gp_PI | 0.846 | 37 | 7060 | 8378 | 0.843 |
+| random_all | ionisable | ionisable | B4_split_conformal | 0.905 | 37 | 7539 | 8378 | 0.900 |
+| random_all | ionisable | ionisable | B5_jackknife_plus | 0.916 | 37 | 7610 | 8378 | 0.908 |
+| random_all | ionisable | ionisable | P | 0.946 | 37 | 7920 | 8378 | 0.945 |
+| random_all | ionisable | ionisable | P_linear_map | 0.937 | 37 | 7794 | 8378 | 0.930 |
+| random_all | ionisable | ionisable | P_naive_noLOO | 0.788 | 37 | 6579 | 8378 | 0.785 |
+| random_all | ionisable | neutral | B1_gauss_rmse | 0.879 | 37 | 19018 | 21582 | 0.881 |
+| random_all | ionisable | neutral | B2_pspline_PI | 0.875 | 37 | 18929 | 21582 | 0.877 |
+| random_all | ionisable | neutral | B3_gp_PI | 0.836 | 37 | 18100 | 21582 | 0.839 |
+| random_all | ionisable | neutral | B4_split_conformal | 0.904 | 37 | 19553 | 21582 | 0.906 |
+| random_all | ionisable | neutral | B5_jackknife_plus | 0.907 | 37 | 19608 | 21582 | 0.909 |
+| random_all | ionisable | neutral | P | 0.899 | 37 | 19419 | 21582 | 0.900 |
+| random_all | ionisable | neutral | P_linear_map | 0.891 | 37 | 19292 | 21582 | 0.894 |
+| random_all | ionisable | neutral | P_naive_noLOO | 0.745 | 37 | 16116 | 21582 | 0.747 |
+| random_all | region | inside_cal_range | B1_gauss_rmse | 0.880 | 37 | 23795 | 27050 | 0.880 |
+| random_all | region | inside_cal_range | B2_pspline_PI | 0.879 | 37 | 23796 | 27050 | 0.880 |
+| random_all | region | inside_cal_range | B3_gp_PI | 0.834 | 37 | 22561 | 27050 | 0.834 |
+| random_all | region | inside_cal_range | B4_split_conformal | 0.906 | 37 | 24506 | 27050 | 0.906 |
+| random_all | region | inside_cal_range | B5_jackknife_plus | 0.908 | 37 | 24539 | 27050 | 0.907 |
+| random_all | region | inside_cal_range | P | 0.905 | 37 | 24495 | 27050 | 0.906 |
+| random_all | region | inside_cal_range | P_linear_map | 0.898 | 37 | 24308 | 27050 | 0.899 |
+| random_all | region | inside_cal_range | P_naive_noLOO | 0.742 | 37 | 20053 | 27050 | 0.741 |
+| random_all | region | outside_cal_range | B1_gauss_rmse | 0.891 | 37 | 2603 | 2910 | 0.895 |
+| random_all | region | outside_cal_range | B2_pspline_PI | 0.891 | 37 | 2602 | 2910 | 0.894 |
+| random_all | region | outside_cal_range | B3_gp_PI | 0.886 | 37 | 2599 | 2910 | 0.893 |
+| random_all | region | outside_cal_range | B4_split_conformal | 0.887 | 37 | 2586 | 2910 | 0.889 |
+| random_all | region | outside_cal_range | B5_jackknife_plus | 0.918 | 37 | 2679 | 2910 | 0.921 |
+| random_all | region | outside_cal_range | P | 0.976 | 37 | 2844 | 2910 | 0.977 |
+| random_all | region | outside_cal_range | P_linear_map | 0.950 | 37 | 2778 | 2910 | 0.955 |
+| random_all | region | outside_cal_range | P_naive_noLOO | 0.904 | 37 | 2642 | 2910 | 0.908 |
+| random_all | sample_type | cal | B1_gauss_rmse | 0.902 | 37 | 11987 | 13307 | 0.901 |
+| random_all | sample_type | cal | B2_pspline_PI | 0.906 | 37 | 12034 | 13307 | 0.904 |
+| random_all | sample_type | cal | B3_gp_PI | 0.872 | 37 | 11590 | 13307 | 0.871 |
+| random_all | sample_type | cal | B4_split_conformal | 0.916 | 37 | 12164 | 13307 | 0.914 |
+| random_all | sample_type | cal | B5_jackknife_plus | 0.930 | 37 | 12328 | 13307 | 0.926 |
+| random_all | sample_type | cal | P | 0.942 | 37 | 12540 | 13307 | 0.942 |
+| random_all | sample_type | cal | P_linear_map | 0.930 | 37 | 12379 | 13307 | 0.930 |
+| random_all | sample_type | cal | P_naive_noLOO | 0.810 | 37 | 10746 | 13307 | 0.808 |
+| random_all | sample_type | sus | B1_gauss_rmse | 0.864 | 37 | 14411 | 16653 | 0.865 |
+| random_all | sample_type | sus | B2_pspline_PI | 0.861 | 37 | 14364 | 16653 | 0.863 |
+| random_all | sample_type | sus | B3_gp_PI | 0.813 | 37 | 13570 | 16653 | 0.815 |
+| random_all | sample_type | sus | B4_split_conformal | 0.894 | 37 | 14928 | 16653 | 0.896 |
+| random_all | sample_type | sus | B5_jackknife_plus | 0.893 | 37 | 14890 | 16653 | 0.894 |
+| random_all | sample_type | sus | P | 0.888 | 37 | 14799 | 16653 | 0.889 |
+| random_all | sample_type | sus | P_linear_map | 0.881 | 37 | 14707 | 16653 | 0.883 |
+| random_all | sample_type | sus | P_naive_noLOO | 0.716 | 37 | 11949 | 16653 | 0.718 |
+| random_all | seen | seen | B1_gauss_rmse | 0.895 | 37 | 25501 | 28485 | 0.895 |
+| random_all | seen | seen | B2_pspline_PI | 0.896 | 37 | 25546 | 28485 | 0.897 |
+| random_all | seen | seen | B3_gp_PI | 0.855 | 37 | 24410 | 28485 | 0.857 |
+| random_all | seen | seen | B4_split_conformal | 0.915 | 37 | 26069 | 28485 | 0.915 |
+| random_all | seen | seen | B5_jackknife_plus | 0.922 | 37 | 26244 | 28485 | 0.921 |
+| random_all | seen | seen | P | 0.917 | 37 | 26133 | 28485 | 0.917 |
+| random_all | seen | seen | P_linear_map | 0.911 | 37 | 25972 | 28485 | 0.912 |
+| random_all | seen | seen | P_naive_noLOO | 0.766 | 37 | 21826 | 28485 | 0.766 |
+| random_all | seen | unseen | B1_gauss_rmse | 0.617 | 37 | 897 | 1475 | 0.608 |
+| random_all | seen | unseen | B2_pspline_PI | 0.588 | 37 | 852 | 1475 | 0.578 |
+| random_all | seen | unseen | B3_gp_PI | 0.518 | 37 | 750 | 1475 | 0.508 |
+| random_all | seen | unseen | B4_split_conformal | 0.699 | 37 | 1023 | 1475 | 0.694 |
+| random_all | seen | unseen | B5_jackknife_plus | 0.665 | 37 | 974 | 1475 | 0.660 |
+| random_all | seen | unseen | P | 0.818 | 37 | 1206 | 1475 | 0.818 |
+| random_all | seen | unseen | P_linear_map | 0.757 | 37 | 1114 | 1475 | 0.755 |
+| random_all | seen | unseen | P_naive_noLOO | 0.604 | 37 | 869 | 1475 | 0.589 |
