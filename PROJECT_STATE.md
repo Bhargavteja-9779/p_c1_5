@@ -62,3 +62,13 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
 * NEXT: when pipeline_status.txt shows PIPELINE_DONE → `cd code && python3 experiments/analyze.py --raw ../results/raw --out ..`
   → write 04_results.md (tokens only) + highlights/abstract → `python3 scripts/build_manuscript.py` → review cycle 1 via
   Workflow({scriptPath: REVIEW/workflow/review_cycle.js, args: {cycle: 1}}).
+
+## Update 2026-11-16 04:20 UTC
+* Main experiment DONE (228 targets). Results analysed; Results/front matter/conclusions drafted (token-based, manuscript/src).
+  Key: conformal windows valid (P 0.911), parametric under-cover (GP 0.822); P best interval score but gain heterogeneous
+  (long gradients −18 %, short ≈0/worse vs Gaussian); conditional coverage gains outside calibrant range; decoy trade-off equal at matched retention.
+* Robustness: span → conformal conservative (0.93); COMMON calibrants → all under-cover (P 0.815, J+ 0.746) [mechanism: 27 % of tests
+  outside calibrant range + easy calibrants] → Phase-19 improvement SASC (EXPERIMENT_PLAN Addendum D) implemented + queued.
+* Pipeline order now: robust(noise, outlier) → smrt → hilic → sens → fixed windows → small-n → NORMAN → SASC → NORMAN(+SASC) → compute benchmark.
+* NEXT after PIPELINE_DONE: analyze.py → write robustness/generalisation/SASC/NORMAN/compute subsections + limitations →
+  build_manuscript.py → review cycle 1 (Workflow REVIEW/workflow/review_cycle.js, args {cycle: 1}).
