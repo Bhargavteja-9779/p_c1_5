@@ -82,6 +82,12 @@ morger2022studying,doi:10.1038/s41598-022-09309-3,OK,Studying and mitigating the
 folberth2020ms2,doi:10.1016/j.jchromb.2020.122105,OK,MS2 and LC libraries for untargeted metabolomics: Enhancing method development and identification confidence
 souihi2022multiconditionrt,doi:10.1016/j.chroma.2022.462867,OK,MultiConditionRT: Predicting liquid chromatography retention time for emerging contaminants for a wide range of eluent compositions and stationary phases
 stoffel2022alkylpyridinium,doi:10.1007/s00216-021-03828-0,OK,N-Alkylpyridinium sulfonates for retention time indexing in reversed-phase-liquid chromatography-mass spectrometry–based metabolomics
+norinder2014introducing,doi:10.1021/ci5001168,OK,Introducing Conformal Prediction in Predictive Modeling. A Transparent and Flexible Alternative to Applicability Domain Determination
+svensson2018conformal,doi:10.1021/acs.jcim.8b00054,OK,Conformal Regression for Quantitative Structure–Activity Relationship Modeling—Quantifying Prediction Uncertainty
+johansson2014regression,doi:10.1007/s10994-014-5453-0,OK,Regression conformal prediction with random forests
+hollender2023norman,doi:10.1186/s12302-023-00779-4,OK,NORMAN guidance on suspect and non-target screening in environmental monitoring
+bade2015suspect,doi:10.1016/j.scitotenv.2015.08.078,OK,Suspect screening of large numbers of emerging contaminants in environmental waters using artificial neural networks for chromatographic retention time prediction and high resolution mass spectrometry data analysis
+roberts2017cross,doi:10.1111/ecog.02881,OK,"Cross‐validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure"
 holm1979simple,jstor:4615733,OK (manual: 3 independent web sources; no Crossref DOI),A simple sequentially rejective multiple test procedure
 rdkit,manual,OK (manual: DataCite 10.5281/zenodo.23981945),"RDKit: Open-source cheminformatics, release 2026.09.2"
 lightgbm,manual,OK (manual: installed package 4.7.0),"LightGBM, version 4.7.0"
