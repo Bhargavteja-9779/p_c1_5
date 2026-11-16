@@ -80,6 +80,13 @@ REG = [  # key, id (doi:/arxiv:/manual:), expected title fragment (lower-case)
  ("folberth2020ms2", "doi:10.1016/j.jchromb.2020.122105", "ms2 and lc libraries"),
  ("souihi2022multiconditionrt", "doi:10.1016/j.chroma.2022.462867", "multiconditionrt"),
  ("stoffel2022alkylpyridinium", "doi:10.1007/s00216-021-03828-0", "alkylpyridinium sulfonates"),
+ # added after review cycle 1 (R8), verified against Crossref
+ ("norinder2014introducing", "doi:10.1021/ci5001168", "introducing conformal prediction in predictive modeling"),
+ ("svensson2018conformal", "doi:10.1021/acs.jcim.8b00054", "conformal regression for quantitative structure"),
+ ("johansson2014regression", "doi:10.1007/s10994-014-5453-0", "regression conformal prediction with random forests"),
+ ("hollender2023norman", "doi:10.1186/s12302-023-00779-4", "norman guidance on suspect and non-target screening"),
+ ("bade2015suspect", "doi:10.1016/j.scitotenv.2015.08.078", "suspect screening of large numbers of emerging contaminants"),
+ ("roberts2017cross", "doi:10.1111/ecog.02881", "cross-validation strategies for data with temporal"),
 ]
 OVERRIDE = {  # fields missing or wrong in the Crossref record (checked against the publisher pages)
     "vovk2005algorithmic": {"author": "Vovk, Vladimir and Gammerman, Alex and Shafer, Glenn", "publisher": "Springer", "address": "New York"},
@@ -116,6 +123,9 @@ def bibtex_from_crossref(key, m):
     f = {"author": authors, "title": "{{" + title + "}}", "year": str(year), "doi": m.get("DOI")}  # double braces keep the published capitalisation
     if typ == "journal-article":
         kind = "article"; f["journal"] = clean((m.get("container-title") or [""])[0])
+        short = [clean(x) for x in (m.get("short-container-title") or []) if x]
+        if short:
+            f["shortjournal"] = short[0]  # ISO 4 abbreviation, used by the Elsevier CSL (container-title-short)
         if m.get("volume"): f["volume"] = m["volume"]
         if m.get("issue"): f["number"] = m["issue"]
         if m.get("page"): f["pages"] = m["page"].replace("-", "--")
