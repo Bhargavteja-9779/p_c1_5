@@ -156,3 +156,18 @@ predictive intervals with few calibrants, so B3 alone could understate the stron
   as results/raw/metagp_rows_run1_bounds_exp3.parquet (+ metagp_theta_run1_bounds_exp3.csv); run 2 (bounds exp(9)) is the
   analysed version. At n = 20, α = 0.10: run 1 coverage 0.974, median width 11.2 min, interval score 13.2 min; run 2 0.973,
   12.0 min, 14.2 min — the conclusion does not depend on the bounds, and the widening made B7 slightly less, not more, efficient.
+
+## Addendum F (2026-11-16 19:15 UTC, after review cycle 1; written and committed BEFORE running)
+1. **Fold-specific compound frequencies for the 'common' calibrant rule (correction).** The rule ranked compounds by the number
+   of RepoRT systems in which they were measured, counted over all systems including the held-out source group. Counts are now
+   taken only from systems of the same separation mode outside the held-out group (for target systems of fold f: folds ≠ f; for
+   the replay on a training system of fold g within outer fold f: folds ∉ {f, g}). The 'commonly measured calibrants'
+   robustness experiment and the SASC experiment are re-run with these counts and replace the earlier results; the earlier
+   results are kept for comparison (results/raw/*_allfreq_*).
+2. **Out-of-sample validation of SASC on a new selection rule ('polar').** Calibrants = the n = 20 compounds of a system with the
+   lowest computed logP (Crippen MolLogP; random tie-break), mimicking a mix of polar standards. The rule was chosen without
+   looking at any result for it. Evaluation exactly as for the other SASC rules (factor c per fold from replaying the rule on
+   training systems; 10 draws per target system — identical sets apart from tie-breaks; P, P+SASC, J+, J+SASC; mean coverage,
+   share of systems < 0.85, median width, interval score, per-source coverage). SASC is considered validated on this rule if
+   the mean coverage of P+SASC and J+SASC over the target systems is within 0.88–0.92 (nominal 0.90); otherwise it is reported
+   as not validated.

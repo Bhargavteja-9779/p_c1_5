@@ -413,6 +413,85 @@ if os.path.exists(_lg):
     if _rows:
         metrics["sigma_rows_main"] = {"per_fold": _rows, "min": min(_rows.values()), "max": max(_rows.values())}
 
+# ---------------- review cycle 1 analyses (source-level inference, per-draw coverage, strata estimators, span model) ----------------
+from conformrt.statistics import revision as RV
+REV = {}
+sub20_ = ps[(ps.n == PRIMARY_N) & np.isclose(ps.alpha, PRIMARY_A)]
+def _lr(df_, ref, comp):
+    A_ = df_[df_.method == ref].set_index("system"); B_ = df_[df_.method == comp].set_index("system"); j_ = A_.index.intersection(B_.index)
+    return np.log(A_.loc[j_, "winkler"] / B_.loc[j_, "winkler"]), A_.loc[j_, "fold"]
+sm_rows = []
+for comp in [c for c in BASELINES if c in sub20_.method.unique()]:
+    lr_, src_ = _lr(sub20_, "P", comp); r_ = RV.source_meta(lr_.values, src_.values); r_.update({"setting": "main", "ref": "P", "comparator": comp}); sm_rows.append(r_)
+for abl in [m for m in ABLATIONS if m in sub20_.method.unique()]:
+    lr_, src_ = _lr(sub20_, abl, "P"); r_ = RV.source_meta(lr_.values, src_.values); r_.update({"setting": "ablation", "ref": abl, "comparator": "P"}); sm_rows.append(r_)
+for tag_, set_ in [("gen_smrt", "SMRT base model"), ("gen_hilic", "HILIC")]:
+    pth_ = os.path.join(a.raw, f"{tag_}_rows.parquet")
+    if os.path.exists(pth_):
+        g_ = per_system(pd.read_parquet(pth_)); g_ = g_[(g_.n == PRIMARY_N) & np.isclose(g_.alpha, PRIMARY_A)]
+        lr_, src_ = _lr(g_, "P", "B5_jackknife_plus"); r_ = RV.source_meta(lr_.values, src_.values); r_.update({"setting": set_, "ref": "P", "comparator": "B5_jackknife_plus"}); sm_rows.append(r_)
+smt = pd.DataFrame([{k: v for k, v in r_.items() if k != "per_source_ratio"} | {"per_source_ratio": "; ".join(f"{FOLD_NAMES.get(int(float(k)), k)}: {v:.3f}" for k, v in r_["per_source_ratio"].items())} for r_ in sm_rows])
+md(smt, os.path.join(TAB, "tableS18_source_meta")); stats_out["source_meta"] = sm_rows
+# calibration-conditional (per-draw) coverage; exact split-conformal reference under exchangeability
+dc = RV.draw_coverage(main_rows, ORDER); dc["split_reference_share_below_nom_minus_0.05"] = [
+    RV.split_conformal_reference(int(n_), float(a_)).get("share_below_nom_minus_0.05", np.nan) if m_ == "B4_split_conformal" else np.nan
+    for n_, a_, m_ in zip(dc.n, dc.alpha, dc.method)]
+md(dc, os.path.join(TAB, "tableS19_draw_coverage")); REV["draw_coverage"] = dc.to_dict("records")
+REV["split_reference"] = {f"n{n_}_a{a_:.2f}": RV.split_conformal_reference(n_, a_) for n_ in [10, 15, 20, 30, 40] for a_ in [0.05, 0.10, 0.20]}
+# stratum coverage: system-average and pooled estimators with bootstrap CIs over systems
+st_ = load("main", "strata")
+if not st_.empty:
+    se_ = RV.strata_estimators(st_[st_.stratum != "superclass"], PRIMARY_A, ["P", "B5_jackknife_plus", "B1_gauss_rmse", "B3_gp_PI"], B=min(a.B, 2000))
+    md(se_, os.path.join(TAB, "tableS20_strata_estimators")); REV["strata_estimators"] = se_.to_dict("records")
+# gradient length: continuous, source-adjusted model on RepoRT (exploratory) and its check on HILIC and NORMAN
+lr_, src_ = _lr(sub20_, "P", "B5_jackknife_plus")
+span_ = (meta.set_index("system").loc[lr_.index, "rt_max"] - meta.set_index("system").loc[lr_.index, "rt_min"]).astype(float)
+spm = RV.span_model(lr_.values, np.log(span_.values), src_.values); REV["span_model"] = spm
+ext = {}
+pth_ = os.path.join(a.raw, "gen_hilic_rows.parquet")
+if os.path.exists(pth_):
+    g_ = per_system(pd.read_parquet(pth_)); g_ = g_[(g_.n == PRIMARY_N) & np.isclose(g_.alpha, PRIMARY_A)]
+    lrh, _ = _lr(g_, "P", "B5_jackknife_plus"); sph = (meta.set_index("system").loc[lrh.index, "rt_max"] - meta.set_index("system").loc[lrh.index, "rt_min"]).astype(float)
+    ext["HILIC"] = RV.external_span_check(lrh.values, np.log(sph.values), spm)
+nr_ = load("norman", "rows")
+if not nr_.empty:
+    for scen_ in ["random_all", "fixed_mix", "pool_random"]:
+        q_ = nr_[(nr_.scenario == scen_) & np.isclose(nr_.alpha, PRIMARY_A) & nr_.method.isin(["P", "B5_jackknife_plus"])]
+        q_ = q_[q_.n.astype(str) == ("20" if scen_ != "fixed_mix" else q_.n.astype(str).iloc[0])] if len(q_) else q_
+        if q_.empty:
+            continue
+        w_ = q_.groupby(["cs", "method"]).winkler.mean().unstack()
+        spn = (q_.width_mean / q_.width_rel_mean).groupby(q_.cs).median()
+        j_ = w_.dropna().index
+        ext[f"NORMAN {scen_}"] = RV.external_span_check(np.log(w_.loc[j_, "P"] / w_.loc[j_, "B5_jackknife_plus"]).values, np.log(spn.loc[j_].values), spm)
+REV["span_external"] = ext
+md(pd.DataFrame([{"set": k_, **v_} for k_, v_ in ext.items()]), os.path.join(TAB, "tableS21_span_external"))
+# SASC per held-out source group
+sasc_ = os.path.join(a.raw, "sasc_rows.parquet")
+if os.path.exists(sasc_):
+    sr_ = pd.read_parquet(sasc_).groupby(["rule", "method", "fold", "system"], as_index=False).coverage.mean()
+    sps = sr_.groupby(["rule", "method", "fold"]).agg(systems=("system", "nunique"), coverage=("coverage", "mean"),
+                                                       share_below_085=("coverage", lambda x: float((x < 0.85).mean()))).reset_index()
+    sps["fold_name"] = sps.fold.map(lambda f_: FOLD_NAMES.get(int(f_), f_))
+    md(sps, os.path.join(TAB, "tableS22_sasc_per_source")); REV["sasc_per_source"] = sps.to_dict("records")
+# HILIC per fold and relative widths
+if os.path.exists(os.path.join(a.raw, "gen_hilic_rows.parquet")):
+    g_ = per_system(pd.read_parquet(os.path.join(a.raw, "gen_hilic_rows.parquet"))); g_ = g_[(g_.n == PRIMARY_N) & np.isclose(g_.alpha, PRIMARY_A)]
+    hpf = g_.groupby(["fold", "method"]).agg(systems=("system", "nunique"), coverage=("coverage", "mean"), width_median=("width", "median"),
+                                             width_rel_median=("width_rel", "median")).reset_index()
+    hpf["fold_name"] = hpf.fold.map(lambda f_: FOLD_NAMES.get(int(f_), f_))
+    md(hpf, os.path.join(TAB, "tableS23_hilic_per_fold")); REV["hilic_per_fold"] = hpf.to_dict("records")
+# windows with a distribution-free guarantee of at least 0.90: jackknife+-type at alpha = 0.05 versus split conformal at 0.10
+gw = []
+for n_ in [20, 30, 40]:
+    for m_, a_ in [("P", 0.05), ("B5_jackknife_plus", 0.05), ("B4_split_conformal", 0.10), ("P", 0.10), ("B5_jackknife_plus", 0.10)]:
+        g_ = ps[(ps.n == n_) & np.isclose(ps.alpha, a_) & (ps.method == m_)]
+        if len(g_):
+            gw.append({"n": n_, "method": m_, "alpha": a_, "guaranteed_level": (1 - 2 * a_) if m_ != "B4_split_conformal" else (1 - a_),
+                       "coverage": float(g_.coverage.mean()), "width_median": float(g_.width.median())})
+gw = pd.DataFrame(gw); md(gw, os.path.join(TAB, "tableS24_guaranteed_windows")); REV["guaranteed_windows"] = gw.to_dict("records")
+stats_out["revision1"] = REV
+
 # ---------------- machine-readable outputs ----------------
 pd.concat(allps, ignore_index=True).to_csv(os.path.join(RES, "raw_results.csv"), index=False)
 def _clean(o):

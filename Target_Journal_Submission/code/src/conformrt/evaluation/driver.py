@@ -17,7 +17,7 @@ ABLATIONS = {"P": ["compound", "ion", "novelty", "geometry", "system"],
              "P-system": ["compound", "ion", "novelty", "geometry"],
              "P-geometry": ["compound", "ion", "novelty", "system"],
              "P-compound": ["novelty", "geometry", "system"]}
-STRATEGY_CODE = {"random": 0, "span": 1, "common": 2}
+STRATEGY_CODE = {"random": 0, "span": 1, "common": 2, "polar": 5}
 
 
 def _compound_frame(data: Data, rows, maxsim, seen):
@@ -193,7 +193,8 @@ class Experiment:
                        "sysf": encode_system(data.meta.loc[sid].to_dict()), "sig_models": sig_models,
                        "ens": ens_scores.loc[rows].values.T if ens_scores is not None else None,
                        "strata": _strata_labels(data, tab.ik14.values, tab.rt.values, ms, seen, C, self.top_superclasses),
-                       "n_systems_global": data.n_systems.reindex(tab.ik14.values).fillna(1).values,
+                       "n_systems_global": data.fold_frequency({f}).reindex(tab.ik14.values).fillna(0).values,  # held-out group excluded
+                       "logp": C["MolLogP"].values,
                        "cfg": {"alphas": cfg["alphas"], "n_list": cfg["n_list"], "draws": cfg["draws"], "primary_n": cfg["primary_n"],
                                "min_test": cfg["min_test"], "strategy": strategy, "strategy_code": STRATEGY_CODE[strategy],
                                "perturb": perturb, "methods": methods or cfg["methods"], "expensive_n": cfg["expensive_n"],

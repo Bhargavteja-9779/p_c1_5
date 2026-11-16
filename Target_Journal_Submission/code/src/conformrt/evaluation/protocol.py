@@ -45,6 +45,16 @@ class Data:
         self.n_systems = comp.set_index("ik14")["n_systems"]
         self.superclass = comp.set_index("ik14")["superclass"]
         self._bitvects = None
+        self._freq = {}
+
+    def fold_frequency(self, exclude) -> pd.Series:
+        """Number of systems of this separation mode outside the excluded source groups in which each compound was measured:
+        the public frequency available to a laboratory whose own source group is held out ('common' calibrant rule)."""
+        key = frozenset(int(x) for x in exclude)
+        if key not in self._freq:
+            keep = self.meta.index[~self.meta.fold.isin(key)]
+            self._freq[key] = self.rt[self.rt.system.isin(keep)].groupby("ik14").system.nunique()
+        return self._freq[key]
 
     def targets(self, min_compounds: int = 60) -> pd.DataFrame:
         m = self.meta[(self.meta.n_compounds >= min_compounds)]

@@ -16,7 +16,7 @@ from conformrt.preprocessing.features import mol_from_smiles
 cfg = yaml.safe_load(open(sys.argv[1] if len(sys.argv) > 1 else "config/full.yaml"))
 quick = cfg["name"] == "quick"; N_SIM_DRAWS = 2 if quick else 5; N_EVAL_DRAWS = 2 if quick else 10; n = cfg["primary_n"]; ALPHA = 0.1
 ex = Experiment(dict(cfg, name=cfg["name"] + "_sasc")); data = ex.data; fs = data.fs
-RULES = ["random", "span", "common"]
+RULES = ["random", "span", "common", "polar"]  # 'polar' = out-of-sample validation rule (Addendum F)
 # NORMAN calibration chemicals (connectivity InChIKey blocks)
 nd = pd.read_csv("data/raw/norman_ilc/extracted/SI/data/NORMAN_interlab_RT_data.csv")
 ncal = nd[nd.sample_type == "cal"].drop_duplicates("compound")
@@ -43,7 +43,7 @@ def sim_system(job):
                 cal = job["norman_pool"]
             else:
                 if N < n + 20: break
-                rng = np.random.default_rng([int(sid), n, r, STRATEGY_CODE[rule], 99]); cal = select_calibrants(rng, y, n, rule, job["nsys"])
+                rng = np.random.default_rng([int(sid), n, r, STRATEGY_CODE[rule], 99]); cal = select_calibrants(rng, y, n, rule, job["nsys"], None, job["logp"])
             te = np.setdiff1d(np.arange(N), cal)
             if len(te) < 10: continue
             mu, R, sl = loo_quantities(s[cal], y[cal], s[te], lambda st, sc, yc: sigma_fn(sig, C, sysf)(st, sc, yc, te, cal))
@@ -55,12 +55,12 @@ def sim_system(job):
     return sid, out
 
 
-def make_job(sid, scores_df, sig, extra=None):
+def make_job(sid, scores_df, sig, excl, extra=None):
     tab = data.rt[data.rt.system == sid].reset_index(drop=True); rows = fs.rows(tab.ik14)
     C = _compound_frame(data, rows, scores_df.loc[rows, "maxsim"].values, scores_df.loc[rows, "seen"].values)
     pool = np.flatnonzero(np.isin(tab.ik14.values, list(NORMAN_CAL_IK)))
     return {"sid": sid, "y": tab.rt.values.astype(float), "s": scores_df.loc[rows, "score"].values, "C": C,
-            "sysf": encode_system(data.meta.loc[sid].to_dict()), "sig": sig, "nsys": data.n_systems.reindex(tab.ik14.values).fillna(1).values,
+            "sysf": encode_system(data.meta.loc[sid].to_dict()), "sig": sig, "nsys": data.fold_frequency(excl).reindex(tab.ik14.values).fillna(0).values, "logp": C["MolLogP"].values,
             "norman_pool": pool if len(pool) >= 10 and len(tab) - len(pool) >= 10 else None}
 
 
@@ -78,7 +78,7 @@ for f in sorted(targets.fold.unique()):
         systems = [s for s in data.meta[(data.meta.fold == g) & (data.meta.n_compounds >= 40)].index if s != data.smrt_id]
         if quick: systems = systems[:4]
         sc = ex.scores_and_novelty(ex.fm.get(frozenset({f, g})), systems)
-        jobs += [make_job(sid, sc, sig_fg) for sid in systems]
+        jobs += [make_job(sid, sc, sig_fg, {f, g}) for sid in systems]
     outs = Parallel(n_jobs=cfg["n_jobs"])(delayed(sim_system)(j) for j in jobs)
     for rule in RULES:
         cp = np.array([o[rule][0] for _, o in outs if rule in o]); cj = np.array([o[rule][1] for _, o in outs if rule in o])
@@ -95,7 +95,7 @@ for f in sorted(targets.fold.unique()):
         for rule in RULES:
             for r in range(N_EVAL_DRAWS):
                 rng = np.random.default_rng([int(sid), n, r, STRATEGY_CODE[rule], cfg.get("seed", 0)])
-                cal = select_calibrants(rng, y, n, rule, job["nsys"]); te = np.setdiff1d(np.arange(N), cal)
+                cal = select_calibrants(rng, y, n, rule, job["nsys"], None, job["logp"]); te = np.setdiff1d(np.arange(N), cal)
                 mu, R, sl = loo_quantities(s[cal], y[cal], s[te], lambda st, scal, yc: sigma_fn(sig_f, C, sysf)(st, scal, yc, te, cal))
                 muJ, RJ, _ = loo_quantities(s[cal], y[cal], s[te], None)
                 for meth, (m_, R_, sl_, c_) in {"P": (mu, R, sl, 1.0), "P+SASC": (mu, R, sl, cP[rule]), "J+": (muJ, RJ, None, 1.0), "J+SASC": (muJ, RJ, None, cJ[rule])}.items():
@@ -103,13 +103,13 @@ for f in sorted(targets.fold.unique()):
                     rows_.append({"system": sid, "fold": int(f), "rule": rule, "draw": r, "method": meth, "c": c_, "coverage": cov.mean(),
                                   "width_mean": (hi - lo).mean(), "width_median": np.median(hi - lo), "winkler": winkler(lo, hi, y[te], ALPHA).mean()})
         return rows_
-    tj = [make_job(sid, sc_t, sig_f) for sid in tsys]
+    tj = [make_job(sid, sc_t, sig_f, {f}) for sid in tsys]
     for rr in Parallel(n_jobs=cfg["n_jobs"])(delayed(eval_target)(j) for j in tj):
         eval_rows += rr
     # NORMAN-mix curves on this fold's systems scored by the outer (out-of-source) model and σ_f
     nsys_f = [s for s in data.meta[(data.meta.fold == f) & (data.meta.n_compounds >= 40)].index if s != data.smrt_id]
     sc_n = ex.scores_and_novelty(ex.fm.get(frozenset({f})), nsys_f)
-    nj = [j for j in (make_job(sid, sc_n, sig_f) for sid in nsys_f) if j["norman_pool"] is not None]
+    nj = [j for j in (make_job(sid, sc_n, sig_f, {f}) for sid in nsys_f) if j["norman_pool"] is not None]
     for sid, o in Parallel(n_jobs=cfg["n_jobs"])(delayed(sim_system)(j) for j in nj):
         if "norman" in o:
             norman_curves_P.append(o["norman"][0]); norman_curves_J.append(o["norman"][1])
