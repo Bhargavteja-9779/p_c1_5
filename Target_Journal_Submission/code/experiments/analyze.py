@@ -326,6 +326,29 @@ if not nr.empty:
     if os.path.exists(nmeta):
         metrics["norman_meta"] = json.load(open(nmeta))
 
+# ---------------- SASC (Addendum D) ----------------
+sasc = os.path.join(a.raw, "sasc_rows.parquet")
+if os.path.exists(sasc):
+    sr = pd.read_parquet(sasc)
+    sg = sr.groupby(["rule", "method", "system"], as_index=False).agg(coverage=("coverage", "mean"), width=("width_median", "mean"), winkler=("winkler", "mean"))
+    rows_s = []
+    for (rule, meth), g in sg.groupby(["rule", "method"]):
+        lo, hi = boot_ci(g.coverage.values, B=2000)
+        rows_s.append({"rule": rule, "method": meth, "systems": len(g), "coverage_mean": g.coverage.mean(), "coverage_ci_lo": lo, "coverage_ci_hi": hi,
+                       "share_severe_under": float((g.coverage < 0.85).mean()), "width_median_min": g.width.median(), "winkler_mean": g.winkler.mean()})
+    ts = pd.DataFrame(rows_s); md(ts, os.path.join(TAB, "table12_sasc")); metrics["sasc"] = ts.to_dict("records")
+    cv = pd.read_csv(os.path.join(a.raw, "sasc_c_values.csv")); md(cv, os.path.join(TAB, "tableS15_sasc_c_values")); metrics["sasc_c"] = cv.to_dict("records")
+    sp = []
+    for rule in sorted(sg.rule.unique()):
+        A_ = sg[(sg.rule == rule) & (sg.method == "P+SASC")].set_index("system"); B_ = sg[(sg.rule == rule) & (sg.method == "J+SASC")].set_index("system")
+        j_ = A_.index.intersection(B_.index); d_ = A_.loc[j_, "winkler"] - B_.loc[j_, "winkler"]
+        sp.append({"rule": rule, "comparison": "P+SASC vs J+SASC (interval score)", "systems": len(j_), "median_diff": float(d_.median()),
+                   "rank_biserial": rank_biserial(d_.values), "p_wilcoxon": float(_st.wilcoxon(d_).pvalue) if (d_ != 0).any() else 1.0})
+    stats_out["sasc_tests"] = sp
+    ncf = os.path.join(a.raw, "sasc_norman_c.json")
+    if os.path.exists(ncf):
+        metrics["sasc_norman_c"] = json.load(open(ncf))
+
 # ---------------- machine-readable outputs ----------------
 pd.concat(allps, ignore_index=True).to_csv(os.path.join(RES, "raw_results.csv"), index=False)
 def _clean(o):

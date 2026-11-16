@@ -110,3 +110,22 @@ laboratories; 41 calibration chemicals and 41 spiked suspects; RT data CSV sha25
 * System descriptors from ESI Table S1 (pH class and modifier from mobile-phase text, USP class from stationary phase,
   column length and particle size from dimensions, gradient length from the ESI code table); unavailable descriptors
   (temperature, flow, dead time) are left missing (handled natively by LightGBM).
+
+## Addendum D (2026-11-16 04:12 UTC) — Phase-19 improvement: selection-aware system-level calibration (SASC)
+Specified after observing (robustness run, commonly-measured calibrants) that all methods under-cover when calibrants
+are not random draws (mean coverage 0.815 proposed, 0.746 jackknife+), and BEFORE any SASC result was computed.
+* Problem: the finite-sample guarantee requires calibrants exchangeable with the analytes; laboratories use fixed or
+  rule-based calibrant mixes (well-known, early-clustering compounds), which are easier to predict and leave much of the
+  RT range to extrapolation.
+* Hypothesis H7: if the calibrant-selection rule is known, replaying it on other chromatographic systems (treated as
+  exchangeable units) identifies a single inflation factor c for the normalised scores such that average coverage over
+  systems reaches 1 − α; applying c on the target system restores near-nominal coverage under that rule at a moderate
+  cost in width, without target-system data beyond the calibrants.
+* Method: for outer fold f and rule ρ ∈ {random, span, common, NORMAN-mix}, for every training system s (folds ≠ f;
+  ≥ 40 compounds) and 5 draws: compute normalised jackknife+ windows with inner models (base model M_{f,g} and difficulty
+  model σ_{f,g} trained without s's source group g) and the coverage curve cov_s(c) on a grid c ∈ [0.5, 6] (step 0.02),
+  where c multiplies every σ_{-i}(x)R_i term; choose c_ρ = min{c : mean_s cov_s(c) ≥ 1 − α}. For plain jackknife+ the same
+  with σ ≡ 1. NORMAN-mix rule on RepoRT systems: calibrants = NORMAN calibration chemicals present in the system (≥10).
+* Evaluation: n = 20, α = 0.10, rules random/span/common on all 228 target systems (10 draws; same seeds as the robustness
+  runs) and the NORMAN fixed mix (37 external systems); metrics as before; comparison: P vs P+SASC vs J+ vs J+SASC.
+* Reporting: post hoc (Phase-19) improvement; the original pre-registered results remain the primary results.

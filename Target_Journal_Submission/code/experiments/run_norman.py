@@ -148,6 +148,28 @@ for j, o in zip(jobs, outs):
         for r in o[k]:
             r["cs"] = j["cs"]; r["scenario"] = j["scenario"]; r["fold"] = -1
         res[k] += o[k]
+# optional (Addendum D): selection-aware system-level calibration factors learned on RepoRT with the NORMAN-mix rule
+sasc_file = os.path.join(cfg["out_dir"], "raw", "sasc_norman_c.json")
+if os.path.exists(sasc_file):
+    from conformrt.evaluation.sasc import loo_quantities, windows
+    from conformrt.evaluation.intervals import winkler as _wk
+    from conformrt.evaluation.system_eval import _sigma_matrix as _sm, _sigma_cal_loo as _scl
+    cN = json.load(open(sasc_file))
+    for j in jobs:
+        if j["scenario"] != "fixed_mix":
+            continue
+        y, s_, C_, sysf_, cal, te = j["y"], j["s"], j["C"], j["sysf"], np.asarray(j["pool"]), np.asarray(j["test_idx"])
+        mu, R, sl = loo_quantities(s_[cal], y[cal], s_[te], lambda st, sc, yc: (_sm(sig, C_.iloc[te].reset_index(drop=True), st, sc, yc, sysf_, loo=True),
+                                                                              _scl(sig, C_.iloc[cal].reset_index(drop=True), sc, yc, sysf_)))
+        muJ, RJ, _ = loo_quantities(s_[cal], y[cal], s_[te], None)
+        for a_ in alphas:
+            for meth, (m_, R_, sl_, c_) in {"P+SASC": (mu, R, sl, cN["c_P"]), "J+SASC": (muJ, RJ, None, cN["c_J"])}.items():
+                if a_ != 0.1:
+                    continue  # factors were learned for alpha = 0.10
+                lo, hi = windows(m_, R_, sl_, a_, c_); cov = (lo <= y[te]) & (y[te] <= hi)
+                res["rows"].append({"system": j["sid"], "n": len(cal), "draw": 0, "method": meth, "alpha": a_, "m_test": len(te), "coverage": cov.mean(),
+                                    "width_mean": (hi - lo).mean(), "width_median": np.median(hi - lo), "width_rel_mean": (hi - lo).mean() / (y.max() - y.min()),
+                                    "winkler": _wk(lo, hi, y[te], a_).mean(), "cs": j["cs"], "scenario": "fixed_mix", "fold": -1})
 res = {k: pd.DataFrame(v) for k, v in res.items()}
 raw = os.path.join(cfg["out_dir"], "raw"); os.makedirs(raw, exist_ok=True)
 save_results(res, raw, "norman")

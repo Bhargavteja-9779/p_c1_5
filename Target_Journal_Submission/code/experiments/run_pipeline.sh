@@ -9,5 +9,7 @@ python3 experiments/run_followups.py config/full.yaml robust smrt hilic sens >> 
 python3 experiments/run_extra_baselines.py config/full.yaml >> $LOG/run_extra_full.stdout 2>&1
 python3 experiments/run_followups.py config/full.yaml smalln >> $LOG/run_followups_full.stdout 2>&1
 python3 experiments/run_norman.py config/full.yaml >> $LOG/run_norman_full.stdout 2>&1
+python3 experiments/run_sasc.py config/full.yaml >> $LOG/run_sasc_full.stdout 2>&1
+python3 experiments/run_norman.py config/full.yaml >> $LOG/run_norman_full.stdout 2>&1
 python3 experiments/benchmark_compute.py config/full.yaml >> $LOG/run_benchmark_full.stdout 2>&1
 echo "PIPELINE_DONE $(date -u +%FT%TZ)" >> $LOG/pipeline_status.txt
