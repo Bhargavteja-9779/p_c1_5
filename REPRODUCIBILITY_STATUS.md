@@ -13,7 +13,7 @@ Created 2026-11-15.
 * Environment: Python 3.13.18, pinned requirements.txt / environment.yml; pandoc 3.1.3; LibreOffice 24.2 (+ Math) for PDF.
 * Not yet done: clean-room re-run of `run_all.py --mode quick` from a fresh clone (planned for the final reproducibility audit).
 
-## Clean-room check 2026-11-16 08:46 UTC — PASSED
+## Clean-room check 2026-11-16 08:40 UTC — PASSED
 * Fresh `git clone` of the branch (commit 28f444f + checksum fix d578e7e) into an empty directory; only the RepoRT zip was
   hard-linked to avoid a 177 MB re-download (its SHA-256 was still verified); the NORMAN ESI archive was downloaded live.
 * `python run_all.py --mode quick` → data (RepoRT + NORMAN checksums OK, dataset build) → 9/9 unit tests → run_main →
