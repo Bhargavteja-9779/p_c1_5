@@ -216,6 +216,24 @@ if rob:
     md(rob, os.path.join(TAB, "table5_robustness")); metrics["robustness"] = rob.to_dict("records")
     F.fig_robustness(rob, FIG, [m for m in ["P", "B1_gauss_rmse", "B5_jackknife_plus"] if m in rob.method.unique()], L)
 
+# robustness mechanism: share of test compounds outside the calibrant score range and coverage there, per scenario
+mech = []
+for tag in ["main"] + [os.path.basename(x).replace("_strata.parquet", "") for x in sorted(glob.glob(os.path.join(a.raw, "robust_*_strata.parquet")))]:
+    pth = os.path.join(a.raw, f"{tag}_strata.parquet")
+    if not os.path.exists(pth):
+        continue
+    s_ = pd.read_parquet(pth, filters=[("stratum", "in", ["region", "rt_tertile"])])
+    s_ = s_[np.isclose(s_.alpha, PRIMARY_A)]
+    reg = s_[(s_.stratum == "region") & (s_.method == "P")].groupby("group").total.sum()
+    cov_ = strata_coverage(s_, PRIMARY_A)
+    for meth in ["P", "B5_jackknife_plus", "B1_gauss_rmse"]:
+        g_ = cov_[cov_.method == meth].set_index(["stratum", "group"]).coverage_sysavg
+        mech.append({"scenario": tag, "method": meth, "share_outside_cal_range": float(reg.get("outside_cal_range", 0) / reg.sum()),
+                     "cov_outside": float(g_.get(("region", "outside_cal_range"), np.nan)), "cov_inside": float(g_.get(("region", "inside_cal_range"), np.nan)),
+                     "cov_late": float(g_.get(("rt_tertile", "late"), np.nan))})
+if mech:
+    mech = pd.DataFrame(mech); md(mech, os.path.join(TAB, "tableS16_robustness_mechanism")); metrics["robustness_mechanism"] = mech.to_dict("records")
+
 # ---------------- generalisation ----------------
 gen = []
 for tag, name in [("gen_smrt", "SMRT-regression base model (RP)"), ("gen_hilic", "HILIC systems (order model)")]:
@@ -348,6 +366,18 @@ if os.path.exists(sasc):
     ncf = os.path.join(a.raw, "sasc_norman_c.json")
     if os.path.exists(ncf):
         metrics["sasc_norman_c"] = json.load(open(ncf))
+
+# ---------------- training-set sizes per fold (RP and HILIC) ----------------
+ms_ = meta.copy(); ms_["fold"] = ms_.source.map(fold_of_source)
+tsz = []
+for mt_ in ["RP", "HILIC"]:
+    mm = ms_[ms_.method_type == mt_]
+    tgt = mm[(mm.n_compounds >= 60) & (~mm.source.str.contains("Domingo", na=False))]
+    for f_ in sorted(tgt.fold.unique()):
+        tr_ = mm[mm.fold != f_]
+        tsz.append({"mode": mt_, "fold": int(f_), "target_systems": int((tgt.fold == f_).sum()), "training_systems_all": int(len(tr_)),
+                    "training_systems_ge30": int((tr_.n_compounds >= 30).sum())})
+tsz = pd.DataFrame(tsz); md(tsz, os.path.join(TAB, "tableS17_training_sizes")); metrics["training_sizes"] = tsz.to_dict("records")
 
 # ---------------- machine-readable outputs ----------------
 pd.concat(allps, ignore_index=True).to_csv(os.path.join(RES, "raw_results.csv"), index=False)

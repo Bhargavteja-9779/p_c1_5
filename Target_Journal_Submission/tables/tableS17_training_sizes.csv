@@ -1,0 +1,10 @@
+mode,fold,target_systems,training_systems_all,training_systems_ge30
+RP,0,66,224,203
+RP,1,63,223,198
+RP,2,41,223,208
+RP,3,36,251,224
+RP,4,22,267,247
+HILIC,1,23,33,33
+HILIC,2,8,63,63
+HILIC,3,2,69,69
+HILIC,4,4,48,48

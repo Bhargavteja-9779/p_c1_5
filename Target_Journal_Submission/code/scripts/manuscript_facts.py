@@ -77,6 +77,26 @@ def build_facts(RES, TAB):
     t7 = pd.read_csv(os.path.join(TAB, "table7_candidate_filtering.csv"))
     F["dec.parents_per_system"] = t7.parents_per_system.iloc[0]; F["dec.decoys_per_system"] = t7.decoys_per_system.iloc[0]
     F["gp_miss_factor"] = (1 - F["main.B3_gp_PI.coverage_mean"]) / 0.10
+    SC = {"random calibrants (main)": "main", "RT-spanning calibrants": "span", "commonly measured calibrants": "common",
+          "calibrant RT noise (2% of span)": "noise", "one outlying calibrant (+10% span)": "outlier"}
+    for r in m.get("robustness", []):
+        k = SC.get(r["scenario"], r["scenario"])
+        for c in ["coverage_mean", "width_median_min", "winkler_mean", "share_severe_under"]:
+            F[f"rob.{k}.{r['method']}.{c}"] = r[c]
+    for r in m.get("robustness_mechanism", []):
+        k = {"main": "main", "robust_span_none": "span", "robust_common_none": "common", "robust_random_noise": "noise", "robust_random_outlier": "outlier"}.get(r["scenario"], r["scenario"])
+        for c in ["share_outside_cal_range", "cov_outside", "cov_inside", "cov_late"]:
+            F[f"mech.{k}.{r['method']}.{c}"] = r[c]
+    tsz = pd.DataFrame(m.get("training_sizes", []))
+    for mt_ in ["RP", "HILIC"]:
+        t_ = tsz[tsz["mode"] == mt_] if len(tsz) else tsz
+        if len(t_):
+            F[f"tsz.{mt_}.ge30.min"] = int(t_.training_systems_ge30.min()); F[f"tsz.{mt_}.ge30.max"] = int(t_.training_systems_ge30.max())
+    GS = {"SMRT-regression base model (RP)": "smrt", "HILIC systems (order model)": "hilic"}
+    for r in m.get("generalisation", []):
+        k = GS.get(r["setting"], r["setting"])
+        for c in ["coverage_mean", "width_median_min", "winkler_mean", "share_severe_under", "n_systems"]:
+            F[f"gen.{k}.n{int(r['n'])}.{r['method']}.{c}"] = r[c]
     cb = m.get("compute_benchmark")
     if cb:
         F["cb.base_train_min"] = cb["base_train_s_1thread"] / 60; F["cb.sigma_train_s"] = cb["sigma_train_s_1thread"]
