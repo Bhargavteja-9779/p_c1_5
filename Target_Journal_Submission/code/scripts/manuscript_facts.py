@@ -102,6 +102,22 @@ def build_facts(RES, TAB):
             F[f"sn.{r['method']}.n{int(r['n'])}.a{r['alpha']:.2f}.{c}"] = r[c]
     for r in m.get("sensitivity", []):
         F[f"sens.{r['setting']}.{r['method']}.winkler"] = r["winkler_mean"]; F[f"sens.{r['setting']}.{r['method']}.coverage"] = r["coverage_mean"]
+    for r in m.get("sasc", []):
+        for c in ["coverage_mean", "width_median_min", "winkler_mean", "share_severe_under", "coverage_ci_lo", "coverage_ci_hi"]:
+            F[f"sasc.{r['rule']}.{r['method']}.{c}"] = r[c]
+    cv_ = pd.DataFrame(m.get("sasc_c", []))
+    for rule_, g_ in (cv_.groupby("rule") if len(cv_) else []):
+        F[f"sascc.{rule_}.P.min"] = g_.c_P.min(); F[f"sascc.{rule_}.P.max"] = g_.c_P.max()
+        F[f"sascc.{rule_}.J.min"] = g_.c_J.min(); F[f"sascc.{rule_}.J.max"] = g_.c_J.max()
+        F[f"sascc.{rule_}.ntrain.min"] = int(g_.n_train_systems.min()); F[f"sascc.{rule_}.ntrain.max"] = int(g_.n_train_systems.max())
+    for k_, v_ in (m.get("sasc_norman_c") or {}).items():
+        F[f"sascN.{k_}"] = v_
+    for r in m.get("norman", []):
+        nk = "mix" if r["n"] == "lab mix" else str(r["n"])
+        for c in ["coverage_mean", "coverage_ci_lo", "coverage_ci_hi", "width_median_min", "winkler_mean", "share_severe_under", "n_systems"]:
+            F[f"nor.{r['scenario']}.{nk}.a{float(r['alpha']):.2f}.{r['method']}.{c}"] = r[c]
+    if m.get("norman_meta"):
+        F["norman.n_systems"] = m["norman_meta"]["n_systems"]; F["norman.n_compounds"] = m["norman_meta"]["n_compounds"]; F["norman.seen_share"] = m["norman_meta"]["seen_share"]
     GS = {"SMRT-regression base model (RP)": "smrt", "HILIC systems (order model)": "hilic"}
     for r in m.get("generalisation", []):
         k = GS.get(r["setting"], r["setting"])
