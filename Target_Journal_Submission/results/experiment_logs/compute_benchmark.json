@@ -1,0 +1,32 @@
+{
+ "platform": "Linux-6.18.44-fc-v470-x86_64-with-glibc2.39",
+ "python": "3.13.18",
+ "threads": 1,
+ "base_train_s_1thread": 240.41099317299995,
+ "base_train_rows": 82924,
+ "base_train_systems": 297,
+ "sigma_train_s_1thread": 5.345206429999962,
+ "sigma_train_rows": 149295,
+ "per_system": {
+  "10": {
+   "calibration_ms": 27.679046999764978,
+   "windows_for_candidates": 1000,
+   "windows_ms_total": 179.74131499977375,
+   "windows_us_per_candidate": 179.74131499977375
+  },
+  "20": {
+   "calibration_ms": 55.61874200066086,
+   "windows_for_candidates": 1000,
+   "windows_ms_total": 349.3114609991608,
+   "windows_us_per_candidate": 349.3114609991608
+  },
+  "40": {
+   "calibration_ms": 122.4448550001398,
+   "windows_for_candidates": 1000,
+   "windows_ms_total": 545.2852329999587,
+   "windows_us_per_candidate": 545.2852329999587
+  }
+ },
+ "benchmark_system": "0391",
+ "peak_rss_MB": 2660.1875
+}

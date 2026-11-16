@@ -1,0 +1,10 @@
+2026-11-16 05:15:10,315 INFO [smalln] fold 0 (BGC): 66 targets, sigma rows 332391, setup 9s
+2026-11-16 05:17:17,377 INFO [smalln] fold 0: evaluated 66 systems in 126s
+2026-11-16 05:17:28,705 INFO [smalln] fold 1 (Folberth): 63 targets, sigma rows 511908, setup 11s
+2026-11-16 05:19:11,096 INFO [smalln] fold 1: evaluated 63 systems in 102s
+2026-11-16 05:19:28,454 INFO [smalln] fold 2 (PredRet): 41 targets, sigma rows 477063, setup 17s
+2026-11-16 05:20:43,688 INFO [smalln] fold 2: evaluated 41 systems in 75s
+2026-11-16 05:20:55,884 INFO [smalln] fold 3 (Souihi+Stoffel): 36 targets, sigma rows 485511, setup 12s
+2026-11-16 05:22:00,080 INFO [smalln] fold 3: evaluated 36 systems in 64s
+2026-11-16 05:22:23,512 INFO [smalln] fold 4 (Other sources): 22 targets, sigma rows 394431, setup 23s
+2026-11-16 05:23:32,039 INFO [smalln] fold 4: evaluated 22 systems in 68s

@@ -1,0 +1,30 @@
+2026-11-16 04:45:34,077 INFO training base model excluding folds [np.int64(1)]: 5261 rows, 33 systems
+2026-11-16 04:45:44,205 INFO training base model excluding folds [np.int64(1), np.int64(2)]: 1947 rows, 25 systems
+2026-11-16 04:45:50,902 INFO fold 1: simulated difficulty rows from fold 2: 28146
+2026-11-16 04:45:50,910 INFO training base model excluding folds [np.int64(1), np.int64(3)]: 5115 rows, 31 systems
+2026-11-16 04:46:01,184 INFO fold 1: simulated difficulty rows from fold 3: 894
+2026-11-16 04:46:01,190 INFO training base model excluding folds [np.int64(1), np.int64(4)]: 3460 rows, 10 systems
+2026-11-16 04:46:11,445 INFO fold 1: simulated difficulty rows from fold 4: 11517
+2026-11-16 04:46:37,255 INFO [gen_hilic] fold 1 (Folberth): 23 targets, sigma rows 40557, setup 63s
+2026-11-16 04:49:18,140 INFO [gen_hilic] fold 1: evaluated 23 systems in 161s
+2026-11-16 04:49:18,578 INFO training base model excluding folds [np.int64(2)]: 4316 rows, 63 systems
+2026-11-16 04:49:28,414 INFO fold 2: simulated difficulty rows from fold 1: 13350
+2026-11-16 04:49:28,423 INFO training base model excluding folds [np.int64(2), np.int64(3)]: 4170 rows, 61 systems
+2026-11-16 04:49:35,869 INFO fold 2: simulated difficulty rows from fold 3: 894
+2026-11-16 04:49:35,874 INFO training base model excluding folds [np.int64(2), np.int64(4)]: 2515 rows, 40 systems
+2026-11-16 04:49:42,120 INFO fold 2: simulated difficulty rows from fold 4: 11517
+2026-11-16 04:50:02,568 INFO [gen_hilic] fold 2 (PredRet): 8 targets, sigma rows 25761, setup 44s
+2026-11-16 04:51:36,082 INFO [gen_hilic] fold 2: evaluated 8 systems in 93s
+2026-11-16 04:51:36,309 INFO training base model excluding folds [np.int64(3)]: 7484 rows, 69 systems
+2026-11-16 04:51:51,010 INFO fold 3: simulated difficulty rows from fold 1: 13350
+2026-11-16 04:51:51,900 INFO fold 3: simulated difficulty rows from fold 2: 28146
+2026-11-16 04:51:51,909 INFO training base model excluding folds [np.int64(3), np.int64(4)]: 5683 rows, 46 systems
+2026-11-16 04:52:03,079 INFO fold 3: simulated difficulty rows from fold 4: 11517
+2026-11-16 04:52:31,196 INFO [gen_hilic] fold 3 (Souihi+Stoffel): 2 targets, sigma rows 53013, setup 55s
+2026-11-16 04:52:57,929 INFO [gen_hilic] fold 3: evaluated 2 systems in 27s
+2026-11-16 04:52:58,003 INFO training base model excluding folds [np.int64(4)]: 5829 rows, 48 systems
+2026-11-16 04:53:11,259 INFO fold 4: simulated difficulty rows from fold 1: 13350
+2026-11-16 04:53:12,176 INFO fold 4: simulated difficulty rows from fold 2: 28146
+2026-11-16 04:53:12,523 INFO fold 4: simulated difficulty rows from fold 3: 894
+2026-11-16 04:53:35,745 INFO [gen_hilic] fold 4 (Other sources): 4 targets, sigma rows 42390, setup 38s
+2026-11-16 04:54:10,390 INFO [gen_hilic] fold 4: evaluated 4 systems in 35s

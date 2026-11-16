@@ -1,0 +1,11 @@
+fold 0: simulation on 197 training systems in 212s [{'fold': 0, 'rule': 'random', 'n_train_systems': 197, 'c_P': 0.94, 'c_J': 0.96}, {'fold': 0, 'rule': 'span', 'n_train_systems': 197, 'c_P': 0.86, 'c_J': 0.86}, {'fold': 0, 'rule': 'common', 'n_train_systems': 197, 'c_P': 1.68, 'c_J': 1.98}]
+fold 0: targets evaluated; NORMAN-mix training systems so far: 21
+fold 1: simulation on 191 training systems in 275s [{'fold': 1, 'rule': 'random', 'n_train_systems': 191, 'c_P': 0.96, 'c_J': 0.96}, {'fold': 1, 'rule': 'span', 'n_train_systems': 191, 'c_P': 0.86, 'c_J': 0.86}, {'fold': 1, 'rule': 'common', 'n_train_systems': 191, 'c_P': 1.5, 'c_J': 2.08}]
+fold 1: targets evaluated; NORMAN-mix training systems so far: 21
+fold 2: simulation on 205 training systems in 287s [{'fold': 2, 'rule': 'random', 'n_train_systems': 205, 'c_P': 0.94, 'c_J': 0.94}, {'fold': 2, 'rule': 'span', 'n_train_systems': 205, 'c_P': 0.84, 'c_J': 0.84}, {'fold': 2, 'rule': 'common', 'n_train_systems': 205, 'c_P': 1.7, 'c_J': 2.92}]
+fold 2: targets evaluated; NORMAN-mix training systems so far: 24
+fold 3: simulation on 218 training systems in 272s [{'fold': 3, 'rule': 'random', 'n_train_systems': 218, 'c_P': 0.96, 'c_J': 0.98}, {'fold': 3, 'rule': 'span', 'n_train_systems': 218, 'c_P': 0.84, 'c_J': 0.84}, {'fold': 3, 'rule': 'common', 'n_train_systems': 218, 'c_P': 1.5, 'c_J': 2.04}]
+fold 3: targets evaluated; NORMAN-mix training systems so far: 24
+fold 4: simulation on 241 training systems in 225s [{'fold': 4, 'rule': 'random', 'n_train_systems': 241, 'c_P': 0.94, 'c_J': 0.96}, {'fold': 4, 'rule': 'span', 'n_train_systems': 241, 'c_P': 0.84, 'c_J': 0.84}, {'fold': 4, 'rule': 'common', 'n_train_systems': 241, 'c_P': 1.62, 'c_J': 2.64}]
+fold 4: targets evaluated; NORMAN-mix training systems so far: 36
+done {'n_systems': 36, 'c_P': 0.92, 'c_J': 0.64}

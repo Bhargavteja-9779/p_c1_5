@@ -1,0 +1,49 @@
+2026-11-15 17:58:24,146 INFO training base model excluding folds [np.int64(0)]: 57030 rows, 224 systems
+2026-11-15 17:59:45,307 INFO training base model excluding folds [np.int64(0), np.int64(1)]: 51021 rows, 150 systems
+2026-11-15 18:01:10,861 INFO fold 0: simulated difficulty rows from fold 1: 38418
+2026-11-15 18:01:10,949 INFO training base model excluding folds [np.int64(0), np.int64(2)]: 47216 rows, 150 systems
+2026-11-15 18:02:36,914 INFO fold 0: simulated difficulty rows from fold 2: 73263
+2026-11-15 18:02:36,997 INFO training base model excluding folds [np.int64(0), np.int64(3)]: 48742 rows, 178 systems
+2026-11-15 18:04:03,168 INFO fold 0: simulated difficulty rows from fold 3: 64815
+2026-11-15 18:04:03,247 INFO training base model excluding folds [np.int64(0), np.int64(4)]: 39111 rows, 195 systems
+2026-11-15 18:05:21,891 INFO fold 0: simulated difficulty rows from fold 4: 155895
+2026-11-15 22:20:42,661 INFO [main] fold 0 (BGC): 66 targets, sigma rows 332391, setup 77s
+2026-11-15 22:34:16,676 INFO [main] fold 0: evaluated 66 systems in 812s
+2026-11-15 22:34:18,719 INFO training base model excluding folds [np.int64(1)]: 76915 rows, 223 systems
+2026-11-15 22:35:50,154 INFO fold 1: simulated difficulty rows from fold 0: 217935
+2026-11-15 22:35:50,261 INFO training base model excluding folds [np.int64(1), np.int64(2)]: 67101 rows, 149 systems
+2026-11-15 22:37:06,424 INFO fold 1: simulated difficulty rows from fold 2: 73263
+2026-11-15 22:37:06,512 INFO training base model excluding folds [np.int64(1), np.int64(3)]: 68627 rows, 177 systems
+2026-11-15 22:38:12,535 INFO fold 1: simulated difficulty rows from fold 3: 64815
+2026-11-15 22:38:12,613 INFO training base model excluding folds [np.int64(1), np.int64(4)]: 58996 rows, 194 systems
+2026-11-15 22:39:28,210 INFO fold 1: simulated difficulty rows from fold 4: 155895
+2026-11-15 22:43:08,806 INFO [main] fold 1 (Folberth): 63 targets, sigma rows 511908, setup 530s
+2026-11-15 22:51:00,830 INFO [main] fold 1: evaluated 63 systems in 471s
+2026-11-15 22:51:02,588 INFO training base model excluding folds [np.int64(2)]: 73110 rows, 223 systems
+2026-11-15 22:52:19,700 INFO fold 2: simulated difficulty rows from fold 0: 217935
+2026-11-15 22:52:24,736 INFO fold 2: simulated difficulty rows from fold 1: 38418
+2026-11-15 22:52:24,842 INFO training base model excluding folds [np.int64(2), np.int64(3)]: 64822 rows, 177 systems
+2026-11-15 22:53:33,564 INFO fold 2: simulated difficulty rows from fold 3: 64815
+2026-11-15 22:53:33,637 INFO training base model excluding folds [np.int64(2), np.int64(4)]: 55191 rows, 194 systems
+2026-11-15 22:54:35,304 INFO fold 2: simulated difficulty rows from fold 4: 155895
+2026-11-15 22:57:37,941 INFO [main] fold 2 (PredRet): 41 targets, sigma rows 477063, setup 395s
+2026-11-16 03:11:39,168 INFO [main] fold 0: loaded from checkpoint
+2026-11-16 03:11:44,882 INFO [main] fold 1: loaded from checkpoint
+2026-11-16 03:12:41,181 INFO [main] fold 2 (PredRet): 41 targets, sigma rows 477063, setup 56s
+2026-11-16 03:21:18,176 INFO [main] fold 2: evaluated 41 systems in 516s
+2026-11-16 03:21:19,582 INFO training base model excluding folds [np.int64(3)]: 74636 rows, 251 systems
+2026-11-16 03:22:57,706 INFO fold 3: simulated difficulty rows from fold 0: 217935
+2026-11-16 03:23:04,177 INFO fold 3: simulated difficulty rows from fold 1: 38418
+2026-11-16 03:23:14,786 INFO fold 3: simulated difficulty rows from fold 2: 73263
+2026-11-16 03:23:14,864 INFO training base model excluding folds [np.int64(3), np.int64(4)]: 56717 rows, 222 systems
+2026-11-16 03:24:44,042 INFO fold 3: simulated difficulty rows from fold 4: 155895
+2026-11-16 03:29:01,403 INFO [main] fold 3 (Souihi+Stoffel): 36 targets, sigma rows 485511, setup 462s
+2026-11-16 03:35:30,411 INFO [main] fold 3: evaluated 36 systems in 388s
+2026-11-16 03:35:31,842 INFO training base model excluding folds [np.int64(4)]: 65005 rows, 268 systems
+2026-11-16 03:36:56,952 INFO fold 4: simulated difficulty rows from fold 0: 217935
+2026-11-16 03:37:03,113 INFO fold 4: simulated difficulty rows from fold 1: 38418
+2026-11-16 03:37:11,213 INFO fold 4: simulated difficulty rows from fold 2: 73263
+2026-11-16 03:37:16,055 INFO fold 4: simulated difficulty rows from fold 3: 64815
+2026-11-16 03:41:28,681 INFO [main] fold 4 (Other sources): 22 targets, sigma rows 394431, setup 357s
+2026-11-16 03:53:40,560 INFO [main] fold 4: evaluated 22 systems in 731s
+done 2541.0

@@ -1,0 +1,5 @@
+2026-11-16 05:23:36,116 INFO training base model excluding folds []: 82924 rows, 297 systems
+NORMAN jobs: 111 systems: 37
+done {'n_systems': 37, 'n_compounds': 82, 'seen_share': 0.9512195121951219, 'sigma_rows': 550326}
+NORMAN jobs: 111 systems: 37
+done {'n_systems': 37, 'n_compounds': 82, 'seen_share': 0.9512195121951219, 'sigma_rows': 550326}

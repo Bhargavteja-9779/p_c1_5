@@ -1,0 +1,40 @@
+2026-11-16 03:54:04,764 INFO [robust_span_none] fold 0 (BGC): 66 targets, sigma rows 332391, setup 12s
+2026-11-16 03:55:39,062 INFO [robust_span_none] fold 0: evaluated 66 systems in 93s
+2026-11-16 03:55:52,440 INFO [robust_span_none] fold 1 (Folberth): 63 targets, sigma rows 511908, setup 13s
+2026-11-16 03:57:03,335 INFO [robust_span_none] fold 1: evaluated 63 systems in 70s
+2026-11-16 03:57:21,401 INFO [robust_span_none] fold 2 (PredRet): 41 targets, sigma rows 477063, setup 18s
+2026-11-16 03:58:15,868 INFO [robust_span_none] fold 2: evaluated 41 systems in 54s
+2026-11-16 03:58:28,524 INFO [robust_span_none] fold 3 (Souihi+Stoffel): 36 targets, sigma rows 485511, setup 12s
+2026-11-16 03:59:16,489 INFO [robust_span_none] fold 3: evaluated 36 systems in 48s
+2026-11-16 03:59:39,834 INFO [robust_span_none] fold 4 (Other sources): 22 targets, sigma rows 394431, setup 23s
+2026-11-16 04:00:33,864 INFO [robust_span_none] fold 4: evaluated 22 systems in 54s
+2026-11-16 04:00:50,510 INFO [robust_common_none] fold 0 (BGC): 66 targets, sigma rows 332391, setup 13s
+2026-11-16 04:02:20,970 INFO [robust_common_none] fold 0: evaluated 66 systems in 90s
+2026-11-16 04:02:33,621 INFO [robust_common_none] fold 1 (Folberth): 63 targets, sigma rows 511908, setup 12s
+2026-11-16 04:03:43,874 INFO [robust_common_none] fold 1: evaluated 63 systems in 69s
+2026-11-16 04:04:00,997 INFO [robust_common_none] fold 2 (PredRet): 41 targets, sigma rows 477063, setup 16s
+2026-11-16 04:04:49,587 INFO [robust_common_none] fold 2: evaluated 41 systems in 48s
+2026-11-16 04:05:00,887 INFO [robust_common_none] fold 3 (Souihi+Stoffel): 36 targets, sigma rows 485511, setup 11s
+2026-11-16 04:05:43,505 INFO [robust_common_none] fold 3: evaluated 36 systems in 42s
+2026-11-16 04:06:06,197 INFO [robust_common_none] fold 4 (Other sources): 22 targets, sigma rows 394431, setup 22s
+2026-11-16 04:07:00,086 INFO [robust_common_none] fold 4: evaluated 22 systems in 53s
+2026-11-16 04:07:15,442 INFO [robust_random_noise] fold 0 (BGC): 66 targets, sigma rows 332391, setup 12s
+2026-11-16 04:08:43,612 INFO [robust_random_noise] fold 0: evaluated 66 systems in 87s
+2026-11-16 04:08:55,362 INFO [robust_random_noise] fold 1 (Folberth): 63 targets, sigma rows 511908, setup 11s
+2026-11-16 04:10:00,151 INFO [robust_random_noise] fold 1: evaluated 63 systems in 64s
+2026-11-16 04:10:16,838 INFO [robust_random_noise] fold 2 (PredRet): 41 targets, sigma rows 477063, setup 16s
+2026-11-16 04:11:40,144 INFO [robust_random_noise] fold 2: evaluated 41 systems in 83s
+2026-11-16 04:11:59,193 INFO [robust_random_noise] fold 3 (Souihi+Stoffel): 36 targets, sigma rows 485511, setup 18s
+2026-11-16 04:13:08,518 INFO [robust_random_noise] fold 3: evaluated 36 systems in 69s
+2026-11-16 04:13:31,276 INFO [robust_random_noise] fold 4 (Other sources): 22 targets, sigma rows 394431, setup 22s
+2026-11-16 04:14:26,047 INFO [robust_random_noise] fold 4: evaluated 22 systems in 54s
+2026-11-16 04:14:40,916 INFO [robust_random_outlier] fold 0 (BGC): 66 targets, sigma rows 332391, setup 12s
+2026-11-16 04:16:07,858 INFO [robust_random_outlier] fold 0: evaluated 66 systems in 86s
+2026-11-16 04:16:19,614 INFO [robust_random_outlier] fold 1 (Folberth): 63 targets, sigma rows 511908, setup 11s
+2026-11-16 04:17:24,929 INFO [robust_random_outlier] fold 1: evaluated 63 systems in 64s
+2026-11-16 04:17:42,440 INFO [robust_random_outlier] fold 2 (PredRet): 41 targets, sigma rows 477063, setup 17s
+2026-11-16 04:18:31,263 INFO [robust_random_outlier] fold 2: evaluated 41 systems in 48s
+2026-11-16 04:18:43,398 INFO [robust_random_outlier] fold 3 (Souihi+Stoffel): 36 targets, sigma rows 485511, setup 12s
+2026-11-16 04:19:27,530 INFO [robust_random_outlier] fold 3: evaluated 36 systems in 44s
+2026-11-16 04:19:49,278 INFO [robust_random_outlier] fold 4 (Other sources): 22 targets, sigma rows 394431, setup 21s
+2026-11-16 04:20:42,335 INFO [robust_random_outlier] fold 4: evaluated 22 systems in 53s

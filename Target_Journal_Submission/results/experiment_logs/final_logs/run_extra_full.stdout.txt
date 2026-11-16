@@ -1,0 +1,6 @@
+fold 0: 66 systems
+fold 1: 63 systems
+fold 2: 41 systems
+fold 3: 36 systems
+fold 4: 22 systems
+done 182400 9120

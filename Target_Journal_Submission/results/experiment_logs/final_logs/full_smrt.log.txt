@@ -1,0 +1,30 @@
+2026-11-16 04:23:17,651 INFO fold 0: simulated difficulty rows from fold 1: 38418
+2026-11-16 04:23:35,347 INFO fold 0: simulated difficulty rows from fold 2: 73263
+2026-11-16 04:23:40,545 INFO fold 0: simulated difficulty rows from fold 3: 64815
+2026-11-16 04:24:15,680 INFO fold 0: simulated difficulty rows from fold 4: 155895
+2026-11-16 04:24:29,781 INFO [gen_smrt] fold 0 (BGC): 66 targets, sigma rows 332391, setup 79s
+2026-11-16 04:28:58,746 INFO [gen_smrt] fold 0: evaluated 66 systems in 268s
+2026-11-16 04:29:08,893 INFO fold 1: simulated difficulty rows from fold 0: 217935
+2026-11-16 04:29:26,979 INFO fold 1: simulated difficulty rows from fold 2: 73263
+2026-11-16 04:29:31,590 INFO fold 1: simulated difficulty rows from fold 3: 64815
+2026-11-16 04:30:08,799 INFO fold 1: simulated difficulty rows from fold 4: 155895
+2026-11-16 04:30:20,788 INFO [gen_smrt] fold 1 (Folberth): 63 targets, sigma rows 511908, setup 81s
+2026-11-16 04:32:53,053 INFO [gen_smrt] fold 1: evaluated 63 systems in 152s
+2026-11-16 04:33:02,826 INFO fold 2: simulated difficulty rows from fold 0: 217935
+2026-11-16 04:33:09,418 INFO fold 2: simulated difficulty rows from fold 1: 38418
+2026-11-16 04:33:14,640 INFO fold 2: simulated difficulty rows from fold 3: 64815
+2026-11-16 04:33:53,388 INFO fold 2: simulated difficulty rows from fold 4: 155895
+2026-11-16 04:34:17,878 INFO [gen_smrt] fold 2 (PredRet): 41 targets, sigma rows 477063, setup 84s
+2026-11-16 04:36:34,382 INFO [gen_smrt] fold 2: evaluated 41 systems in 136s
+2026-11-16 04:36:44,069 INFO fold 3: simulated difficulty rows from fold 0: 217935
+2026-11-16 04:36:50,887 INFO fold 3: simulated difficulty rows from fold 1: 38418
+2026-11-16 04:37:08,531 INFO fold 3: simulated difficulty rows from fold 2: 73263
+2026-11-16 04:37:45,285 INFO fold 3: simulated difficulty rows from fold 4: 155895
+2026-11-16 04:37:57,761 INFO [gen_smrt] fold 3 (Souihi+Stoffel): 36 targets, sigma rows 485511, setup 83s
+2026-11-16 04:39:54,709 INFO [gen_smrt] fold 3: evaluated 36 systems in 116s
+2026-11-16 04:40:03,899 INFO fold 4: simulated difficulty rows from fold 0: 217935
+2026-11-16 04:40:10,522 INFO fold 4: simulated difficulty rows from fold 1: 38418
+2026-11-16 04:40:28,187 INFO fold 4: simulated difficulty rows from fold 2: 73263
+2026-11-16 04:40:33,289 INFO fold 4: simulated difficulty rows from fold 3: 64815
+2026-11-16 04:41:21,377 INFO [gen_smrt] fold 4 (Other sources): 22 targets, sigma rows 394431, setup 86s
+2026-11-16 04:45:27,059 INFO [gen_smrt] fold 4: evaluated 22 systems in 245s
