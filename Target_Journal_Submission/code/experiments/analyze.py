@@ -14,7 +14,7 @@ RES, TAB, FIG = (os.path.join(a.out, d) for d in ("results", "tables", "figures"
 for d in (RES, TAB, FIG):
     os.makedirs(d, exist_ok=True)
 PRIMARY_N, PRIMARY_A = 20, 0.1
-ORDER = ["P", "B6_jk+_ensemble", "B5_jackknife_plus", "B4_split_conformal", "B3_gp_PI", "B2_pspline_PI", "B1_gauss_rmse"]
+ORDER = ["P", "B1_gauss_rmse", "B5_jackknife_plus", "B4_split_conformal", "B3_gp_PI", "B2_pspline_PI", "B6_jk+_ensemble"]
 L = METHOD_LABELS
 
 
@@ -119,6 +119,7 @@ if abl_m:
     # paired_tests returns ref - comparator; for the ablation figure we want comparator - ref (positive = ablation worse)
     abl = t4a.rename(columns={"comparator": "method"}).copy()
     abl["median_diff"], abl["diff_ci_lo"], abl["diff_ci_hi"] = -abl.median_diff, -abl.diff_ci_hi, -abl.diff_ci_lo
+    abl["rank_biserial"] = -abl.rank_biserial
     cov = ps[(ps.n == PRIMARY_N) & np.isclose(ps.alpha, PRIMARY_A)].groupby("method").coverage.mean()
     abl["coverage_mean"] = abl.method.map(cov); abl["label"] = abl.method.map(L)
     full_row = pd.DataFrame([{"method": "P", "label": L["P"], "median_diff": 0.0, "diff_ci_lo": 0.0, "diff_ci_hi": 0.0, "coverage_mean": cov.get("P")}])
@@ -135,7 +136,7 @@ if not st.empty:
     stats_out["strata"] = sc.to_dict("records")
     order = [("seen", ["seen", "unseen"]), ("similarity", ["sim>=0.7", "sim0.4-0.7", "sim<0.4"]), ("ionisable", ["neutral", "ionisable"]),
              ("region", ["inside_cal_range", "outside_cal_range"]), ("rt_tertile", ["early", "middle", "late"])]
-    F.fig_strata(sc, FIG, [m for m in ["P", "B5_jackknife_plus", "B1_gauss_rmse"] if m in sc.method.unique()], L, PRIMARY_A, order)
+    F.fig_strata(sc, FIG, [m for m in ["P", "B1_gauss_rmse", "B5_jackknife_plus"] if m in sc.method.unique()], L, PRIMARY_A, order)
     sup = sc[sc.stratum == "superclass"].pivot_table(index="group", columns="method", values="coverage_sysavg")
     sup.reset_index().to_csv(os.path.join(TAB, "tableS6_superclass_coverage.csv"), index=False)
     # strata-specific worst-case coverage per method (max deviation below nominal)
@@ -153,7 +154,7 @@ if not dec.empty:
     t7["label"] = t7.method.map(L); md(t7, os.path.join(TAB, "table7_candidate_filtering"))
     metrics["candidate_filtering"] = t7.to_dict("records")
     F.fig_decoys(t7.rename(columns={"decoy_elim_mean": "decoy_elim_rate", "true_retained_mean": "true_retained"}), FIG,
-                 [m for m in ["P", "B5_jackknife_plus", "B3_gp_PI", "B2_pspline_PI", "B1_gauss_rmse"] if m in t7.method.unique()], L)
+                 [m for m in ["P", "B1_gauss_rmse", "B5_jackknife_plus", "B3_gp_PI", "B2_pspline_PI"] if m in t7.method.unique()], L)
     # paired test: decoy elimination P vs jackknife+ at matched alpha (system level)
     dt = []
     for al in sorted(dsys.alpha.unique()):
@@ -191,6 +192,9 @@ if not tm.empty:
                              t_sigma_ms=("t_sigma_s", lambda x: 1000 * x.median()), m_test_median=("m_test", "median")).reset_index()
     md(t8, os.path.join(TAB, "table8_compute"))
     metrics["compute_per_draw"] = t8.to_dict("records")
+cb = os.path.join(a.out, "results", "experiment_logs", "compute_benchmark.json")
+if os.path.exists(cb):
+    metrics["compute_benchmark"] = json.load(open(cb))
 man = sorted(glob.glob(os.path.join(a.out, "results", "experiment_logs", "manifest_main_*.json")))
 if man:
     metrics["run_manifest"] = json.load(open(man[-1]))
@@ -210,7 +214,7 @@ if rob:
              "robust_random_outlier": "one outlying calibrant (+10% span)"}
     rob["scenario"] = rob.scenario.map(lambda x: names.get(x, x))
     md(rob, os.path.join(TAB, "table5_robustness")); metrics["robustness"] = rob.to_dict("records")
-    F.fig_robustness(rob, FIG, [m for m in ["P", "B5_jackknife_plus", "B3_gp_PI", "B1_gauss_rmse"] if m in rob.method.unique()], L)
+    F.fig_robustness(rob, FIG, [m for m in ["P", "B1_gauss_rmse", "B5_jackknife_plus"] if m in rob.method.unique()], L)
 
 # ---------------- generalisation ----------------
 gen = []
@@ -233,6 +237,42 @@ for tag in sorted(glob.glob(os.path.join(a.raw, "sens_*_rows.parquet"))):
     s = summary_table(r, PRIMARY_N, PRIMARY_A, ["P", "B5_jackknife_plus"], B=1000); s.insert(0, "setting", t); sens.append(s)
 if sens:
     sens = pd.concat(sens, ignore_index=True); md(sens, os.path.join(TAB, "tableS10_sensitivity")); metrics["sensitivity"] = sens.to_dict("records")
+
+# ---------------- heterogeneity of the gain across source folds and its driver ----------------
+from scipy import stats as _st
+sub20 = ps[(ps.n == PRIMARY_N) & np.isclose(ps.alpha, PRIMARY_A)]
+Pw = sub20[sub20.method == "P"].set_index("system")
+het = []
+for comp in ["B5_jackknife_plus", "B1_gauss_rmse", "B3_gp_PI"]:
+    Cw = sub20[sub20.method == comp].set_index("system")
+    for f, g in Pw.groupby("fold"):
+        j = g.index.intersection(Cw.index); d = g.loc[j, "winkler"] - Cw.loc[j, "winkler"]; rel = g.loc[j, "winkler"] / Cw.loc[j, "winkler"] - 1
+        het.append({"comparator": comp, "fold": int(f), "fold_name": FOLD_NAMES[int(f)], "systems": len(j), "median_diff_min": float(d.median()),
+                    "median_rel_change": float(rel.median()), "share_P_better": float((d < 0).mean()), "rank_biserial": rank_biserial(d.values),
+                    "p_wilcoxon": float(_st.wilcoxon(d).pvalue) if (d != 0).any() else 1.0})
+    j = Pw.index.intersection(Cw.index); rel = Pw.loc[j, "winkler"] / Cw.loc[j, "winkler"] - 1
+    het.append({"comparator": comp, "fold": -1, "fold_name": "all", "systems": len(j), "median_diff_min": float((Pw.loc[j, "winkler"] - Cw.loc[j, "winkler"]).median()),
+                "median_rel_change": float(rel.median()), "rel_q1": float(rel.quantile(.25)), "rel_q3": float(rel.quantile(.75)),
+                "share_P_better": float((rel < 0).mean())})
+het = pd.DataFrame(het); md(het, os.path.join(TAB, "table11_fold_heterogeneity")); stats_out["fold_heterogeneity"] = het.to_dict("records")
+Cj = sub20[sub20.method == "B5_jackknife_plus"].set_index("system"); j = Pw.index.intersection(Cj.index)
+relj = Pw.loc[j, "winkler"] / Cj.loc[j, "winkler"] - 1
+span = (meta.set_index("system").loc[j, "rt_max"] - meta.set_index("system").loc[j, "rt_min"]).astype(float)
+rho = _st.spearmanr(relj.values, span.values)
+stats_out["gain_vs_rt_span"] = {"spearman_rho": float(rho.statistic), "p": float(rho.pvalue), "n_systems": int(len(j)),
+                                "median_rel_change_span_below_median": float(relj[span <= span.median()].median()),
+                                "median_rel_change_span_above_median": float(relj[span > span.median()].median()), "median_span_min": float(span.median())}
+
+# ---------------- decoy elimination at matched true-candidate retention (interpolated on the alpha grid) ----------------
+if not dec.empty:
+    mr = []
+    for m_, g in t7.groupby("method"):
+        g = g.sort_values("true_retained_mean")
+        for target in [0.85, 0.90]:
+            x, y_ = g.true_retained_mean.values, g.decoy_elim_mean.values
+            val = float(np.interp(target, x, y_)) if x.min() <= target <= x.max() else np.nan
+            mr.append({"method": m_, "label": L.get(m_, m_), "retention": target, "decoy_elim_interp": val})
+    mr = pd.DataFrame(mr); md(mr, os.path.join(TAB, "tableS14_matched_retention")); metrics["matched_retention"] = mr.to_dict("records")
 
 # ---------------- fixed-tolerance windows (Addendum B; same calibrant draws) ----------------
 fw = load("fixedwin", "rows")

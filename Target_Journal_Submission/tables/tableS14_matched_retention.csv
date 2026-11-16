@@ -1,0 +1,11 @@
+method,label,retention,decoy_elim_interp
+B1_gauss_rmse,Gaussian ±z·RMSE,0.85,0.33650541669695916
+B1_gauss_rmse,Gaussian ±z·RMSE,0.9,0.26748235297330863
+B2_pspline_PI,P-spline PI,0.85,0.3530718566863962
+B2_pspline_PI,P-spline PI,0.9,
+B3_gp_PI,GP projection PI,0.85,0.34529339317130747
+B3_gp_PI,GP projection PI,0.9,
+B5_jackknife_plus,Jackknife+,0.85,0.3337339504304245
+B5_jackknife_plus,Jackknife+,0.9,0.2660282865141169
+P,Proposed (meta-learned σ),0.85,0.32898160325412706
+P,Proposed (meta-learned σ),0.9,0.2625348111982266

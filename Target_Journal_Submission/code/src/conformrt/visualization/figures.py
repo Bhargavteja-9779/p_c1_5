@@ -14,6 +14,20 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 SLOTS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6"]
 INK, INK2, MUTED, GRID = "#0b0b0b", "#52514e", "#8f8d87", "#e4e2dc"
 MARKERS = ["o", "s", "D", "^", "v", "P", "X"]
+# Colour and marker follow the METHOD (entity), identical in every figure (validated: adjacent pairs for line charts;
+# all-pairs only for the first-three trio P / Gaussian / jackknife+ used in dot plots).
+METHOD_COLORS = {"P": "#2a78d6", "B1_gauss_rmse": "#eb6834", "B5_jackknife_plus": "#1baf7a", "B4_split_conformal": "#eda100",
+                 "B3_gp_PI": "#e87ba4", "B2_pspline_PI": "#008300", "B6_jk+_ensemble": "#6250d6"}
+METHOD_MARKERS = {"P": "o", "B1_gauss_rmse": "s", "B5_jackknife_plus": "D", "B4_split_conformal": "^", "B3_gp_PI": "v",
+                  "B2_pspline_PI": "P", "B6_jk+_ensemble": "X"}
+
+
+def mcol(m, i=0):
+    return METHOD_COLORS.get(m, SLOTS[i % len(SLOTS)])
+
+
+def mmark(m, i=0):
+    return METHOD_MARKERS.get(m, MARKERS[i % len(MARKERS)])
 MM = 1 / 25.4
 W1, W15, W2 = 90 * MM, 140 * MM, 190 * MM
 
@@ -97,25 +111,30 @@ def fig_main(ps, out, n=20, alpha=0.1, order=None, labels=None):
 
 # ------------------------------------------------------------------ Fig 3: calibrant number
 def fig_calibrants(summ_n, out, methods, labels, alpha=0.1):
-    """summ_n: DataFrame with columns method, n, alpha, coverage_mean, winkler_mean, width_median_min."""
+    """summ_n: DataFrame with columns method, n, alpha, coverage_mean, winkler_mean, share_infinite.
+    Cells whose windows are infinite (conformal methods with too few calibrants) are omitted, not drawn as coverage 1."""
     s = summ_n[np.isclose(summ_n.alpha, alpha)]
-    fig, axes = plt.subplots(1, 2, figsize=(W2, 68 * MM), gridspec_kw={"wspace": 0.3})
-    for k, (col, yl) in enumerate([("coverage_mean", "Mean coverage over systems"), ("winkler_mean", "Mean interval score (min)")]):
+    fig, axes = plt.subplots(1, 2, figsize=(W2, 72 * MM), gridspec_kw={"wspace": 0.28})
+    for k, (col, yl) in enumerate([("coverage_mean", "Mean coverage over systems"), ("winkler_mean", "Mean interval score (min, log scale)")]):
         ax = axes[k]
         for i, m in enumerate(methods):
             d = s[s.method == m].sort_values("n")
-            d = d[np.isfinite(d[col])]
+            d = d[np.isfinite(d["winkler_mean"]) & (d.get("share_infinite", 0) == 0)]
             if d.empty:
                 continue
-            c = SLOTS[i]
-            ax.plot(d.n, d[col], color=c, marker=MARKERS[i], ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
-            ax.annotate(labels.get(m, m), (d.n.iloc[-1], d[col].iloc[-1]), xytext=(4, 0), textcoords="offset points",
-                        fontsize=5.8, color=INK2, va="center")
+            ax.plot(d.n, d[col], color=mcol(m, i), marker=mmark(m, i), ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
         if col == "coverage_mean":
             ax.axhline(1 - alpha, color=INK, lw=0.8, ls=(0, (3, 2)))
+            ax.text(s.n.min(), 1 - alpha - 0.004, f"nominal {1 - alpha:.2f}", ha="left", va="top", fontsize=6, color=INK)
+        else:
+            ax.set_yscale("log")
         ax.set_xlabel("Number of calibrants n"); ax.set_ylabel(yl); ax.grid(axis="y"); _panel(ax, "ab"[k])
-        ax.set_xticks(sorted(s.n.unique())); ax.set_xlim(right=max(s.n) + 14)
+        ax.set_xticks(sorted(s.n.unique()))
     axes[0].legend(frameon=False, loc="lower right", fontsize=5.8)
+    inf_m = s[(s.get("share_infinite", 0) > 0)][["method", "n"]]
+    if len(inf_m):
+        note = "; ".join(f"{labels.get(m, m)}: n={', '.join(str(int(x)) for x in g.n)}" for m, g in inf_m.groupby("method"))
+        fig.text(0.5, -0.09, "Infinite (non-informative) windows omitted — " + note, ha="center", fontsize=5.6, color=INK2)
     _save(fig, out, "fig3_calibrant_number")
 
 
@@ -136,7 +155,7 @@ def fig_strata(sc, out, methods, labels, alpha=0.1, strata_order=None):
             if d.empty:
                 continue
             y = len(rows) - 1 - j + (i - (len(methods) - 1) / 2) * 0.22
-            ax.plot(d.coverage_sysavg.values[0], y, marker=MARKERS[i], ms=4.2, color=SLOTS[i], mec="white", mew=0.5,
+            ax.plot(d.coverage_sysavg.values[0], y, marker=mmark(m, i), ms=4.2, color=mcol(m, i), mec="white", mew=0.5,
                     ls="none", label=labels.get(m, m) if j == 0 else None)
     ax.axvline(1 - alpha, color=INK, lw=0.8, ls=(0, (3, 2)))
     prev = None
@@ -160,7 +179,7 @@ def fig_decoys(dec, out, methods, labels):
         d = dec[dec.method == m].sort_values("alpha")
         if d.empty:
             continue
-        ax.plot(d.true_retained, d.decoy_elim_rate, color=SLOTS[i], marker=MARKERS[i], ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
+        ax.plot(d.true_retained, d.decoy_elim_rate, color=mcol(m, i), marker=mmark(m, i), ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
         for _, r in d.iterrows():
             if m == methods[0]:
                 ax.annotate(f"α={r.alpha:g}", (r.true_retained, r.decoy_elim_rate), xytext=(3, -8), textcoords="offset points", fontsize=5.6, color=INK2)
@@ -198,7 +217,7 @@ def fig_robustness(rob, out, methods, labels, alpha=0.1):
                 if d.empty:
                     continue
                 y = len(scen) - 1 - j + (i - (len(methods) - 1) / 2) * 0.13
-                ax.plot(d[col].values[0], y, marker=MARKERS[i], ms=4, color=SLOTS[i], mec="white", mew=0.5, ls="none",
+                ax.plot(d[col].values[0], y, marker=mmark(m, i), ms=4, color=mcol(m, i), mec="white", mew=0.5, ls="none",
                         label=labels.get(m, m) if (j == 0 and k == 0) else None)
         if col == "coverage_mean":
             ax.axvline(1 - alpha, color=INK, lw=0.8, ls=(0, (3, 2)))
@@ -229,7 +248,7 @@ def fig_alpha_calibration(summ_alpha, out, methods, labels, n=20):
     fig, ax = plt.subplots(figsize=(W1, 70 * MM))
     for i, m in enumerate(methods):
         d = s[s.method == m].sort_values("alpha")
-        ax.plot(1 - d.alpha, d.coverage_mean, color=SLOTS[i], marker=MARKERS[i], ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
+        ax.plot(1 - d.alpha, d.coverage_mean, color=mcol(m, i), marker=mmark(m, i), ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
     lim = [0.75, 1.0]
     ax.plot(lim, lim, color=INK, lw=0.8, ls=(0, (3, 2))); ax.set_xlim(lim); ax.set_ylim(0.6, 1.0)
     ax.set_xlabel("Nominal coverage 1 − α"); ax.set_ylabel("Mean empirical coverage"); ax.grid(); ax.legend(frameon=False, fontsize=5.6)

@@ -1,0 +1,33 @@
+{
+ "config": "config/full.yaml",
+ "config_sha256": "02fd5acb2ec09f76cfc2c279827af02b522c69f4ab682baf992f2e7128f48d1c",
+ "git_commit": "0bd121efe04ebf5c08aea9756122b8d49c147f4a",
+ "hardware": {
+  "cpu_count": 4,
+  "platform": "Linux-6.18.44-fc-v470-x86_64-with-glibc2.39",
+  "python": "3.13.18",
+  "cuda": false,
+  "mps": false,
+  "xgb_device": "cpu"
+ },
+ "start": "2026-11-16T03:11:28",
+ "end": "2026-11-16T03:53:49",
+ "seconds": 2541.0,
+ "timings": {
+  "sigma_train_s": {
+   "sum": 145.69866399400007,
+   "n": 18
+  },
+  "maxsim_s": {
+   "sum": 53.96886502400024,
+   "n": 11
+  }
+ },
+ "n_rows": {
+  "rows": 492480,
+  "strata": 3637158,
+  "decoys": 17100,
+  "errors": 183090,
+  "timing": 22800
+ }
+}
