@@ -144,3 +144,7 @@ predictive intervals with few calibrants, so B3 alone could understate the stron
   draw 0), all n ∈ {10, 15, 20, 30, 40} and α ∈ {0.05, 0.10, 0.20}; same metrics and per-system statistics as the main
   comparators (Table 2, paired Wilcoxon tests with Holm correction, one-sided coverage test). B7 is reported in all main
   tables as an additional comparator, whatever its result. Code: experiments/run_metagp.py.
+* Amendment (2026-11-16, before any target-system result of B7 was computed or inspected): in the first run the meta-learned
+  constant, linear and RBF variances of every fold sat at the upper optimisation bound (exp(3) in calibrant-standardised units),
+  i.e. the bound, not the data, determined the solution. The bounds were widened to exp(9) for the variances and exp(3) for the
+  noise variance, and the run was restarted; the first run was stopped before its evaluation stage.

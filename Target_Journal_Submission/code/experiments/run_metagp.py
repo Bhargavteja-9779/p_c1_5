@@ -28,7 +28,7 @@ cfg = yaml.safe_load(open(sys.argv[1] if len(sys.argv) > 1 else "config/full.yam
 SEED = cfg.get("seed", 0); NJ = cfg["n_jobs"]
 MAX_TEST_META = 400  # held-out compounds per simulated draw used in the meta-objective (random subset, fixed seed)
 NAMES = ["vc", "vl", "vr", "ell", "vn"]  # constant, linear, RBF variances; RBF length scale; noise variance (standardised units)
-BOUNDS = [(-9, 3), (-9, 3), (-9, 3), (np.log(0.03), np.log(30.0)), (-9, 2)]
+BOUNDS = [(-9, 9), (-9, 9), (-9, 9), (np.log(0.03), np.log(30.0)), (-9, 3)]  # wide: a first run hit exp(3) for the variances
 
 
 def unpack(x):

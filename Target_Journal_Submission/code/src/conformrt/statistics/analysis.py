@@ -11,6 +11,7 @@ METHOD_LABELS = {
     "B4_split_conformal": "Split conformal",
     "B5_jackknife_plus": "Jackknife+",
     "B6_jk+_ensemble": "Jackknife+ (ensemble σ)",
+    "B7_gp_meta": "GP projection, meta-learned prior",
     "P": "Proposed (meta-learned σ)",
     "P-novelty": "– novelty features",
     "P-ion": "– ionisation features",
@@ -20,7 +21,7 @@ METHOD_LABELS = {
     "P_naive_noLOO": "no leave-one-out refit",
     "P_linear_map": "linear instead of monotone map",
 }
-BASELINES = ["B1_gauss_rmse", "B2_pspline_PI", "B3_gp_PI", "B4_split_conformal", "B5_jackknife_plus", "B6_jk+_ensemble"]
+BASELINES = ["B1_gauss_rmse", "B2_pspline_PI", "B3_gp_PI", "B7_gp_meta", "B4_split_conformal", "B5_jackknife_plus", "B6_jk+_ensemble"]
 ABLATIONS = ["P-novelty", "P-ion", "P-system", "P-geometry", "P-compound", "P_naive_noLOO", "P_linear_map"]
 
 

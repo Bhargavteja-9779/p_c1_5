@@ -17,9 +17,15 @@ MARKERS = ["o", "s", "D", "^", "v", "P", "X"]
 # Colour and marker follow the METHOD (entity), identical in every figure (validated: adjacent pairs for line charts;
 # all-pairs only for the first-three trio P / Gaussian / jackknife+ used in dot plots).
 METHOD_COLORS = {"P": "#2a78d6", "B1_gauss_rmse": "#eb6834", "B5_jackknife_plus": "#1baf7a", "B4_split_conformal": "#eda100",
-                 "B3_gp_PI": "#e87ba4", "B2_pspline_PI": "#008300", "B6_jk+_ensemble": "#6250d6"}
+                 "B3_gp_PI": "#e87ba4", "B2_pspline_PI": "#008300", "B6_jk+_ensemble": "#6250d6",
+                 "B7_gp_meta": "#e87ba4"}  # GP family: same hue as B3, distinguished by a dashed line and its own marker
 METHOD_MARKERS = {"P": "o", "B1_gauss_rmse": "s", "B5_jackknife_plus": "D", "B4_split_conformal": "^", "B3_gp_PI": "v",
-                  "B2_pspline_PI": "P", "B6_jk+_ensemble": "X"}
+                  "B2_pspline_PI": "P", "B6_jk+_ensemble": "X", "B7_gp_meta": "*"}
+METHOD_LINESTYLES = {"B7_gp_meta": (0, (3, 1.5))}
+
+
+def mls(m):
+    return METHOD_LINESTYLES.get(m, "-")
 
 
 def mcol(m, i=0):
@@ -122,7 +128,7 @@ def fig_calibrants(summ_n, out, methods, labels, alpha=0.1):
             d = d[np.isfinite(d["winkler_mean"]) & (d.get("share_infinite", 0) == 0)]
             if d.empty:
                 continue
-            ax.plot(d.n, d[col], color=mcol(m, i), marker=mmark(m, i), ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
+            ax.plot(d.n, d[col], color=mcol(m, i), marker=mmark(m, i), ls=mls(m), ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
         if col == "coverage_mean":
             ax.axhline(1 - alpha, color=INK, lw=0.8, ls=(0, (3, 2)))
             ax.text(s.n.min(), 1 - alpha - 0.004, f"nominal {1 - alpha:.2f}", ha="left", va="top", fontsize=6, color=INK)
@@ -248,7 +254,7 @@ def fig_alpha_calibration(summ_alpha, out, methods, labels, n=20):
     fig, ax = plt.subplots(figsize=(W1, 70 * MM))
     for i, m in enumerate(methods):
         d = s[s.method == m].sort_values("alpha")
-        ax.plot(1 - d.alpha, d.coverage_mean, color=mcol(m, i), marker=mmark(m, i), ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
+        ax.plot(1 - d.alpha, d.coverage_mean, color=mcol(m, i), marker=mmark(m, i), ls=mls(m), ms=3.8, mec="white", mew=0.5, label=labels.get(m, m))
     lim = [0.75, 1.0]
     ax.plot(lim, lim, color=INK, lw=0.8, ls=(0, (3, 2))); ax.set_xlim(lim); ax.set_ylim(0.6, 1.0)
     ax.set_xlabel("Nominal coverage 1 − α"); ax.set_ylabel("Mean empirical coverage"); ax.grid(); ax.legend(frameon=False, fontsize=5.6)

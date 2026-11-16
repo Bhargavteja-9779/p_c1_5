@@ -22,7 +22,7 @@ LAB = dict(METHOD_LABELS)
 LAB.update({"P+SASC": "Proposed + SASC", "J+SASC": "Jackknife+ + SASC", "J+": "Jackknife+",
             "RMSE_x2": "±2·RMSE", "RMSE_x3": "±3·RMSE", "FIX_0.25min": "±0.25 min", "FIX_0.5min": "±0.5 min", "FIX_1min": "±1 min",
             "FIX_2min": "±2 min", "FIX_5pct": "±5 % of predicted RT", "FIX_10pct": "±10 % of predicted RT"})
-MAIN7 = ["P", "B5_jackknife_plus", "B6_jk+_ensemble", "B4_split_conformal", "B1_gauss_rmse", "B2_pspline_PI", "B3_gp_PI"]
+MAIN7 = ["P", "B5_jackknife_plus", "B6_jk+_ensemble", "B4_split_conformal", "B1_gauss_rmse", "B2_pspline_PI", "B3_gp_PI", "B7_gp_meta"]
 SCEN = {"fixed_mix": "Laboratory calibrant mix", "pool_random": "Random calibration chemicals", "random_all": "Random compounds"}
 STRAT = {("seen", "seen"): "Seen by base model", ("seen", "unseen"): "Not seen by base model",
          ("similarity", "sim>=0.7"): "Tanimoto ≥ 0.7", ("similarity", "sim0.4-0.7"): "Tanimoto 0.4–0.7", ("similarity", "sim<0.4"): "Tanimoto < 0.4",

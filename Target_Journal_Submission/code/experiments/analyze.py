@@ -14,7 +14,7 @@ RES, TAB, FIG = (os.path.join(a.out, d) for d in ("results", "tables", "figures"
 for d in (RES, TAB, FIG):
     os.makedirs(d, exist_ok=True)
 PRIMARY_N, PRIMARY_A = 20, 0.1
-ORDER = ["P", "B1_gauss_rmse", "B5_jackknife_plus", "B4_split_conformal", "B3_gp_PI", "B2_pspline_PI", "B6_jk+_ensemble"]
+ORDER = ["P", "B1_gauss_rmse", "B5_jackknife_plus", "B4_split_conformal", "B3_gp_PI", "B7_gp_meta", "B2_pspline_PI", "B6_jk+_ensemble"]
 L = METHOD_LABELS
 
 
@@ -37,6 +37,9 @@ def md(df, path, floatfmt=3):
 
 metrics, stats_out = {}, {}
 main_rows = load("main", "rows")
+_mg = load("metagp", "rows")  # Addendum E: comparator B7 evaluated post hoc on the identical calibrant draws
+if not _mg.empty:
+    main_rows = pd.concat([main_rows, _mg[main_rows.columns.intersection(_mg.columns)]], ignore_index=True)
 if main_rows.empty:
     sys.exit("no main results yet")
 ps = per_system(main_rows)
@@ -74,7 +77,7 @@ for n in sorted(ps.n.unique()):
         s.insert(0, "alpha", al); s.insert(0, "n", n); full.append(s)
 full = pd.concat(full, ignore_index=True); md(full, os.path.join(TAB, "tableS1_all_n_alpha"))
 F.fig_calibrants(full, FIG, [m for m in ORDER if m in ps.method.unique()], L, alpha=PRIMARY_A)
-F.fig_alpha_calibration(full, FIG, [m for m in ["P", "B5_jackknife_plus", "B4_split_conformal", "B3_gp_PI", "B2_pspline_PI", "B1_gauss_rmse"] if m in ps.method.unique()], L, n=PRIMARY_N)
+F.fig_alpha_calibration(full, FIG, [m for m in ["P", "B5_jackknife_plus", "B4_split_conformal", "B3_gp_PI", "B7_gp_meta", "B2_pspline_PI", "B1_gauss_rmse"] if m in ps.method.unique()], L, n=PRIMARY_N)
 
 # coverage validity (system-bootstrap and source-cluster bootstrap) for every n/alpha
 val = []
