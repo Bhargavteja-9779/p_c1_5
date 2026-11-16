@@ -92,6 +92,16 @@ def build_facts(RES, TAB):
         t_ = tsz[tsz["mode"] == mt_] if len(tsz) else tsz
         if len(t_):
             F[f"tsz.{mt_}.ge30.min"] = int(t_.training_systems_ge30.min()); F[f"tsz.{mt_}.ge30.max"] = int(t_.training_systems_ge30.max())
+    for r in m.get("fixed_windows", []):
+        for c in ["coverage_mean", "width_median_min", "winkler_mean", "share_severe_under", "coverage_p10"]:
+            F[f"fw.{r['method']}.n{int(r['n'])}.{c}"] = r[c]
+    for r in m.get("fixed_window_decoys", []):
+        F[f"fwdec.{r['method']}.elim"] = r["decoy_elim_mean"]; F[f"fwdec.{r['method']}.ret"] = r["true_retained_mean"]
+    for r in m.get("small_n", []):
+        for c in ["coverage_mean", "width_median_min", "share_infinite"]:
+            F[f"sn.{r['method']}.n{int(r['n'])}.a{r['alpha']:.2f}.{c}"] = r[c]
+    for r in m.get("sensitivity", []):
+        F[f"sens.{r['setting']}.{r['method']}.winkler"] = r["winkler_mean"]; F[f"sens.{r['setting']}.{r['method']}.coverage"] = r["coverage_mean"]
     GS = {"SMRT-regression base model (RP)": "smrt", "HILIC systems (order model)": "hilic"}
     for r in m.get("generalisation", []):
         k = GS.get(r["setting"], r["setting"])
