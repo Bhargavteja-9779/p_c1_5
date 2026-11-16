@@ -14,7 +14,7 @@ We submit the manuscript **"Distribution-free retention-time windows for candida
 **Main findings.**
 
 - Current windows are miscalibrated on new systems: at a nominal 90 %, Gaussian-process projection, smoothing-spline and ±z·RMSE windows retained the correct structure in 82.2 %, 85.1 % and 88.5 % of cases, and fixed ±1 min windows in 70.5 %.
-- Conformal windows retained 90.9 %–91.1 % with a finite-sample guarantee, also for HILIC and the interlaboratory data. At least $1/\alpha-1$ calibrants are required, which gives laboratories a simple design rule.
+- Conformal windows, which carry a distribution-free finite-sample guarantee, retained 90.9 %–91.1 %, also for HILIC and, with randomly drawn calibrants, for the interlaboratory data. At least $1/\alpha-1$ calibrants are required, which gives laboratories a simple design rule.
 - The guarantee requires calibrants that resemble the analytes. We show where this fails (an interlaboratory calibrant mix) and how a known selection rule can be corrected (from 81.5 % to 90.2 % for commonly measured calibrants).
 - The learned normalisation improves efficiency only for longer gradients and is less efficient than plain jackknife+ for HILIC and the external data; we report this as a delimitation of the method rather than a general gain.
 

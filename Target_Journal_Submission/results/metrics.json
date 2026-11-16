@@ -6434,5 +6434,11 @@
    "training_systems_all": 48,
    "training_systems_ge30": 48
   }
- ]
+ ],
+ "metadata_missing_rp": {
+  "n_systems": 297,
+  "temp": 116,
+  "flow": 33,
+  "t0": 37
+ }
 }

@@ -15,7 +15,7 @@ of the standard InChIKey; entries of the same connectivity block (stereoisomers 
 differed by at most 0.2 min and removed otherwise. The mobile-phase pH class was derived from the reported eluent additives (acidic if any acid
 additive was present in eluent A or B, basic if any basic additive and no acid, buffered if only ammonium salts, none otherwise) and the organic
 modifier from the reported solvent fractions (acetonitrile, methanol, mixed or other). Column length, particle size, temperature, flow rate and
-dead time were taken from the metadata (missing values encoded as 0) and the gradient duration from the gradient table. Reversed-phase systems
+dead time were taken from the metadata and the gradient duration from the gradient table. Missing numeric metadata were encoded as 0 (temperature, flow rate and dead time were missing for {mdmiss.temp|int}, {mdmiss.flow|int} and {mdmiss.t0|int} of the {mdmiss.n_systems|int} RP systems). For the NORMAN methods, which do not report these three descriptors, they were passed as missing values (NaN); because the gradient-boosted difficulty model never saw NaN for these features during training, LightGBM routes NaN like 0 (verified with lightgbm 4.7.0: identical predictions for NaN and 0), so that both data sets are encoded identically. Reversed-phase systems
 with at least 60 compounds after cleaning were target systems, except METLIN SMRT, which served only as training data; HILIC systems with at
 least 60 compounds formed the out-of-mechanism test set. Fig. S1 summarises the target systems and Table S1 the numbers of training systems
 available in each leave-source-out fold.
