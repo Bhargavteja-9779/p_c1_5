@@ -24,3 +24,8 @@ Created 2026-11-15.
   116/33/37 of 297 RP systems and encoded as 0. LightGBM converts NaN to 0 for splits trained without NaN (empirical check,
   lightgbm 4.7.0: max |pred(NaN) − pred(0)| = 0.0), so NORMAN systems are encoded exactly like RepoRT systems with missing
   metadata — no encoding mismatch explains the missing efficiency gain on NORMAN.
+* 13:10–13:20 analyze.py re-runs (pre-specified |gap| and one-sided tests; Table 1 span; fold-adjusted correlation; SASC widths).
+* 13:37 run_metagp.py (Addendum E) first run stopped after meta-learning: variances at the optimisation bound → bounds widened
+  (documented in the plan before any evaluation); 13:42–13:50 second run: hyper-parameters interior; draw check max diff 0;
+  B7 mean coverage 0.973 (n = 20, α = 0.10), median width 12.0 min, 2.6 % of systems < 0.85.
+* 13:50 analyze.py with B7 integrated (Tables 2–3, S2–S4, S7; Figs 2, 3, S2).

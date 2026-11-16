@@ -91,3 +91,16 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
 * NEXT: fix audit findings → rebuild → review cycle 1: Workflow({scriptPath: "Target_Journal_Submission/REVIEW/workflow/review_cycle.js" (absolute path), args: {cycle: 1}})
   → write REVIEW/review_01.md (reviews + consolidated actions + responses) → implement → cycles 2–10 → final_audit.md, cover letter, risk report, decision.
 * Scheduled self-resume: trig_018aBvaNf3AJEmPCc4NykmHv at 08:15 UTC (re-schedule if work continues past the next usage-limit pause).
+
+## Update 2026-11-16 13:55 UTC — audits resolved; comparator B7 added; review cycle 1 running
+* Phase 22–23 audits (wf_0e2f7cad-fff, rerun after the 06:38 usage-limit failure): 106 claims audited (51 corrected), 57→80
+  references (80/80 verified). Records: REVIEW/claim_evidence_audit.md, REVIEW/citation_audit.md (with resolution tables).
+* Analysis now follows the pre-specified plan (|gap| test, one-sided coverage test); Table 1 RT span fixed; fold-adjusted
+  gain–span correlation; SASC width statistic aligned; NORMAN strata per scenario.
+* Addendum E (post hoc, pre-run commit 34ea26f, bound amendment 38de8b5): comparator B7 = GP projection with meta-learned
+  hyper-parameters → coverage 0.973 at nominal 0.90, 2.6× wider windows, 3 % of systems < 0.85 (identical draws verified).
+* Clean-clone quick reproduction PASSED (1238 s). Graphical abstract and cover letter (token-based) added.
+* Review cycle 1: Workflow run wf_42a67b1d-ef3 (started 13:31; 10 reviewers + consolidation + adversarial verification).
+  When done: `python REVIEW/workflow/journal_to_md.py review <transcript dir of wf_42a67b1d-ef3> 1 REVIEW/review_01.md`,
+  implement the actions, rebuild, write responses into review_01.md, commit, then cycle 2 (args {cycle: 2}).
+* Resume after a usage-limit pause: re-run any failed workflow with resumeFromRunId (completed agents are cached).

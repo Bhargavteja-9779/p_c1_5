@@ -13,3 +13,5 @@ Created 2026-11-15.
 * NORMAN per-stratum coverage now reported per calibration scenario (previously pooled).
 * Supplementary Material builder; supplementary tables renumbered S1–S26 in document order; manuscript references updated.
 * README: pandoc/LibreOffice requirements for the document stage; run_all builds the Supplementary Material.
+* Audit-driven revision (13:30): see REVIEW/claim_evidence_audit.md and REVIEW/citation_audit.md (resolution sections).
+* Comparator B7 (meta-learned GP prior) added post hoc (Addendum E) and reported in all main tables and figures.
