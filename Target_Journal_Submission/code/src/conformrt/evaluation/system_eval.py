@@ -52,8 +52,12 @@ def _sigma_cal_loo(model, Cc: pd.DataFrame, s_cal, y_cal, sysf):
     return np.diag(S).copy()
 
 
-def select_calibrants(rng, y, n, strategy, n_systems_global=None):
+def select_calibrants(rng, y, n, strategy, n_systems_global=None, pool=None):
     N = len(y)
+    if strategy == "fixed":  # calibrants = a prescribed set (e.g. a laboratory calibrant mix)
+        return np.asarray(pool)
+    if strategy == "pool_random":  # n random calibrants from a prescribed pool
+        return rng.choice(np.asarray(pool), n, replace=False)
     if strategy == "random":
         return rng.choice(N, n, replace=False)
     if strategy == "span":
@@ -72,12 +76,12 @@ def evaluate_system(job: dict) -> dict:
     out_rows, strata_rows, decoy_rows, err_rows, timing = [], [], [], [], []
     alphas = cfg["alphas"]; primary_n = cfg["primary_n"]
     for n in cfg["n_list"]:
-        if N < n + cfg["min_test"]:
+        if N < n + cfg["min_test"] or (job.get("pool") is not None and cfg["strategy"] == "pool_random" and len(job["pool"]) < n + 2):
             continue
         for r in range(cfg["draws"]):
             rng = np.random.default_rng([int(sid), n, r, cfg["strategy_code"], cfg.get("seed", 0)])
-            cal = select_calibrants(rng, y, n, cfg["strategy"], job.get("n_systems_global"))
-            te = np.setdiff1d(np.arange(N), cal)
+            cal = select_calibrants(rng, y, n, cfg["strategy"], job.get("n_systems_global"), job.get("pool"))
+            te = np.setdiff1d(np.arange(N), cal) if job.get("test_idx") is None else np.setdiff1d(job["test_idx"], cal)
             s_cal, s_te, y_te = s[cal], s[te], y[te]
             y_cal = y[cal].astype(float).copy()
             if cfg.get("perturb") == "noise":

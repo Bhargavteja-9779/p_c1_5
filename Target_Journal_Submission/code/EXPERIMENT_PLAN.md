@@ -97,3 +97,16 @@ the journal never benchmark against the tolerance windows used in screening prac
   ±5 %, ±10 % of predicted RT; ±2·RMSE_LOO, ±3·RMSE_LOO (`experiments/run_extra_baselines.py`).
 * Added an exploratory small-calibrant analysis (n ∈ {5, 8}) to illustrate the n ≥ 1/α − 1 requirement.
 These analyses are labelled post hoc/exploratory in the manuscript.
+
+## Addendum C (2026-11-16 03:20 UTC; external validation, specified before any NORMAN result was computed)
+External test on the NORMAN interlaboratory comparison (Malm & Kruve, Analyst 2025, ESI; 37 RP NTS methods from different
+laboratories; 41 calibration chemicals and 41 spiked suspects; RT data CSV sha256 of the ESI zip f96093af…4c15).
+* Base model: retention-order model trained on ALL RepoRT RP systems (+ SMRT subsample); difficulty model trained on
+  simulated transfers of all RepoRT RP systems scored by the leave-source-out outer models. No NORMAN data are used for training.
+* Scenarios per system: (E5c-1) calibrants = all NORMAN calibration chemicals detected on that system (fixed mix, n = 12–36),
+  test = suspects; (E5c-2) n ∈ {10, 20} random calibrants from the calibration-chemical pool, test = suspects (20 draws);
+  (E5c-3) n ∈ {10, 20} random calibrants from all compounds (exchangeable), test = all other compounds (20 draws).
+* Methods B1–B5 and P; α ∈ {0.05, 0.10, 0.20}; metrics as in the main study; unit = system (37).
+* System descriptors from ESI Table S1 (pH class and modifier from mobile-phase text, USP class from stationary phase,
+  column length and particle size from dimensions, gradient length from the ESI code table); unavailable descriptors
+  (temperature, flow, dead time) are left missing (handled natively by LightGBM).
