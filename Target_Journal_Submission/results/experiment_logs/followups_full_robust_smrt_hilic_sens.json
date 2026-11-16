@@ -1,0 +1,13 @@
+{
+ "robust_span_none": 404.8,
+ "robust_common_none": 386.0,
+ "robust_random_noise": 445.7,
+ "robust_random_outlier": 377.0,
+ "gen_smrt": 1486.2,
+ "smrt_train_s": 143.6388803939999,
+ "gen_hilic": 517.3,
+ "sens_l15_e400": 179.0,
+ "sens_l63_e400": 245.1,
+ "sens_l31_e200": 147.5,
+ "sens_l31_e800": 311.0
+}
