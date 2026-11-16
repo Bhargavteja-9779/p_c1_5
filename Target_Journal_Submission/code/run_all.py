@@ -42,6 +42,7 @@ def main():
         sh([PY, "experiments/run_norman.py", cfg])                   # NORMAN external validation (Addendum C)
         sh([PY, "experiments/run_sasc.py", cfg])                     # selection-aware calibration (Addendum D)
         sh([PY, "experiments/run_norman.py", cfg])                   # NORMAN again, now including the SASC rows
+        sh([PY, "experiments/run_metagp.py", cfg])                   # comparator B7, meta-learned GP prior (Addendum E)
         sh([PY, "experiments/benchmark_compute.py", cfg])            # computational cost (single thread)
     out = "../results_quick" if a.mode == "quick" else ".."
     rawdir = "../results_quick/raw" if a.mode == "quick" else "../results/raw"

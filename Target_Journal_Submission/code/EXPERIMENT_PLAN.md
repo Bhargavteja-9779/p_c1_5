@@ -148,3 +148,11 @@ predictive intervals with few calibrants, so B3 alone could understate the stron
   constant, linear and RBF variances of every fold sat at the upper optimisation bound (exp(3) in calibrant-standardised units),
   i.e. the bound, not the data, determined the solution. The bounds were widened to exp(9) for the variances and exp(3) for the
   noise variance, and the run was restarted; the first run was stopped before its evaluation stage.
+* **Correction (2026-11-16 19:10 UTC, after review cycle 1, reviewer R3).** The amendment above states that "the first run was
+  stopped before its evaluation stage". This is incorrect. The first run completed its target evaluation in the short interval
+  between printing the hyper-parameter table and being stopped, and its outputs (metagp_rows.parquet, metagp_check.csv,
+  metagp_theta.csv) were committed together with the amendment in commit 38de8b5. When the bounds were widened, only the
+  hyper-parameter table had been looked at, not the coverage results. Both runs are now reported: run 1 (bounds exp(3)) is kept
+  as results/raw/metagp_rows_run1_bounds_exp3.parquet (+ metagp_theta_run1_bounds_exp3.csv); run 2 (bounds exp(9)) is the
+  analysed version. At n = 20, α = 0.10: run 1 coverage 0.974, median width 11.2 min, interval score 13.2 min; run 2 0.973,
+  12.0 min, 14.2 min — the conclusion does not depend on the bounds, and the widening made B7 slightly less, not more, efficient.
