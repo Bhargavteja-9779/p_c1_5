@@ -18,9 +18,9 @@ Created 2026-11-15.
 * 06:01 NORMAN external validation (Addendum C): 37 systems, 82 compounds (95 % seen by base model); incl. P+SASC / J+SASC rows.
 * 06:05 Compute benchmark (1 thread) → PIPELINE_DONE 2026-11-16T06:05:56Z.
 * 06:08 analyze.py (B = 10,000) → 57 table files, 18 figure files, metrics.json, statistics.json, raw_results.csv.
-* 06:40 analyze.py re-run after fixing the NORMAN per-stratum table (strata were pooled over the three calibration scenarios;
+* 06:17 analyze.py re-run after fixing the NORMAN per-stratum table (strata were pooled over the three calibration scenarios;
   now reported per scenario). No other output changed in substance.
-* 06:55 Diagnostic (pending since 05:32): NORMAN systems lack temperature/flow/dead time (NaN). In RepoRT these are missing for
+* 06:28 Diagnostic (pending since 05:32): NORMAN systems lack temperature/flow/dead time (NaN). In RepoRT these are missing for
   116/33/37 of 297 RP systems and encoded as 0. LightGBM converts NaN to 0 for splits trained without NaN (empirical check,
   lightgbm 4.7.0: max |pred(NaN) − pred(0)| = 0.0), so NORMAN systems are encoded exactly like RepoRT systems with missing
   metadata — no encoding mismatch explains the missing efficiency gain on NORMAN.

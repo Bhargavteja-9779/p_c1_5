@@ -82,8 +82,8 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
   windows + n >= 1/alpha - 1 rule + non-exchangeability diagnosis/correction (SASC); learned normalisation = context-dependent
   enhancement (long RP gradients). Check: NORMAN systems have missing temp/flow/t0 descriptors (never missing in training).
 
-## Update 2026-11-16 07:00 UTC — manuscript v1 + Supplementary Material built; audits running
-* PIPELINE_DONE 06:05:56Z; analysis complete (re-run 06:40 after NORMAN-strata fix). All results/tables/figures committed.
+## Update 2026-11-16 06:35 UTC — manuscript v1 + Supplementary Material built; audits running
+* PIPELINE_DONE 06:05:56Z; analysis complete (re-run 06:17 after NORMAN-strata fix). All results/tables/figures committed.
 * Manuscript v1: `manuscript/Final_Manuscript.{md,docx,pdf}` (32 pp; numbered sections, line + page numbers, portable math).
   Supplementary: `supplementary/Supplementary_Material.{md,docx,pdf}` (S1–S6, Tables S1–S26, Figs. S1–S2), built by
   `code/scripts/build_supplementary.py` (table_index.csv maps S-numbers to analysis outputs). Both builders are token-based.

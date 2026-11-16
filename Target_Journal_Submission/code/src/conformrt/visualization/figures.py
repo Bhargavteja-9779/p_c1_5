@@ -59,7 +59,7 @@ def fig_workflow(out):
         (25.5, 19, 22, 13, "Base model:\nretention-order score s(x)\n(pairwise ranking)", "#eef4fc"),
         (50.5, 19, 23, 13, "Target system:\nn calibrants (sᵢ, tᵢ)\nmonotone map g,\nleave-one-out refits g₋ᵢ", "#fdf0ea"),
         (76.5, 19, 23, 13, "Meta-learned difficulty\nσ(x | system, calibrants)\nfitted on simulated\ntransfers", "#eaf7f1"),
-        (14, 1.5, 40, 12.5, "Normalised jackknife+ window\nC(x) = [ q⁻{g₋ᵢ(s) − σ₋ᵢ(x)Rᵢ},  q⁺{g₋ᵢ(s) + σ₋ᵢ(x)Rᵢ} ]\nRᵢ = |tᵢ − g₋ᵢ(sᵢ)| / σ₋ᵢ(xᵢ);  P(t ∈ C) ≥ 1 − 2α", "#f3f2ef"),
+        (12.5, 1.5, 43, 12.5, "Normalised jackknife+ window C(x); lower / upper end:\nkₗ-th / kᵤ-th smallest of g₋ᵢ(s(x)) ∓ σ₋ᵢ(x)Rᵢ\nRᵢ = |tᵢ − g₋ᵢ(sᵢ)| / σ₋ᵢ(xᵢ);  P(t ∈ C) ≥ 1 − 2α", "#f3f2ef"),
         (61, 1.5, 38.5, 12.5, "Candidate filtering in NTS:\nkeep a structure if the observed RT ∈ C(x)\n→ correct structure kept with prob. ≈ 1 − α", "#f3f2ef"),
     ]
     for x, y, w, h, txt, fc in boxes:
@@ -67,7 +67,7 @@ def fig_workflow(out):
         ax.text(x + w / 2, y + h / 2, txt, ha="center", va="center", fontsize=fs_, color=INK, linespacing=1.3)
     arr = dict(arrowstyle="-|>", mutation_scale=8, lw=0.9, color=INK2)
     for (x0, y0, x1, y1) in [(22.9, 25.5, 25.1, 25.5), (47.9, 25.5, 50.1, 25.5), (62, 18.7, 40, 14.3), (88, 18.7, 46, 14.3),
-                             (54.3, 7.75, 60.7, 7.75)]:
+                             (56.0, 7.75, 60.7, 7.75)]:
         ax.add_patch(FancyArrowPatch((x0, y0), (x1, y1), **arr))
     # inner cross-fitting path: library -> difficulty model (drawn above the boxes)
     ax.plot([11.5, 11.5, 88, 88], [32.4, 36.2, 36.2, 33.2], color=INK2, lw=0.9)

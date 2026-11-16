@@ -82,4 +82,5 @@ const CONS = {
   required: ['actions', 'recommendations', 'overall'],
 }
 const consolidated = await agent(`You consolidate review cycle ${CYCLE} for an Analytica Chimica Acta submission. Below are ${ok.length} independent reviews (JSON). Merge duplicate issues (keep all reviewers in raised_by), drop issues that are clearly wrong given the manuscript files (check ${ROOT}/manuscript/Final_Manuscript.md when unsure), prioritise (fatal > critical > major > moderate > minor), and for every remaining issue write a concrete fix, whether an experiment is needed, and the scientific hypothesis behind a methodological change. Mark feasible_now=false only if the fix needs resources unavailable here (wet-lab data, private data).\n\nREVIEWS:\n${JSON.stringify(ok)}`, { label: `c${CYCLE}:consolidate`, phase: 'Consolidate', schema: CONS })
-return { cycle: CYCLE, reviews: ok, consolidated }
+// full reviews are kept in the workflow journal (journal.jsonl) and rendered by journal_to_md.py; return a compact summary
+return { cycle: CYCLE, n_reviews: ok.length, recommendations: ok.map(r => ({ reviewer: r.reviewer, recommendation: r.recommendation, n_issues: (r.issues || []).length })), consolidated }

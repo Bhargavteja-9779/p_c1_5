@@ -2,7 +2,7 @@
 
 Created 2026-11-15.
 
-## Status 2026-11-16 07:00 UTC
+## Status 2026-11-16 06:35 UTC
 * One command: `cd Target_Journal_Submission/code && python run_all.py --mode full` (data → tests → experiments → analysis →
   manuscript + supplementary). Quick check: `--mode quick` (~5 min, separate output dir).
 * Data: RepoRT v1.0 (Zenodo 10.5281/zenodo.16267768) and NORMAN ILC SI archive downloaded with SHA-256 verification
