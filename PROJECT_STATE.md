@@ -72,3 +72,4 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
 * Pipeline order now: robust(noise, outlier) → smrt → hilic → sens → fixed windows → small-n → NORMAN → SASC → NORMAN(+SASC) → compute benchmark.
 * NEXT after PIPELINE_DONE: analyze.py → write robustness/generalisation/SASC/NORMAN/compute subsections + limitations →
   build_manuscript.py → review cycle 1 (Workflow REVIEW/workflow/review_cycle.js, args {cycle: 1}).
+* TODO after PIPELINE_DONE: remove the TEMPORARY raw-results block from .gitignore and git add -f results/raw/*_rows.parquet, *_decoys.parquet, *_timing.parquet, sasc_*.csv/json

@@ -18,3 +18,7 @@ Target_Journal_Submission/results/raw/*_strata.parquet
 Target_Journal_Submission/results/raw/*_errors.parquet
 !Target_Journal_Submission/results/raw/main_strata.parquet
 !Target_Journal_Submission/results/raw/main_errors.parquet
+# TEMPORARY while the pipeline runs (force-add final raw files with git add -f after PIPELINE_DONE)
+Target_Journal_Submission/results/raw/*.parquet
+Target_Journal_Submission/results/raw/*.csv
+Target_Journal_Submission/results/raw/*.json
