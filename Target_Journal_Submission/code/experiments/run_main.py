@@ -1,4 +1,4 @@
-"""E1/E2/E3/E6 main experiment (pre-registered full configuration). Usage: python experiments/run_main.py [config]"""
+"""E1/E2/E3/E6 main experiment (pre-specified full configuration). Usage: python experiments/run_main.py [config]"""
 import sys, os, time, json, hashlib, subprocess, yaml
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 os.chdir(os.path.join(os.path.dirname(__file__), ".."))

@@ -153,6 +153,24 @@
    "share_infinite": 0.0
   },
   {
+   "method": "B7_gp_meta",
+   "label": "GP projection, meta-learned prior",
+   "n_systems": 228,
+   "coverage_mean": 0.9732172186824309,
+   "coverage_ci_lo": 0.9676380647124904,
+   "coverage_ci_hi": 0.9783621802280624,
+   "coverage_median": 0.9904506001350688,
+   "coverage_p10": 0.9365428937259923,
+   "share_severe_under": 0.02631578947368421,
+   "share_below_nominal": 0.06140350877192982,
+   "width_mean_min": 12.446590058950358,
+   "width_median_min": 12.000600325486959,
+   "width_rel_median": 0.8482437138333947,
+   "winkler_mean": 14.16344587307759,
+   "winkler_median": 13.156388433836266,
+   "share_infinite": 0.0
+  },
+  {
    "method": "B2_pspline_PI",
    "label": "P-spline PI",
    "n_systems": 228,
@@ -560,6 +578,25 @@
    "width_rel_median": 0.2235353372907965,
    "winkler_mean": 9.510508040049457,
    "winkler_median": 7.443995783660226,
+   "share_infinite": 0.0
+  },
+  {
+   "scenario": "random calibrants (main)",
+   "method": "B7_gp_meta",
+   "label": "GP projection, meta-learned prior",
+   "n_systems": 228,
+   "coverage_mean": 0.9732172186824309,
+   "coverage_ci_lo": 0.9676380647124904,
+   "coverage_ci_hi": 0.9783621802280624,
+   "coverage_median": 0.9904506001350688,
+   "coverage_p10": 0.9365428937259923,
+   "share_severe_under": 0.02631578947368421,
+   "share_below_nominal": 0.06140350877192982,
+   "width_mean_min": 12.446590058950358,
+   "width_median_min": 12.000600325486959,
+   "width_rel_median": 0.8482437138333947,
+   "winkler_mean": 14.16344587307759,
+   "winkler_median": 13.156388433836266,
    "share_infinite": 0.0
   },
   {

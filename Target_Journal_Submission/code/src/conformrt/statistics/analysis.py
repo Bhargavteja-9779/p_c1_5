@@ -31,7 +31,7 @@ def per_system(rows: pd.DataFrame) -> pd.DataFrame:
     out = g.agg(coverage=("coverage", "mean"), width=("width_mean", "mean"), width_rel=("width_rel_mean", "mean"),
                 winkler=("winkler", "mean"), m_test=("m_test", "mean"), draws=("draw", "nunique"))
     out["gap_signed"] = (1 - out["alpha"]) - out["coverage"]
-    out["gap"] = out["gap_signed"].abs()  # pre-registered test metric: |coverage gap|
+    out["gap"] = out["gap_signed"].abs()  # pre-specified test metric: |coverage gap|
     return out
 
 

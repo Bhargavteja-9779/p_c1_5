@@ -95,7 +95,7 @@ def build_facts(RES, TAB):
         F[f"mdmiss.{k}"] = v if not isinstance(v, list) else ", ".join(v)
     if m.get("sigma_rows_main"):
         F["cb.sigma_rows_fold_min"] = m["sigma_rows_main"]["min"]; F["cb.sigma_rows_fold_max"] = m["sigma_rows_main"]["max"]
-    for r in st.get("coverage_validity", []):  # pre-registered one-sided test of under-coverage
+    for r in st.get("coverage_validity", []):  # pre-specified one-sided test of under-coverage
         F[f"valp.{r['method']}.n{int(r['n'])}.a{r['alpha']:.2f}"] = r.get("p_under_one_sided")
         F[f"valpc.{r['method']}.n{int(r['n'])}.a{r['alpha']:.2f}"] = r.get("cluster_p_under_one_sided")
     for scen_, rows_ in st.get("norman_tests", {}).items():
@@ -161,6 +161,8 @@ def build_facts(RES, TAB):
         tot_ = sum(grp.values())
         for g_, v_ in grp.items():
             F[f"strata_share.{st_}.{g_}"] = v_ / tot_ if tot_ else float("nan")
+    if "main.B7_gp_meta.width_median_min" in F:
+        F["ratio.b7_p_width"] = F["main.B7_gp_meta.width_median_min"] / F["main.P.width_median_min"]
     # coverage range over the conformal constructions (split conformal, jackknife+, ensemble-normalised jackknife+, proposed)
     CONF = ["B4_split_conformal", "B5_jackknife_plus", "B6_jk+_ensemble", "P"]
     for tag, pat in [("main", "main.{m}.coverage_mean"), ("hilic", "gen.hilic.n20.{m}.coverage_mean"), ("norrand", "nor.random_all.20.a0.10.{m}.coverage_mean")]:

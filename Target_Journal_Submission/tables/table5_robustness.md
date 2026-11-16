@@ -5,6 +5,7 @@
 | random calibrants (main) | B5_jackknife_plus | Jackknife+ | 228 | 0.909 | 0.907 | 0.911 | 0.910 | 0.886 | 0.013 | 0.263 | 6.470 | 5.058 | 0.351 | 9.865 | 7.392 | 0.000 |
 | random calibrants (main) | B4_split_conformal | Split conformal | 228 | 0.909 | 0.907 | 0.912 | 0.909 | 0.883 | 0.004 | 0.298 | 8.706 | 7.037 | 0.453 | 11.967 | 9.758 | 0.000 |
 | random calibrants (main) | B3_gp_PI | GP projection PI | 228 | 0.822 | 0.818 | 0.826 | 0.823 | 0.783 | 0.825 | 1.000 | 4.182 | 3.401 | 0.224 | 9.511 | 7.444 | 0.000 |
+| random calibrants (main) | B7_gp_meta | GP projection, meta-learned prior | 228 | 0.973 | 0.968 | 0.978 | 0.990 | 0.937 | 0.026 | 0.061 | 12.447 | 12.001 | 0.848 | 14.163 | 13.156 | 0.000 |
 | random calibrants (main) | B2_pspline_PI | P-spline PI | 228 | 0.851 | 0.847 | 0.854 | 0.852 | 0.811 | 0.491 | 0.956 | 4.693 | 3.726 | 0.256 | 9.925 | 7.684 | 0.000 |
 | random calibrants (main) | B6_jk+_ensemble | Jackknife+ (ensemble σ) | 228 | 0.918 | 0.916 | 0.920 | 0.919 | 0.900 | 0.000 | 0.101 | 26.764 | 9.967 | 0.824 | 28.987 | 11.438 | 0.000 |
 | commonly measured calibrants | P | Proposed (meta-learned σ) | 228 | 0.815 | 0.794 | 0.833 | 0.840 | 0.605 | 0.535 | 0.662 | 4.946 | 3.863 | 0.203 | 10.446 | 7.931 | 0.000 |

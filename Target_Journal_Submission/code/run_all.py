@@ -1,7 +1,7 @@
 """One-command reproduction of the study.
 
   python run_all.py --mode quick   # pipeline check (tiny models, few systems; minutes) -> ../results_quick
-  python run_all.py --mode full    # full pre-registered study (several CPU-hours on 4 cores) -> ../results, ../tables, ../figures
+  python run_all.py --mode full    # full pre-specified study (several CPU-hours on 4 cores) -> ../results, ../tables, ../figures
 
 Stages: data (download + checksum + build), tests, experiments (main, follow-ups, post-hoc addenda B-D, compute benchmark;\nresumable), analysis, manuscript (graphical abstract, manuscript, Supplementary Material).
 """

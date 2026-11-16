@@ -84,7 +84,7 @@ val = []
 for (n, al, m), s in ps.groupby(["n", "alpha", "method"]):
     lo, hi = boot_ci(s.coverage.values, B=min(a.B, 4000))
     clo, chi = boot_ci(s.coverage.values, B=min(a.B, 4000), clusters=s.fold.values)
-    ub, p1 = one_sided_coverage_test(s.coverage.values, 1 - al, B=a.B)  # pre-registered: H1 mean coverage < 1 - alpha
+    ub, p1 = one_sided_coverage_test(s.coverage.values, 1 - al, B=a.B)  # pre-specified: H1 mean coverage < 1 - alpha
     cub, cp1 = one_sided_coverage_test(s.coverage.values, 1 - al, B=min(a.B, 4000), clusters=s.fold.values)
     val.append({"n": n, "alpha": al, "method": m, "mean_cov": s.coverage.mean(), "ci_lo": lo, "ci_hi": hi, "cluster_ci_lo": clo,
                 "cluster_ci_hi": chi, "upper95_one_sided": ub, "p_under_one_sided": p1, "cluster_upper95_one_sided": cub,
