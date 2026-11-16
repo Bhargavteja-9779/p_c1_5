@@ -12,13 +12,16 @@ const CYCLE = A.cycle || 1
 const ROOT = '/home/user/p_c1_5/Target_Journal_Submission'
 const PACKET = `REVIEW PACKET (read these first; open other repository files only when needed for your lens):
 - Manuscript (Markdown, built from templates; every number comes from result files): ${ROOT}/manuscript/Final_Manuscript.md
-- Supplementary proof of the coverage guarantee: ${ROOT}/supplementary/S2_coverage_proof.md
+- Supplementary Material (Sections S1-S6, Tables S1-S26; built from result files): ${ROOT}/supplementary/Supplementary_Material.md ; table index: ${ROOT}/supplementary/table_index.csv
+- Supplementary proof of the coverage guarantee (also Section S2 of the Supplementary Material): ${ROOT}/supplementary/S2_coverage_proof.md
+- Formatted outputs (for layout checks only): ${ROOT}/manuscript/Final_Manuscript.docx and .pdf ; ${ROOT}/supplementary/Supplementary_Material.pdf
+- Manuscript section templates with {{token}} placeholders (what authors edit): ${ROOT}/manuscript/src/*.md ; token values: ${ROOT}/code/scripts/manuscript_facts.py
 - Pre-registered plan and addenda: ${ROOT}/code/EXPERIMENT_PLAN.md
 - Machine-generated tables: ${ROOT}/tables/*.md ; statistics: ${ROOT}/results/statistics.json ; metrics: ${ROOT}/results/metrics.json
 - Code: ${ROOT}/code/src/conformrt/ (evaluation/system_eval.py, evaluation/intervals.py, evaluation/protocol.py, evaluation/driver.py, models/*.py), experiments/*.py, tests/test_core.py
 - Journal selection and ACA benchmark: ${ROOT}/journal_selection/selected_journal.md, aca_journal_quality_benchmark.md
 - Prior-art map and verified literature: ${ROOT}/supplementary/prior_art_novelty_report.md, literature_matrix.csv, citation_verification.csv, claim_source_verification.md
-- Previous review cycles (do NOT repeat issues that were already raised and fixed; DO check whether fixes are adequate): ${ROOT}/REVIEW/
+- Claim-evidence and citation audits, previous review cycles and responses (do NOT repeat issues that were already raised and fixed; DO check whether fixes are adequate): ${ROOT}/REVIEW/
 Target journal: Analytica Chimica Acta (Elsevier; Q1, JIF 6.1). Review cycle ${CYCLE} of 10.`
 
 const RULES = `Rules: be hostile but scientifically fair; find NEW, concrete, verifiable problems (cite file/section/table and quote the text or code). Do not invent problems to reach a number; if a concern is speculative, say so and lower its severity. Do not praise. Never put any person's name from the author team into web queries. Keep tool use focused (read the files you need; at most ~15 tool calls; web searches only if your lens requires them). Severity: fatal (invalidates the central claim), critical, major, moderate, minor. For each issue give a precise corrective action and, if needed, the exact additional experiment.`

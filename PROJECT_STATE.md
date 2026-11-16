@@ -81,3 +81,13 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
 * FRAMING DECISION PENDING SASC: core contributions = failure of current windows (large scale) + calibrant-based conformal
   windows + n >= 1/alpha - 1 rule + non-exchangeability diagnosis/correction (SASC); learned normalisation = context-dependent
   enhancement (long RP gradients). Check: NORMAN systems have missing temp/flow/t0 descriptors (never missing in training).
+
+## Update 2026-11-16 07:00 UTC — manuscript v1 + Supplementary Material built; audits running
+* PIPELINE_DONE 06:05:56Z; analysis complete (re-run 06:40 after NORMAN-strata fix). All results/tables/figures committed.
+* Manuscript v1: `manuscript/Final_Manuscript.{md,docx,pdf}` (32 pp; numbered sections, line + page numbers, portable math).
+  Supplementary: `supplementary/Supplementary_Material.{md,docx,pdf}` (S1–S6, Tables S1–S26, Figs. S1–S2), built by
+  `code/scripts/build_supplementary.py` (table_index.csv maps S-numbers to analysis outputs). Both builders are token-based.
+* Phase 22–23 audits: Workflow run wf_0e2f7cad-fff (claim–evidence auditor + citation auditor) — results → REVIEW/claim_evidence_audit.md, REVIEW/citation_audit.md.
+* NEXT: fix audit findings → rebuild → review cycle 1: Workflow({scriptPath: "Target_Journal_Submission/REVIEW/workflow/review_cycle.js" (absolute path), args: {cycle: 1}})
+  → write REVIEW/review_01.md (reviews + consolidated actions + responses) → implement → cycles 2–10 → final_audit.md, cover letter, risk report, decision.
+* Scheduled self-resume: trig_018aBvaNf3AJEmPCc4NykmHv at 08:15 UTC (re-schedule if work continues past the next usage-limit pause).

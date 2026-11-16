@@ -34,7 +34,11 @@ python run_all.py --mode full     # full pre-registered study -> ../results, ../
 ```
 Stages (`--stages data,tests,experiments,analysis,manuscript`): download/build → unit tests → experiments
 (`experiments/run_main.py`, `experiments/run_followups.py`; resumable per fold) → `experiments/analyze.py` (all tables,
-figures, `results/metrics.json`, `results/statistics.json`, `results/raw_results.csv`) → manuscript build.
+figures, `results/metrics.json`, `results/statistics.json`, `results/raw_results.csv`) → manuscript and Supplementary
+Material build (`scripts/build_manuscript.py`, `scripts/build_supplementary.py`; every number is inserted from the result
+files and unresolved tokens abort the build). The document stage additionally needs pandoc (≥ 3.1; tested 3.1.3) and,
+for the PDF export, LibreOffice with its Math component (tested 24.2; on Debian/Ubuntu: `apt-get install
+libreoffice-writer libreoffice-math`); without LibreOffice the DOCX files are still produced.
 If a run is interrupted, re-run the same command: trained base models (`cache/`) and finished folds
 (`../results/raw/checkpoints/`) are reused.
 
