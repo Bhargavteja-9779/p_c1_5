@@ -10,3 +10,6 @@ Target_Journal_Submission/code/data/processed
 Target_Journal_Submission/code/data/raw
 Target_Journal_Submission/results_quick/
 Target_Journal_Submission/results/raw/checkpoints/
+# live logs (final copies are force-added after the runs complete)
+Target_Journal_Submission/results/experiment_logs/*.stdout
+Target_Journal_Submission/results/experiment_logs/*.log
