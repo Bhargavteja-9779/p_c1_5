@@ -42,6 +42,7 @@ def main():
     if "analysis" in stages:
         sh([PY, "experiments/analyze.py", "--raw", rawdir, "--out", out] + (["--B", "500"] if a.mode == "quick" else []))
     if "manuscript" in stages and a.mode == "full" and os.path.exists(os.path.join(HERE, "scripts", "build_manuscript.py")):
+        sh([PY, "scripts/make_graphical_abstract.py"])
         sh([PY, "scripts/build_manuscript.py"])
         sh([PY, "scripts/build_supplementary.py"])
     print(f"done in {time.time() - t0:.0f} s")
