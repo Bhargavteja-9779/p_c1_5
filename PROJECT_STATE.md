@@ -73,3 +73,11 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
 * NEXT after PIPELINE_DONE: analyze.py → write robustness/generalisation/SASC/NORMAN/compute subsections + limitations →
   build_manuscript.py → review cycle 1 (Workflow REVIEW/workflow/review_cycle.js, args {cycle: 1}).
 * TODO after PIPELINE_DONE: remove the TEMPORARY raw-results block from .gitignore and git add -f results/raw/*_rows.parquet, *_decoys.parquet, *_timing.parquet, sasc_*.csv/json
+
+## Update 2026-11-16 05:32 UTC — NORMAN external validation done (37 systems)
+* Exchangeable calibrants (random_all n=20): conformal valid (P 0.912, J+ 0.909); GP 0.839, Gaussian 0.881 — replicates main finding.
+  Efficiency: P NOT better than J+ (interval score 11.15 vs 10.70) — learned normalisation gives no gain externally.
+* Fixed lab mix (calibrants = NORMAN chemicals, test = suspects): all under-cover (P 0.851, J+ 0.869, Gauss 0.851, GP 0.777).
+* FRAMING DECISION PENDING SASC: core contributions = failure of current windows (large scale) + calibrant-based conformal
+  windows + n >= 1/alpha - 1 rule + non-exchangeability diagnosis/correction (SASC); learned normalisation = context-dependent
+  enhancement (long RP gradients). Check: NORMAN systems have missing temp/flow/t0 descriptors (never missing in training).
