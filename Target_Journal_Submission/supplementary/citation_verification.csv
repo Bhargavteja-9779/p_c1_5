@@ -51,14 +51,42 @@ papadopoulos2002inductive,doi:10.1007/3-540-36755-1_29,OK,Inductive Confidence M
 lei2018distribution,doi:10.1080/01621459.2017.1307116,OK,Distribution-Free Predictive Inference for Regression
 barber2021jackknife,doi:10.1214/20-aos1965,OK,Predictive inference with the jackknife+
 angelopoulos2023gentle,doi:10.1561/2200000101,OK,Conformal Prediction: A Gentle Introduction
-romano2019cqr,arxiv:1905.03222,OK (arXiv),Conformalized Quantile Regression
-tibshirani2019weighted,arxiv:1904.06019,OK (arXiv),Conformal Prediction Under Covariate Shift
-fisch2021fewshot,arxiv:2102.08898,OK (arXiv),Few-shot Conformal Prediction with Auxiliary Tasks
-gibbs2021adaptive,arxiv:2106.00170,OK (arXiv),Adaptive Conformal Inference Under Distribution Shift
 winkler1972decision,doi:10.1080/01621459.1972.10481224,OK,A Decision-Theoretic Approach to Interval Estimation
 gneiting2007strictly,doi:10.1198/016214506000001437,OK,"Strictly Proper Scoring Rules, Prediction, and Estimation"
 kerby2014simple,doi:10.2466/11.it.3.1,OK,The Simple Difference Formula: An Approach to Teaching Nonparametric Correlation
 chen2016xgboost,doi:10.1145/2939672.2939785,OK,XGBoost
-pedregosa2011scikit,arxiv:1201.0490,OK (arXiv),Scikit-learn: Machine Learning in Python
 virtanen2020scipy,doi:10.1038/s41592-019-0686-2,OK,SciPy 1.0: fundamental algorithms for scientific computing in Python
+boswell2015calculation,doi:10.1016/j.chroma.2015.07.113,OK,Calculation of retention time tolerance windows with absolute confidence from shared liquid chromatographic retention data
+boswell2011study,doi:10.1016/j.chroma.2011.07.105,OK,"A study on retention “projection” as a supplementary means for compound identification by liquid chromatography–mass spectrometry capable of predicting retention with different gradients, flow rates, and instruments"
+kreutzer2026molecular,doi:10.1007/s00216-025-06303-2,OK,"Molecular networking, conformal predictions and revised fingerprint-based models for discovering endocrine disruptors in mixtures"
+papadopoulos2011regression,doi:10.1613/jair.3198,OK,Regression Conformal Prediction with Nearest Neighbours
+park2024fewshot,doi:10.1109/TPAMI.2023.3327300,OK,Few-Shot Calibration of Set Predictors via Meta-Learned Cross-Validation-Based Conformal Prediction
+dunn2023distribution,doi:10.1080/01621459.2022.2060112,OK,Distribution-Free Prediction Sets for Two-Layer Hierarchical Models
+lee2026hierarchical,doi:10.1145/3786352,OK,Distribution-free inference with hierarchical data
+barber2023beyond,doi:10.1214/23-AOS2276,OK,Conformal prediction beyond exchangeability
+bian2023training,doi:10.1214/23-EJS2145,OK,Training-conditional coverage for distribution-free predictive inference
+vovk2013conditional,doi:10.1007/s10994-013-5355-6,OK,Conditional validity of inductive conformal predictors
+fritsch1980monotone,doi:10.1137/0717021,OK,Monotone Piecewise Cubic Interpolation
+eilers1996flexible,doi:10.1214/ss/1038425655,OK,Flexible smoothing with B-splines and penalties
+rogers2010extended,doi:10.1021/ci100050t,OK,Extended-Connectivity Fingerprints
+wilcoxon1945individual,doi:10.2307/3001968,OK,Individual Comparisons by Ranking Methods
+geer2024airi,doi:10.1021/acs.jcim.3c01758,OK,AIRI: Predicting Retention Indices and Their Uncertainties Using Artificial Intelligence
+maboudi2017uncertainty,doi:10.1093/bioinformatics/btw619,OK,Uncertainty estimation of predictions of peptides’ chromatographic retention times in shotgun proteomics
+stienstra2025reverse,doi:10.1021/acs.analchem.4c05859,OK,From Reverse Phase Chromatography to HILIC: Graph Transformers Power Method-Independent Machine Learning of Retention Times
+wang2026hybrid,doi:10.1021/acs.jpcb.6c03944,OK,"Hybrid Graph Neural
+Network Ensemble with Stacked
+Meta-Learning for Laboratory-Conditioned Chromatographic Retention-Time
+Prediction"
+akhlaqi2023complementary,doi:10.1007/s00216-023-04852-y,OK,Complementary methods for structural assignment of isomeric candidate structures in non-target liquid chromatography ion mobility high-resolution mass spectrometric analysis
+morger2022studying,doi:10.1038/s41598-022-09309-3,OK,Studying and mitigating the effects of data drifts on ML model performance at the example of chemical toxicity data
+folberth2020ms2,doi:10.1016/j.jchromb.2020.122105,OK,MS2 and LC libraries for untargeted metabolomics: Enhancing method development and identification confidence
+souihi2022multiconditionrt,doi:10.1016/j.chroma.2022.462867,OK,MultiConditionRT: Predicting liquid chromatography retention time for emerging contaminants for a wide range of eluent compositions and stationary phases
+stoffel2022alkylpyridinium,doi:10.1007/s00216-021-03828-0,OK,N-Alkylpyridinium sulfonates for retention time indexing in reversed-phase-liquid chromatography-mass spectrometry–based metabolomics
 holm1979simple,jstor:4615733,OK (manual: 3 independent web sources; no Crossref DOI),A simple sequentially rejective multiple test procedure
+rdkit,manual,OK (manual: DataCite 10.5281/zenodo.23981945),"RDKit: Open-source cheminformatics, release 2026.09.2"
+lightgbm,manual,OK (manual: installed package 4.7.0),"LightGBM, version 4.7.0"
+ke2017lightgbm,manual,OK (manual: papers.nips.cc (NeurIPS 2017)),LightGBM: A Highly Efficient Gradient Boosting Decision Tree
+tibshirani2019weighted,manual,OK (manual: papers.nips.cc (NeurIPS 2019)),Conformal Prediction Under Covariate Shift
+fisch2021fewshot,manual,OK (manual: proceedings.mlr.press/v139/fisch21a),Few-Shot Conformal Prediction with Auxiliary Tasks
+pedregosa2011scikit,manual,OK (manual: jmlr.org/papers/v12/pedregosa11a),Scikit-learn: Machine Learning in Python
+report2025zenodo,manual,OK (manual: DataCite 10.5281/zenodo.16267768),RepoRT v1.0

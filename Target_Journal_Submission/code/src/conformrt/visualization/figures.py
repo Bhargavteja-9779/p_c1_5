@@ -142,7 +142,7 @@ def fig_calibrants(summ_n, out, methods, labels, alpha=0.1):
 STRATUM_LABELS = {"seen": "seen by base model", "unseen": "not seen by base model", "sim>=0.7": "Tanimoto ≥ 0.7",
                   "sim0.4-0.7": "Tanimoto 0.4–0.7", "sim<0.4": "Tanimoto < 0.4", "neutral": "neutral", "ionisable": "ionisable",
                   "inside_cal_range": "inside calibrant range", "outside_cal_range": "outside calibrant range",
-                  "early": "early-eluting third", "middle": "middle third", "late": "late-eluting third"}
+                  "early": "first third of RT range", "middle": "middle third of RT range", "late": "last third of RT range"}
 
 
 def fig_strata(sc, out, methods, labels, alpha=0.1, strata_order=None):

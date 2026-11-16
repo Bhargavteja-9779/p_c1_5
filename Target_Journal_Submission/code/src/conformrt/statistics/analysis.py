@@ -29,7 +29,8 @@ def per_system(rows: pd.DataFrame) -> pd.DataFrame:
     g = rows.groupby(["system", "fold", "n", "method", "alpha"], as_index=False)
     out = g.agg(coverage=("coverage", "mean"), width=("width_mean", "mean"), width_rel=("width_rel_mean", "mean"),
                 winkler=("winkler", "mean"), m_test=("m_test", "mean"), draws=("draw", "nunique"))
-    out["gap"] = (1 - out["alpha"]) - out["coverage"]
+    out["gap_signed"] = (1 - out["alpha"]) - out["coverage"]
+    out["gap"] = out["gap_signed"].abs()  # pre-registered test metric: |coverage gap|
     return out
 
 
@@ -47,6 +48,25 @@ def boot_ci(x, stat=np.mean, B=10000, seed=0, clusters=None):
             bs.append(stat(np.concatenate([groups[p] for p in pick])))
         bs = np.array(bs)
     return float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))
+
+
+def one_sided_coverage_test(x, nominal, B=10000, seed=0, clusters=None):
+    """Pre-registered coverage-validity test, H0: mean coverage >= nominal vs H1: mean coverage < nominal.
+    Bootstrap test under the null boundary (data shifted to mean = nominal); resampling of systems, or of source clusters.
+    Returns (one-sided 95 % upper confidence bound of the mean, p-value)."""
+    x = np.asarray(x, float); rng = np.random.default_rng(seed); x0 = x - x.mean() + nominal
+    if clusters is None:
+        idx = rng.integers(0, len(x), size=(B, len(x)))
+        bs = x[idx].mean(axis=1); b0 = x0[idx].mean(axis=1)
+    else:
+        clusters = np.asarray(clusters); uc = np.unique(clusters)
+        g, g0 = [x[clusters == c] for c in uc], [x0[clusters == c] for c in uc]
+        bs, b0 = [], []
+        for _ in range(B):
+            pick = rng.integers(0, len(uc), len(uc))
+            bs.append(np.concatenate([g[p] for p in pick]).mean()); b0.append(np.concatenate([g0[p] for p in pick]).mean())
+        bs, b0 = np.array(bs), np.array(b0)
+    return float(np.percentile(bs, 95)), float((np.sum(b0 <= x.mean()) + 1) / (B + 1))
 
 
 def holm(pvals):

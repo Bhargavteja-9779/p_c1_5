@@ -28,7 +28,7 @@ STRAT = {("seen", "seen"): "Seen by base model", ("seen", "unseen"): "Not seen b
          ("similarity", "sim>=0.7"): "Tanimoto ≥ 0.7", ("similarity", "sim0.4-0.7"): "Tanimoto 0.4–0.7", ("similarity", "sim<0.4"): "Tanimoto < 0.4",
          ("ionisable", "neutral"): "Neutral", ("ionisable", "ionisable"): "Ionisable",
          ("region", "inside_cal_range"): "Inside calibrant score range", ("region", "outside_cal_range"): "Outside calibrant score range",
-         ("rt_tertile", "early"): "Early-eluting third", ("rt_tertile", "middle"): "Middle third", ("rt_tertile", "late"): "Late-eluting third",
+         ("rt_tertile", "early"): "First third of RT range", ("rt_tertile", "middle"): "Middle third of RT range", ("rt_tertile", "late"): "Last third of RT range",
          ("sample_type", "cal"): "Calibration chemicals", ("sample_type", "sus"): "Suspects"}
 SETTING = {"sens_l15_e400": "15 leaves, 400 trees", "sens_l63_e400": "63 leaves, 400 trees", "sens_l31_e200": "31 leaves, 200 trees",
            "sens_l31_e800": "31 leaves, 800 trees"}
@@ -181,7 +181,8 @@ def t_strata():
     add("tableS5_strata_n20_a010", "coverage_by_stratum",
         "Mean coverage (per-system coverage within the stratum, averaged over systems) by stratum of test compounds (n = 20, α = 0.10, 20 draws). "
         "Seen/not seen: test compound present in/absent from the base-model training data; Tanimoto: maximum similarity to the training "
-        "compounds; calibrant score range: range of the base-model scores of the calibrants; RT thirds within each system.",
+        "compounds; calibrant score range: range of the base-model scores of the calibrants; RT range thirds: thirds of each system's retention-time range "
+        "(not thirds of the compounds).",
         ["Stratum", "Compound–draw evaluations"] + [lab(m) for m in meths], rows, d)
 
 
@@ -282,8 +283,9 @@ def t_mechanism():
             for _, r in d.iterrows()]
     add("tableS16_robustness_mechanism", "robustness_mechanism",
         "Where coverage is lost under non-random calibrant selection and calibrant errors (n = 20, α = 0.10): share of test compounds whose "
-        "base score lies outside the calibrant score range, and coverage inside and outside that range and for the late-eluting third of compounds.",
-        ["Scenario", "Method", "Test compounds outside calibrant range (%)", "Coverage inside range", "Coverage outside range", "Coverage, late-eluting third"], rows, d)
+        "base score lies outside the calibrant score range, and coverage inside and outside that range and for compounds eluting in the last third of the "
+        "system's RT range.",
+        ["Scenario", "Method", "Test compounds outside calibrant range (%)", "Coverage inside range", "Coverage outside range", "Coverage, last third of RT range"], rows, d)
 
 
 def t_generalisation():
@@ -393,7 +395,7 @@ of the standard InChIKey; entries of the same connectivity block (stereoisomers 
 differed by at most 0.2 min and removed otherwise. The mobile-phase pH class was derived from the reported eluent additives (acidic if any acid
 additive was present in eluent A or B, basic if any basic additive and no acid, buffered if only ammonium salts, none otherwise) and the organic
 modifier from the reported solvent fractions (acetonitrile, methanol, mixed or other). Column length, particle size, temperature, flow rate and
-dead time were taken from the metadata and the gradient duration from the gradient table. Missing numeric metadata were encoded as 0 (temperature, flow rate and dead time were missing for {{mdmiss.temp|int}}, {{mdmiss.flow|int}} and {{mdmiss.t0|int}} of the {{mdmiss.n_systems|int}} RP systems). For the NORMAN methods, which do not report these three descriptors, they were passed as missing values (NaN); because the gradient-boosted difficulty model never saw NaN for these features during training, LightGBM routes NaN like 0 (verified with lightgbm 4.7.0: identical predictions for NaN and 0), so that both data sets are encoded identically. Reversed-phase systems
+dead time were taken from the metadata and the gradient duration from the gradient table. Missing numeric metadata were encoded as 0 (temperature, flow rate and dead time were missing for {{{{mdmiss.temp|int}}}}, {{{{mdmiss.flow|int}}}} and {{{{mdmiss.t0|int}}}} of the {{{{mdmiss.n_systems|int}}}} RP systems). For the NORMAN methods, which do not report these three descriptors, they were passed as missing values (NaN); because the gradient-boosted difficulty model never saw NaN for these features during training, LightGBM routes NaN like 0 (verified with lightgbm 4.7.0: identical predictions for NaN and 0), so that both data sets are encoded identically. Reversed-phase systems
 with at least 60 compounds after cleaning were target systems, except METLIN SMRT, which served only as training data; HILIC systems with at
 least 60 compounds formed the out-of-mechanism test set. Fig. S1 summarises the target systems and Table S1 the numbers of training systems
 available in each leave-source-out fold.
@@ -439,6 +441,8 @@ available in each leave-source-out fold.
 order_in_doc = [int(m) for m in re.findall(r"Table: Table S(\d+)\.", doc)]
 assert order_in_doc == sorted(order_in_doc) == list(range(1, len(TABLES) + 1)), order_in_doc
 doc, missing = resolve(doc, facts)
+if re.search(r"(?<!\{)\{[a-zA-Z_.]+\|[a-z0-9.]+\}(?!\})", doc):
+    sys.exit("single-brace token left in the document (f-string escaping error)")
 if missing:
     sys.exit("UNRESOLVED TOKENS: " + ", ".join(sorted(set(missing))))
 md_path = os.path.join(SUP, "Supplementary_Material.md"); open(md_path, "w").write(doc)

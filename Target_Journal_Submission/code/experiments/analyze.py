@@ -3,7 +3,7 @@ Usage: python experiments/analyze.py --raw ../results/raw --out ../ [--B 10000]"
 import argparse, os, sys, json, glob
 import numpy as np, pandas as pd
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-from conformrt.statistics.analysis import (per_system, summary_table, paired_tests, strata_coverage, boot_ci, rank_biserial,
+from conformrt.statistics.analysis import (one_sided_coverage_test, per_system, summary_table, paired_tests, strata_coverage, boot_ci, rank_biserial,
                                            METHOD_LABELS, BASELINES, ABLATIONS)
 from conformrt.visualization import figures as F
 
@@ -47,8 +47,9 @@ meta = pd.read_csv(os.path.join(a.processed, "systems.csv"), dtype={"system": st
 from conformrt.evaluation.protocol import fold_of_source, FOLD_NAMES
 tsys = ps.system.unique()
 mt = meta[meta.system.isin(tsys)].copy(); mt["fold"] = mt.source.map(fold_of_source); mt["fold_name"] = mt.fold.map(FOLD_NAMES)
+mt["rt_span"] = mt.rt_max - mt.rt_min  # RT span = last minus first eluting compound
 t1 = mt.groupby("fold_name").agg(systems=("system", "size"), compounds_median=("n_compounds", "median"),
-                                  compounds_total=("n_compounds", "sum"), rt_span_median_min=("rt_max", "median"),
+                                  compounds_total=("n_compounds", "sum"), rt_span_median_min=("rt_span", "median"),
                                   acidic=("ph_class", lambda x: int((x == "acidic").sum())),
                                   non_acidic=("ph_class", lambda x: int((x != "acidic").sum())),
                                   acn=("modifier", lambda x: int(x.str.startswith("acn").sum())),
@@ -80,8 +81,11 @@ val = []
 for (n, al, m), s in ps.groupby(["n", "alpha", "method"]):
     lo, hi = boot_ci(s.coverage.values, B=min(a.B, 4000))
     clo, chi = boot_ci(s.coverage.values, B=min(a.B, 4000), clusters=s.fold.values)
+    ub, p1 = one_sided_coverage_test(s.coverage.values, 1 - al, B=a.B)  # pre-registered: H1 mean coverage < 1 - alpha
+    cub, cp1 = one_sided_coverage_test(s.coverage.values, 1 - al, B=min(a.B, 4000), clusters=s.fold.values)
     val.append({"n": n, "alpha": al, "method": m, "mean_cov": s.coverage.mean(), "ci_lo": lo, "ci_hi": hi, "cluster_ci_lo": clo,
-                "cluster_ci_hi": chi, "nominal": 1 - al, "mean_minus_nominal": s.coverage.mean() - (1 - al),
+                "cluster_ci_hi": chi, "upper95_one_sided": ub, "p_under_one_sided": p1, "cluster_upper95_one_sided": cub,
+                "cluster_p_under_one_sided": cp1, "nominal": 1 - al, "mean_minus_nominal": s.coverage.mean() - (1 - al),
                 "share_systems_below_nominal_minus_0.05": float((s.coverage < 1 - al - 0.05).mean())})
 val = pd.DataFrame(val); md(val, os.path.join(TAB, "tableS2_coverage_validity"))
 stats_out["coverage_validity"] = val.to_dict("records")
@@ -277,7 +281,17 @@ Cj = sub20[sub20.method == "B5_jackknife_plus"].set_index("system"); j = Pw.inde
 relj = Pw.loc[j, "winkler"] / Cj.loc[j, "winkler"] - 1
 span = (meta.set_index("system").loc[j, "rt_max"] - meta.set_index("system").loc[j, "rt_min"]).astype(float)
 rho = _st.spearmanr(relj.values, span.values)
+fold_j = Pw.loc[j, "fold"].astype(int).values
+within = {FOLD_NAMES[int(f)]: float(_st.spearmanr(relj.values[fold_j == f], span.values[fold_j == f]).statistic) for f in np.unique(fold_j)}
+# fold-adjusted partial Spearman correlation: correlate within-fold-demeaned ranks
+r1 = _st.rankdata(relj.values); r2 = _st.rankdata(span.values)
+for f in np.unique(fold_j):
+    r1[fold_j == f] -= r1[fold_j == f].mean(); r2[fold_j == f] -= r2[fold_j == f].mean()
+pr = float(np.corrcoef(r1, r2)[0, 1]); dfree = len(r1) - 2 - (len(np.unique(fold_j)) - 1)
+pp = float(2 * _st.t.sf(abs(pr) * np.sqrt(dfree / (1 - pr ** 2)), dfree))
 stats_out["gain_vs_rt_span"] = {"spearman_rho": float(rho.statistic), "p": float(rho.pvalue), "n_systems": int(len(j)),
+                                "within_fold_rho": within, "within_fold_rho_min": min(within.values()), "within_fold_rho_max": max(within.values()),
+                                "partial_rho_fold_adjusted": pr, "partial_p": pp,
                                 "median_rel_change_span_below_median": float(relj[span <= span.median()].median()),
                                 "median_rel_change_span_above_median": float(relj[span > span.median()].median()), "median_span_min": float(span.median())}
 
@@ -351,7 +365,7 @@ if not nr.empty:
 sasc = os.path.join(a.raw, "sasc_rows.parquet")
 if os.path.exists(sasc):
     sr = pd.read_parquet(sasc)
-    sg = sr.groupby(["rule", "method", "system"], as_index=False).agg(coverage=("coverage", "mean"), width=("width_median", "mean"), winkler=("winkler", "mean"))
+    sg = sr.groupby(["rule", "method", "system"], as_index=False).agg(coverage=("coverage", "mean"), width=("width_mean", "mean"), winkler=("winkler", "mean"))  # same width statistic as elsewhere
     rows_s = []
     for (rule, meth), g in sg.groupby(["rule", "method"]):
         lo, hi = boot_ci(g.coverage.values, B=2000)
@@ -384,7 +398,17 @@ tsz = pd.DataFrame(tsz); md(tsz, os.path.join(TAB, "tableS17_training_sizes")); 
 # missing chromatographic metadata among RP systems (RepoRT encodes missing numeric metadata as 0; NORMAN methods enter as NaN,
 # which LightGBM routes like 0 for splits learned without NaN, so both are treated identically by the difficulty model)
 mrp_ = meta[meta.method_type == "RP"]
-metrics["metadata_missing_rp"] = {"n_systems": int(len(mrp_)), **{c: int((pd.to_numeric(mrp_[c], errors="coerce").fillna(0) == 0).sum()) for c in ["temp", "flow", "t0"]}}
+_miss = {c: (pd.to_numeric(mrp_[c], errors="coerce").fillna(0) == 0) for c in ["temp", "flow", "t0"]}
+_all3 = _miss["temp"] & _miss["flow"] & _miss["t0"]
+metrics["metadata_missing_rp"] = {"n_systems": int(len(mrp_)), **{c: int(v.sum()) for c, v in _miss.items()}, "all3": int(_all3.sum()),
+                                  "all3_sources": sorted(set(mrp_.loc[_all3, "source"].astype(str).map(lambda s_: FOLD_NAMES[fold_of_source(s_)])))}
+# per-fold size of the difficulty-model training set in the main run (parsed from the committed run log)
+import re as _re
+_lg = os.path.join(a.out, "results", "experiment_logs", "final_logs", "full.log.txt")
+if os.path.exists(_lg):
+    _rows = {int(f_): int(r_) for f_, r_ in _re.findall(r"\[main\] fold (\d) \(.*?sigma rows (\d+)", open(_lg).read())}
+    if _rows:
+        metrics["sigma_rows_main"] = {"per_fold": _rows, "min": min(_rows.values()), "max": max(_rows.values())}
 
 # ---------------- machine-readable outputs ----------------
 pd.concat(allps, ignore_index=True).to_csv(os.path.join(RES, "raw_results.csv"), index=False)

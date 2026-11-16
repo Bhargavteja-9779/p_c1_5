@@ -28,7 +28,8 @@ def build_facts(RES, TAB):
     F, T = {}, {}
     m = json.load(open(os.path.join(RES, "metrics.json"))); st = json.load(open(os.path.join(RES, "statistics.json")))
     d = m["dataset"]; F["n_target_systems"] = d["n_target_systems"]; F["n_rt_values_targets"] = f"{d['n_rt_values_targets']:,}"
-    F["median_compounds"] = f"{d['median_compounds_per_system']:.0f}"
+    _g = lambda v: f"{v:.1f}".rstrip("0").rstrip(".")  # medians of an even count may end in .5: show it, do not round
+    F["median_compounds"] = _g(d['median_compounds_per_system'])
     F["fold_list"] = "; ".join(f"{r['fold_name']}: {r['systems']} systems" for r in d["per_fold"])
     for r in m["main_n20_a010"]:
         for k, v in r.items():
@@ -84,14 +85,31 @@ def build_facts(RES, TAB):
           "calibrant RT noise (2% of span)": "noise", "one outlying calibrant (+10% span)": "outlier"}
     for r in m.get("robustness", []):
         k = SC.get(r["scenario"], r["scenario"])
-        for c in ["coverage_mean", "width_median_min", "winkler_mean", "share_severe_under"]:
+        for c in ["coverage_mean", "width_median_min", "width_mean_min", "winkler_mean", "share_severe_under"]:
             F[f"rob.{k}.{r['method']}.{c}"] = r[c]
     for r in m.get("robustness_mechanism", []):
         k = {"main": "main", "robust_span_none": "span", "robust_common_none": "common", "robust_random_noise": "noise", "robust_random_outlier": "outlier"}.get(r["scenario"], r["scenario"])
         for c in ["share_outside_cal_range", "cov_outside", "cov_inside", "cov_late"]:
             F[f"mech.{k}.{r['method']}.{c}"] = r[c]
     for k, v in m.get("metadata_missing_rp", {}).items():
-        F[f"mdmiss.{k}"] = v
+        F[f"mdmiss.{k}"] = v if not isinstance(v, list) else ", ".join(v)
+    if m.get("sigma_rows_main"):
+        F["cb.sigma_rows_fold_min"] = m["sigma_rows_main"]["min"]; F["cb.sigma_rows_fold_max"] = m["sigma_rows_main"]["max"]
+    for r in st.get("coverage_validity", []):  # pre-registered one-sided test of under-coverage
+        F[f"valp.{r['method']}.n{int(r['n'])}.a{r['alpha']:.2f}"] = r.get("p_under_one_sided")
+        F[f"valpc.{r['method']}.n{int(r['n'])}.a{r['alpha']:.2f}"] = r.get("cluster_p_under_one_sided")
+    for scen_, rows_ in st.get("norman_tests", {}).items():
+        for r in rows_:
+            for k in ["median_diff", "p_wilcoxon", "p_holm", "share_ref_better"]:
+                F[f"nortest.{scen_}.{r['metric']}.{r['comparator']}.{k}"] = r[k]
+    for set_, rows_ in st.get("generalisation_tests", {}).items():
+        for r in rows_:
+            for k in ["median_diff", "p_wilcoxon", "p_holm", "share_ref_better"]:
+                F[f"gentest.{set_}.{r['metric']}.{r['comparator']}.{k}"] = r[k]
+    _pf = pd.DataFrame(st.get("per_fold", []))
+    if len(_pf):
+        for m_, g_ in _pf.groupby("method"):
+            F[f"foldcov.{m_}.min"] = g_.coverage.min(); F[f"foldcov.{m_}.max"] = g_.coverage.max()
     tsz = pd.DataFrame(m.get("training_sizes", []))
     for mt_ in ["RP", "HILIC"]:
         t_ = tsz[tsz["mode"] == mt_] if len(tsz) else tsz
@@ -130,19 +148,31 @@ def build_facts(RES, TAB):
             F[f"gen.{k}.n{int(r['n'])}.{r['method']}.{c}"] = r[c]
     cb = m.get("compute_benchmark")
     if cb:
-        F["cb.base_train_min"] = cb["base_train_s_1thread"] / 60; F["cb.sigma_train_s"] = cb["sigma_train_s_1thread"]
+        F["cb.base_train_min"] = cb["base_train_s_1thread"] / 60; F["cb.sigma_train_s"] = cb["sigma_train_s_1thread"]; F["cb.sigma_rows"] = cb["sigma_train_rows"]
         F["cb.peak_rss_MB"] = cb["peak_rss_MB"]; F["cb.base_rows"] = cb["base_train_rows"]
         for n, v in cb["per_system"].items():
             F[f"cb.n{n}.cal_ms"] = v["calibration_ms"]; F[f"cb.n{n}.us_per_cand"] = v["windows_us_per_candidate"]
     nr_ = pd.read_parquet(os.path.join(os.path.dirname(RES), "results", "raw", "norman_rows.parquet"), columns=["scenario", "n", "cs"])
     nn_ = nr_[nr_.scenario == "fixed_mix"].groupby("cs").n.first()
     F["nor.mix_n.min"] = int(nn_.min()); F["nor.mix_n.max"] = int(nn_.max())
+    # share of test-compound evaluations in each group of a stratum (e.g. thirds of the RT range)
+    for st_ in {k.split(".")[1] for k in F if k.startswith("strata_n.")}:
+        grp = {k.split(".", 2)[2]: v for k, v in F.items() if k.startswith(f"strata_n.{st_}.")}
+        tot_ = sum(grp.values())
+        for g_, v_ in grp.items():
+            F[f"strata_share.{st_}.{g_}"] = v_ / tot_ if tot_ else float("nan")
+    # coverage range over the conformal constructions (split conformal, jackknife+, ensemble-normalised jackknife+, proposed)
+    CONF = ["B4_split_conformal", "B5_jackknife_plus", "B6_jk+_ensemble", "P"]
+    for tag, pat in [("main", "main.{m}.coverage_mean"), ("hilic", "gen.hilic.n20.{m}.coverage_mean"), ("norrand", "nor.random_all.20.a0.10.{m}.coverage_mean")]:
+        vals = [F[pat.format(m=m_)] for m_ in CONF if pat.format(m=m_) in F]
+        if vals:
+            F[f"confrange.{tag}.min"] = min(vals); F[f"confrange.{tag}.max"] = max(vals)
     # tables (markdown) ------------------------------------------------------------
     from docbuild import mdtab  # typographic minus, content-proportional column widths
     # Table 1 — data
     t1 = pd.read_csv(os.path.join(TAB, "table1_dataset.csv"))
     T["table1"] = mdtab(["Source group (fold)", "Target systems", "Median compounds per system", "Retention times", "Median RT span (min)", "Acidic / non-acidic mobile phase", "ACN / MeOH"],
-                        [[r.fold_name, int(r.systems), f"{r.compounds_median:.0f}", f"{int(r.compounds_total):,}", f"{r.rt_span_median_min:.1f}", f"{int(r.acidic)} / {int(r.non_acidic)}", f"{int(r.acn)} / {int(r.meoh)}"] for _, r in t1.iterrows()])
+                        [[r.fold_name, int(r.systems), f"{r.compounds_median:.1f}".rstrip("0").rstrip("."), f"{int(r.compounds_total):,}", f"{r.rt_span_median_min:.1f}", f"{int(r.acidic)} / {int(r.non_acidic)}", f"{int(r.acn)} / {int(r.meoh)}"] for _, r in t1.iterrows()])
     # Table 2 — main comparison incl. fixed tolerances (n = 20, alpha = 0.10)
     t2 = pd.read_csv(os.path.join(TAB, "table2_main_n20_a010.csv"))
     fw = pd.read_csv(os.path.join(TAB, "table9_fixed_windows.csv")); fw = fw[(fw.n == 20) & fw.method.isin(["RMSE_x2", "FIX_0.5min", "FIX_1min", "FIX_2min", "FIX_10pct"])]

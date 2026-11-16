@@ -30,7 +30,7 @@ ionisable-group counts for all 93,275 compounds (~4 min on 4 cores).
 ## 3. Reproduce everything
 ```bash
 python run_all.py --mode quick    # pipeline check: tiny models, 2 systems per fold, ~5 min -> ../results_quick
-python run_all.py --mode full     # full pre-registered study -> ../results, ../tables, ../figures (several CPU-hours)
+python run_all.py --mode full     # full pre-specified study -> ../results, ../tables, ../figures (several CPU-hours)
 ```
 Stages (`--stages data,tests,experiments,analysis,manuscript`): download/build → unit tests → experiments
 (`experiments/run_main.py`, `experiments/run_followups.py`; resumable per fold) → `experiments/analyze.py` (all tables,
@@ -43,7 +43,7 @@ If a run is interrupted, re-run the same command: trained base models (`cache/`)
 (`../results/raw/checkpoints/`) are reused.
 
 ## 4. Configuration
-`config/full.yaml` — the pre-registered settings (see `EXPERIMENT_PLAN.md`): target systems = RP systems with ≥60
+`config/full.yaml` — the pre-specified settings (see `EXPERIMENT_PLAN.md`, time-stamped in version control): target systems = RP systems with ≥60
 compounds (SMRT excluded), leave-source-out folds, n ∈ {10, 15, 20, 30, 40} calibrants, 20 random draws, α ∈ {0.05, 0.10, 0.20},
 base model (XGBoost rank:pairwise, 600 trees), difficulty model (LightGBM, 400 trees), seeds fixed.
 `config/quick.yaml` — reduced settings for pipeline verification only.

@@ -15,7 +15,7 @@ of the standard InChIKey; entries of the same connectivity block (stereoisomers 
 differed by at most 0.2 min and removed otherwise. The mobile-phase pH class was derived from the reported eluent additives (acidic if any acid
 additive was present in eluent A or B, basic if any basic additive and no acid, buffered if only ammonium salts, none otherwise) and the organic
 modifier from the reported solvent fractions (acetonitrile, methanol, mixed or other). Column length, particle size, temperature, flow rate and
-dead time were taken from the metadata and the gradient duration from the gradient table. Missing numeric metadata were encoded as 0 (temperature, flow rate and dead time were missing for {mdmiss.temp|int}, {mdmiss.flow|int} and {mdmiss.t0|int} of the {mdmiss.n_systems|int} RP systems). For the NORMAN methods, which do not report these three descriptors, they were passed as missing values (NaN); because the gradient-boosted difficulty model never saw NaN for these features during training, LightGBM routes NaN like 0 (verified with lightgbm 4.7.0: identical predictions for NaN and 0), so that both data sets are encoded identically. Reversed-phase systems
+dead time were taken from the metadata and the gradient duration from the gradient table. Missing numeric metadata were encoded as 0 (temperature, flow rate and dead time were missing for 116, 33 and 37 of the 297 RP systems). For the NORMAN methods, which do not report these three descriptors, they were passed as missing values (NaN); because the gradient-boosted difficulty model never saw NaN for these features during training, LightGBM routes NaN like 0 (verified with lightgbm 4.7.0: identical predictions for NaN and 0), so that both data sets are encoded identically. Reversed-phase systems
 with at least 60 compounds after cleaning were target systems, except METLIN SMRT, which served only as training data; HILIC systems with at
 least 60 compounds formed the out-of-mechanism test set. Fig. S1 summarises the target systems and Table S1 the numbers of training systems
 available in each leave-source-out fold.
@@ -497,16 +497,16 @@ Table: Table S8. Paired comparison of per-system interval scores of the proposed
 | Neutral | 582,375 | 0.903 | 0.914 | 0.921 | 0.914 | 0.890 | 0.855 | 0.822 |
 | Inside calibrant score range | 1,104,325 | 0.914 | 0.926 | 0.924 | 0.929 | 0.903 | 0.869 | 0.831 |
 | Outside calibrant score range | 116,275 | 0.879 | 0.755 | 0.860 | 0.723 | 0.716 | 0.676 | 0.739 |
-| Early-eluting third | 581,037 | 0.893 | 0.899 | 0.909 | 0.897 | 0.875 | 0.837 | 0.813 |
-| Late-eluting third | 193,068 | 0.863 | 0.805 | 0.872 | 0.811 | 0.772 | 0.738 | 0.737 |
-| Middle third | 446,495 | 0.889 | 0.889 | 0.908 | 0.893 | 0.853 | 0.811 | 0.771 |
+| First third of RT range | 581,037 | 0.893 | 0.899 | 0.909 | 0.897 | 0.875 | 0.837 | 0.813 |
+| Last third of RT range | 193,068 | 0.863 | 0.805 | 0.872 | 0.811 | 0.772 | 0.738 | 0.737 |
+| Middle third of RT range | 446,495 | 0.889 | 0.889 | 0.908 | 0.893 | 0.853 | 0.811 | 0.771 |
 | Seen by base model | 893,972 | 0.915 | 0.920 | 0.921 | 0.919 | 0.898 | 0.865 | 0.839 |
 | Not seen by base model | 326,628 | 0.835 | 0.798 | 0.899 | 0.814 | 0.765 | 0.721 | 0.681 |
 | Tanimoto 0.4–0.7 | 169,021 | 0.781 | 0.760 | 0.876 | 0.780 | 0.730 | 0.672 | 0.634 |
 | Tanimoto < 0.4 | 93,898 | 0.848 | 0.780 | 0.899 | 0.812 | 0.742 | 0.671 | 0.612 |
 | Tanimoto ≥ 0.7 | 957,681 | 0.916 | 0.920 | 0.921 | 0.918 | 0.897 | 0.864 | 0.837 |
 
-Table: Table S9. Mean coverage (per-system coverage within the stratum, averaged over systems) by stratum of test compounds (n = 20, α = 0.10, 20 draws). Seen/not seen: test compound present in/absent from the base-model training data; Tanimoto: maximum similarity to the training compounds; calibrant score range: range of the base-model scores of the calibrants; RT thirds within each system.
+Table: Table S9. Mean coverage (per-system coverage within the stratum, averaged over systems) by stratum of test compounds (n = 20, α = 0.10, 20 draws). Seen/not seen: test compound present in/absent from the base-model training data; Tanimoto: maximum similarity to the training compounds; calibrant score range: range of the base-model scores of the calibrants; RT range thirds: thirds of each system's retention-time range (not thirds of the compounds).
 
 
 | Superclass | Proposed (meta-learned σ) | Jackknife+ | Jackknife+ (ensemble σ) | Split conformal | Gaussian ±z·RMSE | P-spline PI | GP projection PI |
@@ -697,8 +697,8 @@ Table: Table S18. Sensitivity to the hyper-parameters of the gradient-boosted di
 Table: Table S19. Robustness to calibrant selection and calibrant errors (n = 20, α = 0.10; 10 calibrant draws per system in the perturbed scenarios). Noise: Gaussian noise with a standard deviation of 2 % of the RT span added to all calibrant RTs; outlier: one calibrant shifted by 10 % of the span.
 
 
-| Scenario | Method | Test compounds outside calibrant range (%) | Coverage inside range | Coverage outside range | Coverage, late-eluting third |
-|----------------------------|-------------------------|---------------------|----------|-----------|--------------|
+| Scenario | Method | Test compounds outside calibrant range (%) | Coverage inside range | Coverage outside range | Coverage, last third of RT range |
+|----------------------------|-------------------------|---------------------|----------|-----------|----------------|
 | Random calibrants (main) | Proposed (meta-learned σ) | 9.5 | 0.914 | 0.879 | 0.863 |
 | Random calibrants (main) | Jackknife+ | 9.5 | 0.926 | 0.755 | 0.805 |
 | Random calibrants (main) | Gaussian ±z·RMSE | 9.5 | 0.903 | 0.716 | 0.772 |
@@ -715,7 +715,7 @@ Table: Table S19. Robustness to calibrant selection and calibrant errors (n = 20
 | RT-spanning calibrants | Jackknife+ | 6.8 | 0.940 | 0.775 | 0.859 |
 | RT-spanning calibrants | Gaussian ±z·RMSE | 6.8 | 0.925 | 0.747 | 0.840 |
 
-Table: Table S20. Where coverage is lost under non-random calibrant selection and calibrant errors (n = 20, α = 0.10): share of test compounds whose base score lies outside the calibrant score range, and coverage inside and outside that range and for the late-eluting third of compounds.
+Table: Table S20. Where coverage is lost under non-random calibrant selection and calibrant errors (n = 20, α = 0.10): share of test compounds whose base score lies outside the calibrant score range, and coverage inside and outside that range and for compounds eluting in the last third of the system's RT range.
 
 
 | Setting | n | Method | Systems | Mean coverage [95 % CI] | 10th percentile of coverage | Systems > 0.05 below nominal (%) | Median width (min) | Mean interval score (min) |
@@ -891,18 +891,18 @@ Table: Table S23. Mean coverage by stratum of test compounds on the NORMAN data 
 
 | Calibrant selection rule | Method | Systems | Mean coverage [95 % CI] | Systems > 0.05 below nominal (%) | Median width (min) | Mean interval score (min) |
 |---------------------------|-------------------------|---------|--------------------|----------------|---------|------------|
-| Commonly measured compounds | Jackknife+ | 228 | 0.746 [0.725, 0.768] | 71 | 2.69 | 12.00 |
-| Commonly measured compounds | Jackknife+ + SASC | 228 | 0.889 [0.874, 0.905] | 26 | 6.17 | 12.49 |
-| Commonly measured compounds | Proposed (meta-learned σ) | 228 | 0.815 [0.795, 0.833] | 54 | 3.22 | 10.45 |
-| Commonly measured compounds | Proposed + SASC | 228 | 0.902 [0.888, 0.915] | 21 | 5.17 | 11.09 |
-| Random | Jackknife+ | 228 | 0.908 [0.905, 0.912] | 4 | 4.93 | 9.86 |
-| Random | Jackknife+ + SASC | 228 | 0.901 [0.897, 0.904] | 4 | 4.70 | 9.79 |
-| Random | Proposed (meta-learned σ) | 228 | 0.911 [0.907, 0.914] | 1 | 4.45 | 9.05 |
-| Random | Proposed + SASC | 228 | 0.901 [0.898, 0.905] | 4 | 4.22 | 8.94 |
-| RT-spanning | Jackknife+ | 228 | 0.929 [0.926, 0.932] | 0 | 4.94 | 9.45 |
-| RT-spanning | Jackknife+ + SASC | 228 | 0.905 [0.901, 0.909] | 3 | 4.20 | 9.11 |
-| RT-spanning | Proposed (meta-learned σ) | 228 | 0.928 [0.925, 0.930] | 0 | 4.35 | 8.65 |
-| RT-spanning | Proposed + SASC | 228 | 0.902 [0.898, 0.905] | 3 | 3.72 | 8.31 |
+| Commonly measured compounds | Jackknife+ | 228 | 0.746 [0.725, 0.768] | 71 | 2.79 | 12.00 |
+| Commonly measured compounds | Jackknife+ + SASC | 228 | 0.889 [0.874, 0.905] | 26 | 6.22 | 12.49 |
+| Commonly measured compounds | Proposed (meta-learned σ) | 228 | 0.815 [0.795, 0.833] | 54 | 3.86 | 10.45 |
+| Commonly measured compounds | Proposed + SASC | 228 | 0.902 [0.888, 0.915] | 21 | 6.01 | 11.09 |
+| Random | Jackknife+ | 228 | 0.908 [0.905, 0.912] | 4 | 4.98 | 9.86 |
+| Random | Jackknife+ + SASC | 228 | 0.901 [0.897, 0.904] | 4 | 4.74 | 9.79 |
+| Random | Proposed (meta-learned σ) | 228 | 0.911 [0.907, 0.914] | 1 | 4.49 | 9.05 |
+| Random | Proposed + SASC | 228 | 0.901 [0.898, 0.905] | 4 | 4.29 | 8.94 |
+| RT-spanning | Jackknife+ | 228 | 0.929 [0.926, 0.932] | 0 | 5.06 | 9.45 |
+| RT-spanning | Jackknife+ + SASC | 228 | 0.905 [0.901, 0.909] | 3 | 4.30 | 9.11 |
+| RT-spanning | Proposed (meta-learned σ) | 228 | 0.928 [0.925, 0.930] | 0 | 4.60 | 8.65 |
+| RT-spanning | Proposed + SASC | 228 | 0.902 [0.898, 0.905] | 3 | 3.95 | 8.31 |
 
 Table: Table S24. Selection-aware system-level calibration (SASC) on the RepoRT target systems for three calibrant-selection rules (n = 20, α = 0.10; post hoc). The factor c is estimated per fold by replaying the rule on the training systems (Table S25).
 
