@@ -48,3 +48,17 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
 * Manuscript sections drafted: 01_introduction (to verify citations), 02_theory, 03_experimental, 90_declarations. Build chain ready
   (`code/scripts/build_manuscript.py` + `manuscript_facts.py`, pandoc + reference_aca.docx + elsevier-with-titles.csl).
 * Claims to verify in the citation audit: typical RT tolerance windows (±0.5–2 min, ±2–3 SD) need sources.
+
+## Update 2026-11-16 03:29 UTC (session 3, after usage-limit pause 22:58→03:10)
+* Container was reclaimed during the pause; pipeline relaunched 03:11 (resumed at fold 2). Folds 0–2 DONE; fold 3 running.
+* Literature workflow wf_12511b4b-242: 2/8 agents completed (rt_models, nts_practice sweeps; 40 verified refs) — 6 failed at the
+  usage limit and are NOT re-run on purpose (token budget protects the compute job); their role (adversarial novelty search,
+  citation checks) is covered by reviewers R1/R8 in every review cycle.
+* Done this session: verified bibliography (manuscript/references.bib; supplementary/citation_verification.csv, 55 Crossref/arXiv
+  + Holm manual), claim-source verification (supplementary/claim_source_verification.md), literature matrix (44), prior-art map,
+  NORMAN external validation script (Addendum C) appended to run_pipeline.sh, analysis extended (fixed windows, small n, NORMAN),
+  Introduction revised (Ferrando Plo & Kruve 2026 CCS conformal acknowledged).
+* Scheduled resumes: trig_015c48QwnsDts8kYv2Fvjciw (fired 03:10), trig_018aBvaNf3AJEmPCc4NykmHv (08:15 UTC).
+* NEXT: when pipeline_status.txt shows PIPELINE_DONE → `cd code && python3 experiments/analyze.py --raw ../results/raw --out ..`
+  → write 04_results.md (tokens only) + highlights/abstract → `python3 scripts/build_manuscript.py` → review cycle 1 via
+  Workflow({scriptPath: REVIEW/workflow/review_cycle.js, args: {cycle: 1}}).
