@@ -4,6 +4,7 @@ export const meta = {
   phases: [
     { title: 'Review', detail: '10 reviewer agents with distinct perspectives' },
     { title: 'Consolidate', detail: 'deduplicate, prioritise, map to concrete fixes and experiments' },
+    { title: 'Verify', detail: 'one adversarial skeptic per fatal/critical/major action tries to refute it against the files' },
   ],
 }
 
@@ -82,5 +83,18 @@ const CONS = {
   required: ['actions', 'recommendations', 'overall'],
 }
 const consolidated = await agent(`You consolidate review cycle ${CYCLE} for an Analytica Chimica Acta submission. Below are ${ok.length} independent reviews (JSON). Merge duplicate issues (keep all reviewers in raised_by), drop issues that are clearly wrong given the manuscript files (check ${ROOT}/manuscript/Final_Manuscript.md when unsure), prioritise (fatal > critical > major > moderate > minor), and for every remaining issue write a concrete fix, whether an experiment is needed, and the scientific hypothesis behind a methodological change. Mark feasible_now=false only if the fix needs resources unavailable here (wet-lab data, private data).\n\nREVIEWS:\n${JSON.stringify(ok)}`, { label: `c${CYCLE}:consolidate`, phase: 'Consolidate', schema: CONS })
+phase('Verify')
+const VERDICT = {
+  type: 'object',
+  properties: {
+    action_id: { type: 'string' }, verdict: { type: 'string', enum: ['real', 'partly', 'refuted'] },
+    evidence: { type: 'string' }, minimal_correct_fix: { type: 'string' },
+  },
+  required: ['action_id', 'verdict', 'evidence', 'minimal_correct_fix'],
+}
+const heavy = ((consolidated && consolidated.actions) || []).filter(a => ['fatal', 'critical', 'major'].includes(a.priority))
+log(`cycle ${CYCLE}: verifying ${heavy.length} fatal/critical/major actions adversarially`)
+const verdicts = (await parallel(heavy.map(a => () => agent(`You are an adversarial VERIFIER for review cycle ${CYCLE} of an Analytica Chimica Acta submission. A reviewer panel raised the issue below. Try to REFUTE it: open the cited files (manuscript ${ROOT}/manuscript/Final_Manuscript.md, templates ${ROOT}/manuscript/src/*.md, Supplementary ${ROOT}/supplementary/Supplementary_Material.md, results ${ROOT}/results/*.json and ${ROOT}/tables/*.csv, code ${ROOT}/code/) and check whether the problem really exists as described and whether the proposed fix is scientifically right. Verdict 'real' = the problem exists and matters; 'partly' = exists but is overstated, or the proposed fix is wrong/excessive; 'refuted' = factually wrong given the files. Quote file evidence. Give the minimal correct fix (wording, analysis or experiment).\n\nISSUE (JSON):\n${JSON.stringify(a)}\n\nKeep tool use focused (at most ~12 tool calls).`, { label: `c${CYCLE}:verify:${a.action_id}`, phase: 'Verify', schema: VERDICT })))).filter(Boolean)
+
 // full reviews are kept in the workflow journal (journal.jsonl) and rendered by journal_to_md.py; return a compact summary
-return { cycle: CYCLE, n_reviews: ok.length, recommendations: ok.map(r => ({ reviewer: r.reviewer, recommendation: r.recommendation, n_issues: (r.issues || []).length })), consolidated }
+return { cycle: CYCLE, n_reviews: ok.length, recommendations: ok.map(r => ({ reviewer: r.reviewer, recommendation: r.recommendation, n_issues: (r.issues || []).length })), consolidated, verdicts }

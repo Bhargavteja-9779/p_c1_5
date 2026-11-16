@@ -51,6 +51,12 @@ def review_md(res, cycle):
         for a in sorted(cons.get("actions", []), key=lambda a: SEV.get(a.get("priority"), 9)):
             L.append(f"| {esc(a.get('action_id'))} | {esc(a.get('priority'))} | {esc(a.get('problem'))} | {esc(', '.join(a.get('raised_by', [])))} | "
                      f"{esc(a.get('fix'))} | {esc(a.get('experiment_needed'))} | {a.get('feasible_now')} |")
+    ver = {k: v for k, v in res.items() if k and k.startswith(f"c{cycle}:verify:") and isinstance(v, dict)}
+    if ver:
+        L += ["", "## Adversarial verification of fatal/critical/major actions", "", "| Action | Verdict | Evidence | Minimal correct fix |", "|---|---|---|---|"]
+        for k in sorted(ver):
+            v = ver[k]
+            L.append(f"| {esc(v.get('action_id', k))} | {esc(v.get('verdict'))} | {esc(v.get('evidence'))} | {esc(v.get('minimal_correct_fix'))} |")
     L += ["", "## Individual reviews"]
     for k in sorted(revs):
         v = revs[k]
