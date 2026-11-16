@@ -234,6 +234,58 @@ for tag in sorted(glob.glob(os.path.join(a.raw, "sens_*_rows.parquet"))):
 if sens:
     sens = pd.concat(sens, ignore_index=True); md(sens, os.path.join(TAB, "tableS10_sensitivity")); metrics["sensitivity"] = sens.to_dict("records")
 
+# ---------------- fixed-tolerance windows (Addendum B; same calibrant draws) ----------------
+fw = load("fixedwin", "rows")
+if not fw.empty:
+    fwp = per_system(fw); allps.append(fwp.assign(experiment="fixedwin"))
+    comb = pd.concat([ps[(ps.method.isin(["P", "B5_jackknife_plus", "B1_gauss_rmse"])) & np.isclose(ps.alpha, PRIMARY_A)], fwp], ignore_index=True)
+    rows_fw = []
+    for n in sorted(fwp.n.unique()):
+        s_ = summary_table(comb, n, PRIMARY_A, ["P", "B5_jackknife_plus", "B1_gauss_rmse", "RMSE_x2", "RMSE_x3", "FIX_0.25min", "FIX_0.5min", "FIX_1min", "FIX_2min", "FIX_5pct", "FIX_10pct"], B=1000)
+        s_.insert(0, "n", n); rows_fw.append(s_)
+    tfw = pd.concat(rows_fw, ignore_index=True); md(tfw, os.path.join(TAB, "table9_fixed_windows")); metrics["fixed_windows"] = tfw.to_dict("records")
+    pt = paired_tests(comb, PRIMARY_N, PRIMARY_A, "P", ["RMSE_x2", "RMSE_x3", "FIX_0.25min", "FIX_0.5min", "FIX_1min", "FIX_2min", "FIX_5pct", "FIX_10pct"], "winkler", B=1000)
+    stats_out["fixed_window_tests"] = pt.to_dict("records")
+    fwd = load("fixedwin", "decoys")
+    if not fwd.empty:
+        dd = fwd.groupby(["method"]).agg(decoy_elim_mean=("decoy_elim_rate", "mean"), true_retained_mean=("true_retained", "mean")).reset_index()
+        md(dd, os.path.join(TAB, "tableS11_fixed_window_decoys")); metrics["fixed_window_decoys"] = dd.to_dict("records")
+
+# ---------------- very small calibrant sets (exploratory) ----------------
+sn = load("smalln", "rows")
+if not sn.empty:
+    snp = per_system(sn); allps.append(snp.assign(experiment="smalln"))
+    rows_sn = []
+    for n in sorted(snp.n.unique()):
+        for al in sorted(snp.alpha.unique()):
+            s_ = summary_table(snp, n, al, [m for m in ORDER if m in snp.method.unique()], B=500); s_.insert(0, "alpha", al); s_.insert(0, "n", n); rows_sn.append(s_)
+    tsn = pd.concat(rows_sn, ignore_index=True); md(tsn, os.path.join(TAB, "tableS12_small_n")); metrics["small_n"] = tsn.to_dict("records")
+
+# ---------------- NORMAN external validation (Addendum C) ----------------
+nr = load("norman", "rows")
+if not nr.empty:
+    nr = nr.assign(system=nr.cs)
+    out_nm = []
+    for scen, g in nr.groupby("scenario"):
+        gp = per_system(g)
+        for n in sorted(gp.n.unique()) if scen != "fixed_mix" else [None]:
+            gg = gp if n is None else gp[gp.n == n]
+            if n is None:
+                gg = gg.assign(n=0)
+            for al in sorted(gg.alpha.unique()):
+                s_ = summary_table(gg, 0 if n is None else n, al, [m for m in ORDER if m in gg.method.unique()], B=1000)
+                s_.insert(0, "alpha", al); s_.insert(0, "n", "lab mix" if n is None else n); s_.insert(0, "scenario", scen); out_nm.append(s_)
+        tst = paired_tests(gp.assign(n=0) if scen == "fixed_mix" else gp[gp.n == 20], 0 if scen == "fixed_mix" else 20, PRIMARY_A, "P",
+                           [m for m in BASELINES if m in gp.method.unique()], "winkler", B=1000)
+        stats_out.setdefault("norman_tests", {})[scen] = tst.to_dict("records")
+    tnm = pd.concat(out_nm, ignore_index=True); md(tnm, os.path.join(TAB, "table10_norman_external")); metrics["norman"] = tnm.to_dict("records")
+    nst = load("norman", "strata")
+    if not nst.empty:
+        nsc = strata_coverage(nst.assign(system=nst.cs), PRIMARY_A); md(nsc, os.path.join(TAB, "tableS13_norman_strata")); stats_out["norman_strata"] = nsc.to_dict("records")
+    nmeta = os.path.join(a.out, "results", "experiment_logs", "norman_meta.json")
+    if os.path.exists(nmeta):
+        metrics["norman_meta"] = json.load(open(nmeta))
+
 # ---------------- machine-readable outputs ----------------
 pd.concat(allps, ignore_index=True).to_csv(os.path.join(RES, "raw_results.csv"), index=False)
 def _clean(o):
