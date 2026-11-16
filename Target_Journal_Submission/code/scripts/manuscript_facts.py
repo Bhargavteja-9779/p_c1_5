@@ -90,6 +90,8 @@ def build_facts(RES, TAB):
         k = {"main": "main", "robust_span_none": "span", "robust_common_none": "common", "robust_random_noise": "noise", "robust_random_outlier": "outlier"}.get(r["scenario"], r["scenario"])
         for c in ["share_outside_cal_range", "cov_outside", "cov_inside", "cov_late"]:
             F[f"mech.{k}.{r['method']}.{c}"] = r[c]
+    for k, v in m.get("metadata_missing_rp", {}).items():
+        F[f"mdmiss.{k}"] = v
     tsz = pd.DataFrame(m.get("training_sizes", []))
     for mt_ in ["RP", "HILIC"]:
         t_ = tsz[tsz["mode"] == mt_] if len(tsz) else tsz

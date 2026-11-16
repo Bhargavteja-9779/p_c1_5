@@ -20,6 +20,12 @@ def fmt(v, spec):
     return format(float(v), spec)
 
 
+def fmt_text(v, spec):
+    """fmt() with a typographic minus sign (U+2212) for negative values."""
+    out = fmt(v, spec)
+    return "\u2212" + out[1:] if out.startswith("-") and len(out) > 1 and (out[1].isdigit() or out[1] == ".") else out
+
+
 def resolve(text, facts):
     """Replace every {{key|fmt}} by the formatted fact; return (text, list of unresolved keys)."""
     missing = []
@@ -29,7 +35,7 @@ def resolve(text, facts):
         key = key.strip()
         if key not in facts:
             missing.append(key); return m.group(0)
-        return fmt(facts[key], spec.strip() or None)
+        return fmt_text(facts[key], spec.strip() or None)
     return re.sub(r"\{\{([^{}]+)\}\}", rep, text), missing
 
 

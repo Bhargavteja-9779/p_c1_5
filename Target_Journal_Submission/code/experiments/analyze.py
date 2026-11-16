@@ -381,6 +381,10 @@ for mt_ in ["RP", "HILIC"]:
         tsz.append({"mode": mt_, "fold": int(f_), "target_systems": int((tgt.fold == f_).sum()), "training_systems_all": int(len(tr_)),
                     "training_systems_ge30": int((tr_.n_compounds >= 30).sum())})
 tsz = pd.DataFrame(tsz); md(tsz, os.path.join(TAB, "tableS17_training_sizes")); metrics["training_sizes"] = tsz.to_dict("records")
+# missing chromatographic metadata among RP systems (RepoRT encodes missing numeric metadata as 0; NORMAN methods enter as NaN,
+# which LightGBM routes like 0 for splits learned without NaN, so both are treated identically by the difficulty model)
+mrp_ = meta[meta.method_type == "RP"]
+metrics["metadata_missing_rp"] = {"n_systems": int(len(mrp_)), **{c: int((pd.to_numeric(mrp_[c], errors="coerce").fillna(0) == 0).sum()) for c in ["temp", "flow", "t0"]}}
 
 # ---------------- machine-readable outputs ----------------
 pd.concat(allps, ignore_index=True).to_csv(os.path.join(RES, "raw_results.csv"), index=False)
