@@ -1,0 +1,6 @@
+{
+ "robust_span_none": 10.6,
+ "robust_common_none": 413.4,
+ "robust_random_noise": 10.0,
+ "robust_random_outlier": 9.9
+}
