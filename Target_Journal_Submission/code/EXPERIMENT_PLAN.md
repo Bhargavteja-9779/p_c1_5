@@ -129,3 +129,18 @@ are not random draws (mean coverage 0.815 proposed, 0.746 jackknife+), and BEFOR
 * Evaluation: n = 20, α = 0.10, rules random/span/common on all 228 target systems (10 draws; same seeds as the robustness
   runs) and the NORMAN fixed mix (37 external systems); metrics as before; comparison: P vs P+SASC vs J+ vs J+SASC.
 * Reporting: post hoc (Phase-19) improvement; the original pre-registered results remain the primary results.
+
+## Addendum E (2026-11-16, written and committed BEFORE running; post hoc, prompted by the citation audit)
+Motivation: comparator B3 fits the GP hyper-parameters on the target calibrants only, whereas the GP projection of
+García et al. (2022) meta-learns its prior on other chromatographic methods. A meta-learned prior may give better-calibrated
+predictive intervals with few calibrants, so B3 alone could understate the strongest parametric alternative.
+* New comparator B7 "GP projection with meta-learned hyper-parameters": GP on calibrant-standardised base score and RT,
+  kernel = constant + linear + RBF, Gaussian noise; the five hyper-parameters are meta-learned per leave-source-out fold on the
+  training systems only (inner cross-fitting as for the difficulty model; simulated calibrant draws n = 10, 20, 40, 3 draws,
+  seeds as for the difficulty-model simulation; objective = mean Gaussian predictive log-likelihood of held-out compounds,
+  systems weighted equally; L-BFGS-B, two starts). The fixed hyper-parameters are applied to the target systems of the fold.
+  Interval: posterior predictive mean ± z_{1−α/2} × predictive sd.
+* Evaluation: identical calibrant draws to the main study (same seeds; verified by recomputing jackknife+ coverage for n = 20,
+  draw 0), all n ∈ {10, 15, 20, 30, 40} and α ∈ {0.05, 0.10, 0.20}; same metrics and per-system statistics as the main
+  comparators (Table 2, paired Wilcoxon tests with Holm correction, one-sided coverage test). B7 is reported in all main
+  tables as an additional comparator, whatever its result. Code: experiments/run_metagp.py.
