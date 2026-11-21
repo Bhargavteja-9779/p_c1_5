@@ -118,6 +118,10 @@ if __name__ == "__main__":
         for name, rule, n, draws in scen:
             for r, (cal, te) in enumerate(draws):
                 q = X.draw_quantities(job, cal, te, want_P=len(cal) in (10, 20))
+                if "mu_loo_te" not in q and len(cal) >= 10:  # fixed mix of variable size: jackknife+ comparators too
+                    q["mu_loo_te"] = np.vstack([m.predict(s[te]) for m in q["loo"]])
+                    q["P_sl_te"] = _sigma_matrix(sig_all, C.iloc[te].reset_index(drop=True), s[te], s[cal], y[cal], sysf, loo=True)
+                    q["P_R"] = np.abs(q["loo_res"]) / _sigma_cal_loo(sig_all, C.iloc[cal].reset_index(drop=True), s[cal], y[cal], sysf)
                 y_te = y[te]; z = stats.norm.ppf(0.95); rmse = np.sqrt(np.mean(q["loo_res"] ** 2)); mu = q["flat"][0]
                 W = {"B1_gauss_rmse": (mu - z * rmse, mu + z * rmse)}
                 if "mu_loo_te" in q:
