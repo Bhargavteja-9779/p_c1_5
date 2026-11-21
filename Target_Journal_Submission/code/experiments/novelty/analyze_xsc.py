@@ -116,6 +116,12 @@ def main():
                       "Median list size": float(d.n_cand.median()),
                       "Top-1 (retained)": float(((d["rank"] == 1) & d.true_kept).mean()),
                       "Top-3 (retained)": float(((d["rank"] <= 3) & d.true_kept).mean())})
+        M["median_list"] = float(c.n_cand.median())
+        z = np.load(os.path.join("cache", "pubchemlite", "cand_features.npz"), allow_pickle=True) if os.path.exists(os.path.join("cache", "pubchemlite", "cand_features.npz")) else None
+        M["n_pcl"] = int(c[["system", "par"]].drop_duplicates().shape[0])  # features evaluated (overwritten below if cache exists)
+        M["n_features_evaluated"] = M["n_pcl"]
+        if z is not None:
+            M["n_pcl_added"] = int(len(z["ik14"]))
         Cd = pd.DataFrame(C); M["candidates"] = {r["key"]: r for r in C}; md_table(Cd.drop(columns="key"), f"{TAB}/xsc_table_candidates")
         # per-laboratory: share of laboratories (system x draw) retaining < 90 % of correct structures
         lab = c.groupby(["method", "system", "draw"]).true_kept.mean().reset_index()
@@ -131,7 +137,8 @@ def main():
                        "Labs < 0.85 (%)": 100 * s["fail_085"], "Median width (min)": s["width_median"], "Median IS": s["is_median"]})
         Nd = pd.DataFrame(Nn); M["norman"] = {f"{r['Scenario']}|{r['n']}|{r['key']}": r for r in Nn}
         md_table(Nd.drop(columns="key"), f"{TAB}/xsc_table_norman")
-        nmult = pd.read_csv(f"{RAW}/norman_multipliers.csv"); md_table(nmult, f"{TAB}/xsc_table_norman_multipliers")
+        nmult = pd.read_csv(f"{RAW}/norman_multipliers.csv"); M["norman_S_mix"] = int(nmult[nmult.rule == "norman"].S.max())
+        md_table(nmult, f"{TAB}/xsc_table_norman_multipliers")
     json.dump(M, open("../results/xsc_metrics.json", "w"), indent=1, default=float)
     figures(ev, S)
     print("analysis done; folds", M["folds_done"])

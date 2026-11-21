@@ -207,4 +207,68 @@ def build_facts(RES, TAB):
     rows.append(["Commonly measured calibrants + SASC", cov("sasc.common.P+SASC.coverage_mean"), cov("sasc.common.J+SASC.coverage_mean"), "–", "–"])
     rows.append(["NORMAN laboratory mix + SASC", cov("nor.fixed_mix.mix.a0.10.P+SASC.coverage_mean"), cov("nor.fixed_mix.mix.a0.10.J+SASC.coverage_mean"), "–", "–"])
     T["table4"] = mdtab(["Scenario (n = 20, nominal 0.90)", "Proposed", "Jackknife+", "Gaussian ±z·RMSE", "GP projection PI"], rows)
+    xsc_facts(F, T, RES, TAB)
     return F, T
+
+
+XLAB = {"B1_gauss_rmse": "Gaussian ±z·RMSE", "B5_jackknife_plus": "Jackknife+", "P": "Jackknife+, meta-learned σ",
+        "JP_lab": "Jackknife+ × XSC multiplier (B8)", "XSC_flat_avg": "XSC, σ ≡ 1, average target", "XSC_flat_lab": "XSC, σ ≡ 1 (B9)",
+        "XSC_sig_avg": "XSC, σ, no shrinkage, average", "XSC_sig_lab": "XSC, σ, no shrinkage", "XSC_sigs_avg": "XSC, average target",
+        "XSC_sigs_lab": "**XSC, laboratory-level (proposed)**"}
+
+
+def xsc_facts(F, T, RES, TAB):
+    """Facts and tables of Addendum G (cross-system conformal calibration)."""
+    path = os.path.join(RES, "xsc_metrics.json")
+    if not os.path.exists(path):
+        return
+    M = json.load(open(path))
+    S = list(M["S_training_systems"].values()); F["x.S_min"], F["x.S_max"] = min(S), max(S)
+    F["x.n_systems"] = M["n_target_systems"]
+    for k, v in M["summary"].items():
+        rule, n, meth, lev = k.split("|")
+        pre = "x" if abs(float(lev) - 0.1) < 1e-9 else f"xa{float(lev):.2f}"
+        for s, val in v.items():
+            F[f"{pre}.{rule}.{n}.{meth}.{s}"] = val
+    for meth, (lo, hi) in M.get("main_ci", {}).items():
+        F[f"x.ci.{meth}.lo"], F[f"x.ci.{meth}.hi"] = lo, hi
+    for k, v in M.items():
+        if k.startswith("ratio_"):
+            for s, val in v.items():
+                F[f"x.{k}.{s}"] = val
+    for k, v in M.get("per_source_fail", {}).items():
+        F[f"x.src.{k}"] = v
+    F["x.mult_diff_q90"] = M.get("multiplier_exact_vs_avg_maxreldiff", float("nan"))
+    for meth, r in M.get("candidates", {}).items():
+        for s, val in r.items():
+            F[f"xc.{meth}.{s}"] = val
+    for meth, v in M.get("candidates_lab_fail", {}).items():
+        F[f"xc.labfail.{meth}"] = v
+    for k in ("n_pcl", "median_list"):
+        if k in M:
+            F[f"xc.{k}"] = M[k]
+    for k, r in M.get("norman", {}).items():
+        sc, n, meth = k.split("|")
+        for s, val in r.items():
+            F[f"xn.{sc}.{n.replace(' ', '_')}.{meth}.{s}"] = val
+    if "norman_S_mix" in M:
+        F["xn.S_mix"] = M["norman_S_mix"]
+    from docbuild import mdtab
+
+    def tab(name, header=None):
+        f = os.path.join(TAB, name + ".csv")
+        if not os.path.exists(f):
+            return
+        d = pd.read_csv(f)
+        cols = []
+        for c in d.columns:
+            v = d[c]
+            if v.dtype.kind == "f":
+                mx = v.replace([np.inf, -np.inf], np.nan).abs().max()
+                dd = 3 if mx < 1.5 else (2 if mx < 20 else 1)
+                cols.append(v.map(lambda x, dd=dd: _f(x, dd)))
+            else:
+                cols.append(v.astype(str))
+        rows = [list(r) for r in zip(*cols)]
+        T[name] = mdtab(header or list(d.columns), rows)
+    tab("xsc_table_main_n20"); tab("xsc_table_per_source"); tab("xsc_table_candidates"); tab("xsc_table_norman")
