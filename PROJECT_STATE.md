@@ -119,3 +119,15 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
   → candidates removed / true-structure rank at guaranteed retention vs ±k·RMSE; (4) rewrite manuscript around XSC
   (new title/abstract/highlights), demote meta-learned J+ to comparator; implement remaining review_01 actions;
   (5) rebuild DOCX/PDF, cover letter; commit + push. Self-resume: scheduled task trig_012DjbqH1ygJ8njjao5anxKe (every 2 h).
+
+### Update 2026-11-21 22:45 UTC
+* Fold 0 XSC result: random n=20 → J+ 33 % of labs < 0.90, XSC_sigs_lab 5 % (target ≤ 10 %), width 3.1 vs 3.9 min (lab-calibrated J+);
+  n=3 finite & valid with shrinkage; polar calibrants: J+ fails 91 %, XSC_sigs_lab 0 %.
+* Done: new 01_introduction, 02_theory (XSC section), 03_experimental (XSC/candidates/NORMAN), supplementary/S7 proof,
+  manuscript_facts.xsc_facts (tokens x.*, xa*.*, xc.*, xn.*; tables xsc_table_*), analyze_xsc.py, refs (PubChemLite, park2022pac).
+* Background chain: run_novelty_pipeline.sh (XSC) → run_stage2.sh (candidates → NORMAN XSC). If killed: re-launch both with
+  `nohup setsid code/experiments/novelty/run_novelty_pipeline.sh &` and `... run_stage2.sh &` (both resumable).
+* NEXT after NORMAN_STAGE_DONE: `cd code && python3 experiments/novelty/analyze_xsc.py` → write 04_results.md (new structure:
+  4.1 marginal guarantees leave labs below target; 4.2 XSC lab-level per source; 4.3 few calibrants; 4.4 selection rules;
+  4.5 PubChemLite candidates; 4.6 NORMAN; 4.7 old comparisons condensed → SI) + 00_front (title/abstract/highlights),
+  05_conclusions, fig1 workflow redraw, cover letter; build_manuscript.py; commit/push.
