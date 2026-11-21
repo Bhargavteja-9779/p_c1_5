@@ -171,3 +171,17 @@ predictive intervals with few calibrants, so B3 alone could understate the stron
    share of systems < 0.85, median width, interval score, per-source coverage). SASC is considered validated on this rule if
    the mean coverage of P+SASC and J+SASC over the target systems is within 0.88–0.92 (nominal 0.90); otherwise it is reported
    as not validated.
+
+## Addendum G (2026-11-21, pre-run): cross-system conformal calibration with laboratory-level guarantees (XSC)
+Motivation (review cycle 1, A01/A04/A06; desk rejections for insufficient novelty): jackknife+ windows control only the
+*average* retention over laboratories (per-draw coverage < 0.85 in 17 % of draws at n = 20), need n ≥ 1/α − 1 calibrants,
+and the meta-learned σ adds little within jackknife+. XSC uses the laboratory's calibrants only for the monotone map and a
+scale τ̂ (RMS of LOO residuals, optionally σ-normalised and shrunk towards the meta-learned prediction with k = 5 pseudo-
+calibrants), and calibrates the window multiplier c over training systems on which the laboratory's protocol (n, selection
+rule) is replayed (systems = exchangeable units; base and σ models never saw the calibrating system).
+Targets: (avg) mean retention ≥ 1 − α; (lab) P{laboratory's own retention ≥ 1 − ε} ≥ 1 − δ, δ = 0.10 fixed a priori.
+Families: flat (σ ≡ 1; = calibrated ±k·RMSE of A01), sig, sigs (shrunk); JP_lab = jackknife+ with a lab-level multiplier.
+n ∈ {3, 5, 10, 20, 40}; rules random/span/common/polar; 8 replay draws per training system; target draws = main experiment.
+Primary endpoints (n = 20, random, α = ε = 0.10): lab-level failure rate P(coverage < 0.90) (target ≤ 0.10) and median
+width for XSC_sigs_lab vs JP_lab, B5 and B1; secondary: n = 3/5 (finite windows below 1/α − 1), non-random rules, NORMAN.
+Script: experiments/novelty/run_xsc.py; outputs results/raw/xsc/.

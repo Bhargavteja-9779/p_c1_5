@@ -104,3 +104,18 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
   When done: `python REVIEW/workflow/journal_to_md.py review <transcript dir of wf_42a67b1d-ef3> 1 REVIEW/review_01.md`,
   implement the actions, rebuild, write responses into review_01.md, commit, then cycle 2 (args {cycle: 2}).
 * Resume after a usage-limit pause: re-run any failed workflow with resumeFromRunId (completed agents are cached).
+
+## Novelty revision (started 2026-11-21 20:50 UTC, session 4) — user: desk rejections everywhere → more novelty
+* Journal-level scan + prior art: supplementary/journal_level_and_prior_art_2026-11-21.md. Accepted RT/NTS papers show
+  identification gains on real candidate lists and/or real samples; borrowing calibration across systems (B2) has no prior art
+  in chemistry; weighted conformal (B1) and conformal FDR for annotation (B3) also open.
+* NEW CORE CONTRIBUTION (Addendum G in code/EXPERIMENT_PLAN.md): cross-system conformal calibration (XSC) →
+  laboratory-level (ε, δ) retention guarantee + finite windows from 3–5 calibrants. Code: src/conformrt/evaluation/crosssys.py,
+  experiments/novelty/run_xsc.py. Cache (base models) re-created by experiments/novelty/prewarm.py (cache is not in git).
+* Running: `nohup setsid code/experiments/novelty/run_novelty_pipeline.sh &` (prewarm → XSC; resumable). Status:
+  results/experiment_logs/novelty_status.txt (XSC_STAGE_DONE), logs prewarm.stdout, run_xsc_full.stdout.
+* NEXT: (1) when XSC done: analyse (lab failure rates, widths, n=3/5, rules) → decide framing; (2) NORMAN external XSC
+  (calibrate on all RepoRT, apply to 37 NORMAN methods, random + lab mix); (3) real candidate lists (PubChemLite isomers)
+  → candidates removed / true-structure rank at guaranteed retention vs ±k·RMSE; (4) rewrite manuscript around XSC
+  (new title/abstract/highlights), demote meta-learned J+ to comparator; implement remaining review_01 actions;
+  (5) rebuild DOCX/PDF, cover letter; commit + push. Self-resume: scheduled task trig_012DjbqH1ygJ8njjao5anxKe (every 2 h).
