@@ -131,3 +131,33 @@ figures. Tests: 9 passing (`python -m pytest -q tests`). Pre-registered plan: `c
   4.1 marginal guarantees leave labs below target; 4.2 XSC lab-level per source; 4.3 few calibrants; 4.4 selection rules;
   4.5 PubChemLite candidates; 4.6 NORMAN; 4.7 old comparisons condensed → SI) + 00_front (title/abstract/highlights),
   05_conclusions, fig1 workflow redraw, cover letter; build_manuscript.py; commit/push.
+
+## RESUME HERE (2026-11-22 03:05 UTC) — handover to a new session/account
+User instructions (keep): first author **P N Bhargav Teja**, second author placeholder; **no funding, no competing interests**;
+**code available on request**; maximise novelty; real-world framing welcome; work fully autonomously.
+### Done
+* XSC (cross-system conformal calibration, laboratory-level guarantee) run on all 5 folds → results/raw/xsc/fold*_eval.parquet,
+  fold*_multipliers.csv, fold*_sim.pkl (replays); analysis: `cd code && python3 experiments/novelty/analyze_xsc.py`
+  → tables/xsc_*.md, results/xsc_metrics.json, figures/figX1_lab_level, figX2_selection_rules.
+  KEY: random n=20: lab failure (<0.90) J+ 34.9 %, meta-σ J+ 33.6 %, Gaussian 48.0 %; XSC lab-level 8.0 % [7.1–9.0], width 5.70 min
+  vs lab-calibrated J+ 7.01 (9.2 %) and flat XSC 6.81; ≤10 % in nearly all rule×n cells (polar n=20 11.4 %); n=3 finite (7.8 %).
+* Manuscript src rewritten: 01_introduction, 02_theory (XSC section), 03_experimental, 90_declarations (authors/funding/code).
+  STILL OLD: 00_front (title/abstract/highlights), 04_results, 05_conclusions, fig1 workflow → must be rewritten.
+* supplementary/S7_laboratory_level_guarantee.md (proof); supplementary/journal_level_and_prior_art_2026-11-21.md.
+### Remaining (in order)
+1. Environment in a NEW container: `cd Target_Journal_Submission/code && pip install -r requirements.txt && mkdir -p data &&
+   ln -sfn /home/user/p_c1_5/data_processed data/processed && python3 scripts/download_data.py` (RepoRT+NORMAN), then
+   PubChemLite: `mkdir -p data/raw/pubchemlite && curl -L -o data/raw/pubchemlite/PubChemLite_exposomics_20260925.csv
+   "https://zenodo.org/records/22953038/files/PubChemLite_exposomics_20260925.csv?download=1"` (sha256 6a258459…89cd).
+2. Rebuild model cache (~1 h): `nohup setsid python3 experiments/novelty/prewarm.py config/full.yaml > ../results/experiment_logs/prewarm.stdout 2>&1 &`
+3. Then (each resumable, skip finished folds): `python3 experiments/novelty/run_xsc_pivots.py config/full.yaml` (fold0 done),
+   `run_candidates.py` (PubChemLite candidate lists), `run_norman_xsc.py` (NORMAN external), `run_norman_case.py`
+   (REAL-WORLD case study: 37 NORMAN labs, own calibration mix, suspects, PubChemLite candidates). Write "XSC_STAGE_DONE" into
+   results/experiment_logs/novelty_status.txt first if using run_stage2.sh/run_stage3.sh chains.
+4. `python3 experiments/novelty/analyze_xsc.py` and `analyze_xsc_offline.py` (lab-calibration curve figX3, localized XSC K=60).
+5. Write 04_results (4.1 average guarantees leave a third of labs below target; 4.2 XSC lab-level per source; 4.3 few calibrants;
+   4.4 selection rules; 4.5 PubChemLite candidates; 4.6 NORMAN real-world case study; 4.7 localized XSC/limitations), new title
+   ("Laboratory-level guarantees for retention-time filtering in non-target screening by cross-system conformal calibration"),
+   abstract/highlights, conclusions, redraw fig1; move old main comparison to SI; `python3 scripts/build_manuscript.py`;
+   rebuild supplementary + cover letter (no funding/competing interests; code on request); commit + push.
+6. Scheduled task trig_012DjbqH1ygJ8njjao5anxKe belongs to the old account/session — create a new one if needed.
