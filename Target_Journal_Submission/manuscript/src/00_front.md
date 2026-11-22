@@ -14,7 +14,7 @@ P N Bhargav Teja^a,\*^, [Second Author]^b^
 - Conformal RT windows hold 90 % on average, yet a third of laboratories fall short
 - Replaying a lab's calibrant protocol on public LC systems calibrates its window
 - {{x.random.20.XSC_sigs_lab.fail|pct0}} of labs below 90 % retention in unseen source groups (target ≤ 10 %)
-- Finite guaranteed windows from three calibrants and for non-random calibrant mixes
+- Finite guaranteed windows from three calibrants and for replayable calibrant rules
 - In 37 NORMAN laboratories, current RT filters silently lose correct structures
 
 # Abstract {.unnumbered}

@@ -413,7 +413,7 @@ if os.path.exists(_lg):
     if _rows:
         metrics["sigma_rows_main"] = {"per_fold": _rows, "min": min(_rows.values()), "max": max(_rows.values())}
 
-# ---------------- review cycle 1 analyses (source-level inference, per-draw coverage, strata estimators, span model) ----------------
+# ---------------- additional analyses (source-level inference, per-draw coverage, strata estimators, span model) ----------------
 from conformrt.statistics import revision as RV
 REV = {}
 sub20_ = ps[(ps.n == PRIMARY_N) & np.isclose(ps.alpha, PRIMARY_A)]

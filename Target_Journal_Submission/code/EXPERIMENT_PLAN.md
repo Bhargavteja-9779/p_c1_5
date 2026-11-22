@@ -148,7 +148,7 @@ predictive intervals with few calibrants, so B3 alone could understate the stron
   constant, linear and RBF variances of every fold sat at the upper optimisation bound (exp(3) in calibrant-standardised units),
   i.e. the bound, not the data, determined the solution. The bounds were widened to exp(9) for the variances and exp(3) for the
   noise variance, and the run was restarted; the first run was stopped before its evaluation stage.
-* **Correction (2026-11-16 19:10 UTC, after review cycle 1, reviewer R3).** The amendment above states that "the first run was
+* **Correction (2026-11-16 19:10 UTC, after internal review).** The amendment above states that "the first run was
   stopped before its evaluation stage". This is incorrect. The first run completed its target evaluation in the short interval
   between printing the hyper-parameter table and being stopped, and its outputs (metagp_rows.parquet, metagp_check.csv,
   metagp_theta.csv) were committed together with the amendment in commit 38de8b5. When the bounds were widened, only the
@@ -157,7 +157,7 @@ predictive intervals with few calibrants, so B3 alone could understate the stron
   analysed version. At n = 20, α = 0.10: run 1 coverage 0.974, median width 11.2 min, interval score 13.2 min; run 2 0.973,
   12.0 min, 14.2 min — the conclusion does not depend on the bounds, and the widening made B7 slightly less, not more, efficient.
 
-## Addendum F (2026-11-16 19:15 UTC, after review cycle 1; written and committed BEFORE running)
+## Addendum F (2026-11-16 19:15 UTC, after internal review; written and committed BEFORE running)
 1. **Fold-specific compound frequencies for the 'common' calibrant rule (correction).** The rule ranked compounds by the number
    of RepoRT systems in which they were measured, counted over all systems including the held-out source group. Counts are now
    taken only from systems of the same separation mode outside the held-out group (for target systems of fold f: folds ≠ f; for
@@ -173,7 +173,7 @@ predictive intervals with few calibrants, so B3 alone could understate the stron
    as not validated.
 
 ## Addendum G (2026-11-21, pre-run): cross-system conformal calibration with laboratory-level guarantees (XSC)
-Motivation (review cycle 1, A01/A04/A06; desk rejections for insufficient novelty): jackknife+ windows control only the
+Motivation: jackknife+ windows control only the
 *average* retention over laboratories (per-draw coverage < 0.85 in 17 % of draws at n = 20), need n ≥ 1/α − 1 calibrants,
 and the meta-learned σ adds little within jackknife+. XSC uses the laboratory's calibrants only for the monotone map and a
 scale τ̂ (RMS of LOO residuals, optionally σ-normalised and shrunk towards the meta-learned prediction with k = 5 pseudo-

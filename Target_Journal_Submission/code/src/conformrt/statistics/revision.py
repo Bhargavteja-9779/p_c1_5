@@ -1,4 +1,4 @@
-"""Additional analyses requested in review cycle 1: source-level (random-effects) inference, calibration-conditional
+"""Additional analyses: source-level (random-effects) inference, calibration-conditional
 (per-draw) coverage, stratum estimators with cluster-bootstrap CIs and a continuous source-adjusted gradient-length model."""
 from __future__ import annotations
 import numpy as np

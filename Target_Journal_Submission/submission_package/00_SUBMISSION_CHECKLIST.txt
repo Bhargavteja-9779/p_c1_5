@@ -1,0 +1,22 @@
+ANALYTICA CHIMICA ACTA - SUBMISSION CHECKLIST (Elsevier Editorial Manager)
+Article type: Research Paper
+Title: Laboratory-level guarantees for retention-time filtering in non-target screening by cross-system conformal calibration
+
+Upload as (Editorial Manager item type -> file):
+  Cover Letter                     -> 01_Cover_Letter.docx
+  Manuscript (editable, with tables, figures embedded) -> 02_Manuscript.docx   (02_Manuscript.pdf for checking only)
+  Highlights                       -> 03_Highlights.docx
+  Graphical Abstract               -> 04_Graphical_Abstract.tiff
+  Figure                           -> 05_Fig1.tiff, 05_Fig2.tiff, 05_Fig3.tiff (vector PDFs also provided)
+  Supplementary Material           -> 06_Supplementary_Material.pdf
+  Declaration of Interest          -> 07_Declaration_of_Interests.docx (or regenerate with Elsevier's declarations tool)
+  Suggested reviewers              -> enter in the submission form (08_Suggested_Reviewers.docx)
+
+BEFORE UPLOAD - fill in the placeholders (search for "[" in each file):
+  [ ] Second author name, affiliations a/b, corresponding e-mail - 02_Manuscript.docx title page + CRediT
+  [ ] [Date] and signature line - 01_Cover_Letter.docx
+  [ ] Corresponding e-mail - 07_Declaration_of_Interests.docx
+  [ ] Reviewer e-mail addresses - 08_Suggested_Reviewers.docx
+  [ ] Every author approves the final version and the CRediT roles
+  [ ] Keep the "Declaration of generative AI and AI-assisted technologies" section unchanged (mandatory Elsevier policy)
+  [ ] Online form: data availability = public data (RepoRT, NORMAN ESI, PubChemLite); code = on request

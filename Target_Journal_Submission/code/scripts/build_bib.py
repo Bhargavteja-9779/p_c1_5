@@ -80,7 +80,7 @@ REG = [  # key, id (doi:/arxiv:/manual:), expected title fragment (lower-case)
  ("folberth2020ms2", "doi:10.1016/j.jchromb.2020.122105", "ms2 and lc libraries"),
  ("souihi2022multiconditionrt", "doi:10.1016/j.chroma.2022.462867", "multiconditionrt"),
  ("stoffel2022alkylpyridinium", "doi:10.1007/s00216-021-03828-0", "alkylpyridinium sulfonates"),
- # added after review cycle 1 (R8), verified against Crossref
+ # additional references, verified against Crossref
  ("norinder2014introducing", "doi:10.1021/ci5001168", "introducing conformal prediction in predictive modeling"),
  ("svensson2018conformal", "doi:10.1021/acs.jcim.8b00054", "conformal regression for quantitative structure"),
  ("johansson2014regression", "doi:10.1007/s10994-014-5453-0", "regression conformal prediction with random forests"),
