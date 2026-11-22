@@ -37,8 +37,8 @@ training-conditional conformal prediction [Vovk 2012; Park et al. 2022, meta-lea
 **Draw-averaged version (used in the main text).** With several replay draws per system (8 here), we use the system-level CDF
 F_k(c) = (1/R)Σ_r 1{V_{k,r} ≤ c} and choose the smallest c with (1/S)Σ_k F_k(c) ≥ (1 − δ)(1 + 1/S). This reduces the
 Monte-Carlo noise of a single draw per system; its validity is approximate (it is exact as R → ∞ for the population version
-of the pooled CDF, cf. the pooling estimators of Dunn et al. 2023). Both versions are reported (Table S28); they differ by
-at most a few percent in c.
+of the pooled CDF, cf. the pooling estimators of Dunn et al. 2023). Both versions are reported (Table S28); for 90 % of the protocols their multipliers differ by less than
+{{x.mult_diff_q90|pct0}}, and their failure rates on the held-out systems are practically the same (Section 4.2).
 
 **Average-retention version.** Choosing the smallest c with (1/S)Σ_k cov_{s_k}(c) ≥ 1 − α controls the expected retention
 over laboratories, E cov_T(c) ≥ 1 − α, up to an O(1/S) term (selection-aware calibration of Section S6 is the special case
