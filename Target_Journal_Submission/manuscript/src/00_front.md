@@ -1,5 +1,5 @@
 ---
-title: "Distribution-free retention-time windows for candidate filtering in LC–HRMS non-target screening on new chromatographic systems"
+title: "Laboratory-level guarantees for retention-time filtering in non-target screening by cross-system conformal calibration"
 ---
 
 P N Bhargav Teja^a,\*^, [Second Author]^b^
@@ -11,17 +11,18 @@ P N Bhargav Teja^a,\*^, [Second Author]^b^
 \* Corresponding author: P N Bhargav Teja, [e-mail address]
 
 # Highlights {.unnumbered}
-- Parametric and fixed RT windows lose correct structures on new LC systems
-- Conformal windows from representative calibrants keep a user-chosen retention rate
-- At least 1/α − 1 calibrants are needed for a finite window
-- Calibrants must resemble analytes; known selection rules are corrected on average
-- Tested on {{n_target_systems}} RepoRT systems and {{norman.n_systems}} interlaboratory NTS methods
+- Conformal RT windows keep 90 % only on average; a third of laboratories fall below
+- Replaying a laboratory's calibrant protocol on public LC systems calibrates its window
+- Guarantee: ≥90 % of correct structures retained in ≥90 % of laboratories
+- Finite guaranteed windows from three calibrants and for non-random calibrant mixes
+- Validated on 228 systems, PubChemLite candidates and 37 NORMAN laboratories
 
 # Abstract {.unnumbered}
-**Background.** Retention-time (RT) filters discard candidate structures in LC–HRMS non-target screening (NTS), but their tolerance windows are heuristic and the probability that the correct structure survives on a laboratory's own system is unknown. We aimed at RT windows that keep the correct structure at a user-chosen rate, using only a laboratory's calibrants.
+**Background.** Retention-time (RT) filters discard candidate structures in LC–HRMS non-target screening (NTS), but their tolerance windows are heuristic. Even conformal windows, which guarantee a retention rate, do so only on average over laboratories: an individual laboratory cannot know whether its own filter keeps the correct structures. We aimed at RT windows with a guarantee for the laboratory itself, from a handful of calibrants.
 
-**Results.** A retention-order model trained on public RepoRT data was mapped to each target system through its calibrants, which also defined jackknife+ conformal windows, optionally normalised by a meta-learned difficulty model. On {{n_target_systems}} reversed-phase systems in leave-source-out validation (20 calibrants, nominal 90 %), Gaussian-process, smoothing-spline and ±z·RMSE windows retained the correct structure in {{main.B3_gp_PI.coverage_mean|pct}}, {{main.B2_pspline_PI.coverage_mean|pct}} and {{main.B1_gauss_rmse.coverage_mean|pct}} and fixed ±1 min windows in {{fw.FIX_1min.n20.coverage_mean|pct}}; a meta-learned Gaussian-process prior over-covered ({{main.B7_gp_meta.coverage_mean|pct}}) with {{ratio.b7_p_width|.1f}}-fold wider windows. Conformal windows retained {{confrange.main.min|pct}}–{{confrange.main.max|pct}} (HILIC {{confrange.hilic.min|pct}}–{{confrange.hilic.max|pct}}; {{norman.n_systems}} interlaboratory methods, random calibrants: {{confrange.norrand.min|pct}}–{{confrange.norrand.max|pct}}). Finite windows require at least $1/\alpha-1$ calibrants. Normalisation improved efficiency for longer-than-median runs (median interval-score change versus jackknife+ {{span.median_rel_change_span_above_median|pct0}}) but not for shorter runs or the external methods, and reduced it for HILIC. Calibrant mixes unlike the analytes broke validity ({{nor.fixed_mix.mix.a0.10.P.coverage_mean|pct}}–{{nor.fixed_mix.mix.a0.10.B5_jackknife_plus.coverage_mean|pct}} for an interlaboratory mix); replaying a known selection rule on public data restored {{sasc.common.P+SASC.coverage_mean|pct}} for common-compound calibrants, but not for the interlaboratory mix.
+**Results.** We introduce cross-system conformal calibration (XSC). The laboratory's calibrants place and scale the window, with the scale shrunk towards a meta-learned difficulty model, and the window width is calibrated by replaying the laboratory's calibrant protocol on hundreds of public chromatographic systems. On {{x.n_systems}} reversed-phase systems in leave-source-out validation with 20 calibrants, jackknife+ windows met the average target but {{x.random.20.B5_jackknife_plus.fail|pct0}} of laboratories retained fewer than 90 % of correct structures ({{x.random.20.B1_gauss_rmse.fail|pct0}} with ±z·RMSE windows). With XSC, {{x.random.20.XSC_sigs_lab.fail|pct}} did (target ≤ 10 %), with windows {{x.ratio_XSC_sigs_lab_vs_JP_lab.median|.2f}} times as wide as equally guaranteed jackknife+ windows. The control held with three calibrants, for RT-spanning, common or polar calibrant mixes, and in 37 NORMAN interlaboratory methods using their own calibration chemicals, where XSC retained {{xk.XSC_sigs_lab.kept|pct0}} of correct suspect structures and eliminated {{xk.XSC_sigs_lab.elim|pct0}} of PubChemLite isomers.
 
-**Significance.** Conformal RT windows make the probability of keeping the correct structure a design choice, provided the calibrants represent the analytes; conventional windows discard many correct structures on new systems. The implementation needs only calibrant structures and RTs, routine chromatographic metadata and candidate structures.
+**Significance.** XSC turns RT filtering into a procedure with a stated, laboratory-level error rate: at least 90 % of correct structures retained, with 90 % confidence, for the laboratory's actual calibrants. It needs only calibrant structures and RTs, routine metadata and public data, and it shows before measurement which calibrant designs are informative.
 
 **Keywords:** non-target screening; retention-time prediction; conformal prediction; uncertainty quantification; compound identification; LC–HRMS
+

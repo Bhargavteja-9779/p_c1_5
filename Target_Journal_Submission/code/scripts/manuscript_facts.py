@@ -236,8 +236,24 @@ def xsc_facts(F, T, RES, TAB):
         if k.startswith("ratio_"):
             for s, val in v.items():
                 F[f"x.{k}.{s}"] = val
-    for k, v in M.get("per_source_fail", {}).items():
-        F[f"x.src.{k}"] = v
+    for k, v in M.get("per_source", {}).items():
+        for s, val in v.items():
+            F[f"x.src.{k}.{s}"] = val
+    srcfail = [v["fail"] for k, v in M.get("per_source", {}).items() if k.endswith(".XSC_sigs_lab")]
+    if srcfail:
+        F["x.src.max_fail_proposed"], F["x.src.min_fail_proposed"] = max(srcfail), min(srcfail)
+    jf = [v["fail"] for k, v in M.get("per_source", {}).items() if k.endswith(".B5_jackknife_plus")]
+    if jf:
+        F["x.src.max_fail_jp"], F["x.src.min_fail_jp"] = max(jf), min(jf)
+    off = os.path.join(RES, "xsc_offline_metrics.json")
+    if os.path.exists(off):
+        O = json.load(open(off))
+        for k, (fa, fe) in O.get("lab_calibration", {}).items():
+            rule, eps, dl = k.split("|"); F[f"xo.cal.{rule}.{float(eps):.2f}.{float(dl):.2f}"] = fa; F[f"xo.calx.{rule}.{float(eps):.2f}.{float(dl):.2f}"] = fe
+        for k, v in O.get("local", {}).items():
+            rule, n, meth = k.split("|")
+            for s, val in v.items():
+                F[f"xo.loc.{rule}.{n}.{meth}.{s}"] = val
     F["x.mult_diff_q90"] = M.get("multiplier_exact_vs_avg_maxreldiff", float("nan"))
     for meth, r in M.get("candidates", {}).items():
         for s, val in r.items():
@@ -251,6 +267,11 @@ def xsc_facts(F, T, RES, TAB):
         sc, n, meth = k.split("|")
         for s, val in r.items():
             F[f"xn.{sc}.{n.replace(' ', '_')}.{meth}.{s}"] = val
+    for meth, r in M.get("case", {}).items():
+        for s, val in r.items():
+            F[f"xk.{meth}.{s}"] = val
+    if "case_median_list" in M:
+        F["xk.median_list"] = M["case_median_list"]
     if "norman_S_mix" in M:
         F["xn.S_mix"] = M["norman_S_mix"]
     from docbuild import mdtab
@@ -271,4 +292,4 @@ def xsc_facts(F, T, RES, TAB):
                 cols.append(v.astype(str))
         rows = [list(r) for r in zip(*cols)]
         T[name] = mdtab(header or list(d.columns), rows)
-    tab("xsc_table_main_n20"); tab("xsc_table_per_source"); tab("xsc_table_candidates"); tab("xsc_table_norman")
+    tab("xsc_table_main_n20"); tab("xsc_table_per_source"); tab("xsc_table_candidates"); tab("xsc_table_norman"); tab("xsc_table_case")

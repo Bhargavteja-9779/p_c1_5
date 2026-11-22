@@ -87,11 +87,12 @@ def main():
         for meth in ["B1_gauss_rmse", "B5_jackknife_plus", "P", "JP_lab", "XSC_sigs_avg", "XSC_sigs_lab"]:
             x = d[d.method == meth]
             if len(x):
+                M.setdefault("per_source", {})[f"f{int(f)}.{meth}"] = {"fail": float((x.coverage < 0.9).mean()), "width": float(x.width_median.median()), "systems": int(x.system.nunique())}
                 P.append({"Held-out source": FOLD_NAMES[int(f)], "Systems": int(x.system.nunique()), "Method": LABEL[meth],
                           "Mean retention": x.coverage.mean(), "Labs < 0.90 (%)": 100 * (x.coverage < 0.9).mean(),
                           "Median width (min)": x.width_median.median()})
     Pf = pd.DataFrame(P); md_table(Pf, f"{TAB}/xsc_table_per_source")
-    M["per_source_fail"] = {f"{r['Held-out source']}|{r['Method']}": r["Labs < 0.90 (%)"] for r in P}
+
     # ---------------- width of proposed vs lab-calibrated jackknife+ (paired by system) ----------------
     pv = main[main.method.isin(["XSC_sigs_lab", "JP_lab", "XSC_flat_lab"])].groupby(["system", "method"]).width_median.median().unstack()
     for a, b_ in [("XSC_sigs_lab", "JP_lab"), ("XSC_sigs_lab", "XSC_flat_lab")]:
@@ -122,7 +123,9 @@ def main():
         M["n_features_evaluated"] = M["n_pcl"]
         if z is not None:
             M["n_pcl_added"] = int(len(z["ik14"]))
-        Cd = pd.DataFrame(C); M["candidates"] = {r["key"]: r for r in C}; md_table(Cd.drop(columns="key"), f"{TAB}/xsc_table_candidates")
+        Cd = pd.DataFrame(C)
+        M["candidates"] = {r["key"]: {"kept": r["Correct retained"], "elim": r["Candidates eliminated"], "nkept": r["Median candidates kept"],
+                                      "top1": r["Top-1 (retained)"], "top3": r["Top-3 (retained)"], "features": r["Features"]} for r in C}; md_table(Cd.drop(columns="key"), f"{TAB}/xsc_table_candidates")
         # per-laboratory: share of laboratories (system x draw) retaining < 90 % of correct structures
         lab = c.groupby(["method", "system", "draw"]).true_kept.mean().reset_index()
         M["candidates_lab_fail"] = {m: float((g.true_kept < 0.9).mean()) for m, g in lab.groupby("method")}
@@ -135,10 +138,26 @@ def main():
             Nn.append({"Scenario": sc, "n": "lab mix" if n == -1 else int(n), "Method": LABEL.get(meth, meth), "key": meth,
                        "Methods (labs)": s["n_systems"], "Mean retention": s["coverage_mean"], "Labs < 0.90 (%)": 100 * s["fail"],
                        "Labs < 0.85 (%)": 100 * s["fail_085"], "Median width (min)": s["width_median"], "Median IS": s["is_median"]})
-        Nd = pd.DataFrame(Nn); M["norman"] = {f"{r['Scenario']}|{r['n']}|{r['key']}": r for r in Nn}
+        Nd = pd.DataFrame(Nn)
+        M["norman"] = {f"{r['Scenario']}|{r['n']}|{r['key']}": {"cov": r["Mean retention"], "fail": r["Labs < 0.90 (%)"] / 100,
+                       "fail085": r["Labs < 0.85 (%)"] / 100, "width": r["Median width (min)"], "labs": r["Methods (labs)"]} for r in Nn}
         md_table(Nd.drop(columns="key"), f"{TAB}/xsc_table_norman")
         nmult = pd.read_csv(f"{RAW}/norman_multipliers.csv"); M["norman_S_mix"] = int(nmult[nmult.rule == "norman"].S.max())
         md_table(nmult, f"{TAB}/xsc_table_norman_multipliers")
+    if os.path.exists(f"{RAW}/norman_case.parquet"):
+        cs = pd.read_parquet(f"{RAW}/norman_case.parquet")
+        K = []
+        for meth, d in cs.groupby("method"):
+            lab = d.groupby("cs").true_kept.mean()
+            K.append({"Method": LABEL.get(meth, {"RMSE_x2": "±2·RMSE"}.get(meth, meth)), "key": meth, "Laboratories": int(d.cs.nunique()),
+                      "Suspects × labs": int(len(d)), "Correct retained": d.true_kept.mean(), "Labs < 0.90 (%)": 100 * float((lab < 0.9).mean()),
+                      "Candidates eliminated": d.elim.mean(), "Median candidates kept": float(d.n_kept.median()),
+                      "Top-1 (retained)": float(((d["rank"] == 1) & d.true_kept).mean()), "Top-3 (retained)": float(((d["rank"] <= 3) & d.true_kept).mean())})
+        M["case"] = {r["key"]: {"kept": r["Correct retained"], "labfail": r["Labs < 0.90 (%)"] / 100, "elim": r["Candidates eliminated"],
+                                "nkept": r["Median candidates kept"], "top1": r["Top-1 (retained)"], "top3": r["Top-3 (retained)"],
+                                "labs": r["Laboratories"], "n": r["Suspects × labs"]} for r in K}
+        M["case_median_list"] = float(cs[cs.method == cs.method.iloc[0]].n_cand.median())
+        md_table(pd.DataFrame(K).drop(columns="key"), f"{TAB}/xsc_table_case")
     json.dump(M, open("../results/xsc_metrics.json", "w"), indent=1, default=float)
     figures(ev, S)
     print("analysis done; folds", M["folds_done"])
