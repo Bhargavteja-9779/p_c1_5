@@ -30,18 +30,18 @@ applied to laboratories instead of compounds. The claim follows from cov_T(ĉ) �
 
 The guarantee is *training-conditional with respect to the laboratory's own calibrants*: it holds for the laboratory's actual
 calibrant draw (with probability 1 − δ over laboratories and draws), not on average over hypothetical repetitions, which is the
-only kind of guarantee that jackknife+ or split conformal windows give with n ≈ 20 calibrants (Section 4.2). It needs no
+only kind of guarantee that jackknife+ or split conformal windows give with n ≈ 20 calibrants (main text, Section 4.1). It needs no
 minimum n: n enters only through the replayed protocol. For n ≥ 1/α − 1 this is the cross-system analogue of PAC/
 training-conditional conformal prediction [Vovk 2012; Park et al. 2022, meta-learning PAC prediction sets].
 
 **Draw-averaged version (used in the main text).** With several replay draws per system (8 here), we use the system-level CDF
 F_k(c) = (1/R)Σ_r 1{V_{k,r} ≤ c} and choose the smallest c with (1/S)Σ_k F_k(c) ≥ (1 − δ)(1 + 1/S). This reduces the
 Monte-Carlo noise of a single draw per system; its validity is approximate (it is exact as R → ∞ for the population version
-of the pooled CDF, cf. the pooling estimators of Dunn et al. 2023). Both versions are reported (Table S-XSC); they differ by
+of the pooled CDF, cf. the pooling estimators of Dunn et al. 2023). Both versions are reported (Table S28); they differ by
 at most a few percent in c.
 
 **Average-retention version.** Choosing the smallest c with (1/S)Σ_k cov_{s_k}(c) ≥ 1 − α controls the expected retention
-over laboratories, E cov_T(c) ≥ 1 − α, up to an O(1/S) term (selection-aware calibration of Section 2.7 is the special case
+over laboratories, E cov_T(c) ≥ 1 − α, up to an O(1/S) term (selection-aware calibration of Section S6 is the special case
 in which the window shape is that of jackknife+).
 
 **What the guarantee does not cover.** (i) Laboratories whose system or analyte population is systematically unlike the

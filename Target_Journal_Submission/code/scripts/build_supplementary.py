@@ -359,11 +359,71 @@ def t_compute():
         f"peak memory {cb['peak_rss_MB']:.0f} MB.", ["Calibrants n", "Calibration (ms)", "Window per candidate (µs)"], rows, d)
 
 
+# ------------------------------------------------------------------ revision: cross-system conformal calibration (XSC)
+XL = {"B1_gauss_rmse": "Gaussian ±z·RMSE", "B5_jackknife_plus": "Jackknife+", "P": "Jackknife+, meta-learned σ", "JP_lab": "Jackknife+ × XSC multiplier (B8)",
+      "XSC_flat_lab": "XSC, σ ≡ 1 (B9)", "XSC_sigs_avg": "XSC, average target", "XSC_sigs_lab": "XSC, laboratory-level (proposed)",
+      "XSC_flat_avg": "XSC, σ ≡ 1, average target", "XSC_sig_lab": "XSC, σ without shrinkage", "XSC_sig_avg": "XSC, σ without shrinkage, average"}
+RULE = {"random": "Random", "span": "RT-spanning", "common": "Most common", "polar": "Most polar", "norman": "NORMAN mix"}
+
+
+def t_xsc_rules():
+    d = rd("xsc_table_rules_n")
+    rows = [[RULE.get(r.rule, r.rule), int(r.n), XL.get(r.method, r.method), num(r.coverage_mean), pct(r.fail, 1), pct(r.fail_085, 1),
+             pct(r.share_infinite), num(r.width_median, 2), num(r.is_median, 2)] for _, r in d.iterrows()]
+    add("xsc_table_rules_n", "xsc_rules_n",
+        "Laboratory-level retention for every calibrant-selection rule and calibrant number (target retention 0.90, δ = 0.10; 228 held-out "
+        "reversed-phase systems, leave-source-out; 20 calibrant draws per system for random calibrants, 10 otherwise). Failing: share of "
+        "laboratories (system × draw) with retention below 0.90 (or 0.85). Jackknife+-based windows are not defined for n < 9.",
+        ["Rule", "n", "Method", "Mean retention", "Failing < 0.90 (%)", "Failing < 0.85 (%)", "Infinite windows (%)", "Median width (min)",
+         "Median interval score (min)"], rows, d)
+
+
+def t_xsc_mult():
+    d = rd("xsc_table_multipliers")
+    fam = {"flat": "σ ≡ 1", "sigs": "shrunk σ (proposed)", "jp": "jackknife+ scores"}
+    rows = [[FOLD_NAMES.get(int(r.fold), r.fold), RULE.get(r.rule, r.rule), int(r.n), fam.get(r.family, r.family), int(r.S), num(r["c_avg_0.1"], 2),
+             num(r["c_lab_0.1"], 2), num(r["c_labx_0.1"], 2)] for _, r in d.iterrows()]
+    add("xsc_table_multipliers", "xsc_multipliers",
+        "XSC multipliers per held-out source group, selection rule, calibrant number and window family, calibrated on S training systems: "
+        "average target (α = 0.10), laboratory-level target (ε = δ = 0.10; draw-averaged distribution function, used in the main text) and the "
+        "exact one-replay-per-system order statistic.",
+        ["Held-out source", "Rule", "n", "Window family", "S", "c (average)", "c (laboratory)", "c (laboratory, exact)"], rows, d)
+
+
+def t_conventional():
+    d = rd("table2_main_n20_a010")
+    rows = [summary_cells(r) for _, r in d.iterrows()]
+    add("table2_main_n20_a010", "conventional_windows",
+        "Average coverage of conventional and calibrant-only conformal windows (n = 20, α = 0.10; 228 systems, leave-source-out; per-system "
+        "means over 20 draws). 'Proposed' in the method labels of this table refers to the normalised jackknife+ window, a comparator in the "
+        "present article.", SUMMARY_HEAD, rows, d)
+
+
+def t_xsc_source():
+    d = rd("xsc_table_per_source")
+    rows = [[r["Held-out source"], int(r["Systems"]), r["Method"], num(r["Mean retention"]), num(r["Labs < 0.90 (%)"], 1), num(r["Median width (min)"], 2)] for _, r in d.iterrows()]
+    add("xsc_table_per_source", "xsc_per_source",
+        "Laboratory-level failure rate (retention < 0.90) and median width per held-out source group (n = 20 random calibrants).",
+        ["Held-out source", "Systems", "Method", "Mean retention", "Failing laboratories (%)", "Median width (min)"], rows, d)
+
+
+def t_xsc_norman():
+    if not os.path.exists(os.path.join(TAB, "xsc_table_norman.csv")):
+        return
+    d = rd("xsc_table_norman")
+    rows = [[r["Scenario"], r["n"], r["Method"], int(r["Methods (labs)"]), num(r["Mean retention"]), num(r["Labs < 0.90 (%)"], 1),
+             num(r["Labs < 0.85 (%)"], 1), num(r["Median width (min)"], 2)] for _, r in d.iterrows()]
+    add("xsc_table_norman", "xsc_norman",
+        "External validation of XSC on the 37 NORMAN interlaboratory methods (multipliers calibrated on RepoRT only). Random scenarios: 20 "
+        "calibrant draws per method; laboratory mix: each laboratory's calibration chemicals as calibrants and its suspects as analytes.",
+        ["Scenario", "n", "Method", "Laboratories", "Mean retention", "Failing < 0.90 (%)", "Failing < 0.85 (%)", "Median width (min)"], rows, d)
+
+
 # ------------------------------------------------------------------ document
 facts, _ = build_facts(RES, TAB)
 for f in [t_training_sizes, t_all_n_alpha, t_validity, t_paired_all, t_small_n, t_fixed, t_per_fold, t_fold_het, t_strata, t_superclass,
           t_worst, t_errors, t_decoys, t_decoy_tests, t_matched, t_fixed_decoys, t_ablation, t_sensitivity, t_robustness, t_mechanism,
-          t_generalisation, t_norman, t_norman_strata, t_sasc, t_sasc_c, t_compute]:
+          t_generalisation, t_norman, t_norman_strata, t_sasc, t_sasc_c, t_compute, t_xsc_rules, t_xsc_mult, t_conventional, t_xsc_source, t_xsc_norman]:
     f()
 TB = {t[1]: t for t in TABLES}
 
@@ -378,14 +438,15 @@ def fig_block(name, cap):
 
 
 proof = open(os.path.join(SUP, "S2_coverage_proof.md")).read()
+xsc_proof = open(os.path.join(SUP, "S7_laboratory_level_guarantee.md")).read()
 doc = f"""**Supplementary Material**
 
-**Distribution-free retention-time windows for candidate filtering in LC–HRMS non-target screening on new chromatographic systems**
+**Laboratory-level guarantees for retention-time filtering in non-target screening by cross-system conformal calibration**
 
 Contents: S1 Dataset details · S2 Coverage proof for the normalised jackknife+ window · S3 Results for all calibrant numbers and α levels ·
 S4 Per-fold results · S5 Conditional coverage and error analysis · S6 Candidate filtering, ablation, sensitivity, robustness, generalisation,
-external validation, selection-aware calibration and computational cost. All tables are generated by `code/scripts/build_supplementary.py`
-from the analysis outputs in `tables/` and `results/`; `supplementary/table_index.csv` lists the source file of every table.
+external validation, selection-aware calibration and computational cost · S7 Laboratory-level guarantee of XSC (proof) · S8 XSC results for all rules, calibrant numbers, multipliers and external laboratories. All tables are generated by `code/scripts/build_supplementary.py`
+from the analysis outputs in `tables/` and `results/`; `supplementary/table_index.csv` lists the source file of every table. In Sections S2–S6, which analyse calibrant-only windows, 'Proposed' denotes the normalised jackknife+ window with the meta-learned difficulty model; in the main article this window is a comparator, and the proposed method is cross-system conformal calibration (Sections S7–S8).
 
 ## S1. Dataset details
 
@@ -437,6 +498,16 @@ available in each leave-source-out fold.
 {table_block("table12_sasc")}
 {table_block("tableS15_sasc_c_values")}
 {table_block("compute_benchmark.json")}
+
+{xsc_proof}
+
+## S8. Cross-system conformal calibration: all rules, calibrant numbers, multipliers and external laboratories
+{table_block("xsc_table_rules_n")}
+{table_block("xsc_table_multipliers")}
+{table_block("table2_main_n20_a010")}
+{table_block("xsc_table_per_source")}
+{table_block("xsc_table_norman") if "xsc_table_norman" in TB else ""}
+{fig_block("figX3_lab_calibration", "Fig. S3. Laboratory-level calibration of XSC: observed share of laboratories whose retention falls below 1 − ε against the nominal δ (random calibrants, all n pooled; leave-source-out); dashed line: identity.")}
 """
 order_in_doc = [int(m) for m in re.findall(r"Table: Table S(\d+)\.", doc)]
 assert order_in_doc == sorted(order_in_doc) == list(range(1, len(TABLES) + 1)), order_in_doc
