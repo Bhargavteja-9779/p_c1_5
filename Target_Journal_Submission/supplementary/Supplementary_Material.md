@@ -1019,18 +1019,18 @@ applied to laboratories instead of compounds. The claim follows from cov_T(ĉ) �
 
 The guarantee is *training-conditional with respect to the laboratory's own calibrants*: it holds for the laboratory's actual
 calibrant draw (with probability 1 − δ over laboratories and draws), not on average over hypothetical repetitions, which is the
-only kind of guarantee that jackknife+ or split conformal windows give with n ≈ 20 calibrants (Section 4.2). It needs no
+only kind of guarantee that jackknife+ or split conformal windows give with n ≈ 20 calibrants (main text, Section 4.1). It needs no
 minimum n: n enters only through the replayed protocol. For n ≥ 1/α − 1 this is the cross-system analogue of PAC/
 training-conditional conformal prediction [Vovk 2012; Park et al. 2022, meta-learning PAC prediction sets].
 
 **Draw-averaged version (used in the main text).** With several replay draws per system (8 here), we use the system-level CDF
 F_k(c) = (1/R)Σ_r 1{V_{k,r} ≤ c} and choose the smallest c with (1/S)Σ_k F_k(c) ≥ (1 − δ)(1 + 1/S). This reduces the
 Monte-Carlo noise of a single draw per system; its validity is approximate (it is exact as R → ∞ for the population version
-of the pooled CDF, cf. the pooling estimators of Dunn et al. 2023). Both versions are reported (Table S28); they differ by
-at most a few percent in c.
+of the pooled CDF, cf. the pooling estimators of Dunn et al. 2023). Both versions are reported (Table S28); for 90 % of the protocols their multipliers differ by less than
+10 %, and their failure rates on the held-out systems are practically the same (Section 4.2).
 
 **Average-retention version.** Choosing the smallest c with (1/S)Σ_k cov_{s_k}(c) ≥ 1 − α controls the expected retention
-over laboratories, E cov_T(c) ≥ 1 − α, up to an O(1/S) term (selection-aware calibration of Section 2.7 is the special case
+over laboratories, E cov_T(c) ≥ 1 − α, up to an O(1/S) term (selection-aware calibration of Section S6 is the special case
 in which the window shape is that of jackknife+).
 
 **What the guarantee does not cover.** (i) Laboratories whose system or analyte population is systematically unlike the
@@ -1479,6 +1479,37 @@ Table: Table S29. Average coverage of conventional and calibrant-only conformal 
 
 Table: Table S30. Laboratory-level failure rate (retention < 0.90) and median width per held-out source group (n = 20 random calibrants).
 
+
+| Scenario | n | Method | Laboratories | Mean retention | Failing < 0.90 (%) | Failing < 0.85 (%) | Median width (min) |
+|----------|-------|--------------------------|--------------|-----------|---------|---------|---------|
+| fixed_mix | lab mix | ±z·RMSE (Gaussian) | 37 | 0.851 | 59.5 | 35.1 | 5.88 |
+| fixed_mix | lab mix | Jackknife+ | 37 | 0.869 | 54.1 | 37.8 | 6.44 |
+| fixed_mix | lab mix | Jackknife+, meta-learned σ | 37 | 0.851 | 59.5 | 54.1 | 6.03 |
+| fixed_mix | lab mix | XSC flat (average) | 37 | 0.818 | 75.7 | 51.4 | 5.30 |
+| fixed_mix | lab mix | XSC flat (lab-level) | 37 | 0.970 | 8.1 | 2.7 | 11.68 |
+| fixed_mix | lab mix | XSC (average) | 37 | 0.847 | 75.7 | 51.4 | 5.69 |
+| fixed_mix | lab mix | XSC (lab-level, proposed) | 37 | 0.909 | 40.5 | 8.1 | 7.96 |
+| random_all | 5 | ±z·RMSE (Gaussian) | 37 | 0.816 | 54.3 | 43.0 | 7.35 |
+| random_all | 5 | XSC flat (average) | 37 | 0.907 | 28.1 | 20.5 | 11.02 |
+| random_all | 5 | XSC flat (lab-level) | 37 | 0.981 | 5.5 | 4.1 | 23.97 |
+| random_all | 5 | XSC (average) | 37 | 0.867 | 48.4 | 34.7 | 8.20 |
+| random_all | 5 | XSC (lab-level, proposed) | 37 | 0.967 | 9.7 | 4.2 | 15.19 |
+| random_all | 10 | ±z·RMSE (Gaussian) | 37 | 0.866 | 51.6 | 34.1 | 6.81 |
+| random_all | 10 | Jackknife+ | 37 | 0.923 | 26.2 | 14.6 | 8.21 |
+| random_all | 10 | Jackknife+, meta-learned σ | 37 | 0.922 | 28.1 | 17.4 | 8.54 |
+| random_all | 10 | XSC flat (average) | 37 | 0.912 | 30.9 | 18.1 | 8.23 |
+| random_all | 10 | XSC flat (lab-level) | 37 | 0.982 | 3.5 | 1.8 | 14.65 |
+| random_all | 10 | XSC (average) | 37 | 0.879 | 47.7 | 30.3 | 7.23 |
+| random_all | 10 | XSC (lab-level, proposed) | 37 | 0.968 | 9.5 | 3.0 | 12.04 |
+| random_all | 20 | ±z·RMSE (Gaussian) | 37 | 0.881 | 48.8 | 31.1 | 6.42 |
+| random_all | 20 | Jackknife+ | 37 | 0.909 | 34.5 | 20.8 | 7.14 |
+| random_all | 20 | Jackknife+, meta-learned σ | 37 | 0.912 | 33.6 | 20.5 | 7.30 |
+| random_all | 20 | XSC flat (average) | 37 | 0.902 | 37.6 | 23.2 | 6.98 |
+| random_all | 20 | XSC flat (lab-level) | 37 | 0.974 | 4.3 | 1.4 | 11.46 |
+| random_all | 20 | XSC (average) | 37 | 0.890 | 44.9 | 26.9 | 6.53 |
+| random_all | 20 | XSC (lab-level, proposed) | 37 | 0.963 | 8.9 | 3.2 | 10.03 |
+
+Table: Table S31. External validation of XSC on the 37 NORMAN interlaboratory methods (multipliers calibrated on RepoRT only). Random scenarios: 20 calibrant draws per method; laboratory mix: each laboratory's calibration chemicals as calibrants and its suspects as analytes.
 
 
 ![Fig. S3. Laboratory-level calibration of XSC: observed share of laboratories whose retention falls below 1 − ε against the nominal δ (random calibrants, all n pooled; leave-source-out); dashed line: identity.](/home/user/p_c1_5/Target_Journal_Submission/figures/figX3_lab_calibration.png){width=16cm}
