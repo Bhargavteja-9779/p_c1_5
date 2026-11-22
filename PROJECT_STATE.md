@@ -172,3 +172,10 @@ User instructions (keep): first author **P N Bhargav Teja**, second author place
   analyze_xsc.py + analyze_xsc_offline.py, VERIFY claims in 04_results §"Filtering real candidate lists" and §"Real-world case"
   against numbers (text was written before the data; rewrite if not supported), then build_manuscript.py, build_supplementary.py,
   build_cover_letter.py; adversarial review; commit/push.
+
+## Status 2026-11-22 08:30 UTC — novelty revision COMPLETE (submission-ready apart from author details)
+* Manuscript (34 pp), Supplementary Material (31 tables, S7 proof, Fig. S3), cover letter and graphical abstract rebuilt from
+  machine-generated results; all claims checked against tables after an internal hostile review (fixes applied).
+* Author-side items left: second author name, affiliations, e-mail; date in cover letter; optionally trim body (8.3k words).
+* Honest limitations stated in the text: shrunk-σ XSC failed on NORMAN own mixes (43 %; masked-metadata replay did not fix it
+  → σ ≡ 1 recommended for fixed mixes); polar rule n=20 11.4 % and one source group 10.8 % slightly above δ.
