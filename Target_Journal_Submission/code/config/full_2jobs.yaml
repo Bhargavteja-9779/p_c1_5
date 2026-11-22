@@ -1,0 +1,26 @@
+# Full (pre-registered) configuration. Paths are relative to the code/ directory unless absolute.
+name: full
+processed_dir: data/processed
+cache_dir: cache
+out_dir: ../results
+method_type: RP
+min_target_compounds: 60
+min_test: 20
+n_list: [10, 15, 20, 30, 40]
+primary_n: 20
+draws: 20
+alphas: [0.05, 0.1, 0.2]
+expensive_n: [10, 20, 40]
+decoy_draws: 5
+max_decoys: 30
+smrt_n: 15000
+n_jobs: 2
+seed: 0
+n_ensemble: 5
+ens_trees: 200
+sim_n_list: [10, 20, 40]
+sim_draws: 3
+base_model: {n_estimators: 600, eta: 0.05, max_depth: 8, subsample: 0.8, colsample_bytree: 0.5, min_child_weight: 5}
+smrt_model: {n_estimators: 1500, learning_rate: 0.03, num_leaves: 127, feature_fraction: 0.5}
+difficulty_model: {n_estimators: 400, learning_rate: 0.05, num_leaves: 31, min_child_samples: 100}
+methods: [B1_gauss_rmse, B2_pspline_PI, B3_gp_PI, B4_split_conformal, B5_jackknife_plus, B6_jk+_ensemble]

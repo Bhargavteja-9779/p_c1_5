@@ -2,11 +2,13 @@
 title: "Distribution-free retention-time windows for candidate filtering in LC–HRMS non-target screening on new chromatographic systems"
 ---
 
-[First Author]^a^, [Second Author]^a,\*^
+P N Bhargav Teja^a,\*^, [Second Author]^b^
 
-^a^ [Department, Institution, Address, Country]
+^a^ [Department, Institution, City, Country]
 
-\* Corresponding author: [name, e-mail address]
+^b^ [Department, Institution, City, Country]
+
+\* Corresponding author: P N Bhargav Teja, [e-mail address]
 
 # Highlights {.unnumbered}
 - Parametric and fixed RT windows lose correct structures on new LC systems
