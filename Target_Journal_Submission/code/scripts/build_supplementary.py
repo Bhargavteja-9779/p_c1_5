@@ -506,7 +506,7 @@ available in each leave-source-out fold.
 {table_block("table2_main_n20_a010")}
 {table_block("xsc_table_per_source")}
 {table_block("xsc_table_norman") if "xsc_table_norman" in TB else ""}
-{fig_block("figX3_lab_calibration", "Fig. S3. Laboratory-level calibration of XSC: observed share of laboratories whose retention falls below 1 − ε against the nominal δ (random calibrants, all n pooled; leave-source-out); dashed line: identity.")}
+{fig_block("figX3_lab_calibration", "Fig. S3. Laboratory-level calibration of XSC: observed share of laboratories whose retention falls below 1 − ε against the nominal δ (random calibrants, all calibrant numbers and all five held-out source groups pooled); dashed line: identity.")}
 """
 order_in_doc = [int(m) for m in re.findall(r"Table: Table S(\d+)\.", doc)]
 assert order_in_doc == sorted(order_in_doc) == list(range(1, len(TABLES) + 1)), order_in_doc

@@ -1517,5 +1517,5 @@ Table: Table S30. Laboratory-level failure rate (retention < 0.90) and median wi
 Table: Table S31. External validation of XSC on the 37 NORMAN interlaboratory methods (multipliers calibrated on RepoRT only). Random scenarios: 20 calibrant draws per method; laboratory mix: each laboratory's calibration chemicals as calibrants and its suspects as analytes.
 
 
-![Fig. S3. Laboratory-level calibration of XSC: observed share of laboratories whose retention falls below 1 − ε against the nominal δ (random calibrants, all n pooled; leave-source-out); dashed line: identity.](/home/user/p_c1_5/Target_Journal_Submission/figures/figX3_lab_calibration.png){width=16cm}
+![Fig. S3. Laboratory-level calibration of XSC: observed share of laboratories whose retention falls below 1 − ε against the nominal δ (random calibrants, all calibrant numbers and all five held-out source groups pooled); dashed line: identity.](/home/user/p_c1_5/Target_Journal_Submission/figures/figX3_lab_calibration.png){width=16cm}
 
