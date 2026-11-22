@@ -259,3 +259,29 @@ def fig_alpha_calibration(summ_alpha, out, methods, labels, n=20):
     ax.plot(lim, lim, color=INK, lw=0.8, ls=(0, (3, 2))); ax.set_xlim(lim); ax.set_ylim(0.6, 1.0)
     ax.set_xlabel("Nominal coverage 1 − α"); ax.set_ylabel("Mean empirical coverage"); ax.grid(); ax.legend(frameon=False, fontsize=5.6)
     _save(fig, out, "figS2_alpha_calibration")
+
+
+# ------------------------------------------------------------------ Fig 1 (revision): XSC workflow schematic (no data)
+def fig_workflow_xsc(out):
+    fig, ax = plt.subplots(figsize=(W2, 78 * MM)); ax.set_xlim(0, 100); ax.set_ylim(0, 46); ax.axis("off")
+    fs_ = 6.1
+    boxes = [
+        (0.5, 25, 23, 14, "Public RT data:\nhundreds of chromatographic\nsystems (RepoRT)", "#eef4fc"),
+        (27, 25, 27, 14, "Replay the laboratory's protocol\n(n calibrants, selection rule ρ)\non every public system s;\nmodels never saw s", "#eef4fc"),
+        (57.5, 25, 42, 14, "Per system: smallest multiplier Vₛ giving\nretention ≥ 1 − ε on its other compounds\nc = ⌈(1−δ)(S+1)⌉-th smallest Vₛ\n⇒ P{laboratory retention ≥ 1 − ε} ≥ 1 − δ", "#eaf7f1"),
+        (0.5, 3, 31, 15, "Laboratory: n calibrants (sᵢ, tᵢ)\nmonotone map g; LOO residuals rᵢ\nscale τ̂ shrunk towards the\nmeta-learned difficulty σ(x)", "#fdf0ea"),
+        (35, 3, 30, 15, "Window\nC(x) = g(s(x)) ± c · τ̂ · σ(x)\nfinite for any n ≥ 3", "#f3f2ef"),
+        (68.5, 3, 31, 15, "Candidate filtering in NTS:\nkeep a structure if observed RT ∈ C(x)\n(e.g. PubChemLite isomers)", "#f3f2ef"),
+    ]
+    for x, y, w, h, txt, fc in boxes:
+        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.3,rounding_size=1.0", fc=fc, ec=INK2, lw=0.7))
+        ax.text(x + w / 2, y + h / 2, txt, ha="center", va="center", fontsize=fs_, color=INK, linespacing=1.3)
+    arr = dict(arrowstyle="-|>", mutation_scale=8, lw=0.9, color=INK2)
+    for (x0, y0, x1, y1) in [(24.3, 32, 26.7, 32), (54.3, 32, 57.2, 32), (32.0, 10.5, 34.7, 10.5), (65.8, 10.5, 68.2, 10.5),
+                             (78, 24.7, 55, 18.3)]:
+        ax.add_patch(FancyArrowPatch((x0, y0), (x1, y1), **arr))
+    ax.add_patch(FancyArrowPatch((16, 18.3), (35, 24.7), **dict(arr, linestyle=(0, (3, 2)))))
+    ax.text(14, 21.0, "protocol (n, ρ)", fontsize=5.8, color=INK2, rotation=17)
+    ax.text(70, 21.2, "multiplier c", fontsize=5.8, color=INK2)
+    ax.text(50, 41.5, "systems, not compounds, are the exchangeable calibration units", ha="center", fontsize=6.4, color=INK2, style="italic")
+    _save(fig, out, "fig1_workflow")

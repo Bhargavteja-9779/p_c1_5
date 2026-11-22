@@ -119,8 +119,10 @@ def main():
                       "Top-3 (retained)": float(((d["rank"] <= 3) & d.true_kept).mean())})
         M["median_list"] = float(c.n_cand.median())
         z = np.load(os.path.join("cache", "pubchemlite", "cand_features.npz"), allow_pickle=True) if os.path.exists(os.path.join("cache", "pubchemlite", "cand_features.npz")) else None
-        M["n_pcl"] = int(c[["system", "par"]].drop_duplicates().shape[0])  # features evaluated (overwritten below if cache exists)
-        M["n_features_evaluated"] = M["n_pcl"]
+        M["n_features_evaluated"] = int(c[["system", "par"]].drop_duplicates().shape[0])
+        pcl = "data/raw/pubchemlite/PubChemLite_exposomics_20260925.csv"
+        if os.path.exists(pcl):
+            M["n_pcl"] = f"{int(pd.read_csv(pcl, usecols=['FirstBlock']).FirstBlock.nunique()):,}"
         if z is not None:
             M["n_pcl_added"] = int(len(z["ik14"]))
         Cd = pd.DataFrame(C)
