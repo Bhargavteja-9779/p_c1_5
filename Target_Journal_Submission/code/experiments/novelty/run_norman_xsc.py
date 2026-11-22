@@ -26,6 +26,9 @@ from conformrt.preprocessing.features import mol_from_smiles
 cfg, data, fs, ex = X.cfg, X.data, X.fs, X.ex
 quick = cfg["name"] == "quick"
 OUT = os.path.join(cfg["out_dir"], "raw", "xsc")
+# MASK=1: replay with the metadata the NORMAN methods lack (temperature, flow, dead time) blanked on the RepoRT systems, so that
+# the multiplier is calibrated for the information the laboratory actually has (Addendum G6, after review).
+MASK = os.environ.get("XSC_MASK_META", "0") == "1"; SUF = "_masked" if MASK else ""
 N_RAND = [5, 10, 20]; FAMS = ("flat", "sigs"); DTR = 2 if quick else 8; DEV = 2 if quick else 20
 # ---- reuse the NORMAN data preparation of experiments/run_norman.py (everything before the decoy section) ----
 src = open("experiments/run_norman.py").read()
@@ -62,7 +65,7 @@ def replay(job):
 
 if __name__ == "__main__":
     t0 = time.time()
-    sim_path = os.path.join(OUT, "norman_replay.pkl")
+    sim_path = os.path.join(OUT, f"norman_replay{SUF}.pkl")
     if os.path.exists(sim_path):
         outs = pd.read_pickle(sim_path)
     else:
@@ -77,7 +80,10 @@ if __name__ == "__main__":
                 systems = systems[:5]
             sc = ex.scores_and_novelty(ex.fm.get(frozenset({g})), systems)
             for sid in systems:
-                j = X.make_job(sid, sc, sig_g, {g}); j["ik"] = data.rt[data.rt.system == sid].ik14.values; jobs.append(j)
+                j = X.make_job(sid, sc, sig_g, {g})
+                if MASK:
+                    j["sysf"] = dict(j["sysf"], temp=np.nan, flow=np.nan, t0=np.nan)
+                j["ik"] = data.rt[data.rt.system == sid].ik14.values; jobs.append(j)
         outs = Parallel(n_jobs=cfg["n_jobs"], backend="loky")(delayed(replay)(j) for j in jobs)
         pd.to_pickle(outs, sim_path)
     keys = sorted(set(k for _, o in outs for k in o))
@@ -91,7 +97,7 @@ if __name__ == "__main__":
             row[f"c_lab_{e}"] = choose_lab([p[1][e] for p in per], e, X.DELTA)
             row[f"c_labx_{e}"] = choose_lab_exact(np.array([p[1][e][0] for p in per]), X.DELTA)
         ctab.append(row)
-    ctab = pd.DataFrame(ctab); ctab.to_csv(os.path.join(OUT, "norman_multipliers.csv"), index=False)
+    ctab = pd.DataFrame(ctab); ctab.to_csv(os.path.join(OUT, f"norman_multipliers{SUF}.csv"), index=False)
     cd = {(r["rule"], r["n"], r["family"]): r for r in ctab.to_dict("records")}
     print("replay done", time.time() - t0, flush=True)
 
@@ -139,5 +145,5 @@ if __name__ == "__main__":
                     rows.append({"cs": cs, "scenario": name, "n": len(cal), "draw": r, "method": meth, "coverage": float(cov.mean()),
                                  "width_median": float(np.median(w)) if fin else np.inf,
                                  "winkler": float(winkler(lo, hi, y_te, 0.10).mean()) if fin else np.inf, "span": float(y.max() - y.min())})
-    pd.DataFrame(rows).to_parquet(os.path.join(OUT, "norman_eval.parquet"))
+    pd.DataFrame(rows).to_parquet(os.path.join(OUT, f"norman_eval{SUF}.parquet"))
     print("NORMAN_XSC_DONE", time.time() - t0, flush=True)

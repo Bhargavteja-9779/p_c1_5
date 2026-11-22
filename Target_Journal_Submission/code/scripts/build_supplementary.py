@@ -19,7 +19,7 @@ RES, TAB, FIG, SUP = (os.path.join(ROOT, d) for d in ("results", "tables", "figu
 OUT_TAB = os.path.join(SUP, "tables"); os.makedirs(OUT_TAB, exist_ok=True)
 
 LAB = dict(METHOD_LABELS)
-LAB.update({"P+SASC": "Proposed + SASC", "J+SASC": "Jackknife+ + SASC", "J+": "Jackknife+",
+LAB.update({"P+SASC": "Normalised jackknife+ + SASC", "J+SASC": "Jackknife+ + SASC", "J+": "Jackknife+",
             "RMSE_x2": "±2·RMSE", "RMSE_x3": "±3·RMSE", "FIX_0.25min": "±0.25 min", "FIX_0.5min": "±0.5 min", "FIX_1min": "±1 min",
             "FIX_2min": "±2 min", "FIX_5pct": "±5 % of predicted RT", "FIX_10pct": "±10 % of predicted RT"})
 MAIN7 = ["P", "B5_jackknife_plus", "B6_jk+_ensemble", "B4_split_conformal", "B1_gauss_rmse", "B2_pspline_PI", "B3_gp_PI", "B7_gp_meta"]
@@ -121,11 +121,11 @@ def t_paired_all():
              f"{float(r.median_diff):+.2f} [{float(r.diff_ci_lo):+.2f}, {float(r.diff_ci_hi):+.2f}]", pct(r.share_ref_better),
              f"{float(r.rank_biserial):+.2f}", pval(r.p_holm)] for _, r in d.iterrows()]
     add("tableS3_paired_winkler_all_n_alpha", "paired_interval_score_all_n_alpha",
-        "Paired comparison of per-system interval scores of the proposed windows with each comparator for every n and α (two-sided "
-        "Wilcoxon signed-rank tests with Holm correction; negative differences favour the proposed windows). Comparators whose windows "
+        "Paired comparison of per-system interval scores of the normalised jackknife+ windows with each comparator for every n and α (two-sided "
+        "Wilcoxon signed-rank tests with Holm correction; negative differences favour the normalised jackknife+ windows). Comparators whose windows "
         "are unbounded at a given (n, α) are omitted.",
-        ["n", "α", "Comparator", "Systems", "Median score, proposed (min)", "Median score, comparator (min)", "Median paired difference [95 % CI] (min)",
-         "Systems where proposed is better (%)", "Rank-biserial r", "Holm-adjusted p"], rows, d)
+        ["n", "α", "Comparator", "Systems", "Median score, normalised jackknife+ (min)", "Median score, comparator (min)", "Median paired difference [95 % CI] (min)",
+         "Systems where normalised jackknife+ is better (%)", "Rank-biserial r", "Holm-adjusted p"], rows, d)
 
 
 def t_small_n():
@@ -141,7 +141,7 @@ def t_fixed():
     rows = [[int(r.n)] + summary_cells(r) for _, r in d.iterrows()]
     add("table9_fixed_windows", "fixed_tolerance_windows",
         "Fixed-tolerance windows (±0.25 to ±2 min, ±5 % and ±10 % of the predicted RT) and residual-based windows (±2·RMSE, ±3·RMSE of the "
-        "calibrant residuals) evaluated on the same calibrant draws as the main study (post hoc), with the proposed windows, jackknife+ and the "
+        "calibrant residuals) evaluated on the same calibrant draws as the main study (post hoc), with the normalised jackknife+ windows, jackknife+ and the "
         "Gaussian window (α = 0.10) for reference. The column 'Systems > 0.05 below nominal' refers to the nominal level 0.90.",
         ["n"] + SUMMARY_HEAD, rows, d)
 
@@ -159,9 +159,9 @@ def t_fold_het():
     rows = [[lab(r.comparator), "All folds" if r.fold_name == "all" else r.fold_name, int(r.systems), f"{float(r.median_diff_min):+.2f}",
              f"{100 * float(r.median_rel_change):+.0f}", pct(r.share_P_better), f"{float(r.rank_biserial):+.2f}", pval(r.p_wilcoxon)] for _, r in d.iterrows()]
     add("table11_fold_heterogeneity", "per_fold_paired_tests",
-        "Paired comparison of per-system interval scores of the proposed windows with three comparators within each held-out source group "
-        "(n = 20, α = 0.10; negative differences favour the proposed windows; unadjusted two-sided Wilcoxon signed-rank tests).",
-        ["Comparator", "Source group", "Systems", "Median paired difference (min)", "Median relative change (%)", "Systems where proposed is better (%)",
+        "Paired comparison of per-system interval scores of the normalised jackknife+ windows with three comparators within each held-out source group "
+        "(n = 20, α = 0.10; negative differences favour the normalised jackknife+ windows; unadjusted two-sided Wilcoxon signed-rank tests).",
+        ["Comparator", "Source group", "Systems", "Median paired difference (min)", "Median relative change (%)", "Systems where normalised jackknife+ is better (%)",
          "Rank-biserial r", "p"], rows, d)
 
 
@@ -205,7 +205,7 @@ def t_errors():
     d = rd("tableS9_error_classes")
     rows = [[r.cls, int(r.misses), pct(r.miss_rate, 1)] for _, r in d.iterrows()]
     add("tableS9_error_classes", "error_classes",
-        "ClassyFire classes with the largest number of misses of the proposed 90 % windows (n = 20, first calibrant draw of each system); "
+        "ClassyFire classes with the largest number of misses of the normalised jackknife+ 90 % windows (n = 20, first calibrant draw of each system); "
         "miss rate = misses divided by the number of test compounds of the class.", ["ClassyFire class", "Misses", "Miss rate (%)"], rows, d)
 
 
@@ -226,8 +226,8 @@ def t_decoy_tests():
     rows = [[num(r.alpha, 2), lab(r.comparator), int(r.n_systems), f"{100 * float(r.median_diff_elim):+.1f}", f"{float(r.rank_biserial):+.2f}", pval(r.p_wilcoxon)]
             for _, r in d.iterrows()]
     add("tableS8_decoy_tests", "decoy_paired_tests",
-        "Paired comparison of per-system decoy elimination of the proposed windows with comparators at the same α (positive differences: the "
-        "proposed windows eliminate more decoys; unadjusted two-sided Wilcoxon signed-rank tests). Differences at the same nominal level partly "
+        "Paired comparison of per-system decoy elimination of the normalised jackknife+ windows with comparators at the same α (positive differences: the "
+        "normalised jackknife+ windows eliminate more decoys; unadjusted two-sided Wilcoxon signed-rank tests). Differences at the same nominal level partly "
         "reflect different retention of the correct structure (Table S13); see Table S15 for a comparison at matched retention.",
         ["α", "Comparator", "Systems", "Median paired difference (percentage points)", "Rank-biserial r", "p"], rows, d)
 
@@ -255,7 +255,7 @@ def t_ablation():
              pval(r.p_holm), num(r.coverage_mean)] for _, r in d.iterrows()]
     add("table4_ablation_n20_a010", "ablation",
         "Ablation of the difficulty model and of the construction (n = 20, α = 0.10): median paired change in the per-system interval score "
-        "relative to the full proposed model (positive = worse) with 95 % bootstrap CI, rank-biserial correlation, Holm-adjusted p of the "
+        "relative to the full normalised jackknife+ model (positive = worse) with 95 % bootstrap CI, rank-biserial correlation, Holm-adjusted p of the "
         "Wilcoxon signed-rank test, and mean coverage. Feature-group ablations retrain the difficulty model without that group.",
         ["Variant", "Median paired change in interval score [95 % CI] (min)", "Rank-biserial r", "Holm-adjusted p", "Mean coverage"], rows, d)
 
@@ -341,7 +341,7 @@ def t_sasc_c():
     if nc:
         rows.append(["NORMAN laboratory mixes", "NORMAN calibration chemicals", int(nc["n_systems"]), num(nc["c_P"], 2), num(nc["c_J"], 2)])
     add("tableS15_sasc_c_values", "sasc_factors",
-        "SASC factors c by which the scaled scores are multiplied, estimated on the training systems of each fold for the proposed windows (c_P) "
+        "SASC factors c by which the scaled scores are multiplied, estimated on the training systems of each fold for the normalised jackknife+ windows (c_P) "
         "and jackknife+ (c_J); c < 1 narrows and c > 1 widens the windows. Last row: factor applied to the NORMAN laboratory mixes, estimated on "
         "the RepoRT RP systems that contain at least 10 of the NORMAN calibration chemicals and at least 10 other compounds, with these "
         "chemicals as calibrants (each system scored with the models of its own leave-source-out fold).",
@@ -395,8 +395,7 @@ def t_conventional():
     rows = [summary_cells(r) for _, r in d.iterrows()]
     add("table2_main_n20_a010", "conventional_windows",
         "Average coverage of conventional and calibrant-only conformal windows (n = 20, α = 0.10; 228 systems, leave-source-out; per-system "
-        "means over 20 draws). 'Proposed' in the method labels of this table refers to the normalised jackknife+ window, a comparator in the "
-        "present article.", SUMMARY_HEAD, rows, d)
+        "means over 20 draws).", SUMMARY_HEAD, rows, d)
 
 
 def t_xsc_source():
@@ -446,7 +445,7 @@ doc = f"""**Supplementary Material**
 Contents: S1 Dataset details · S2 Coverage proof for the normalised jackknife+ window · S3 Results for all calibrant numbers and α levels ·
 S4 Per-fold results · S5 Conditional coverage and error analysis · S6 Candidate filtering, ablation, sensitivity, robustness, generalisation,
 external validation, selection-aware calibration and computational cost · S7 Laboratory-level guarantee of XSC (proof) · S8 XSC results for all rules, calibrant numbers, multipliers and external laboratories. All tables are generated by `code/scripts/build_supplementary.py`
-from the analysis outputs in `tables/` and `results/`; `supplementary/table_index.csv` lists the source file of every table. In Sections S2–S6, which analyse calibrant-only windows, 'Proposed' denotes the normalised jackknife+ window with the meta-learned difficulty model; in the main article this window is a comparator, and the proposed method is cross-system conformal calibration (Sections S7–S8).
+from the analysis outputs in `tables/` and `results/`; `supplementary/table_index.csv` lists the source file of every table. Sections S2–S6 analyse the average coverage of calibrant-only windows, including the normalised jackknife+ window with the meta-learned difficulty model (a comparator in the main article) and its selection-aware calibration (SASC; the special case of cross-system calibration with a jackknife+-shaped window and an average target). The proposed method, cross-system conformal calibration, is covered in Sections S7–S8.
 
 ## S1. Dataset details
 

@@ -80,6 +80,23 @@ def main():
                   "95% CI (%)": f"{100*lo:.1f}–{100*hi:.1f}", "Labs < 0.85 (%)": 100 * s["fail_085"], "5th pct retention": s["q05"],
                   "Median width (min)": s["width_median"], "Width / RT span": s["width_rel_median"], "Median IS": s["is_median"]})
         M.setdefault("main_ci", {})[meth] = [lo, hi]
+    # conventional comparators evaluated on the same calibrant draws in the earlier runs (per-draw rows)
+    extra = []
+    fw = "../results/raw/fixedwin_rows.parquet"; mg = "../results/raw/metagp_rows.parquet"
+    if os.path.exists(fw):
+        x = pd.read_parquet(fw); x = x[(x.n == 20)].drop_duplicates(["system", "draw", "method"]); extra.append(x[x.method.isin(["RMSE_x2", "RMSE_x3", "FIX_1min"])])
+    if os.path.exists(mg):
+        x = pd.read_parquet(mg); extra.append(x[(x.n == 20) & (x.alpha == 0.10)])
+    span = ev.drop_duplicates("system").set_index("system").span
+    XL = {"RMSE_x2": "±2·RMSE", "RMSE_x3": "±3·RMSE", "FIX_1min": "Fixed ±1 min", "B7_gp_meta": "GP projection, meta-learned prior (B7)"}
+    for x in extra:
+        for meth, d in x.groupby("method"):
+            d = d.assign(span=d.system.map(span)).dropna(subset=["span"])
+            s = summarise(d, 0.10); lo, hi = boot_ci(d, lambda q: (q.coverage < 0.90).mean())
+            M.setdefault("extra", {})[meth] = dict(s, ci=[lo, hi])
+            T.insert(0, {"Method": XL[meth], "Mean retention": s["coverage_mean"], "Labs < 0.90 (%)": 100 * s["fail"],
+                         "95% CI (%)": f"{100*lo:.1f}–{100*hi:.1f}", "Labs < 0.85 (%)": 100 * s["fail_085"], "5th pct retention": s["q05"],
+                         "Median width (min)": s["width_median"], "Width / RT span": s["width_rel_median"], "Median IS": s["is_median"]})
     md_table(pd.DataFrame(T), f"{TAB}/xsc_table_main_n20")
     # ---------------- per source group (held-out fold) failure rates ----------------
     P = []
@@ -151,15 +168,36 @@ def main():
         K = []
         for meth, d in cs.groupby("method"):
             lab = d.groupby("cs").true_kept.mean()
+            from scipy.stats import beta as _b
+            kf = int((lab < 0.9).sum()); nl = len(lab)
+            cp = (float(_b.ppf(0.025, kf, nl - kf + 1)) if kf > 0 else 0.0, float(_b.ppf(0.975, kf + 1, nl - kf)) if kf < nl else 1.0)
             K.append({"Method": LABEL.get(meth, {"RMSE_x2": "±2·RMSE"}.get(meth, meth)), "key": meth, "Laboratories": int(d.cs.nunique()),
                       "Suspects × labs": int(len(d)), "Correct retained": d.true_kept.mean(), "Labs < 0.90 (%)": 100 * float((lab < 0.9).mean()),
                       "Candidates eliminated": d.elim.mean(), "Median candidates kept": float(d.n_kept.median()),
-                      "Top-1 (retained)": float(((d["rank"] == 1) & d.true_kept).mean()), "Top-3 (retained)": float(((d["rank"] <= 3) & d.true_kept).mean())})
+                      "Top-1 (retained)": float(((d["rank"] == 1) & d.true_kept).mean()), "Top-3 (retained)": float(((d["rank"] <= 3) & d.true_kept).mean()),
+                      "_lf85": float((lab < 0.85).mean()), "_cp": cp, "_miss": 1 - float(d.true_kept.mean())})
         M["case"] = {r["key"]: {"kept": r["Correct retained"], "labfail": r["Labs < 0.90 (%)"] / 100, "elim": r["Candidates eliminated"],
                                 "nkept": r["Median candidates kept"], "top1": r["Top-1 (retained)"], "top3": r["Top-3 (retained)"],
-                                "labs": r["Laboratories"], "n": r["Suspects × labs"]} for r in K}
+                                "labs": r["Laboratories"], "n": r["Suspects × labs"], "labfail85": r["_lf85"], "labfail_lo": r["_cp"][0],
+                                "labfail_hi": r["_cp"][1], "miss": r["_miss"]} for r in K}
+        for r in K:
+            r.pop("_lf85"); r.pop("_cp"); r.pop("_miss")
         M["case_median_list"] = float(cs[cs.method == cs.method.iloc[0]].n_cand.median())
         md_table(pd.DataFrame(K).drop(columns="key"), f"{TAB}/xsc_table_case")
+    # metadata-masked replay (Addendum G6, post hoc)
+    if os.path.exists(f"{RAW}/norman_eval_masked.parquet"):
+        nm = pd.read_parquet(f"{RAW}/norman_eval_masked.parquet")
+        nm["n"] = np.where(nm.scenario == "fixed_mix", -1, nm.n)
+        M["norman_masked"] = {f"{sc}.{'lab_mix' if n == -1 else int(n)}.{m}": {"cov": float(d.coverage.mean()), "fail": float((d.coverage < 0.9).mean()),
+                              "fail085": float((d.coverage < 0.85).mean()), "width": float(d.width_median.median())}
+                              for (sc, n, m), d in nm.groupby(["scenario", "n", "method"])}
+    if os.path.exists(f"{RAW}/norman_case_masked.parquet"):
+        cs = pd.read_parquet(f"{RAW}/norman_case_masked.parquet"); out = {}
+        for m, d in cs.groupby("method"):
+            lab = d.groupby("cs").true_kept.mean()
+            out[m] = {"kept": float(d.true_kept.mean()), "labfail": float((lab < 0.9).mean()), "labfail85": float((lab < 0.85).mean()),
+                      "elim": float(d.elim.mean()), "top1": float(((d["rank"] == 1) & d.true_kept).mean())}
+        M["case_masked"] = out
     json.dump(M, open("../results/xsc_metrics.json", "w"), indent=1, default=float)
     figures(ev, S)
     print("analysis done; folds", M["folds_done"])

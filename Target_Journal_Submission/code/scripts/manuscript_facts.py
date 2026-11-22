@@ -5,7 +5,7 @@ import numpy as np, pandas as pd
 
 LAB = {"B1_gauss_rmse": "Gaussian ±z·RMSE", "B2_pspline_PI": "P-spline PI", "B3_gp_PI": "GP projection PI", "B7_gp_meta": "GP projection PI, meta-learned prior",
        "B4_split_conformal": "Split conformal", "B5_jackknife_plus": "Jackknife+", "B6_jk+_ensemble": "Jackknife+ (ensemble σ)",
-       "P": "**Proposed**", "FIX_0.25min": "Fixed ±0.25 min", "FIX_0.5min": "Fixed ±0.5 min", "FIX_1min": "Fixed ±1 min",
+       "P": "Normalised jackknife+ (meta-learned σ)", "FIX_0.25min": "Fixed ±0.25 min", "FIX_0.5min": "Fixed ±0.5 min", "FIX_1min": "Fixed ±1 min",
        "FIX_2min": "Fixed ±2 min", "FIX_5pct": "Fixed ±5 %", "FIX_10pct": "Fixed ±10 %", "RMSE_x2": "±2·RMSE", "RMSE_x3": "±3·RMSE",
        "P-novelty": "– novelty features", "P-ion": "– ionisation features", "P-system": "– system features",
        "P-geometry": "– calibrant-geometry features", "P-compound": "– physicochemical features",
@@ -267,6 +267,18 @@ def xsc_facts(F, T, RES, TAB):
         sc, n, meth = k.split("|")
         for s, val in r.items():
             F[f"xn.{sc}.{n.replace(' ', '_')}.{meth}.{s}"] = val
+    for k, r in M.get("norman_masked", {}).items():
+        for s, val in r.items():
+            F[f"xnm.{k}.{s}"] = val
+    for m, r in M.get("case_masked", {}).items():
+        for s, val in r.items():
+            F[f"xkm.{m}.{s}"] = val
+    for meth, r in M.get("extra", {}).items():
+        for s, val in r.items():
+            if s == "ci":
+                F[f"x.ci.{meth}.lo"], F[f"x.ci.{meth}.hi"] = val
+            else:
+                F[f"x.random.20.{meth}.{s}"] = val
     for meth, r in M.get("case", {}).items():
         for s, val in r.items():
             F[f"xk.{meth}.{s}"] = val

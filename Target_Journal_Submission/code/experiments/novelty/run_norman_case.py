@@ -61,7 +61,7 @@ if __name__ == "__main__":
     t0 = time.time()
     cand, cf = candidate_table(); CC = pd.DataFrame(cf["C"], columns=PCKEYS)
     by_formula = cand.groupby("MolecularFormula").indices
-    cd = {(r["rule"], r["n"], r["family"]): r for r in pd.read_csv(os.path.join(OUT, "norman_multipliers.csv")).to_dict("records")}
+    cd = {(r["rule"], r["n"], r["family"]): r for r in pd.read_csv(os.path.join(OUT, f"norman_multipliers{NX.SUF}.csv")).to_dict("records")}
     key = uniq.set_index("compound"); out = []
     for cs, g in d.groupby("CS_code"):
         g = g[g.compound.isin(key.index)].groupby("compound", as_index=False).agg(RT=("RT", "mean"), sample_type=("sample_type", "first"))
@@ -110,5 +110,5 @@ if __name__ == "__main__":
                 out.append({"cs": cs, "method": meth, "suspect": int(p_), "n_cal": len(cal), "true_kept": bool(tq.keep),
                             "n_cand": len(fq), "elim": float((~fq.keep).mean()), "n_kept": int(fq.keep.sum()),
                             "rank": int((fq.dev.values < tq.dev).sum()) + 1})
-    pd.DataFrame(out).to_parquet(os.path.join(OUT, "norman_case.parquet"))
+    pd.DataFrame(out).to_parquet(os.path.join(OUT, f"norman_case{NX.SUF}.parquet"))
     print("NORMAN_CASE_DONE", time.time() - t0, flush=True)

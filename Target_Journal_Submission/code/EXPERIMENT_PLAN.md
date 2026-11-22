@@ -185,3 +185,9 @@ n ∈ {3, 5, 10, 20, 40}; rules random/span/common/polar; 8 replay draws per tra
 Primary endpoints (n = 20, random, α = ε = 0.10): lab-level failure rate P(coverage < 0.90) (target ≤ 0.10) and median
 width for XSC_sigs_lab vs JP_lab, B5 and B1; secondary: n = 3/5 (finite windows below 1/α − 1), non-random rules, NORMAN.
 Script: experiments/novelty/run_xsc.py; outputs results/raw/xsc/.
+
+## Addendum G6 (2026-11-22, post hoc — after the NORMAN results and an internal review; not pre-registered)
+On the NORMAN laboratory mixes, the shrunk-σ XSC variant failed 43 % of laboratories while σ ≡ 1 met δ. NORMAN methods lack
+temperature, flow and dead time. Principled remedy, decided before running it: replay the protocol on RepoRT with these three
+descriptors blanked (NaN, as for the NORMAN methods) so that the multiplier is calibrated for the information the laboratory has
+(env XSC_MASK_META=1; outputs *_masked). Both the unmasked (original) and masked results are reported.
