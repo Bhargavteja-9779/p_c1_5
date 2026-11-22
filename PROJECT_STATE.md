@@ -161,3 +161,14 @@ User instructions (keep): first author **P N Bhargav Teja**, second author place
    abstract/highlights, conclusions, redraw fig1; move old main comparison to SI; `python3 scripts/build_manuscript.py`;
    rebuild supplementary + cover letter (no funding/competing interests; code on request); commit + push.
 6. Scheduled task trig_012DjbqH1ygJ8njjao5anxKe belongs to the old account/session — create a new one if needed.
+
+### Update 2026-11-22 06:57 UTC
+* Worker restarts kill background jobs (~every few hours). Single resumable chain: `cd Target_Journal_Submission/code &&
+  nohup setsid experiments/novelty/run_chain.sh >/dev/null 2>&1 &` (NORMAN XSC → NORMAN case → candidates → pivots; status
+  in results/experiment_logs/novelty_status.txt). Relaunch after every restart.
+* DONE since last update: 04_results (new), 00_front (title/highlights/abstract), 05_conclusions, Fig. 1 redrawn, Supplementary
+  (S7 proof, S8 tables S27–S31, Fig. S3), cover letter template, offline analysis (calibration curve: observed ≤ nominal δ).
+* Pending tokens (need chain outputs): xc.* (PubChemLite), xk.* (NORMAN case), xn.* (NORMAN XSC). After chain: run
+  analyze_xsc.py + analyze_xsc_offline.py, VERIFY claims in 04_results §"Filtering real candidate lists" and §"Real-world case"
+  against numbers (text was written before the data; rewrite if not supported), then build_manuscript.py, build_supplementary.py,
+  build_cover_letter.py; adversarial review; commit/push.
